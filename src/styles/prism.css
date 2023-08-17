@@ -1,5 +1,5 @@
 pre[class*='language-'] {
-  color: theme('colors.zinc.50');
+  color: theme('colors.slate.50');
 }
 
 .token.tag,
@@ -32,7 +32,7 @@ pre[class*='language-'] {
 
 .token.punctuation,
 .token.attr-equals {
-  color: theme('colors.zinc.500');
+  color: theme('colors.slate.500');
 }
 
 .token.unit,
@@ -62,7 +62,7 @@ pre[class*='language-'] {
 }
 
 .highlight-line {
-  @apply -mx-4 border-l-4 border-teal-500 bg-zinc-700 bg-opacity-50;
+  @apply -mx-4 border-l-4 border-teal-500 bg-slate-700 bg-opacity-50;
 }
 
 .line-number::before {
@@ -71,7 +71,7 @@ pre[class*='language-'] {
 }
 /* Code title styles */
 .remark-code-title {
-  @apply rounded-t bg-slate-700 mb-0 px-5 py-3 font-mono text-sm font-bold text-zinc-200;
+  @apply rounded-t bg-slate-700 mb-0 px-5 py-3 font-mono text-sm font-bold text-slate-200;
 }
 
 .remark-code-title + div > pre {
@@ -100,6 +100,6 @@ pre[class*='language-'] {
 }
 
 .line-number::before {
-  @apply mr-4 -ml-2 inline-block w-4 text-right text-zinc-400;
+  @apply mr-4 -ml-2 inline-block w-4 text-right text-slate-400;
   content: attr(line);
 }
