@@ -123,6 +123,26 @@ export default function Services() {
             </Tool>
           </ToolsSection>
         </div>
+        <div className="grid">
+          <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
+            <h3>Process mapping</h3>
+            <p> In-depth HubSpot portal audits that identify and unlock untapped potential within your CRM ecosystem</p>
+          </div>
+          <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
+            <h3>Process mapping</h3>
+            <p> In-depth HubSpot portal audits that identify and unlock untapped potential within your CRM ecosystem</p>
+          </div>
+          <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
+            <h3>Process mapping</h3>
+            <p> In-depth HubSpot portal audits that identify and unlock untapped potential within your CRM ecosystem</p>
+          </div>
+          <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
+            <h3>Process mapping</h3>
+            <p> In-depth HubSpot portal audits that identify and unlock untapped potential within your CRM ecosystem</p>
+          </div>
+        </div>
+
+
         <h2 className="max-w-3xl font-bold">Ready for a major digital transformation?</h2>
         <p>Send me an email, and let's elevate your marketing.</p>
         <SocialLink
