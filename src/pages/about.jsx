@@ -73,36 +73,17 @@ export default function About() {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-              I’m Marko Bodiroza. I live in Florida, where I help people
-              across the world learn the Cloud.
+              Who is Marko Bodiroža?
             </h1>
             <div className="mt-6 text-lg prose space-y-7 dark:prose-invert text-zinc-600 dark:text-zinc-400">
               <p>
-                Howdy! Thanks for stopping by. I’m Brian and I’ve been doing technology
-                things since <a href="https://en.wikipedia.org/wiki/Acoustic_coupler">acoustic
-                  modem couplers</a> were a thing. I love Open Source and exploring different programming languages.
-                Some highlights about me and my activities:
+                Marko Bodiroža is marketing & AI Specialist helping companies get more sales, create digital strategies, and rebrand. Marko specializes in creating AI-powered digital content and providing SEO services that lead to guaranteed success.
               </p>
               <p>
-                <b>Army Veteran:</b> Bradley Fighting Vehicle Gunner, Infantry, 1st Armored Division
+                Born and raised in Novi Sad, Serbia, Marko studied at the University of Novi Sad, Faculty of Technical Sciences, where he graduated with honors in Graphic Engineering and Design. After that, Marko worked in software engineering and web design for over ten years. However, his primary focus shifted towards marketing, SEO and data science during the last couple of years.
               </p>
               <p>
-                <b>Father of <s>four</s> five</b> with <s>19</s> 21 years difference between oldest and youngest child
-              </p>
-              <p>
-                <b>Co-founded GopherCon</b> <a href="https://gophercon.com">the largest conference for Go developers</a>.
-              </p>
-              <p>
-                <b>Co-authored</b> <a href="https://www.amazon.com/Go-Action-William-Kennedy/dp/1617291781">Go In Action</a> for Manning Publishing.
-              </p>
-              <p>
-                <b>Co-wrote</b> Skynet and SkyDNS with Erik St. Martin, which was eventually morphed into the DNS service discovery that powers Kubernetes.
-              </p>
-              <p>
-                <b>Contributed</b> to the largest projects that power the Internet. Go, Kubernetes, Etcd, and so many more.
-              </p>
-              <p>
-                I love Open Source, learning in public, and sharing what I learn with others.
+                Marko is also a skilled UI & graphic designer, accessibility advocate, and proud mentor who loves helping others realize their ideas. He is fluent in English, Serbian, and Italian and is currently learning Mandarin.
               </p>
             </div>
           </div>
