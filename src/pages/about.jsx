@@ -18,9 +18,9 @@ function SocialLink({ className, href, children, icon: Icon }) {
     <li className={clsx(className, 'flex')}>
       <Link
         href={href}
-        className="flex text-sm font-medium transition group text-slate-800 hover:text-emerald-500 dark:text-slate-200 dark:hover:text-emerald-500"
+        className="flex text-sm font-medium transition group text-neutral-800 hover:text-emerald-500 dark:text-neutral-200 dark:hover:text-emerald-500"
       >
-        <Icon className="flex-none w-6 h-6 transition fill-slate-500 group-hover:fill-emerald-500" />
+        <Icon className="flex-none w-6 h-6 transition fill-neutral-500 group-hover:fill-emerald-500" />
         <span className="ml-4">{children}</span>
       </Link>
     </li>
@@ -67,15 +67,15 @@ export default function About() {
                 src={portraitImage}
                 alt=""
                 sizes="(min-width: 1024px) 32rem, 20rem"
-                className="object-cover aspect-square rotate-3 rounded-2xl bg-slate-100 dark:bg-slate-800"
+                className="object-cover aspect-square rotate-3 rounded-2xl bg-neutral-100 dark:bg-neutral-800"
               />
             </div>
           </div>
           <div className="lg:order-first lg:row-span-2">
-            <h1 className="text-5xl font-bold tracking-tight text-slate-800 dark:text-slate-100 sm:text-5xl">
+            <h1 className="text-5xl font-bold tracking-tight text-neutral-800 dark:text-neutral-100 sm:text-5xl">
               Hello. Learn more about me.
             </h1>
-            <div className="mt-6 text-lg prose space-y-7 dark:prose-invert text-slate-700 dark:text-slate-400">
+            <div className="mt-6 text-lg prose space-y-7 dark:prose-invert text-neutral-700 dark:text-neutral-400">
               <p>
                 I'm Marko Bodiroza, a marketing strategist, AI engineer, and SEO expert. I've repeatedly broken new ground in digital marketing for over a decade. I understand how optimized, human-centric content can fuel business growth.
               </p>
@@ -101,7 +101,7 @@ export default function About() {
               <SocialLink
                 href={`mailto:${siteMeta.author.email}`}
                 icon={MailIcon}
-                className="pt-8 mt-8 border-t border-slate-100 dark:border-slate-700/40"
+                className="pt-8 mt-8 border-t border-neutral-100 dark:border-neutral-700/40"
               >
                 {siteMeta.author.email}
               </SocialLink>

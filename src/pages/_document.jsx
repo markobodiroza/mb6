@@ -52,7 +52,7 @@ export default function Document() {
         />
         <link rel="me" href="https://tty0.social/@bketelsen" />
       </Head>
-      <body className="flex h-full flex-col bg-slate-50 dark:bg-black">
+      <body className="flex h-full flex-col bg-neutral-50 dark:bg-black">
         <Main />
         <NextScript />
         <div style={{display: 'none'}}>        <a rel="me" href="https://tty0.social/@bketelsen">Mastodon</a>

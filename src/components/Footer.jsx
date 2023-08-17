@@ -17,16 +17,16 @@ export function Footer() {
   return (
     <footer className="mt-32">
       <Container.Outer>
-        <div className="border-t border-slate-100 pt-10 pb-16 dark:border-slate-700/40">
+        <div className="border-t border-neutral-100 pt-10 pb-16 dark:border-neutral-700/40">
           <Container.Inner>
             <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-              <div className="flex gap-6 text-sm font-medium text-slate-800 dark:text-slate-200">
+              <div className="flex gap-6 text-sm font-medium text-neutral-800 dark:text-neutral-200">
                 <NavLink href="/about">About</NavLink>
                 <NavLink href="/projects">Projects</NavLink>
                 <NavLink href="/process">Process</NavLink>
                 <NavLink href="/services">Services</NavLink>
               </div>
-              <p className="text-sm text-slate-700 dark:text-slate-300">
+              <p className="text-sm text-neutral-700 dark:text-neutral-300">
                   &copy; {new Date().getFullYear()} {siteMeta.copyright} 
               </p>
             </div>

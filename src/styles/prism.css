@@ -50,7 +50,7 @@ pre[class*='language-'] {
 }
 
 .code-line {
-  @apply -mx-4 block border-l-4 border-slate-700 border-opacity-0 pl-4 pr-4;
+  @apply -mx-4 block border-l-4 border-neutral-700 border-opacity-0 pl-4 pr-4;
 }
 
 .code-line.inserted {
@@ -62,7 +62,7 @@ pre[class*='language-'] {
 }
 
 .highlight-line {
-  @apply -mx-4 border-l-4 border-emerald-500 bg-slate-700 bg-opacity-50;
+  @apply -mx-4 border-l-4 border-emerald-500 bg-neutral-700 bg-opacity-50;
 }
 
 .line-number::before {
@@ -71,7 +71,7 @@ pre[class*='language-'] {
 }
 /* Code title styles */
 .remark-code-title {
-  @apply rounded-t bg-slate-700 mb-0 px-5 py-3 font-mono text-sm font-bold text-slate-200;
+  @apply rounded-t bg-neutral-700 mb-0 px-5 py-3 font-mono text-sm font-bold text-neutral-200;
 }
 
 .remark-code-title + div > pre {
@@ -100,6 +100,6 @@ pre[class*='language-'] {
 }
 
 .line-number::before {
-  @apply mr-4 -ml-2 inline-block w-4 text-right text-slate-400;
+  @apply mr-4 -ml-2 inline-block w-4 text-right text-neutral-400;
   content: attr(line);
 }

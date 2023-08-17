@@ -11,7 +11,7 @@ export function ImageGallery({ images }) {
               width={image.width}
               className="w-full rounded-lg"
               alt={image.caption} />
-            <figcaption className='text-slate-800 dark:text-slate-200'>{image.caption}</figcaption>
+            <figcaption className='text-neutral-800 dark:text-neutral-200'>{image.caption}</figcaption>
           </figure>
         </div>
       ))}

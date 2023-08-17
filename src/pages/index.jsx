@@ -31,11 +31,11 @@ function MailIcon(props) {
     >
       <path
         d="M2.75 7.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
-        className="fill-slate-100 stroke-slate-400 dark:fill-slate-100/10 dark:stroke-slate-500"
+        className="fill-neutral-100 stroke-neutral-400 dark:fill-neutral-100/10 dark:stroke-neutral-500"
       />
       <path
         d="m4 6 6.024 5.479a2.915 2.915 0 0 0 3.952 0L20 6"
-        className="stroke-slate-400 dark:stroke-slate-500"
+        className="stroke-neutral-400 dark:stroke-neutral-500"
       />
     </svg>
   )
@@ -54,11 +54,11 @@ function BriefcaseIcon(props) {
     >
       <path
         d="M2.75 9.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
-        className="fill-slate-100 stroke-slate-400 dark:fill-slate-100/10 dark:stroke-slate-500"
+        className="fill-neutral-100 stroke-neutral-400 dark:fill-neutral-100/10 dark:stroke-neutral-500"
       />
       <path
         d="M3 14.25h6.249c.484 0 .952-.002 1.316.319l.777.682a.996.996 0 0 0 1.316 0l.777-.682c.364-.32.832-.319 1.316-.319H21M8.75 6.5V4.75a2 2 0 0 1 2-2h2.5a2 2 0 0 1 2 2V6.5"
-        className="stroke-slate-400 dark:stroke-slate-500"
+        className="stroke-neutral-400 dark:stroke-neutral-500"
       />
     </svg>
   )
@@ -95,7 +95,7 @@ function Article({ article }) {
 function SocialLink({ icon: Icon, ...props }) {
   return (
     <Link className="group -m-1 p-1" {...props}>
-      <Icon className="h-6 w-6 fill-slate-500 transition group-hover:fill-slate-700 dark:fill-slate-400 dark:group-hover:fill-slate-300" />
+      <Icon className="h-6 w-6 fill-neutral-500 transition group-hover:fill-neutral-700 dark:fill-neutral-400 dark:group-hover:fill-neutral-300" />
     </Link>
   )
 }
@@ -104,13 +104,13 @@ function Newsletter() {
   return (
     <form
       action="/thank-you"
-      className="rounded-2xl border border-slate-100 p-6 dark:border-slate-700/40"
+      className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40"
     >
-      <h2 className="flex text-sm font-semibold text-slate-900 dark:text-slate-100">
+      <h2 className="flex text-sm font-semibold text-neutral-900 dark:text-neutral-100">
         <MailIcon className="h-6 w-6 flex-none" />
         <span className="ml-3">Don't miss out</span>
       </h2>
-      <p className="mt-2 text-sm text-slate-700 dark:text-slate-400">
+      <p className="mt-2 text-sm text-neutral-700 dark:text-neutral-400">
         Get notified when I publish something new, and unsubscribe at any time.
       </p>
       <div className="mt-6 flex">
@@ -119,7 +119,7 @@ function Newsletter() {
           placeholder="Email address"
           aria-label="Email address"
           required
-          className="min-w-0 flex-auto appearance-none rounded-md border border-slate-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-slate-800/5 placeholder:text-slate-400 focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-500/10 dark:border-slate-700 dark:bg-slate-700/[0.15] dark:text-slate-200 dark:placeholder:text-slate-500 dark:focus:border-emerald-400 dark:focus:ring-emerald-400/10 sm:text-sm"
+          className="min-w-0 flex-auto appearance-none rounded-md border border-neutral-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-neutral-800/5 placeholder:text-neutral-400 focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-500/10 dark:border-neutral-700 dark:bg-neutral-700/[0.15] dark:text-neutral-200 dark:placeholder:text-neutral-500 dark:focus:border-emerald-400 dark:focus:ring-emerald-400/10 sm:text-sm"
         />
         <Button type="submit" className="ml-4 flex-none">
           Join
@@ -132,29 +132,29 @@ function Newsletter() {
 function Resume() {
 
   return (
-    <div className="rounded-2xl border border-slate-100 p-6 dark:border-slate-700/40">
-      <h2 className="flex text-sm font-semibold text-slate-900 dark:text-slate-100">
+    <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
+      <h2 className="flex text-sm font-semibold text-neutral-900 dark:text-neutral-100">
         <BriefcaseIcon className="h-6 w-6 flex-none" />
         <span className="ml-3">Work</span>
       </h2>
       <ol className="mt-6 space-y-4">
         {resume.map((role, roleIndex) => (
           <li key={roleIndex} className="flex gap-4">
-            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-slate-800/5 ring-1 ring-slate-900/5 dark:border dark:border-slate-700/50 dark:bg-slate-800 dark:ring-0">
+            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-neutral-800/5 ring-1 ring-neutral-900/5 dark:border dark:border-neutral-700/50 dark:bg-neutral-800 dark:ring-0">
               <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
             </div>
             <dl className="flex flex-auto flex-wrap gap-x-2">
               <dt className="sr-only">Company</dt>
-              <dd className="w-full flex-none text-sm font-medium text-slate-900 dark:text-slate-100">
+              <dd className="w-full flex-none text-sm font-medium text-neutral-900 dark:text-neutral-100">
                 {role.company}
               </dd>
               <dt className="sr-only">Role</dt>
-              <dd className="text-xs text-slate-500 dark:text-slate-400">
+              <dd className="text-xs text-neutral-500 dark:text-neutral-400">
                 {role.title}
               </dd>
               <dt className="sr-only">Date</dt>
               <dd
-                className="ml-auto text-xs text-slate-500 dark:text-slate-500"
+                className="ml-auto text-xs text-neutral-500 dark:text-neutral-500"
                 aria-label={`${role.start.label ?? role.start} until ${
                   role.end.label ?? role.end
                 }`}
@@ -173,7 +173,7 @@ function Resume() {
       </ol>
       <Button href="https://linkedin.com/in/markobodiroza" variant="secondary" className="group mt-6 w-full">
                Connect with me on LinkedIn
-        <ArrowDownIcon className="h-4 w-4 stroke-slate-400 transition group-active:stroke-slate-700 dark:group-hover:stroke-slate-50 dark:group-active:stroke-slate-50" />
+        <ArrowDownIcon className="h-4 w-4 stroke-neutral-400 transition group-active:stroke-neutral-700 dark:group-hover:stroke-neutral-50 dark:group-active:stroke-neutral-50" />
       </Button>
     </div>
   )
@@ -202,7 +202,7 @@ export default function Home({ articles }) {
     />
       <Container className="mt-9">
         <div className="max-w-2xl text-lg">
-          <h1 className="text-5xl font-bold tracking-tight text-slate-800 dark:text-slate-100 sm:text-5xl">
+          <h1 className="text-5xl font-bold tracking-tight text-neutral-800 dark:text-neutral-100 sm:text-5xl">
            Helping innovative companies fuel growth with next-gen digital marketing.
           </h1>
           <p className="mt-6 prose dark:prose-invert">

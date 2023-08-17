@@ -32,9 +32,9 @@ function SocialLink({ className, href, children, icon: Icon }) {
     <li className={clsx(className, 'flex')}>
       <Link
         href={href}
-        className="flex text-sm font-medium transition group text-slate-800 hover:text-emerald-500 dark:text-slate-200 dark:hover:text-emerald-500"
+        className="flex text-sm font-medium transition group text-neutral-800 hover:text-emerald-500 dark:text-neutral-200 dark:hover:text-emerald-500"
       >
-        <Icon className="flex-none w-6 h-6 transition fill-slate-500 group-hover:fill-emerald-500" />
+        <Icon className="flex-none w-6 h-6 transition fill-neutral-500 group-hover:fill-emerald-500" />
         <span className="ml-4">{children}</span>
       </Link>
     </li>
@@ -128,7 +128,7 @@ export default function Services() {
         <SocialLink
                 href={`mailto:${siteMeta.author.email}`}
                 icon={MailIcon}
-                className="pt-8 mt-8 border-t border-slate-100 dark:border-slate-700/40"
+                className="pt-8 mt-8 border-t border-neutral-100 dark:border-neutral-700/40"
               >
                 {siteMeta.author.email}
         </SocialLink>
