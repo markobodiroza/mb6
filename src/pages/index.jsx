@@ -202,17 +202,11 @@ export default function Home({ articles }) {
     />
       <Container className="mt-9">
         <div className="max-w-2xl text-lg">
-          <h1 className="text-4xl font-bold tracking-tight text-slate-800 dark:text-slate-100 sm:text-5xl">
+          <h1 className="text-5xl font-bold tracking-tight text-slate-800 dark:text-slate-100 sm:text-5xl">
             Marketing Engineer, SEO Expert, and AI enthusiast.
           </h1>
           <p className="mt-6 prose dark:prose-invert">
             I’m Marko, and I build systems & content that people want to engage with. I'm Helping marketing & sales teams attract, convert and win.
-          </p>
-          <p className="mt-6 prose dark:prose-invert">
-            With some friends, I wrote.
-          </p>
-          <p className="mt-6 prose dark:prose-invert">
-            Poke around and see what I’m up to. It’s all open source, so feel free to contribute.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink

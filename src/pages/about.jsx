@@ -72,7 +72,7 @@ export default function About() {
             </div>
           </div>
           <div className="lg:order-first lg:row-span-2">
-            <h1 className="text-4xl font-bold tracking-tight text-slate-800 dark:text-slate-100 sm:text-5xl">
+            <h1 className="text-5xl font-bold tracking-tight text-slate-800 dark:text-slate-100 sm:text-5xl">
               Who is Marko Bodiroža?
             </h1>
             <div className="mt-6 text-lg prose space-y-7 dark:prose-invert text-slate-700 dark:text-slate-400">
