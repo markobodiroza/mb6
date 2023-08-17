@@ -123,22 +123,50 @@ export default function Services() {
             </Tool>
           </ToolsSection>
         </div>
-        <div className="grid">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
+            <h3>Next-gen marketing strategies</h3>
+            <p> I keep you ahead of the competition by creating next-gen marketing strategies optimized for your industry.</p>
+          </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h3>Process mapping</h3>
-            <p> In-depth HubSpot portal audits that identify and unlock untapped potential within your CRM ecosystem</p>
+            <h3>High-Intent Content Strateg</h3>
+            <p>Rely on my high-intent content strategy to attract and convert your most valuable customers, capturing engaged audiences throughout their journey.</p>
+          </div>
+          <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
+            <h3>High-Intent Content Strateg</h3>
+            <p>Rely on my high-intent content strategy to attract and convert your most valuable customers, capturing engaged audiences throughout their journey.</p>
+          </div>
+          <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
+            <h3>Xg</h3>
+            <p>Rely on my high-intent content strategy to attract and convert your most valuable customers, capturing engaged audiences throughout their journey.</p>
+          </div>
+          <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
+            <h3>High-X Content Strateg</h3>
+            <p>Rely on my high-intent content strategy to attract and convert your most valuable customers, capturing engaged audiences throughout their journey.</p>
+          </div>
+          <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
+            <h3>High-XX Content Strateg</h3>
+            <p>Rely on my high-intent content strategy to attract and convert your most valuable customers, capturing engaged audiences throughout their journey.</p>
+          </div>
+          <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
+            <h3>XX</h3>
+            <p>Rely on my high-intent content strategy to attract and convert your most valuable customers, capturing engaged audiences throughout their journey.</p>
+          </div>
+          <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
+            <h3>High-Intent Content Strategy</h3>
+            <p>Rely on my high-intent content strategy to attract and convert your most valuable customers, capturing engaged audiences throughout their journey.</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
             <h3>Process mapping</h3>
+            <p> Thorough process mapping methods unveil hidden opportunities to optimize your business operations.</p>
+          </div>
+          <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
+            <h3>HubSpot audits</h3>
             <p> In-depth HubSpot portal audits that identify and unlock untapped potential within your CRM ecosystem</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h3>Process mapping</h3>
-            <p> In-depth HubSpot portal audits that identify and unlock untapped potential within your CRM ecosystem</p>
-          </div>
-          <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h3>Process mapping</h3>
-            <p> In-depth HubSpot portal audits that identify and unlock untapped potential within your CRM ecosystem</p>
+            <h3>Analytics and reporting</h3>
+            <p>Unlock the story behind your data with insightful analytics and clear reporting, offering a holistic view of your marketing performance.</p>
           </div>
         </div>
 
