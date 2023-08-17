@@ -62,7 +62,7 @@ pre[class*='language-'] {
 }
 
 .highlight-line {
-  @apply -mx-4 border-l-4 border-emerald500 bg-slate-700 bg-opacity-50;
+  @apply -mx-4 border-l-4 border-emerald-500 bg-slate-700 bg-opacity-50;
 }
 
 .line-number::before {
@@ -96,7 +96,7 @@ pre[class*='language-'] {
 }
 
 .highlight-line {
-  @apply -mx-4 border-l-4 border-emerald500  bg-gray-700 bg-opacity-50;
+  @apply -mx-4 border-l-4 border-emerald-500  bg-gray-700 bg-opacity-50;
 }
 
 .line-number::before {
