@@ -11,7 +11,7 @@ export function PageLayout({ title, intro, children }) {
           {intro}
         </p>
       </header>
-      <Prose className="mt-8">{children}</Prose>
+      <Prose className="mt-8 max-w-3xl">{children}</Prose>
     </Container>
   )
 }
