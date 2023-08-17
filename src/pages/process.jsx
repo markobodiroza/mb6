@@ -58,19 +58,19 @@ export default function Process() {
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 my-8">
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h2>1. Insight gathering</h2>
+            <h2 className="dark:text-emerald-400">1. Insight gathering</h2>
             <p> A detailed analysis of your business, market, and industry.</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h2>2. Strategy mapping</h2>
+            <h2 className="dark:text-emerald-400">2. Strategy mapping</h2>
             <p> Data-informed planning leveraging powerful AI tools.</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h2>3. Implementation</h2>
+            <h2 className="dark:text-emerald-400">3. Implementation</h2>
             <p>  Deploying cutting-edge techniques that align with your business goals.</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h2>4. Data analysis and refinement</h2>
+            <h2 className="dark:text-emerald-400">4. Data analysis and refinement</h2>
             <p> Continued enhancements to keep us ahead and maximize your ROI.</p>
           </div>
         </div>
@@ -79,7 +79,7 @@ export default function Process() {
         <SocialLink
           href={`mailto:${siteMeta.author.email}`}
           icon={MailIcon}
-          className="pt-8 mt-8 border-t border-neutral-100 dark:border-neutral-700/40"
+          className="pt-8 mt-4 border-t border-neutral-100 dark:border-neutral-700/40"
         >
           {siteMeta.author.email}
         </SocialLink>
