@@ -4,6 +4,7 @@ import { Card } from '@/components/Card'
 import { Section } from '@/components/Section'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import clsx from 'clsx'
+import Link from 'next/link'
 
 function ToolsSection({ children, ...props }) {
   return (
