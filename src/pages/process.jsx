@@ -1,9 +1,8 @@
 import { NextSeo } from 'next-seo';
 import { Card } from '@/components/Card'
 import { Section } from '@/components/Section'
-import { SimpleLayout } from '@/components/SimpleLayout'
+import { PageLayout } from '@/components/PageLayout'
 import  siteMeta from '@/data/siteMeta'
-import { Prose } from '@/components/Prose'
 
 function SpeakingSection({ children, ...props }) {
   return (
@@ -47,12 +46,11 @@ export default function Process() {
         siteName: 'markobodiroza.com',
       }}
     />
-      <SimpleLayout
+      <PageLayout
         title="Learn more about how I work with you."
         intro="Over the years, I have perfected my work process to allow me to go from first meeting to working prototypes &
         SEO wins faster than most think is possible."
       >
-      <Prose className="mt-8">
       <h2>My process for a typical project.</h2>
       <p>
         Over the years, I have perfected my work process to allow me to go from first meeting to working prototypes &
@@ -150,7 +148,6 @@ export default function Process() {
         and opportunities. As your firm grows, so should your SEO efforts. In other words, If it’s working, I’ll keep
         doing it. If not, I’ll find out why and adjust my method.
       </p>
-      </Prose>
         <div className="space-y-20">
           <SpeakingSection title="Conferences">
           <Appearance
@@ -181,7 +178,7 @@ export default function Process() {
 
           </SpeakingSection>
         </div>
-      </SimpleLayout>
+      </PageLayout>
     </>
   )
 }
