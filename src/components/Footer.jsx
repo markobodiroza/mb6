@@ -21,13 +21,13 @@ export function Footer() {
           <Container.Inner>
             <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
               <div className="flex gap-6 text-sm font-medium text-neutral-800 dark:text-neutral-200">
-                <NavLink href="/about">About</NavLink>
-                <NavLink href="/projects">Projects</NavLink>
-                <NavLink href="/process">Process</NavLink>
                 <NavLink href="/services">Services</NavLink>
+                <NavLink href="/process">Process</NavLink>
+                <NavLink href="/blog">Blog</NavLink>
+                <NavLink href="/about">About</NavLink>                
               </div>
               <p className="text-sm text-neutral-700 dark:text-neutral-300">
-                  &copy; {new Date().getFullYear()} {siteMeta.copyright} 
+                  &copy; {new Date().getFullYear()} {siteMeta.copyright} This website does not track you, or use any analytics software.
               </p>
             </div>
           </Container.Inner>

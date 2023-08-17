@@ -9,7 +9,7 @@ function Article({ article }) {
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
       <Card className="md:col-span-3">
-        <Card.Title href={`/articles/${article.slug}`}>
+        <Card.Title href={`/blog/${article.slug}`}>
           {article.title}
         </Card.Title>
         <Card.Eyebrow
@@ -41,11 +41,11 @@ export default function ArticlesIndex({ articles }) {
   return (
     <>
     <NextSeo
-      title="Articles - Marko Bodiroza"
+      title="Blog - Marko Bodiroza"
       description={siteMeta.description}
-      canonical="https://markobodiroza.com/articles"
+      canonical="https://markobodiroza.com/blog"
       openGraph={{
-        url: 'https://markobodiroza.com/articles',
+        url: 'https://markobodiroza.com/blog',
         images: [
           {
             url: `https://og.markobodiroza.com/api/og?title=Articles&desc=${headline}`,
