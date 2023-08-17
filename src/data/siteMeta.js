@@ -11,42 +11,39 @@ import logoKubernetes from '@/images/logos/kubernetes.svg'
 import logoCaptainhook from '@/images/logos/captainhook.svg'  
 const siteMeta = {
     title: "Marko Bodiroza",
-    description: "Marko Bodiroza is a developer advocate, keynote speaker, author, and open source practitioner.",
-    copyright: "Marko Bodiroza, CC-BY-SA",
+    description: "Data Engineer & AI Specialist helping companies get more sales, create digital strategies, and transform.",
+    copyright: "Marko Bodiroza",
     author: {
         name: "Marko Bodiroza",
-        email: "me@markobodiroza.com",
-        twitter: "https://twitter.com/bketelsen",
-        mastodon: "https://tty0.social/@bketelsen",
-        instagram: "https://instagram.com/bketelsen",
-        github: "https://github.com.com/bketelsen",
-        linkedin: "https://linkedin.com/in/brianketelsen",
-        twitch: "https://twitch.tv/bketelsen",
-        youtube: "https://youtube.com/@bketelsen",
+        email: "mb@markobodiroza.com",
+        twitter: "https://twitter.com/markobodiroza",
+        instagram: "https://instagram.com/gradijent",
+        github: "https://github.com.com/markobodiroza",
+        linkedin: "https://linkedin.com/in/markobodiroza"
     },
     siteUrl: "https://markobodiroza.com"
 }
  export const resume = [
     {
-      company: 'Amazon',
-      title: 'Principal Developer Advocate',
+      company: 'New Perspective',
+      title: 'Head of Marketing',
       logo: logoAmazon,
-      start: '2022',
+      start: '2020',
       end: {
         label: 'Present',
         dateTime: new Date().getFullYear(),
       },
     },
     {
-      company: 'Microsoft',
-      title: 'Principal Cloud Developer Advocate',
+      company: 'RT-RK Institute',
+      title: 'Senior Web Developer',
       logo: logoMicrosoft,
-      start: '2017',
-      end: '2022',
+      start: '2016',
+      end: '2020',
     },
     {
-      company: 'XOR Data Exchange',
-      title: 'CIO',
+      company: 'Net Informatika',
+      title: 'Web Developer',
       logo: logoXOR,
       start: '2014',
       end: '2016',
