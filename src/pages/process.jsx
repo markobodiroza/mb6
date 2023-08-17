@@ -51,20 +51,21 @@ export default function Process() {
         intro="Over the years, I have perfected my work process to allow me to go from first meeting to working prototypes &
         SEO wins faster than most think is possible."
       >
-        <h2>My process for a typical project.</h2>
-      <p>
+      <div className="space-y-20">
+        <h2 className="text-3xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-4xl">My process for a typical project.</h2>
+      <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
         Over the years, I have perfected my work process to allow me to go from first meeting to working prototypes &
         SEO wins faster than most think is possible.{" "}
       </p>
 
-      <p>
+      <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
         When you hire me, you hire an extended member of your digital marketing team. I work directly with you & the
         team every step of the way to grow a valuable audience and bullet-proof digital content. My goal as an SEO
         Specialist is to provide you with the best advice, the best tools, and the most efficient digital strategy
         unique to your business and its customers.
       </p>
-      <p>The goal of this is to grow your organic search traffic and, ultimately, your business.</p>
-      <p>Whether it’s project work, ad-hoc consultancy, or fully embedded service, my clients always get:</p>
+      <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400">The goal of this is to grow your organic search traffic and, ultimately, your business.</p>
+      <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400">Whether it’s project work, ad-hoc consultancy, or fully embedded service, my clients always get:</p>
       <ul>
         <li>Dedicated, one on one consultation</li>
         <li>Transparent and clear communication</li>
@@ -74,8 +75,8 @@ export default function Process() {
         <li>A “Stop-working” policy (Continue-working anytime)</li>
       </ul>
 
-      <h3>Part 1: Discovery & Introduction</h3>
-      <p>
+      <h3 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-3xl">Part 1: Discovery & Introduction</h3>
+      <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
         First, I want to know about you and your company. What problems are you trying to solve? What do you already
         have in place? At the same time, you to get to know me and how I work. My main goal here is to understand:
       </p>
@@ -89,12 +90,12 @@ export default function Process() {
         <li>Your core team structure & resources</li>
       </ul>
 
-      <h3>Part 2: Performance auditing</h3>
-      <p>
+      <h3 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-3xl">Part 2: Performance auditing</h3>
+      <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
         A solid, granular performance audit gives insight and data required to form a solid digital strategy. Extensive
         audits ensure there are no unpleasant surprises later on.
       </p>
-      <p>
+      <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
         I conduct over 250+ unique checks to discover accessibility, architectural, content, and UX issues until every
         corner of your website and user journey is covered.
       </p>
@@ -113,42 +114,43 @@ export default function Process() {
         found are tracked, quantified, and are used to measure performance throughout the campaign.
       </p>
 
-      <h3>Part 3: Strategy proposal</h3>
-      <p>
+      <h3 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-3xl">Part 3: Strategy proposal</h3>
+      <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
         Phase 1 & 2 equip me with the insight needed to create a quality strategy. Phase three focuses that insight into
         a campaign plan.
       </p>
-      <p>
+      <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
         I’ll allocate your budget more accurately and talk you through phase 1 & 2 findings to help set your
         expectations for the next six months of delivery. As the strategy develops and we begin to see results, I will
         continuously develop the direction to maximize the campaign’s strength.
       </p>
 
-      <h3>Part 4: Execution & consultancy</h3>
-      <p>
+      <h3 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-3xl">Part 4: Execution & consultancy</h3>
+      <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
         In this phase, I will provide you with a timeline for each deliverable from the proposal. I will produce all of
         the work with plenty of handover support and consultancy to execute recommendations.
       </p>
-      <p>
+      <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
         As with the deliverables, I will also be monitoring your site as if it is my own with real-time tools, daily and
         weekly checks, and regular technical refreshing to ensure no new problems are holding us back.
       </p>
-      <p>
+      <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400"> 
         Combining this with automated reporting dashboards and rank-tracking software, you will have total visibility of
         the site’s health, organic traffic performance, and actual impact on your business.
       </p>
 
-      <h3>Part 5: Analyze, develop, scale & celebrate</h3>
-      <p>
+      <h3 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-3xl">Part 5: Analyze, develop, scale & celebrate</h3>
+      <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
         Sometimes user search intent, competitor growth, and business landscape can all change so, and if you’ve got the
         best answer to a Google query one year, it may not be the case the following year.
       </p>
 
-      <p>
+      <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
         The data obtained following campaign execution provides good insight into bigger and better growth strategies
         and opportunities. As your firm grows, so should your SEO efforts. In other words, If it’s working, I’ll keep
         doing it. If not, I’ll find out why and adjust my method.
       </p>
+      </div>
         <div className="space-y-20">
           <SpeakingSection title="Conferences">
           <Appearance
