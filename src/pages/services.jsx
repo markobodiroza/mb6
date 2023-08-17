@@ -123,8 +123,8 @@ export default function Services() {
             </Tool>
           </ToolsSection>
         </div>
-        <h2 className="max-w-3xl font-bold">Ready for a fundamental digital transformation?</h2>
-        <p>Send me an email, and let's take elevate your marketing.</p>
+        <h2 className="max-w-3xl font-bold">Ready for a major digital transformation?</h2>
+        <p>Send me an email, and let's elevate your marketing.</p>
         <SocialLink
                 href={`mailto:${siteMeta.author.email}`}
                 icon={MailIcon}
