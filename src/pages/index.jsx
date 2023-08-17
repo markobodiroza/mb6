@@ -108,7 +108,7 @@ function Newsletter() {
     >
       <h2 className="flex text-sm font-semibold text-slate-900 dark:text-slate-100">
         <MailIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Stay up to date</span>
+        <span className="ml-3">Don't miss out</span>
       </h2>
       <p className="mt-2 text-sm text-slate-700 dark:text-slate-400">
         Get notified when I publish something new, and unsubscribe at any time.
@@ -171,8 +171,8 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button href="https://linkedin.com/in/brianketelsen" variant="secondary" className="group mt-6 w-full">
-               More on LinkedIn 
+      <Button href="https://linkedin.com/in/markobodiroza" variant="secondary" className="group mt-6 w-full">
+               Connect with me on LinkedIn
         <ArrowDownIcon className="h-4 w-4 stroke-slate-400 transition group-active:stroke-slate-700 dark:group-hover:stroke-slate-50 dark:group-active:stroke-slate-50" />
       </Button>
     </div>
@@ -183,7 +183,7 @@ export default function Home({ articles }) {
   return (
     <>
     <NextSeo
-      title="Marko Bodiroza"
+      title="Marko Bodiroza: Marketing Engineer, SEO Expert"
       description={siteMeta.description}
       canonical="https://markobodiroza.com/"
       openGraph={{
