@@ -1,31 +1,9 @@
 import { NextSeo } from 'next-seo';
 import  siteMeta from '@/data/siteMeta'
-import { Card } from '@/components/Card'
-import { Section } from '@/components/Section'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import clsx from 'clsx'
 import Link from 'next/link'
 
-function ToolsSection({ children, ...props }) {
-  return (
-    <Section {...props}>
-      <ul role="list" className="space-y-16">
-        {children}
-      </ul>
-    </Section>
-  )
-}
-
-function Tool({ title, href, children }) {
-  return (
-    <Card as="li">
-      <Card.Title as="h3" href={href}>
-        {title}
-      </Card.Title>
-      <Card.Description>{children}</Card.Description>
-    </Card>
-  )
-}
 
 function SocialLink({ className, href, children, icon: Icon }) {
   return (
@@ -77,85 +55,44 @@ export default function Services() {
         title="Let’s future-proof your business together."
         intro="Here’s a list of some of the services I offer:"
       >
-        <div className="space-y-12">
-          <ToolsSection title="Digital Marketing">
-            <Tool title="Next-gen marketing strategies">
-            I keep you ahead of the competition by creating next-gen marketing strategies optimized for your industry.
-            </Tool>
-            <Tool title="Advanced marketing consulting">
-            Experience my advanced marketing consulting services, where I join your team for a period of time to learn, analyze, and provide you with rare business insights.
-            </Tool>
-            <Tool title="Data analysis">
-            I turn your raw data into actionable insights, guiding your strategic planning and fueling revenue growth.
-            </Tool>
-          </ToolsSection>
-          <ToolsSection title="AI & automation">
-            <Tool title="AI prompt engineering">
-            Leverage the power of AI with me to create prompts tailored just for your business, product, or service.
-            </Tool>
-            <Tool title="AI-powered forecasting">
-            Try AI-powered forecasting to anticipate future trends and make data-informed decisions.
-            </Tool>
-            <Tool title="Marketing & sales automation">
-            I use automation to simplify your marketing and sales processes, making every interaction count.
-            </Tool>
-          </ToolsSection>
-          <ToolsSection title="SEO">
-            <Tool title="Advanced SEO">
-            My SEO methods maximize your online visibility, ensuring you’re found first and rank fast.
-            </Tool>
-            <Tool title="Schema & entity optimization">
-            I'll enhance your website's discoverability by optimizing schema and entity markup, making it easily intelligible to search engines.
-            </Tool>
-            <Tool title="High-Intent Content Strategy">
-            Rely on my high-intent content strategy to attract and convert your most valuable customers, capturing engaged audiences throughout their journey.
-            </Tool>
-          </ToolsSection>
-          <ToolsSection title="HubSpot & RevOps">
-            <Tool title="Process mapping">
-            Thorough process mapping methods unveil hidden opportunities to optimize your business operations.
-            </Tool>
-            <Tool title="HubSpot audits">
-            In-depth HubSpot portal audits that identify and unlock untapped potential within your CRM ecosystem.
-            </Tool>
-            <Tool title="Analytics and reporting">
-            Unlock the story behind your data with insightful analytics and clear reporting, offering a holistic view of your marketing performance.
-            </Tool>
-          </ToolsSection>
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 my-8">
         <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
             <h3>Next-gen marketing strategies</h3>
             <p> I keep you ahead of the competition by creating next-gen marketing strategies optimized for your industry.</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h3>High-Intent Content Strateg</h3>
-            <p>Rely on my high-intent content strategy to attract and convert your most valuable customers, capturing engaged audiences throughout their journey.</p>
+            <h3>Advanced marketing consulting</h3>
+            <p>Experience my advanced marketing consulting services, where I join your team for a period of time to learn, analyze, and provide you with rare business insights.</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h3>High-Intent Content Strateg</h3>
-            <p>Rely on my high-intent content strategy to attract and convert your most valuable customers, capturing engaged audiences throughout their journey.</p>
+            <h3>Data analysis</h3>
+            <p>I turn your raw data into actionable insights, guiding your strategic planning and fueling revenue growth.</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h3>Xg</h3>
-            <p>Rely on my high-intent content strategy to attract and convert your most valuable customers, capturing engaged audiences throughout their journey.</p>
+            <h3>AI prompt engineering</h3>
+            <p> Leverage the power of AI with me to create prompts tailored just for your business, product, or service.</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h3>High-X Content Strateg</h3>
-            <p>Rely on my high-intent content strategy to attract and convert your most valuable customers, capturing engaged audiences throughout their journey.</p>
+            <h3>AI-powered forecasting</h3>
+            <p>Try AI-powered forecasting to anticipate future trends and make data-informed decisions.</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h3>High-XX Content Strateg</h3>
-            <p>Rely on my high-intent content strategy to attract and convert your most valuable customers, capturing engaged audiences throughout their journey.</p>
+            <h3>Marketing & sales automation</h3>
+            <p> I use automation to simplify your marketing and sales processes, making every interaction count.</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h3>XX</h3>
-            <p>Rely on my high-intent content strategy to attract and convert your most valuable customers, capturing engaged audiences throughout their journey.</p>
+            <h3>Advanced SEO</h3>
+            <p>My SEO methods maximize your online visibility, ensuring you’re found first and rank fast.</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h3>High-Intent Content Strategy</h3>
+            <h3>Schema & entity optimization</h3>
+            <p>I'll enhance your website's discoverability by optimizing schema and entity markup, making it easily intelligible to search engines.</p>
+          </div>
+          <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
+            <h3>High-intent content strategy</h3>
             <p>Rely on my high-intent content strategy to attract and convert your most valuable customers, capturing engaged audiences throughout their journey.</p>
           </div>
+          
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
             <h3>Process mapping</h3>
             <p> Thorough process mapping methods unveil hidden opportunities to optimize your business operations.</p>
@@ -169,9 +106,7 @@ export default function Services() {
             <p>Unlock the story behind your data with insightful analytics and clear reporting, offering a holistic view of your marketing performance.</p>
           </div>
         </div>
-
-
-        <h2 className="max-w-3xl font-bold">Ready for a major digital transformation?</h2>
+        <h2 className="max-w-2xl font-bold">Ready for a major digital transformation?</h2>
         <p>Send me an email, and let's elevate your marketing.</p>
         <SocialLink
                 href={`mailto:${siteMeta.author.email}`}
