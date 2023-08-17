@@ -1,4 +1,5 @@
 import { Container } from '@/components/Container'
+import { Prose } from './Prose'
 
 export function SimpleLayout({ title, intro, children }) {
   return (
@@ -11,7 +12,7 @@ export function SimpleLayout({ title, intro, children }) {
           {intro}
         </p>
       </header>
-      <div className="mt-8 sm:mt-10">{children}</div>
+      <Prose className="mt-8 sm:mt-10">{children}</Prose>
     </Container>
   )
 }

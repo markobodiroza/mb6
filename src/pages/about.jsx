@@ -73,7 +73,7 @@ export default function About() {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-5xl font-bold tracking-tight text-slate-800 dark:text-slate-100 sm:text-5xl">
-              Who is Marko Bodiroža
+              Hello. Learn more about me.
             </h1>
             <div className="mt-6 text-lg prose space-y-7 dark:prose-invert text-slate-700 dark:text-slate-400">
               <p>
@@ -83,9 +83,8 @@ export default function About() {
               By blending my various expertise areas and creative outputs, I'm uniquely positioned to carry your business to the future. Discover the powerful difference I can bring to your marketing efforts.
               </p>
               <p>
-              Born and raised in Novi Sad, Serbia, I studied at the University of Novi Sad, Faculty of Technical Sciences, where I graduated with honors in Graphic Engineering and Design. After that, I worked in software engineering and web design for over ten years. However, my primary focus shifted towards marketing, SEO and automation during the last couple of years.
-              I'm also a skilled UI & graphic designer, sustainability advocate, and proud mentor who loves helping others realize their ideas. I speak English, Serbian, Italian, and I'm currently learning Mandarin.
-              </p>
+              Born and raised in Novi Sad, Serbia, I studied at the University of Novi Sad, Faculty of Technical Sciences, where I graduated with honors in Graphic Engineering and Design. After that, I worked in software engineering and web design for over ten years. However, my primary focus shifted towards marketing, SEO and automation during the last couple of years.</p>
+              <p>Additionaly, I'm a skilled UI & graphic designer, sustainability advocate, and proud mentor who loves helping others realize their ideas. I speak English, Serbian, Italian, and I'm currently learning Mandarin.</p>
             </div>
           </div>
           <div className="lg:pl-20">
