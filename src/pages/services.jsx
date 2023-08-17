@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import  siteMeta from '@/data/siteMeta'
+import siteMeta from '@/data/siteMeta'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import clsx from 'clsx'
 import Link from 'next/link'
@@ -33,30 +33,30 @@ function MailIcon(props) {
 export default function Services() {
   return (
     <>
-    <NextSeo
-      title="Services - Marko Bodiroza"
-      description={siteMeta.description}
-      canonical="https://markobodiroza.com/services"
-      openGraph={{
-        url: 'https://markobodiroza.com/services',
-        images: [
-          {
-            url: `https://og.markobodiroza.com/api/og?title=Services&desc=Things I use every day to get my work done.`,
-            width: 1200,
-            height: 600,
-            alt: 'Og Image Alt',
-            type: 'image/jpeg',
-          }
-        ],
-        siteName: 'markobodiroza.com',
-      }}
-    />
+      <NextSeo
+        title="Services - Marko Bodiroza"
+        description={siteMeta.description}
+        canonical="https://markobodiroza.com/services"
+        openGraph={{
+          url: 'https://markobodiroza.com/services',
+          images: [
+            {
+              url: `https://og.markobodiroza.com/api/og?title=Services&desc=Things I use every day to get my work done.`,
+              width: 1200,
+              height: 600,
+              alt: 'Og Image Alt',
+              type: 'image/jpeg',
+            }
+          ],
+          siteName: 'markobodiroza.com',
+        }}
+      />
       <SimpleLayout
         title="Let’s future-proof your business together."
         intro="Here’s a list of some of the services I offer:"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 my-8">
-        <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
+          <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
             <h3>Next-gen marketing strategies</h3>
             <p> I keep you ahead of the competition by creating next-gen marketing strategies optimized for your industry.</p>
           </div>
@@ -92,7 +92,7 @@ export default function Services() {
             <h3>High-intent content strategy</h3>
             <p>Rely on my high-intent content strategy to attract and convert your most valuable customers, capturing engaged audiences throughout their journey.</p>
           </div>
-          
+
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
             <h3>Process mapping</h3>
             <p> Thorough process mapping methods unveil hidden opportunities to optimize your business operations.</p>
@@ -109,11 +109,11 @@ export default function Services() {
         <h2 className="max-w-2xl font-bold">Ready for a major digital transformation?</h2>
         <p>Send me an email, and let's elevate your marketing.</p>
         <SocialLink
-                href={`mailto:${siteMeta.author.email}`}
-                icon={MailIcon}
-                className="pt-8 mt-8 border-t border-neutral-100 dark:border-neutral-700/40"
-              >
-                {siteMeta.author.email}
+          href={`mailto:${siteMeta.author.email}`}
+          icon={MailIcon}
+          className="pt-8 mt-8 border-t border-neutral-100 dark:border-neutral-700/40"
+        >
+          {siteMeta.author.email}
         </SocialLink>
       </SimpleLayout>
     </>
