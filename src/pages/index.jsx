@@ -1,6 +1,5 @@
 import Image from 'next/future/image'
 import Link from 'next/link'
-import clsx from 'clsx'
 
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
@@ -12,13 +11,6 @@ import {
   LinkedInIcon,
   MastodonIcon
 } from '@/components/SocialIcons'
-
-
-import image3 from '@/images/photos/1102.jpg'
-import image2 from '@/images/photos/20150716-070618871-3.jpg'
-import image1 from '@/images/photos/bike.jpg'
-import image5 from '@/images/photos/band.jpg'
-import image4 from '@/images/photos/BW013.jpg'
 
 
 import { generateRssFeed } from '@/lib/generateRssFeed'
@@ -189,33 +181,6 @@ function Resume() {
   )
 }
 
-function Photos() {
-  let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
-
-  return (
-    <div className="mt-16 sm:mt-20">
-      <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {[image1, image2, image3, image4, image5].map((image, imageIndex) => (
-          <div
-            key={image.src}
-            className={clsx(
-              'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
-              rotations[imageIndex % rotations.length]
-            )}
-          >
-            <Image
-              src={image}
-              alt=""
-              sizes="(min-width: 640px) 18rem, 11rem"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
 export default function Home({ articles }) {
   return (
     <>
@@ -246,8 +211,7 @@ export default function Home({ articles }) {
             I’m Marko, and I build systems & content that people want to engage with. I'm Helping marketing & sales teams attract, convert and win.
           </p>
           <p className="mt-6 prose dark:prose-invert">
-            With some friends, I wrote a <a href="https://www.manning.com/books/go-in-action">book about the Go programming language</a>.
-             I’ve given many <Link href={"/speaking"} >talks</Link> about Go, Distributed Computing, and programming in general.
+            With some friends, I wrote.
           </p>
           <p className="mt-6 prose dark:prose-invert">
             Poke around and see what I’m up to. It’s all open source, so feel free to contribute.
