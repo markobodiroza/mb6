@@ -51,18 +51,18 @@ function MailIcon(props) {
   )
 }
 
-export default function Uses() {
+export default function Services() {
   return (
     <>
     <NextSeo
-      title="Uses - Marko Bodiroza"
+      title="Services - Marko Bodiroza"
       description={siteMeta.description}
-      canonical="https://markobodiroza.com/uses"
+      canonical="https://markobodiroza.com/services"
       openGraph={{
-        url: 'https://markobodiroza.com/uses',
+        url: 'https://markobodiroza.com/services',
         images: [
           {
-            url: `https://og.markobodiroza.com/api/og?title=Uses&desc=Things I use every day to get my work done.`,
+            url: `https://og.markobodiroza.com/api/og?title=Services&desc=Things I use every day to get my work done.`,
             width: 1200,
             height: 600,
             alt: 'Og Image Alt',
