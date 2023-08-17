@@ -6,9 +6,7 @@ import { Container } from '@/components/Container'
 import {
   TwitterIcon,
   InstagramIcon,
-  GitHubIcon,
-  LinkedInIcon,
-  MastodonIcon
+  LinkedInIcon
 } from '@/components/SocialIcons'
 import portraitImage from '@/images/marko-head.jpg'
 import siteMeta from '@/data/siteMeta'
@@ -113,14 +111,8 @@ export default function About() {
               <SocialLink href={siteMeta.author.twitter} icon={TwitterIcon}>
                 Follow on Twitter
               </SocialLink>
-              <SocialLink href={siteMeta.author.mastodon} icon={MastodonIcon} className="mt-4">
-                Follow on Mastodon
-              </SocialLink>
               <SocialLink href={siteMeta.author.instagram} icon={InstagramIcon} className="mt-4">
                 Follow on Instagram
-              </SocialLink>
-              <SocialLink href={siteMeta.author.github} icon={GitHubIcon} className="mt-4">
-                Follow on GitHub
               </SocialLink>
               <SocialLink href={siteMeta.author.linkedin} icon={LinkedInIcon} className="mt-4">
                 Follow on LinkedIn

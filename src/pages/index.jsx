@@ -7,9 +7,7 @@ import { Container } from '@/components/Container'
 import {
   TwitterIcon,
   InstagramIcon,
-  GitHubIcon,
   LinkedInIcon,
-  MastodonIcon
 } from '@/components/SocialIcons'
 
 
@@ -223,21 +221,9 @@ export default function Home({ articles }) {
               icon={TwitterIcon}
             />
             <SocialLink
-              href={siteMeta.author.mastodon}
-              aria-label="Follow on Mastodon"
-              icon={MastodonIcon}
-              rel="me"
-            />
-
-            <SocialLink
               href={siteMeta.author.instagram}
               aria-label="Follow on Instagram"
               icon={InstagramIcon}
-            />
-            <SocialLink
-              href="https://github.com"
-              aria-label="Follow on GitHub"
-              icon={GitHubIcon}
             />
             <SocialLink
               href={siteMeta.author.linkedin}
