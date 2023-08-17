@@ -27,7 +27,7 @@ export function Card({ as: Component = 'div', className, children }) {
 Card.Link = function CardLink({ children, ...props }) {
   return (
     <>
-      <div className="absolute -inset-y-6 -inset-x-4 z-0 scale-100 bg-neutral-50 opacity-75 transition group-hover:scale-95 group-hover:opacity-100 dark:bg-neutral-800/50 sm:-inset-x-6 sm:rounded-2xl" />
+      <div className="absolute -inset-y-6 -inset-x-4 z-0 scale-105 bg-neutral-50 opacity-75 transition group-hover:scale-105 group-hover:opacity-100 dark:bg-neutral-800/50 sm:-inset-x-6 sm:rounded-2xl" />
       <Link {...props}>
         <span className="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
         <span className="relative z-10">{children}</span>
@@ -75,7 +75,7 @@ Card.Eyebrow = function CardEyebrow({
     <Component
       className={clsx(
         className,
-        'relative z-10 order-first mb-3 flex items-center text-base text-neutral-500 dark:text-neutral-500',
+        'relative z-10 order-first mb-3 flex items-center text-base text-neutral-500 dark:text-neutral-500 bg-neutral-50 dark:bg-neutral-800/50',
         decorate && 'pl-3.5'
       )}
       {...props}
