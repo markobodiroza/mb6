@@ -203,10 +203,10 @@ export default function Home({ articles }) {
       <Container className="mt-9">
         <div className="max-w-2xl text-lg">
           <h1 className="text-5xl font-bold tracking-tight text-slate-800 dark:text-slate-100 sm:text-5xl">
-            Marketing Engineer, SEO Expert, and AI enthusiast.
+           Helping innovative companies fuel growth with next-gen digital marketing.
           </h1>
           <p className="mt-6 prose dark:prose-invert">
-            I’m Marko, and I build systems & content that people want to engage with. I'm Helping marketing & sales teams attract, convert and win.
+           I'm Marko, a marketing strategist, AI engineer, and SEO expert. I build systems & create content that people want to engage with.
           </p>
           <div className="mt-6 flex gap-6">
             <SocialLink

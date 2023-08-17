@@ -73,17 +73,18 @@ export default function About() {
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-5xl font-bold tracking-tight text-slate-800 dark:text-slate-100 sm:text-5xl">
-              Who is Marko Bodiroža?
+              Who is Marko Bodiroža
             </h1>
             <div className="mt-6 text-lg prose space-y-7 dark:prose-invert text-slate-700 dark:text-slate-400">
               <p>
-                Marko Bodiroža is marketing & AI Specialist helping companies get more sales, create digital strategies, and rebrand. Marko specializes in creating AI-powered digital content and providing SEO services that lead to guaranteed success.
+                I'm Marko Bodiroza, a marketing strategist, AI engineer, and SEO expert. I've repeatedly broken new ground in digital marketing for over a decade. I understand how optimized, human-centric content can fuel business growth.
               </p>
               <p>
-                Born and raised in Novi Sad, Serbia, Marko studied at the University of Novi Sad, Faculty of Technical Sciences, where he graduated with honors in Graphic Engineering and Design. After that, Marko worked in software engineering and web design for over ten years. However, his primary focus shifted towards marketing, SEO and data science during the last couple of years.
+              By blending my various expertise areas and creative outputs, I'm uniquely positioned to carry your business to the future. Discover the powerful difference I can bring to your marketing efforts.
               </p>
               <p>
-                Marko is also a skilled UI & graphic designer, accessibility advocate, and proud mentor who loves helping others realize their ideas. He is fluent in English, Serbian, and Italian and is currently learning Mandarin.
+              Born and raised in Novi Sad, Serbia, I studied at the University of Novi Sad, Faculty of Technical Sciences, where I graduated with honors in Graphic Engineering and Design. After that, I worked in software engineering and web design for over ten years. However, my primary focus shifted towards marketing, SEO and automation during the last couple of years.
+              I'm also a skilled UI & graphic designer, sustainability advocate, and proud mentor who loves helping others realize their ideas. I speak English, Serbian, Italian, and I'm currently learning Mandarin.
               </p>
             </div>
           </div>
