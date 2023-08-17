@@ -10,7 +10,7 @@ import {
   LinkedInIcon,
   MastodonIcon
 } from '@/components/SocialIcons'
-import portraitImage from '@/images/brian-head.jpg'
+import portraitImage from '@/images/marko-head.jpg'
 import siteMeta from '@/data/siteMeta'
 import { NextSeo } from 'next-seo';
 

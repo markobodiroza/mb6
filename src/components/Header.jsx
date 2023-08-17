@@ -5,7 +5,7 @@ import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import avatarImage from '@/images/brian-head.jpg'
+import avatarImage from '@/images/marko-head.jpg'
 
 import { Fragment, useEffect, useRef } from 'react'
 
