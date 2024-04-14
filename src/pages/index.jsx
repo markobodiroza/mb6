@@ -215,11 +215,6 @@ export default function Home({ articles }) {
               icon={TwitterIcon}
             />
             <SocialLink
-              href={siteMeta.author.instagram}
-              aria-label="Follow on Instagram"
-              icon={InstagramIcon}
-            />
-            <SocialLink
               href={siteMeta.author.linkedin}
               aria-label="Follow on LinkedIn"
               icon={LinkedInIcon}
