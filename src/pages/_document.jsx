@@ -1,4 +1,7 @@
 import { Head, Html, Main, NextScript } from 'next/document'
+import { JsonLd } from 'next-seo';
+import portraitImage from '@/images/marko-head.jpg'
+import logoImg from '@/favicon.png'
 
 const modeScript = `
   let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
@@ -40,6 +43,43 @@ export default function Document() {
     <Html className="h-full antialiased" lang="en">
       <Head>
         <script dangerouslySetInnerHTML={{ __html: modeScript }} />
+        <JsonLd>
+      {{
+        '@context': 'http://schema.org',
+        '@type': 'WebSite',
+        'url': 'https://markobodiroza.com',
+        'publisher': {
+          '@type': 'Person',
+          '@id': 'https://markobodiroza.com/#person',
+          'name': 'Marko Bodiroža',
+          'url': 'https://markobodiroza.com',
+          'image': portraitImage,
+          'jobTitle': 'Director of Marketing',
+          'worksFor': {
+            '@type': 'Organization',
+            'name': 'markobodiroza.com',
+            'url': 'https://markobodiroza.com',
+            'logo': logoImg
+          },
+          'description': 'Marko Bodiroža is a Data Engineer & AI Specialist helping companies get more sales, create digital strategies, and rebrand.',
+          'sameAs': [
+            'https://www.twitter.com/markobodiroza/',
+            'https://www.linkedin.com/in/markobodiroza/',
+            'https://pinterest.com/markobodiroza/',
+            'https://github.com/markobodiroza',
+            'https://markobodiroza.medium.com/',
+          ],
+        },
+        'mainEntity': {
+          '@type': 'WebPage',
+          '@id': 'https://markobodiroza.com/#webpage',
+          'url': 'https://markobodiroza.com',
+          'name': 'Marko Bodiroža: Data Engineer & AI Specialist',
+          'description': 'Marko Bodiroža is a Data Engineer & AI Specialist helping companies get more sales, create digital strategies, and rebrand.',
+          'image': portraitImage
+        }
+      }}
+    </JsonLd>
         <link
           rel="alternate"
           type="application/rss+xml"
@@ -50,9 +90,8 @@ export default function Document() {
           type="application/feed+json"
           href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.json`}
         />
-        <link rel="me" href="https://tty0.social/@bketelsen" />
       </Head>
-      <body className="flex h-full flex-col bg-neutral-50 dark:bg-black">
+      <body className="flex flex-col h-full bg-neutral-50 dark:bg-black">
         <Main />
         <NextScript />
         <div style={{display: 'none'}}>        <a rel="me" href="https://tty0.social/@bketelsen">Mastodon</a>

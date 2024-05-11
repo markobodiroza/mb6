@@ -15,7 +15,7 @@ import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
 import  siteMeta, {resume} from '@/data/siteMeta'
-import { NextSeo } from 'next-seo';
+import { NextSeo, } from 'next-seo';
 
 
 function MailIcon(props) {
