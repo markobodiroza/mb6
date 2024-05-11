@@ -1,7 +1,7 @@
 
 import logoNP from '@/images/logos/nplogo.png'
 import logoMicrosoft from '@/images/logos/rt.svg'
-import logoXOR from '@/images/logos/netinfo'
+import logoXOR from '@/images/logos/netinfo.svg'
 import logoVanilla from '@/images/logos/vanilla.svg'
 import logoFleek from '@/images/logos/fleeksvg.svg'
 
