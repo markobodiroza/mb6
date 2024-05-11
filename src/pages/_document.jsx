@@ -1,7 +1,7 @@
 import { Head, Html, Main, NextScript } from 'next/document'
 import { JsonLd } from 'next-seo';
 import portraitImage from '@/images/marko-head.jpg'
-import logoImg from '@/favicon.png'
+import logoImg from '@/images/favicon.png'
 
 const modeScript = `
   let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
