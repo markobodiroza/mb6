@@ -77,14 +77,16 @@ export default function About() {
             </h1>
             <div className="mt-6 text-lg prose space-y-7 dark:prose-invert text-neutral-700 dark:text-neutral-400">
               <p>
-                I'm Marko Bodiroza, a marketing strategist, AI engineer, and SEO expert. I've repeatedly broken new ground in digital marketing for over a decade. I understand how optimized, human-centric content can fuel business growth.
+                Hi there! I'm Marko Bodiroza. At the heart of digital marketing innovation for 14 years, I’ve pioneered strategies in AI, SEO, and web and content development. 
               </p>
               <p>
-              By blending my various expertise areas and creative outputs, I'm uniquely positioned to carry your business to the future. Discover the powerful difference I can bring to your marketing efforts.
+            As the Director of Marketing and Innovation at New Perspective, I blend my expertise in engineering, content, and design with a creative spark to propel our business and revenue growth .
+
               </p>
               <p>
-              Born and raised in Novi Sad, Serbia, I studied at the University of Novi Sad, Faculty of Technical Sciences, where I graduated with honors in Graphic Engineering and Design. However, my primary focus shifted towards marketing, SEO and automation during the last couple of years.</p>
-              <p>Additionaly, I'm a skilled UI & graphic designer, sustainability advocate, and proud mentor who loves helping others realize their ideas. I speak English, Serbian, Italian, and I'm currently learning Mandarin.</p>
+             I'm passionate about creating optimized, personalized, human-centric content that drives results. Beyond the office, I produce the Green New Perspective Podcast, diving into how sustainability, technology, and marketing intersect.</p>
+              <p>Born in Novi Sad, Serbia, I graduated with honors in Graphic Engineering and Design from the University of Novi Sad. Although my focus has recently shifted to marketing, AI, and automation, I also enjoy tackling UI/UX design challenges, coding in Python, and championing sustainability.
+</p>
             </div>
           </div>
           <div className="lg:pl-20">

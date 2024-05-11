@@ -1,8 +1,7 @@
 
-import logoAmazon from '@/images/logos/aws.svg'
-import logoClarity from '@/images/logos/clarity.jpg'
-import logoMicrosoft from '@/images/logos/azure.svg'
-import logoXOR from '@/images/logos/xor.jpg'
+import logoNP from '@/images/logos/nplogo.png'
+import logoMicrosoft from '@/images/logos/rt.svg'
+import logoXOR from '@/images/logos/netinfo'
 import logoVanilla from '@/images/logos/vanilla.svg'
 import logoFleek from '@/images/logos/fleeksvg.svg'
 
@@ -23,11 +22,11 @@ const siteMeta = {
     },
     siteUrl: "https://markobodiroza.com"
 }
- export const resume = [
+export const resume = [
     {
       company: 'New Perspective',
-      title: 'Head of Marketing',
-      logo: logoAmazon,
+      title: 'Director of Marketing and Innovation',
+      logo: logoNP,
       start: '2020',
       end: {
         label: 'Present',
@@ -47,13 +46,6 @@ const siteMeta = {
       logo: logoXOR,
       start: '2014',
       end: '2016',
-    },
-    {
-      company: 'Clarity Services, Inc.',
-      title: 'COO',
-      logo: logoClarity,
-      start: '2008',
-      end: '2014',
     },
   ]
 export const projects = [

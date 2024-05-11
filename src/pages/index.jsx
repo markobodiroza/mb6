@@ -94,8 +94,8 @@ function Article({ article }) {
 
 function SocialLink({ icon: Icon, ...props }) {
   return (
-    <Link className="group -m-1 p-1" {...props}>
-      <Icon className="h-6 w-6 fill-neutral-500 transition group-hover:fill-neutral-700 dark:fill-neutral-400 dark:group-hover:fill-neutral-300" />
+    <Link className="p-1 -m-1 group" {...props}>
+      <Icon className="w-6 h-6 transition fill-neutral-500 group-hover:fill-neutral-700 dark:fill-neutral-400 dark:group-hover:fill-neutral-300" />
     </Link>
   )
 }
@@ -104,16 +104,16 @@ function Newsletter() {
   return (
     <form
       action="/thank-you"
-      className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40"
+      className="p-6 border rounded-2xl border-neutral-100 dark:border-neutral-700/40"
     >
       <h2 className="flex text-sm font-semibold text-neutral-900 dark:text-neutral-100">
-        <MailIcon className="h-6 w-6 flex-none" />
+        <MailIcon className="flex-none w-6 h-6" />
         <span className="ml-3">Don't miss out</span>
       </h2>
       <p className="mt-2 text-sm text-neutral-700 dark:text-neutral-400">
         Get notified when I publish something new, and unsubscribe at any time.
       </p>
-      <div className="mt-6 flex">
+      <div className="flex mt-6">
         <input
           type="email"
           placeholder="Email address"
@@ -121,7 +121,7 @@ function Newsletter() {
           required
           className="min-w-0 flex-auto appearance-none rounded-md border border-neutral-900/10 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-neutral-800/5 placeholder:text-neutral-400 focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-500/10 dark:border-neutral-700 dark:bg-neutral-700/[0.15] dark:text-neutral-200 dark:placeholder:text-neutral-500 dark:focus:border-emerald-400 dark:focus:ring-emerald-400/10 sm:text-sm"
         />
-        <Button type="submit" className="ml-4 flex-none">
+        <Button type="submit" className="flex-none ml-4">
           Join
         </Button>
       </div>
@@ -132,20 +132,20 @@ function Newsletter() {
 function Resume() {
 
   return (
-    <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
+    <div className="p-6 border rounded-2xl border-neutral-100 dark:border-neutral-700/40">
       <h2 className="flex text-sm font-semibold text-neutral-900 dark:text-neutral-100">
-        <BriefcaseIcon className="h-6 w-6 flex-none" />
+        <BriefcaseIcon className="flex-none w-6 h-6" />
         <span className="ml-3">Work</span>
       </h2>
       <ol className="mt-6 space-y-4">
         {resume.map((role, roleIndex) => (
           <li key={roleIndex} className="flex gap-4">
-            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-neutral-800/5 ring-1 ring-neutral-900/5 dark:border dark:border-neutral-700/50 dark:bg-neutral-800 dark:ring-0">
+            <div className="relative flex items-center justify-center flex-none w-10 h-10 mt-1 rounded-full shadow-md shadow-neutral-800/5 ring-1 ring-neutral-900/5 dark:border dark:border-neutral-700/50 dark:bg-neutral-800 dark:ring-0">
               <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
             </div>
-            <dl className="flex flex-auto flex-wrap gap-x-2">
+            <dl className="flex flex-wrap flex-auto gap-x-2">
               <dt className="sr-only">Company</dt>
-              <dd className="w-full flex-none text-sm font-medium text-neutral-900 dark:text-neutral-100">
+              <dd className="flex-none w-full text-sm font-medium text-neutral-900 dark:text-neutral-100">
                 {role.company}
               </dd>
               <dt className="sr-only">Role</dt>
@@ -171,9 +171,9 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button href="https://linkedin.com/in/markobodiroza" variant="secondary" className="group mt-6 w-full">
+      <Button href="https://linkedin.com/in/markobodiroza" variant="secondary" className="w-full mt-6 group">
                Connect with me on LinkedIn
-        <ArrowDownIcon className="h-4 w-4 stroke-neutral-400 transition group-active:stroke-neutral-700 dark:group-hover:stroke-neutral-50 dark:group-active:stroke-neutral-50" />
+        <ArrowDownIcon className="w-4 h-4 transition stroke-neutral-400 group-active:stroke-neutral-700 dark:group-hover:stroke-neutral-50 dark:group-active:stroke-neutral-50" />
       </Button>
     </div>
   )
@@ -203,12 +203,12 @@ export default function Home({ articles }) {
       <Container className="mt-9">
         <div className="max-w-2xl text-lg">
           <h1 className="text-5xl font-bold tracking-tight text-neutral-800 dark:text-neutral-100 sm:text-5xl">
-           Helping innovative companies fuel growth with next-gen digital marketing.
+           Helping innovative companies fuel growth with next-gen digital marketing and AI.
           </h1>
           <p className="mt-6 prose dark:prose-invert">
-           I'm Marko, a marketing strategist, AI engineer, and SEO expert. I build systems & create content that people want to engage with.
+           Hi there! I'm Marko Bodiroza. At the heart of digital marketing innovation for 14 years, I’ve pioneered strategies in AI, SEO, and web and content development. 
           </p>
-          <div className="mt-6 flex gap-6">
+          <div className="flex gap-6 mt-6">
             <SocialLink
               href={siteMeta.author.twitter}
               aria-label="Follow on Twitter"
@@ -223,7 +223,7 @@ export default function Home({ articles }) {
         </div>
       </Container>
       <Container className="mt-24 md:mt-28">
-        <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
+        <div className="grid max-w-xl grid-cols-1 mx-auto gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
             {articles.map((article) => (
               <Article key={article.slug} article={article} />
