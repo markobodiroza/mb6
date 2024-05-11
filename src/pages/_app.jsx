@@ -7,7 +7,7 @@ import { DefaultSeo } from 'next-seo';
 
 import '@/styles/tailwind.css'
 import 'focus-visible'
-import { SpeedInsights } from '@vercel/speed-insights/next';
+
 
 import { MDXProvider } from '@mdx-js/react'
 import  Pre  from '@/components/Pre'
@@ -49,7 +49,6 @@ export default function App({ Component, pageProps, router }) {
         <Footer />
       </div>
     </MDXProvider>
-    <SpeedInsights />
     </>
   )
 }
