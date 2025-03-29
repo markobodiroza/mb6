@@ -108,13 +108,14 @@ export default function Services() {
         </div>
         <h2 className="max-w-2xl font-bold">Ready for a major digital transformation?</h2>
         <p>Send me an email, and let's elevate your marketing.</p>
-        <SocialLink
-          href={`mailto:${siteMeta.author.email}`}
-          icon={MailIcon}
-          className="pt-8 mt-4 border-t border-neutral-100 dark:border-neutral-700/40"
-        >
-          {siteMeta.author.email}
-        </SocialLink>
+        <ul className="pt-8 mt-4 border-t border-neutral-100 dark:border-neutral-700/40">
+          <SocialLink
+            href={`mailto:${siteMeta.author.email}`}
+            icon={MailIcon}
+          >
+            {siteMeta.author.email}
+          </SocialLink>
+        </ul>
       </SimpleLayout>
     </>
   )
