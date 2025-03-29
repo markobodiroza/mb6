@@ -78,14 +78,14 @@ export default function About() {
             </h1>
             <div className="mt-6 text-lg prose space-y-7 dark:prose-invert text-neutral-700 dark:text-neutral-400">
               <p>
-                Hi there! I'm Marko Bodiroza. At the heart of digital marketing innovation for 14 years, I’ve pioneered strategies in AI, SEO, and web and content development. 
+                Hi there! I'm Marko Bodiroza. At the heart of digital marketing innovation for 15+ years, I’ve pioneered strategies in AI, SEO, and web and content creation. 
               </p>
               <p>
-            As the Director of Marketing and Innovation at New Perspective, I blend my expertise in engineering, content, and design with a creative spark to propel our business and revenue growth .
+            As the Director of Marketing and Innovation at New Perspective, I blend my expertise in engineering, AI, and design with a creative spark to propel our business and revenue growth .
 
               </p>
               <p>
-             I'm passionate about creating optimized, personalized, human-centric content that drives results. Beyond the office, I produce the Green New Perspective Podcast, diving into how sustainability, technology, and marketing intersect.</p>
+             I'm passionate about creating optimized, personalized, human-centric content that drives results. Beyond the office, I produce the Green New Perspective Podcast, diving into how sustainability, innovative technology, and marketing intersect.</p>
               <p>Born in Novi Sad, Serbia, I graduated with honors in Graphic Engineering and Design from the University of Novi Sad. Although my focus has recently shifted to marketing, AI, and automation, I also enjoy tackling UI/UX design challenges, coding in Python, and championing sustainability.
 </p>
             </div>
