@@ -22,7 +22,7 @@
     "fast-glob": "^3.2.11",
     "feed": "^4.2.2",
     "focus-visible": "^5.2.0",
-    "next": "^12.3.0",
+    "next": ">=14.2.15",
     "next-seo": "^5.13.0",
     "postcss-focus-visible": "^6.0.4",
     "react": "18.2.0",
@@ -30,7 +30,7 @@
     "rehype-preset-minify": "^6.0.0",
     "rehype-prism-plus": "^1.5.0",
     "remark-gfm": "^3.0.1",
-    "sharp": "^0.31.1",
+    "sharp": ">=0.32.6".
     "tailwindcss": "^3.1.4",
     "unist-util-visit": "^4.1.1",
     "tar-fs": ">=2.1.2"
@@ -44,7 +44,9 @@
     "eslint-config-next": "12.2.5",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.11",
-    "tar-fs": ">=2.1.2"
+    "next": ">=14.2.15",
+    "tar-fs": ">=2.1.2",
+    "sharp": ">=0.32.6"
   },
   "config": {
     "commitizen": {
