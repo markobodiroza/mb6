@@ -136,8 +136,15 @@ function MobileNavigation(props) {
 }
 
 function NavItem({ href, children }) {
+ const [isMounted, setIsMounted] = useState(false)
   const router = useRouter()
-  let isActive = router.pathname === href
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  const isActive = isMounted && router.pathname === href
+  
   return (
     <li>
       <Link
