@@ -254,11 +254,18 @@ function Avatar({ large = false, className, ...props }) {
 }
 
 export function Header() {
-  let isHomePage = useRouter().pathname === '/'
+  const router = useRouter()
+  const [isMounted, setIsMounted] = useState(false)
 
-  let headerRef = useRef()
-  let avatarRef = useRef()
-  let isInitial = useRef(true)
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  const isHomePage = isMounted && router.pathname === '/'
+
+  const headerRef = useRef()
+  const avatarRef = useRef()
+  const isInitial = useRef(true)
 
   useEffect(() => {
     let downDelay = avatarRef.current?.offsetTop ?? 0
