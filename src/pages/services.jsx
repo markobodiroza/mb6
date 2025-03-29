@@ -35,7 +35,7 @@ export default function Services() {
     <>
       <NextSeo
         title="Services - Marko Bodiroza"
-        description={siteMeta.description}
+        description="Let’s future-proof your business together. Here are some of the services I provide for clients."
         canonical="https://markobodiroza.com/services"
         openGraph={{
           url: 'https://markobodiroza.com/services',
