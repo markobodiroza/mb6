@@ -1,5 +1,5 @@
 
-import logoNP from '@/images/logos/nplogo.png'
+import logoNP from '@/images/logos/nplogo.svg'
 import logoMicrosoft from '@/images/logos/rt.svg'
 import logoXOR from '@/images/logos/netinfo.svg'
 import logoVanilla from '@/images/logos/vanilla.svg'
