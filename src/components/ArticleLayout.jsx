@@ -26,24 +26,25 @@ export function ArticleLayout({
   previousPathname,
 }) {
   const router = useRouter()
+  const [canonicalUrl, setCanonicalUrl] = useState(null)
 
-  // Prevent router usage during SSR
-  const [isMounted, setIsMounted] = useState(false)
   useEffect(() => {
-    setIsMounted(true)
-  }, [])
+    if (router.isReady) {
+      setCanonicalUrl(`https://markobodiroza.com${router.asPath}`)
+    }
+  }, [router.isReady, router.asPath])
 
   if (isRssFeed) return children
 
   return (
     <>
-      {isMounted && (
+      {canonicalUrl && (
         <NextSeo
           title={meta.title}
           description={meta.description}
-          canonical={`https://markobodiroza.com${router.asPath}`}
+          canonical={canonicalUrl}
           openGraph={{
-            url: `https://markobodiroza.com${router.asPath}`,
+            url: canonicalUrl,
             images: [
               {
                 url: `https://og.markobodiroza.com/api/og?title=${meta.title}&desc=${meta.description}`,
