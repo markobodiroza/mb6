@@ -7,6 +7,7 @@ import Link from 'next/link'
 
 function SocialLink({ className, href, children, icon: Icon }) {
   return (
+    <ul className="pt-8 mt-4 border-t border-neutral-100 dark:border-neutral-700/40">
     <li className={clsx(className, 'flex')}>
       <Link
         href={href}
@@ -16,6 +17,7 @@ function SocialLink({ className, href, children, icon: Icon }) {
         <span className="ml-4">{children}</span>
       </Link>
     </li>
+    </ul>
   )
 }
 
