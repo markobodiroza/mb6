@@ -7,7 +7,6 @@ import Link from 'next/link'
 
 function SocialLink({ className, href, children, icon: Icon }) {
   return (
-    <ul className="pt-8 mt-4 border-t border-neutral-100 dark:border-neutral-700/40">
     <li className={clsx(className, 'flex')}>
       <Link
         href={href}
@@ -17,9 +16,9 @@ function SocialLink({ className, href, children, icon: Icon }) {
         <span className="ml-4">{children}</span>
       </Link>
     </li>
-    </ul>
   )
 }
+
 
 function MailIcon(props) {
   return (
@@ -78,13 +77,14 @@ export default function Process() {
         </div>
         <h2 className="max-w-2xl font-bold">Ready for a major digital transformation?</h2>
         <p>Send me an email, and let's elevate your marketing.</p>
-        <SocialLink
-          href={`mailto:${siteMeta.author.email}`}
-          icon={MailIcon}
-          className="pt-8 mt-4 border-t border-neutral-100 dark:border-neutral-700/40"
-        >
-          {siteMeta.author.email}
-        </SocialLink>
+        <ul className="pt-8 mt-4 border-t border-neutral-100 dark:border-neutral-700/40">
+          <SocialLink
+            href={`mailto:${siteMeta.author.email}`}
+            icon={MailIcon}
+          >
+            {siteMeta.author.email}
+          </SocialLink>
+        </ul>
       </PageLayout>
     </>
   )
