@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter, usePathname }  from 'next/navigation'
+import { useRouter }  from 'next/router'
 import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
@@ -137,9 +137,7 @@ function MobileNavigation(props) {
 
 function NavItem({ href, children }) {
   const router = useRouter()
-  const pathname = usePathname()
-  let isActive = pathname === href
-
+  let isActive = router.pathname === href
   return (
     <li>
       <Link
