@@ -43,7 +43,7 @@ export default function About() {
     <>
       <NextSeo
         title="About - Marko Bodiroza"
-        description={siteMeta.description}
+        description="Next-Gen CMO | Producer of Green New Perspective Podcast | AI Strategist"
         canonical="https://markobodiroza.com/about"
         openGraph={{
           url: 'https://markobodiroza.com/about',
