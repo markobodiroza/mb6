@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import { useRouter } from 'next/router'
+import { useRouter, usePathname }  from 'next/navigation'
 
 import { Container } from '@/components/Container'
 import { formatDate } from '@/lib/formatDate'
@@ -24,7 +24,7 @@ export function ArticleLayout({
   isRssFeed = false,
   previousPathname,
 }) {
-  let router = useRouter()
+  const router = useRouter()
 
   if (isRssFeed) {
     return children
