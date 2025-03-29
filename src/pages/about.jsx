@@ -65,9 +65,10 @@ export default function About() {
             <div className="max-w-xs px-2.5 lg:max-w-xl">
               <Image
                 src={portraitImage}
-                alt=""
+                alt="Marko Bodiroza"
                 sizes="(min-width: 1024px) 32rem, 20rem"
                 className="object-cover aspect-square rotate-3 rounded-2xl bg-neutral-100 dark:bg-neutral-800"
+                loading="eager"
               />
             </div>
           </div>
