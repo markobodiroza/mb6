@@ -27,7 +27,7 @@ export function Footer() {
                 <NavLink href="/about">About</NavLink>                
               </div>
               <p className="text-sm text-neutral-700 dark:text-neutral-300">
-                  &copy; {new Date().getFullYear()} {siteMeta.copyright} This website does not track you, or use any analytics software.
+                  &copy; {new Date().getFullYear()} {siteMeta.copyright} | This website uses NO cookies, NO tracking, and NO analytics.
               </p>
             </div>
           </Container.Inner>
