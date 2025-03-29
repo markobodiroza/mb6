@@ -36,7 +36,7 @@ export default function Process() {
     <>
       <NextSeo
         title="Process & How I Work - Marko Bodiroza"
-        description={siteMeta.description}
+        description="Navigating the digital world can seem confusing, so let me guide your transformation in 4 easy steps"
         canonical="https://markobodiroza.com/process"
         openGraph={{
           url: 'https://markobodiroza.com/process',
