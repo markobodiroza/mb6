@@ -35,14 +35,14 @@ function Article({ article }) {
 }
 
 export default function ArticlesIndex({ articles }) {
-  const headline = 'I write about things I’m learning and things I’m building.'
+  const headline = 'Notes from the Frontline of AI and Digital Strategy.'
   const intro="My thoughts on Generative AI, digital marketing strategies, advanced SEO, sustainability, marketing automation, HubSpot, and more."
 
   return (
     <>
     <NextSeo
       title="Blog - Marko Bodiroza"
-      description={siteMeta.description}
+      description="My thoughts on Generative AI, digital marketing strategies, advanced SEO, sustainability, marketing automation, HubSpot, and more."
       canonical="https://markobodiroza.com/blog"
       openGraph={{
         url: 'https://markobodiroza.com/blog',
