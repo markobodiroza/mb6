@@ -1,6 +1,5 @@
 import { NextSeo } from 'next-seo'
-import { useRouter } from 'next/router'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Container } from '@/components/Container'
 import { formatDate } from '@/lib/formatDate'
@@ -25,14 +24,19 @@ export function ArticleLayout({
   isRssFeed = false,
   previousPathname,
 }) {
-  const router = useRouter()
   const [canonicalUrl, setCanonicalUrl] = useState(null)
+  const [canGoBack, setCanGoBack] = useState(false)
 
   useEffect(() => {
-    if (router.isReady) {
-      setCanonicalUrl(`https://markobodiroza.com${router.asPath}`)
-    }
-  }, [router.isReady, router.asPath])
+    // Only run in the browser
+    const { asPath } = window.__NEXT_DATA__.page === '/_error'
+      ? { asPath: '/' }
+      : window.history.state || {}
+
+    const finalPath = asPath || window.location.pathname
+    setCanonicalUrl(`https://markobodiroza.com${finalPath}`)
+    setCanGoBack(document.referrer && document.referrer !== window.location.href)
+  }, [])
 
   if (isRssFeed) return children
 
@@ -61,10 +65,10 @@ export function ArticleLayout({
       <Container className="mt-16 lg:mt-32">
         <div className="xl:relative">
           <div className="mx-auto max-w-2xl">
-            {previousPathname && (
+            {previousPathname && canGoBack && (
               <button
                 type="button"
-                onClick={() => router.back()}
+                onClick={() => window.history.back()}
                 aria-label="Go back to articles"
                 className="group mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-neutral-800/5 ring-1 ring-neutral-900/5 transition dark:border dark:border-neutral-700/50 dark:bg-neutral-800 dark:ring-0 dark:ring-white/10 dark:hover:border-neutral-700 dark:hover:ring-white/20 lg:absolute lg:-left-5 lg:mb-0 lg:-mt-2 xl:-top-1.5 xl:left-0 xl:mt-0"
               >
