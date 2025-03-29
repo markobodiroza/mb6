@@ -1,5 +1,6 @@
-import { NextSeo } from 'next-seo';
-import { useRouter, useState, useEffect } from 'next/router'
+import { NextSeo } from 'next-seo'
+import { useRouter } from 'next/router'
+import { useState, useEffect } from 'react'
 
 import { Container } from '@/components/Container'
 import { formatDate } from '@/lib/formatDate'
@@ -24,38 +25,38 @@ export function ArticleLayout({
   isRssFeed = false,
   previousPathname,
 }) {
-  const [isMounted, setIsMounted] = useState(false)
   const router = useRouter()
 
+  // Prevent router usage during SSR
+  const [isMounted, setIsMounted] = useState(false)
   useEffect(() => {
     setIsMounted(true)
   }, [])
 
-  const isActive = isMounted && router.pathname === href
+  if (isRssFeed) return children
 
-  if (isRssFeed) {
-    return children
-  }
   return (
     <>
-    <NextSeo
-      title={meta.title}
-      description={meta.description}
-      canonical={`https://markobodiroza.com${router.pathname}`}
-      openGraph={{
-        url: `https://markobodiroza.com${router.pathname}`,
-        images: [
-          {
-            url: `https://og.markobodiroza.com/api/og?title=${meta.title}&desc=${meta.description}`,
-            width: 1200,
-            height: 600,
-            alt: 'Og Image Alt',
-            type: 'image/jpeg',
-          }
-        ],
-        siteName: 'markobodiroza.com',
-      }}
-    />
+      {isMounted && (
+        <NextSeo
+          title={meta.title}
+          description={meta.description}
+          canonical={`https://markobodiroza.com${router.asPath}`}
+          openGraph={{
+            url: `https://markobodiroza.com${router.asPath}`,
+            images: [
+              {
+                url: `https://og.markobodiroza.com/api/og?title=${meta.title}&desc=${meta.description}`,
+                width: 1200,
+                height: 600,
+                alt: 'Og Image Alt',
+                type: 'image/jpeg',
+              },
+            ],
+            siteName: 'markobodiroza.com',
+          }}
+        />
+      )}
       <Container className="mt-16 lg:mt-32">
         <div className="xl:relative">
           <div className="mx-auto max-w-2xl">
