@@ -81,7 +81,7 @@ export default function About() {
                 Hi there! I'm Marko Bodiroza. At the heart of digital marketing innovation for 15+ years, I’ve pioneered strategies in AI, SEO, and web and content creation. 
               </p>
               <p>
-            As the Director of Marketing and Innovation at New Perspective, I blend my expertise in engineering, AI, and design with a creative spark to propel our business and revenue growth .
+            As the Director of Marketing and Innovation at New Perspective, I blend my expertise in engineering, AI, and design with a creative spark to propel our business and revenue growth.
 
               </p>
               <p>
