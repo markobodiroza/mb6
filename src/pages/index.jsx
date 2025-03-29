@@ -202,7 +202,7 @@ export default function Home({ articles }) {
     />
       <Container className="mt-9">
         <div className="max-w-2xl text-lg">
-          <h1 className="text-5xl font-bold tracking-tight text-neutral-800 dark:text-neutral-100 sm:text-5xl">
+         <h1 className="text-5xl font-bold tracking-tight text-neutral-800 dark:text-neutral-100 sm:text-4xl" style={{ minHeight: '2.25rem' }}>
            Helping innovative companies fuel growth with next-gen digital marketing and AI.
           </h1>
           <p className="mt-6 prose dark:prose-invert">
