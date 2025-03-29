@@ -1,5 +1,5 @@
 import { NextSeo } from 'next-seo';
-import { useRouter } from 'next/router'
+import { useRouter, useState, useEffect } from 'next/router'
 
 import { Container } from '@/components/Container'
 import { formatDate } from '@/lib/formatDate'
@@ -24,7 +24,14 @@ export function ArticleLayout({
   isRssFeed = false,
   previousPathname,
 }) {
+  const [isMounted, setIsMounted] = useState(false)
   const router = useRouter()
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  const isActive = isMounted && router.pathname === href
 
   if (isRssFeed) {
     return children
