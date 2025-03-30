@@ -1,4 +1,5 @@
 import { Head, Html, Main, NextScript } from 'next/document'
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const modeScript = `
   let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
@@ -56,6 +57,7 @@ export default function Document() {
         <NextScript />
         <div style={{display: 'none'}}>        <a rel="me" href="https://tty0.social/@bketelsen">Mastodon</a>
 </div>
+      <SpeedInsights />  
       </body>
     </Html>
   )
