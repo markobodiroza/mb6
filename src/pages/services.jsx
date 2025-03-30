@@ -57,52 +57,52 @@ export default function Services() {
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 my-8">
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h3 className="dark:text-emerald-400">Next-gen marketing strategies</h3>
+            <h2 className="dark:text-emerald-400 text-2xl">Next-gen marketing strategies</h2>
             <p> I keep you ahead of the competition by creating next-gen marketing strategies optimized for your industry.</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h3 className="dark:text-emerald-400">Advanced marketing consulting</h3>
+            <h2 className="dark:text-emerald-400 text-2xl">Advanced marketing consulting</h2>
             <p>Experience my advanced marketing consulting services, where I join your team for a period of time to learn, analyze, and provide you with rare business insights.</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h3 className="dark:text-emerald-400">Data analysis</h3>
+            <h2 className="dark:text-emerald-400 text-2xl">Data analysis</h2>
             <p>I turn your raw data into actionable insights, guiding your strategic planning and fueling revenue growth.</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h3 className="dark:text-emerald-400">AI prompt engineering</h3>
+            <h2 className="dark:text-emerald-400 text-2xl">AI prompt engineering</h2>
             <p> Leverage the power of AI with me to create prompts tailored just for your business, product, or service.</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h3 className="dark:text-emerald-400">AI-powered forecasting</h3>
+            <h2 className="dark:text-emerald-400 text-2xl">AI-powered forecasting</h2>
             <p>Try AI-powered forecasting to anticipate future trends and make data-informed decisions.</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h3 className="dark:text-emerald-400">Marketing & sales automation</h3>
+            <h2 className="dark:text-emerald-400 text-2xl">Marketing & sales automation</h2>
             <p> I use automation to simplify your marketing and sales processes, making every interaction count.</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h3 className="dark:text-emerald-400">Advanced SEO</h3>
+            <h2 className="dark:text-emerald-400 text-2xl">Advanced SEO</h2>
             <p>My SEO methods maximize your online visibility, ensuring you’re found first and rank fast.</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h3 className="dark:text-emerald-400">Schema & entity optimization</h3>
+            <h2 className="dark:text-emerald-400 text-2xl">Schema & entity optimization</h2>
             <p>I'll enhance your website's discoverability by optimizing schema and entity markup, making it easily intelligible to search engines.</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h3 className="dark:text-emerald-400">High-intent content strategy</h3>
+            <h2 className="dark:text-emerald-400 text-2xl">High-intent content strategy</h2>
             <p>Rely on my high-intent content strategy to attract and convert your most valuable customers, capturing engaged audiences throughout their journey.</p>
           </div>
 
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h3 className="dark:text-emerald-400">Process mapping</h3>
+            <h2 className="dark:text-emerald-400 text-2xl">Process mapping</h3>
             <p> Thorough process mapping methods unveil hidden opportunities to optimize your business operations.</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h3 className="dark:text-emerald-400">HubSpot audits</h3>
+            <h2 className="dark:text-emerald-400 text-2xl">HubSpot audits</h2>
             <p> In-depth HubSpot portal audits that identify and unlock untapped potential within your CRM ecosystem</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h3 className="dark:text-emerald-400">Analytics and reporting</h3>
+            <h2 className="dark:text-emerald-400 text-2xl">Analytics and reporting</h2>
             <p>Unlock the story behind your data with insightful analytics and clear reporting, offering a holistic view of your marketing performance.</p>
           </div>
         </div>
