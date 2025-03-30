@@ -25,7 +25,7 @@ const siteMeta = {
 export const resume = [
     {
       company: 'New Perspective',
-      title: 'Director of Marketing and Innovation',
+      title: 'Director of Marketing',
       logo: logoNP,
       start: '2020',
       end: {
