@@ -94,7 +94,7 @@ export default function Services() {
           </div>
 
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
-            <h2 className="dark:text-emerald-400 text-2xl">Process mapping</h3>
+            <h2 className="dark:text-emerald-400 text-2xl">Process mapping</h2>
             <p> Thorough process mapping methods unveil hidden opportunities to optimize your business operations.</p>
           </div>
           <div className="rounded-2xl border border-neutral-100 p-6 dark:border-neutral-700/40">
