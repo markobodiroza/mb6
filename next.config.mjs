@@ -9,7 +9,6 @@ import rehypePresetMinify from 'rehype-preset-minify'
 const nextConfig = {
   pageExtensions: ['jsx', 'mdx'],
   reactStrictMode: true,
-  swcMinify: false,
 }
 
 const withMDX = nextMDX({
