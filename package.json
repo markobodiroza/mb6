@@ -47,9 +47,7 @@
     "eslint-config-next": "12.2.5",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.11",
-    "next": ">=14.2.15",
-    "tar-fs": ">=2.1.2",
-    "sharp": ">=0.32.6"
+    "next": ">=14.2.15"
   },
   "config": {
     "commitizen": {

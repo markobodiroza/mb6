@@ -6,6 +6,7 @@ import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
 import avatarImage from '@/images/marko-head.jpg'
+import { clamp } from '@/lib/utils'
 
 import { Fragment, useEffect, useState, useRef } from 'react'
 
@@ -211,12 +212,6 @@ function ModeToggle() {
       <MoonIcon className="hidden h-6 w-6 fill-neutral-700 stroke-neutral-500 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-neutral-400 [@media_not_(prefers-color-scheme:dark)]:fill-emerald-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-emerald-700" />
     </button>
   )
-}
-
-function clamp(number, a, b) {
-  let min = Math.min(a, b)
-  let max = Math.max(a, b)
-  return Math.min(Math.max(number, min), max)
 }
 
 function AvatarContainer({ className, ...props }) {
