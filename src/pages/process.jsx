@@ -43,7 +43,7 @@ export default function Process() {
           url: 'https://markobodiroza.com/process',
           images: [
             {
-              url: `https://og.markobodiroza.com/api/og?title=Speaking&desc=Learn more about how I work with you.`,
+              url: `https://og.markobodiroza.com/api/og?title=Process&desc=Learn more about how I work with you.`,
               width: 1200,
               height: 600,
               alt: 'Og Image Alt',
