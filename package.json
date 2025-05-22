@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "cz": "git cz",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap",
+    "test": "node --experimental-default-type=module --test"
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {

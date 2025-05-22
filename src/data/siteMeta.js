@@ -17,7 +17,7 @@ const siteMeta = {
         email: "mb@markobodiroza.com",
         twitter: "https://twitter.com/markobodiroza",
         instagram: "https://instagram.com/gradijent",
-        github: "https://github.com.com/markobodiroza",
+        github: "https://github.com/markobodiroza",
         linkedin: "https://linkedin.com/in/markobodiroza"
     },
     siteUrl: "https://markobodiroza.com"
