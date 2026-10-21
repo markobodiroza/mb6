@@ -1,38 +1,68 @@
 import Link from 'next/link'
-import siteMeta from '@/data/siteMeta';
-import { Container } from '@/components/Container'
 
-function NavLink({ href, children }) {
-  return (
-    <Link
-      href={href}
-      className="transition hover:text-emerald-500 dark:hover:text-emerald-400"
-    >
-      {children}
-    </Link>
-  )
-}
+import { Container } from '@/components/Container'
+import siteMeta from '@/data/siteMeta'
+import { contactHref } from '@/lib/contact'
+
+const navigation = [
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services' },
+  { href: '/process', label: 'Process' },
+  { href: '/pricing', label: 'Pricing' },
+  { href: '/insights', label: 'Insights' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+]
 
 export function Footer() {
   return (
-    <footer className="mt-32">
-      <Container.Outer>
-        <div className="border-t border-neutral-100 pt-10 pb-16 dark:border-neutral-700/40">
-          <Container.Inner>
-            <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-              <div className="flex gap-6 text-sm font-medium text-neutral-800 dark:text-neutral-200">
-                <NavLink href="/services">Services</NavLink>
-                <NavLink href="/process">Process</NavLink>
-                <NavLink href="/blog">Blog</NavLink>
-                <NavLink href="/about">About</NavLink>                
-              </div>
-              <p className="text-sm text-neutral-700 dark:text-neutral-300">
-                  &copy; {new Date().getFullYear()} {siteMeta.copyright} | This website uses NO cookies, NO tracking, and NO analytics.
-              </p>
-            </div>
-          </Container.Inner>
+    <footer className="on-night bg-night text-on-night">
+      <Container className="flex flex-col gap-8 py-10 lg:flex-row lg:items-center lg:justify-between">
+        <div>
+          <p className="font-bold">Marko Bodiroza</p>
+          <p className="mt-1 text-[0.9375rem] text-on-night-muted">
+            {siteMeta.tagline}
+          </p>
+          <ul className="mt-4 flex flex-wrap gap-x-6 text-[0.9375rem] font-medium">
+            <li>
+              <Link
+                href={contactHref()}
+                className="inline-block py-2.5 text-citron underline-offset-4 hover:underline"
+              >
+                Send a Message
+              </Link>
+            </li>
+            <li>
+              <a
+                href={siteMeta.author.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block py-2.5 text-citron underline-offset-4 hover:underline"
+              >
+                LinkedIn
+              </a>
+            </li>
+          </ul>
         </div>
-      </Container.Outer>
+        <nav aria-label="Footer">
+          <ul className="flex flex-wrap gap-x-7 gap-y-1 text-[0.9375rem] font-medium">
+            {navigation.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="inline-block py-2.5 text-on-night-muted transition-colors duration-200 hover:text-on-night"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </Container>
+      <Container className="border-t border-[color-mix(in_oklch,var(--on-night)_18%,transparent)] py-6 text-[0.9375rem] text-on-night-muted">
+        &copy; {new Date().getFullYear()} {siteMeta.copyright}. This website
+        uses no cookies, no tracking and no analytics.
+      </Container>
     </footer>
   )
 }

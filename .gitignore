@@ -1,1 +1,19 @@
+# dependencies
 node_modules
+
+# next.js
+.next
+out
+next-env.d.ts
+
+# generated at build time
+public/rss
+public/robots.txt
+public/sitemap*.xml
+
+# env files
+.env*.local
+
+# misc
+.DS_Store
+*.log

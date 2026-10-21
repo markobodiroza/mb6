@@ -1,23 +1,62 @@
 import Link from 'next/link'
 import clsx from 'clsx'
 
+import { bookingHref, isExternal } from '@/lib/contact'
+
 const variantStyles = {
-  primary:
-    'bg-neutral-800 font-semibold text-neutral-100 hover:bg-neutral-700 active:bg-neutral-800 active:text-neutral-100/70 dark:bg-neutral-700 dark:hover:bg-neutral-700 dark:active:bg-neutral-700 dark:active:text-neutral-100/70',
-  secondary:
-    'bg-neutral-50 font-medium text-neutral-900 hover:bg-neutral-100 active:bg-neutral-100 active:text-neutral-900/60 dark:bg-neutral-800/50 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-neutral-50 dark:active:bg-neutral-800/50 dark:active:text-neutral-50/70',
+  primary: 'bg-action text-action-fg hover:bg-action-hover',
+  secondary: 'border-2 border-ink text-ink hover:bg-ink hover:text-paper',
+  'on-brand': 'bg-citron text-on-citron hover:bg-on-brand',
+  night: 'bg-night text-on-night hover:bg-brand',
+  'on-brand-outline':
+    'border border-on-brand-muted text-on-brand hover:border-on-brand hover:bg-brand-line',
 }
 
-export function Button({ variant = 'primary', className, href, ...props }) {
+const sizeStyles = {
+  sm: 'h-11 px-5 text-[0.9375rem]',
+  md: 'h-[3.25rem] px-7 text-[1.0625rem]',
+}
+
+export function Button({
+  variant = 'primary',
+  size = 'md',
+  className,
+  href,
+  ...props
+}) {
   className = clsx(
-    'inline-flex items-center gap-2 justify-center rounded-md py-2 px-3 text-sm outline-offset-2 transition active:transition-none',
+    // Tactile: a small press on click and the arrow nudges forward on hover
+    'group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-bold transition-[background-color,border-color,color,transform] duration-200 ease-out-quart active:translate-y-px active:scale-[0.97] [&>svg]:transition-transform [&>svg]:duration-200 [&>svg]:ease-out-quart hover:[&>svg]:translate-x-1 disabled:cursor-wait disabled:opacity-70',
     variantStyles[variant],
+    sizeStyles[size],
     className
   )
 
-  return href ? (
-    <Link href={href} className={className} {...props} />
-  ) : (
-    <button className={className} {...props} />
+  if (!href) {
+    return <button className={className} {...props} />
+  }
+
+  if (href.startsWith('mailto:') || isExternal(href)) {
+    return (
+      <a
+        href={href}
+        className={className}
+        {...(isExternal(href) && {
+          target: '_blank',
+          rel: 'noopener noreferrer',
+        })}
+        {...props}
+      />
+    )
+  }
+
+  return <Link href={href} className={className} {...props} />
+}
+
+export function BookCallButton({ children = 'Book a Call', ...props }) {
+  return (
+    <Button href={bookingHref()} {...props}>
+      {children}
+    </Button>
   )
 }

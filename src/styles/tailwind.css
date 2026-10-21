@@ -1,6 +1,363 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
-
 @import 'tailwindcss/utilities';
 
-@import './prism.css';
+/*
+ * Color tokens. Brand hue 268 is a pigment ultramarine; lighter tints shift
+ * to 262 so they stay blue instead of drifting toward lavender. Neutrals are
+ * tinted toward the brand. Citron is the energy accent: a background or a
+ * color on blue and ink fields, never text on paper.
+ */
+@layer base {
+  :root {
+    color-scheme: light;
+
+    --paper: oklch(0.985 0.005 265);
+    --sunken: oklch(0.955 0.018 265);
+    --rule: oklch(0.87 0.022 265);
+    --ink: oklch(0.2 0.03 268);
+    --graphite: oklch(0.33 0.025 268);
+    --muted: oklch(0.45 0.022 268);
+
+    --brand: oklch(0.37 0.19 268);
+    --brand-line: oklch(0.435 0.18 268);
+    --on-brand: oklch(0.985 0.005 265);
+    --on-brand-muted: oklch(0.88 0.045 262);
+
+    --citron: oklch(0.91 0.19 117);
+    --on-citron: oklch(0.2 0.03 268);
+
+    --night: oklch(0.2 0.03 268);
+    --on-night: oklch(0.985 0.005 265);
+    --on-night-muted: oklch(0.82 0.025 265);
+
+    --action: oklch(0.37 0.19 268);
+    --action-hover: oklch(0.31 0.17 268);
+    --action-fg: oklch(0.985 0.005 265);
+    --link: oklch(0.4 0.19 268);
+    --focus: oklch(0.5 0.2 266);
+    --marker: oklch(0.91 0.19 117);
+
+    /* Form field outlines need 3:1 against the page (WCAG 1.4.11) */
+    --field: oklch(0.62 0.03 265);
+    --danger: oklch(0.5 0.2 25);
+    --danger-line: oklch(0.55 0.2 25);
+  }
+
+  /*
+   * Blue night: the page itself turns deep ultramarine instead of black.
+   * Blue fields get brighter so they still lift off the page, night ink
+   * sections sink deeper and citron takes over as the action color.
+   */
+  .dark {
+    color-scheme: dark;
+
+    --paper: oklch(0.23 0.09 268);
+    --sunken: oklch(0.27 0.105 268);
+    --rule: oklch(0.38 0.11 268);
+    --ink: oklch(0.97 0.008 265);
+    --graphite: oklch(0.89 0.03 262);
+    --muted: oklch(0.8 0.045 262);
+
+    --brand: oklch(0.38 0.19 268);
+    --brand-line: oklch(0.43 0.18 268);
+    --on-brand: oklch(0.98 0.006 265);
+    --on-brand-muted: oklch(0.92 0.04 262);
+
+    --citron: oklch(0.91 0.19 117);
+    --on-citron: oklch(0.2 0.03 268);
+
+    --night: oklch(0.15 0.055 268);
+    --on-night: oklch(0.97 0.008 265);
+    --on-night-muted: oklch(0.84 0.03 262);
+
+    --action: oklch(0.91 0.19 117);
+    --action-hover: oklch(0.96 0.13 117);
+    --action-fg: oklch(0.2 0.03 268);
+    --link: oklch(0.91 0.19 117);
+    --focus: oklch(0.91 0.19 117);
+    --marker: oklch(0.43 0.2 268);
+
+    --field: oklch(0.58 0.08 262);
+    --danger: oklch(0.82 0.12 25);
+    --danger-line: oklch(0.72 0.17 25);
+  }
+
+  html {
+    @apply bg-paper text-ink antialiased;
+    font-kerning: normal;
+  }
+
+  body {
+    @apply bg-paper font-sans text-[1.0625rem] leading-[1.65] text-ink;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    font-variation-settings: 'ROND' 70;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .on-brand :focus-visible,
+  .on-night :focus-visible {
+    outline-color: var(--citron);
+  }
+
+  ::selection {
+    background: var(--brand);
+    color: var(--on-brand);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Spacing rhythm: one fluid scale for the space between big blocks */
+@layer utilities {
+  .mt-lead {
+    margin-top: clamp(3.5rem, 2.6rem + 3vw, 6rem);
+  }
+  .mt-section {
+    margin-top: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
+  }
+  .mb-section {
+    margin-bottom: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
+  }
+  .pt-section {
+    padding-top: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
+  }
+  .py-section {
+    padding-block: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
+  }
+  .gap-section {
+    gap: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
+  }
+}
+
+/* Type roles. One family; headings get rounder, heavier letterforms. */
+@layer components {
+  .text-display {
+    font-size: clamp(2.75rem, 1.5rem + 3.9vw, 5.25rem);
+    @apply font-[820] leading-[0.98] tracking-[-0.04em];
+  }
+
+  .text-page-title {
+    font-size: clamp(2.5rem, 1.7rem + 3vw, 4.25rem);
+    @apply font-[800] leading-[1.02] tracking-[-0.035em];
+  }
+
+  .text-section {
+    font-size: clamp(2rem, 1.5rem + 1.8vw, 3rem);
+    @apply font-[780] leading-[1.06] tracking-[-0.03em];
+  }
+
+  .text-title {
+    @apply text-[1.375rem] font-[720] leading-[1.25] tracking-[-0.018em];
+  }
+
+  .text-lead {
+    @apply text-[1.1875rem] leading-[1.55] sm:text-[1.3125rem];
+  }
+
+  .eyebrow {
+    @apply text-[0.8125rem] font-bold uppercase tracking-[0.1em];
+  }
+
+  .numeral {
+    font-variant-numeric: tabular-nums;
+    @apply text-[0.9375rem] font-bold tracking-[0.02em];
+  }
+
+  .big-numeral {
+    font-variant-numeric: tabular-nums;
+    font-variation-settings: 'ROND' 100;
+    @apply text-[3.25rem] font-[850] leading-none tracking-[-0.05em];
+  }
+
+  .link {
+    @apply font-semibold text-link underline decoration-1 underline-offset-[0.2em];
+  }
+
+  /* Highlighter: a marker stroke that sweeps in under text */
+  .marker {
+    background-image: linear-gradient(var(--citron), var(--citron));
+    background-repeat: no-repeat;
+    background-position: 0 92%;
+    background-size: 100% 0.11em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    animation: marker-sweep 900ms cubic-bezier(0.16, 1, 0.3, 1) 400ms both;
+  }
+
+  @keyframes marker-sweep {
+    from {
+      background-size: 0% 0.11em;
+    }
+  }
+
+  /* Hover version for text links: a highlighter pass behind the words */
+  .marker-hover {
+    background-image: linear-gradient(var(--marker), var(--marker));
+    background-repeat: no-repeat;
+    background-position: 0 90%;
+    background-size: 0% 0.4em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    transition: background-size 350ms cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .marker-hover:hover,
+  .group:hover .marker-hover {
+    background-size: 100% 0.4em;
+  }
+
+  .check-draw {
+    stroke-dasharray: 40;
+    stroke-dashoffset: 40;
+    animation: check-draw 600ms cubic-bezier(0.16, 1, 0.3, 1) 150ms forwards;
+  }
+
+  @keyframes check-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* Hero entrance: quick stagger on load. The headline only rises, it is
+     never hidden, so the largest paint is not delayed. */
+  .enter {
+    animation: enter-up 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(var(--i, 0) * 90ms);
+  }
+
+  .enter-rise {
+    animation: rise 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .enter-settle {
+    animation: settle 900ms cubic-bezier(0.16, 1, 0.3, 1) 250ms both;
+  }
+
+  @keyframes enter-up {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+  }
+
+  @keyframes rise {
+    from {
+      transform: translateY(14px);
+    }
+  }
+
+  @keyframes settle {
+    from {
+      transform: translate(-1rem, -1rem);
+    }
+  }
+
+  /* Scroll reveals. Only active when the reveal-ready class is set by the
+     inline script, so content is never hidden without JavaScript. */
+  .reveal-ready [data-reveal] {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 750ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 750ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: calc(var(--i, 0) * 70ms);
+  }
+
+  .reveal-ready [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* The loop arrow on the Process page draws itself when it scrolls in */
+  .reveal-ready [data-reveal] .diagram-loop {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 900ms cubic-bezier(0.16, 1, 0.3, 1) 300ms;
+  }
+
+  .reveal-ready [data-reveal].is-visible .diagram-loop {
+    stroke-dashoffset: 0;
+  }
+
+  /* Process rail: each segment draws down from its step */
+  .reveal-ready [data-reveal] .rail-draw {
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1) 250ms;
+  }
+
+  .reveal-ready [data-reveal].is-visible .rail-draw {
+    transform: none;
+  }
+
+  /* Numbered steps pop in one after another once their list is in view */
+  .reveal-ready [data-reveal] .step-pop {
+    transform: scale(0.4);
+    opacity: 0;
+    transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 300ms ease-out;
+    transition-delay: calc(300ms + var(--i, 0) * 90ms);
+  }
+
+  .reveal-ready [data-reveal].is-visible .step-pop {
+    transform: none;
+    opacity: 1;
+  }
+
+  /* Opened accordions ease their answer in instead of snapping */
+  details[open] > :not(summary) {
+    animation: enter-up 450ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .tile-pop {
+    animation: tile-pop 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes tile-pop {
+    from {
+      transform: scale(0.92);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .enter,
+    .enter-rise,
+    .enter-settle,
+    .tile-pop,
+    .marker,
+    .check-draw,
+    details[open] > :not(summary) {
+      animation: none;
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .blueprint {
+    background-color: var(--brand);
+    background-image: linear-gradient(var(--brand-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--brand-line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-position: -1px -1px;
+  }
+}

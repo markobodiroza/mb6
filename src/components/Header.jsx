@@ -1,14 +1,22 @@
+import { useCallback, useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter }  from 'next/router'
-import { Popover, Transition } from '@headlessui/react'
+import { useRouter } from 'next/router'
 import clsx from 'clsx'
 
+import { BookCallButton } from '@/components/Button'
 import { Container } from '@/components/Container'
 import avatarImage from '@/images/marko-head.jpg'
-import { clamp } from '@/lib/utils'
 
-import { Fragment, useEffect, useState, useRef } from 'react'
+const navigation = [
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services' },
+  { href: '/process', label: 'Process' },
+  { href: '/pricing', label: 'Pricing' },
+  { href: '/insights', label: 'Insights' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+]
 
 function CloseIcon(props) {
   return (
@@ -17,7 +25,7 @@ function CloseIcon(props) {
         d="m17.25 6.75-10.5 10.5M6.75 6.75l10.5 10.5"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.5"
+        strokeWidth="1.75"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -25,15 +33,15 @@ function CloseIcon(props) {
   )
 }
 
-function ChevronDownIcon(props) {
+function MenuIcon(props) {
   return (
-    <svg viewBox="0 0 8 6" aria-hidden="true" {...props}>
+    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
       <path
-        d="M1.75 1.75 4 4.25l2.25-2.5"
+        d="M4.75 8h14.5M4.75 16h14.5"
         fill="none"
-        strokeWidth="1.5"
+        stroke="currentColor"
+        strokeWidth="1.75"
         strokeLinecap="round"
-        strokeLinejoin="round"
       />
     </svg>
   )
@@ -41,18 +49,21 @@ function ChevronDownIcon(props) {
 
 function SunIcon(props) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      {...props}
-    >
-      <path d="M8 12.25A4.25 4.25 0 0 1 12.25 8v0a4.25 4.25 0 0 1 4.25 4.25v0a4.25 4.25 0 0 1-4.25 4.25v0A4.25 4.25 0 0 1 8 12.25v0Z" />
-      <path
-        d="M12.25 3v1.5M21.5 12.25H20M18.791 18.791l-1.06-1.06M18.791 5.709l-1.06 1.06M12.25 20v1.5M4.5 12.25H3M6.77 6.77 5.709 5.709M6.77 17.73l-1.061 1.061"
+    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <circle
+        cx="12"
+        cy="12"
+        r="4"
         fill="none"
+        stroke="currentColor"
+        strokeWidth="1.75"
+      />
+      <path
+        d="M12 3v1.5M12 19.5V21M3 12h1.5M19.5 12H21M5.6 5.6l1.1 1.1M17.3 17.3l1.1 1.1M5.6 18.4l1.1-1.1M17.3 6.7l1.1-1.1"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
       />
     </svg>
   )
@@ -62,124 +73,38 @@ function MoonIcon(props) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
       <path
-        d="M17.25 16.22a6.937 6.937 0 0 1-9.47-9.47 7.451 7.451 0 1 0 9.47 9.47ZM12.75 7C17 7 17 2.75 17 2.75S17 7 21.25 7C17 7 17 11.25 17 11.25S17 7 12.75 7Z"
-        strokeWidth="1.5"
-        strokeLinecap="round"
+        d="M19.25 14.5A7.75 7.75 0 0 1 9.5 4.75a7.75 7.75 0 1 0 9.75 9.75Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.75"
         strokeLinejoin="round"
       />
     </svg>
   )
 }
 
-function MobileNavItem({ href, children }) {
-  return (
-    <li>
-      <Popover.Button as={Link} href={href} className="block py-2">
-        {children}
-      </Popover.Button>
-    </li>
-  )
-}
-
-function MobileNavigation(props) {
-  return (
-    <Popover {...props}>
-      <Popover.Button className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-neutral-800 shadow-lg shadow-neutral-800/5 ring-1 ring-neutral-900/5 backdrop-blur dark:bg-neutral-800/90 dark:text-neutral-200 dark:ring-white/10 dark:hover:ring-white/20">
-        Menu
-        <ChevronDownIcon className="ml-3 h-auto w-2 stroke-neutral-500 group-hover:stroke-neutral-700 dark:group-hover:stroke-neutral-400" />
-      </Popover.Button>
-      <Transition.Root>
-        <Transition.Child
-          as={Fragment}
-          enter="duration-150 ease-out"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="duration-150 ease-in"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-        >
-          <Popover.Overlay className="fixed inset-0 z-50 bg-neutral-800/40 backdrop-blur-sm dark:bg-black/80" />
-        </Transition.Child>
-        <Transition.Child
-          as={Fragment}
-          enter="duration-150 ease-out"
-          enterFrom="opacity-0 scale-95"
-          enterTo="opacity-100 scale-100"
-          leave="duration-150 ease-in"
-          leaveFrom="opacity-100 scale-100"
-          leaveTo="opacity-0 scale-95"
-        >
-          <Popover.Panel
-            focus
-            className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-neutral-900/5 dark:bg-neutral-900 dark:ring-neutral-800"
-          >
-            <div className="flex flex-row-reverse items-center justify-between">
-              <Popover.Button aria-label="Close menu" className="-m-1 p-1">
-                <CloseIcon className="h-6 w-6 text-neutral-500 dark:text-neutral-400" />
-              </Popover.Button>
-              <h2 className="text-sm font-medium text-neutral-700 dark:text-neutral-400">
-                Navigation
-              </h2>
-            </div>
-            <nav className="mt-6">
-              <ul className="-my-2 divide-y divide-neutral-100 text-base text-neutral-800 dark:divide-neutral-100/5 dark:text-neutral-300">
-                <MobileNavItem href="/services">Services</MobileNavItem>
-                <MobileNavItem href="/process">Process</MobileNavItem>
-                <MobileNavItem href="/blog">Blog</MobileNavItem>
-                <MobileNavItem href="/about">About</MobileNavItem>
-              </ul>
-            </nav>
-          </Popover.Panel>
-        </Transition.Child>
-      </Transition.Root>
-    </Popover>
-  )
-}
-
-function NavItem({ href, children }) {
- const [isMounted, setIsMounted] = useState(false)
-  const router = useRouter()
-
-  useEffect(() => {
-    setIsMounted(true)
-  }, [])
-
-  const isActive = isMounted && router.pathname === href
-  
-  return (
-    <li>
-      <Link
-        href={href}
-        className={clsx(
-          'relative block px-3 py-2 transition',
-          isActive
-            ? 'text-emerald-700 dark:text-emerald-400'
-            : 'hover:text-emerald-700 dark:hover:text-emerald-400'
-        )}
-      >
-        {children}
-        {isActive && (
-          <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-emerald-700/0 via-emerald-700/40 to-emerald-700/0 dark:from-emerald-400/0 dark:via-emerald-400/40 dark:to-emerald-400/0" />
-        )}
-      </Link>
-    </li>
-  )
-}
-
-function DesktopNavigation(props) {
-  return (
-    <nav {...props}>
-      <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-neutral-800 shadow-lg shadow-neutral-800/5 ring-1 ring-neutral-900/5 backdrop-blur dark:bg-neutral-800/90 dark:text-neutral-200 dark:ring-white/10">
-        <NavItem href="/services">Services</NavItem>
-        <NavItem href="/process">Process</NavItem>
-        <NavItem href="/blog">Blog</NavItem>
-        <NavItem href="/about">About</NavItem>
-      </ul>
-    </nav>
-  )
+function useIsActive() {
+  let { pathname } = useRouter()
+  return (href) =>
+    href === '/'
+      ? pathname === '/'
+      : pathname === href || pathname.startsWith(`${href}/`)
 }
 
 function ModeToggle() {
+  // Mirrors the real theme (the toggle, the system setting or another tab can
+  // change it) so screen readers hear whether dark mode is on
+  let [isDark, setIsDark] = useState(false)
+
+  useEffect(() => {
+    let root = document.documentElement
+    let sync = () => setIsDark(root.classList.contains('dark'))
+    sync()
+    let observer = new MutationObserver(sync)
+    observer.observe(root, { attributes: true, attributeFilter: ['class'] })
+    return () => observer.disconnect()
+  }, [])
+
   function disableTransitionsTemporarily() {
     document.documentElement.classList.add('[&_*]:!transition-none')
     window.setTimeout(() => {
@@ -204,232 +129,191 @@ function ModeToggle() {
   return (
     <button
       type="button"
-      aria-label="Toggle dark mode"
-      className="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-neutral-800/5 ring-1 ring-neutral-900/5 backdrop-blur transition dark:bg-neutral-800/90 dark:ring-white/10 dark:hover:ring-white/20"
+      aria-label="Dark mode"
+      aria-pressed={isDark}
+      className="flex h-11 w-11 items-center justify-center rounded-full text-graphite transition-colors duration-200 hover:bg-sunken hover:text-ink"
       onClick={toggleMode}
     >
-      <SunIcon className="h-6 w-6 fill-neutral-100 stroke-neutral-500 transition group-hover:fill-neutral-200 group-hover:stroke-neutral-700 dark:hidden [@media(prefers-color-scheme:dark)]:fill-emerald50 [@media(prefers-color-scheme:dark)]:stroke-emerald-700 [@media(prefers-color-scheme:dark)]:group-hover:fill-emerald50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-emerald-700" />
-      <MoonIcon className="hidden h-6 w-6 fill-neutral-700 stroke-neutral-500 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-neutral-400 [@media_not_(prefers-color-scheme:dark)]:fill-emerald-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-emerald-700" />
+      <SunIcon className="h-5 w-5 dark:hidden" />
+      <MoonIcon className="hidden h-5 w-5 dark:block" />
     </button>
   )
 }
 
-function AvatarContainer({ className, ...props }) {
+function DesktopNavigation() {
+  let isActive = useIsActive()
+
   return (
-    <div
-      className={clsx(
-        className,
-        'h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-neutral-800/5 ring-1 ring-neutral-900/5 backdrop-blur dark:bg-neutral-800/90 dark:ring-white/10'
-      )}
-      {...props}
-    />
+    <nav aria-label="Main" className="hidden md:block">
+      <ul className="flex items-center gap-1 text-[0.9375rem] font-medium">
+        {navigation.map((item) => (
+          <li key={item.href}>
+            <Link
+              href={item.href}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+              className={clsx(
+                'relative block rounded-full px-3.5 py-2 transition-colors duration-200',
+                isActive(item.href)
+                  ? 'text-ink'
+                  : 'text-graphite hover:bg-sunken hover:text-ink'
+              )}
+            >
+              {item.label}
+              {isActive(item.href) && (
+                <span className="absolute inset-x-3.5 bottom-0.5 h-[3px] rounded-full bg-link" />
+              )}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
   )
 }
 
-function Avatar({ large = false, className, ...props }) {
+function MobileNavigation() {
+  let isActive = useIsActive()
+  let router = useRouter()
+  let [open, setOpen] = useState(false)
+  let triggerRef = useRef(null)
+  let panelRef = useRef(null)
+  let closeRef = useRef(null)
+
+  let close = useCallback((restoreFocus = true) => {
+    setOpen(false)
+    if (restoreFocus) triggerRef.current?.focus()
+  }, [])
+
+  // Close whenever the route changes
+  useEffect(() => {
+    let onRoute = () => close(false)
+    router.events.on('routeChangeStart', onRoute)
+    return () => router.events.off('routeChangeStart', onRoute)
+  }, [router.events, close])
+
+  // While open: focus the panel, trap Tab, close on Escape and lock scroll
+  useEffect(() => {
+    if (!open) return
+    closeRef.current?.focus()
+    document.documentElement.style.overflow = 'hidden'
+
+    function onKeyDown(event) {
+      if (event.key === 'Escape') close()
+      if (event.key !== 'Tab') return
+      let focusable = panelRef.current.querySelectorAll('a[href], button')
+      let first = focusable[0]
+      let last = focusable[focusable.length - 1]
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
+      }
+    }
+
+    document.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.removeEventListener('keydown', onKeyDown)
+      document.documentElement.style.overflow = ''
+    }
+  }, [open, close])
+
   return (
-    <Link
-      href="/"
-      aria-label="Home"
-      className={clsx(className, 'pointer-events-auto')}
-      {...props}
-    >
-      <Image
-        src={avatarImage}
-        alt=""
-        sizes={large ? '4rem' : '2.25rem'}
+    <div className="md:hidden">
+      <button
+        ref={triggerRef}
+        type="button"
+        aria-label="Open menu"
+        aria-expanded={open}
+        aria-controls="mobile-menu"
+        onClick={() => setOpen(true)}
+        className="flex h-11 w-11 items-center justify-center rounded-full text-ink transition-colors duration-200 hover:bg-sunken"
+      >
+        <MenuIcon className="h-6 w-6" />
+      </button>
+      <div
+        aria-hidden="true"
+        onClick={() => close()}
         className={clsx(
-          'rounded-full bg-neutral-100 object-cover dark:bg-neutral-800',
-          large ? 'h-16 w-16' : 'h-9 w-9'
+          'fixed inset-0 z-50 bg-[color-mix(in_oklch,var(--ink)_45%,transparent)] transition-opacity duration-200 ease-out-quart dark:bg-[color-mix(in_oklch,var(--night)_80%,transparent)]',
+          open ? 'opacity-100' : 'pointer-events-none opacity-0'
         )}
-        priority
       />
-    </Link>
+      <div
+        ref={panelRef}
+        id="mobile-menu"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Menu"
+        inert={open ? undefined : ''}
+        className={clsx(
+          'fixed inset-x-3 top-3 z-50 origin-top rounded-[1.25rem] border-2 border-rule bg-paper p-6 transition duration-200 ease-out-quart',
+          open
+            ? 'visible translate-y-0 scale-100 opacity-100'
+            : 'invisible -translate-y-2 scale-[0.98] opacity-0'
+        )}
+      >
+        <div className="flex items-center justify-between">
+          <p className="eyebrow text-muted">Menu</p>
+          <button
+            ref={closeRef}
+            type="button"
+            aria-label="Close menu"
+            onClick={() => close()}
+            className="-m-2 flex h-11 w-11 items-center justify-center rounded-full text-graphite hover:bg-sunken hover:text-ink"
+          >
+            <CloseIcon className="h-6 w-6" />
+          </button>
+        </div>
+        <nav aria-label="Main" className="mt-4">
+          <ul className="divide-y divide-rule text-[1.125rem] font-semibold">
+            {navigation.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  aria-current={isActive(item.href) ? 'page' : undefined}
+                  onClick={() => close(false)}
+                  className={clsx(
+                    'block py-3',
+                    isActive(item.href) && 'text-link'
+                  )}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <BookCallButton className="mt-6 w-full" />
+      </div>
+    </div>
   )
 }
 
 export function Header() {
-  const router = useRouter()
-  const [isMounted, setIsMounted] = useState(false)
-
-  useEffect(() => {
-    setIsMounted(true)
-  }, [])
-
-  const isHomePage = isMounted && router.pathname === '/'
-
-  const headerRef = useRef()
-  const avatarRef = useRef()
-  const isInitial = useRef(true)
-
-  useEffect(() => {
-    let downDelay = avatarRef.current?.offsetTop ?? 0
-    let upDelay = 64
-
-    function setProperty(property, value) {
-      document.documentElement.style.setProperty(property, value)
-    }
-
-    function removeProperty(property) {
-      document.documentElement.style.removeProperty(property)
-    }
-
-    function updateHeaderStyles() {
-      let { top, height } = headerRef.current.getBoundingClientRect()
-      let scrollY = clamp(
-        window.scrollY,
-        0,
-        document.body.scrollHeight - window.innerHeight
-      )
-
-      if (isInitial.current) {
-        setProperty('--header-position', 'sticky')
-      }
-
-      setProperty('--content-offset', `${downDelay}px`)
-
-      if (isInitial.current || scrollY < downDelay) {
-        setProperty('--header-height', `${downDelay + height}px`)
-        setProperty('--header-mb', `${-downDelay}px`)
-      } else if (top + height < -upDelay) {
-        let offset = Math.max(height, scrollY - upDelay)
-        setProperty('--header-height', `${offset}px`)
-        setProperty('--header-mb', `${height - offset}px`)
-      } else if (top === 0) {
-        setProperty('--header-height', `${scrollY + height}px`)
-        setProperty('--header-mb', `${-scrollY}px`)
-      }
-
-      if (top === 0 && scrollY > 0 && scrollY >= downDelay) {
-        setProperty('--header-inner-position', 'fixed')
-        removeProperty('--header-top')
-        removeProperty('--avatar-top')
-      } else {
-        removeProperty('--header-inner-position')
-        setProperty('--header-top', '0px')
-        setProperty('--avatar-top', '0px')
-      }
-    }
-
-    function updateAvatarStyles() {
-      if (!isHomePage) {
-        return
-      }
-
-      let fromScale = 1
-      let toScale = 36 / 64
-      let fromX = 0
-      let toX = 2 / 16
-
-      let scrollY = downDelay - window.scrollY
-
-      let scale = (scrollY * (fromScale - toScale)) / downDelay + toScale
-      scale = clamp(scale, fromScale, toScale)
-
-      let x = (scrollY * (fromX - toX)) / downDelay + toX
-      x = clamp(x, fromX, toX)
-
-      setProperty(
-        '--avatar-image-transform',
-        `translate3d(${x}rem, 0, 0) scale(${scale})`
-      )
-
-      let borderScale = 1 / (toScale / scale)
-      let borderX = (-toX + x) * borderScale
-      let borderTransform = `translate3d(${borderX}rem, 0, 0) scale(${borderScale})`
-
-      setProperty('--avatar-border-transform', borderTransform)
-      setProperty('--avatar-border-opacity', scale === toScale ? 1 : 0)
-    }
-
-    function updateStyles() {
-      updateHeaderStyles()
-      updateAvatarStyles()
-      isInitial.current = false
-    }
-
-    updateStyles()
-    window.addEventListener('scroll', updateStyles, { passive: true })
-    window.addEventListener('resize', updateStyles)
-
-    return () => {
-      window.removeEventListener('scroll', updateStyles, { passive: true })
-      window.removeEventListener('resize', updateStyles)
-    }
-  }, [isHomePage])
-
   return (
-    <>
-      <header
-        className="pointer-events-none relative z-50 flex flex-col"
-        style={{
-          height: 'var(--header-height)',
-          marginBottom: 'var(--header-mb)',
-        }}
-      >
-        {isHomePage && (
-          <>
-            <div
-              ref={avatarRef}
-              className="order-last mt-[calc(theme(spacing.16)-theme(spacing.3))]"
-            />
-            <Container
-              className="top-0 order-last -mb-3 pt-3"
-              style={{ position: 'var(--header-position)' }}
-            >
-              <div
-                className="top-[var(--avatar-top,theme(spacing.3))] w-full"
-                style={{ position: 'var(--header-inner-position)' }}
-              >
-                <div className="relative">
-                  <AvatarContainer
-                    className="absolute left-0 top-3 origin-left transition-opacity"
-                    style={{
-                      opacity: 'var(--avatar-border-opacity, 0)',
-                      transform: 'var(--avatar-border-transform)',
-                    }}
-                  />
-                  <Avatar
-                    large
-                    className="block h-16 w-16 origin-left"
-                    style={{ transform: 'var(--avatar-image-transform)' }}
-                  />
-                </div>
-              </div>
-            </Container>
-          </>
-        )}
-        <div
-          ref={headerRef}
-          className="top-0 z-10 h-16 pt-6"
-          style={{ position: 'var(--header-position)' }}
+    <header className="sticky top-0 z-40 border-b border-rule bg-paper">
+      <Container className="flex h-[4.5rem] items-center gap-4">
+        <Link
+          href="/"
+          aria-label="Marko Bodiroza, home"
+          className="group mr-auto rounded-full"
         >
-          <Container
-            className="top-[var(--header-top,theme(spacing.6))] w-full"
-            style={{ position: 'var(--header-inner-position)' }}
-          >
-            <div className="relative flex gap-4">
-              <div className="flex flex-1">
-                {!isHomePage && (
-                  <AvatarContainer>
-                    <Avatar />
-                  </AvatarContainer>
-                )}
-              </div>
-              <div className="flex flex-1 justify-end md:justify-center">
-                <MobileNavigation className="pointer-events-auto md:hidden" />
-                <DesktopNavigation className="pointer-events-auto hidden md:block" />
-              </div>
-              <div className="flex justify-end md:flex-1">
-                <div className="pointer-events-auto">
-                  <ModeToggle />
-                </div>
-              </div>
-            </div>
-          </Container>
+          <Image
+            src={avatarImage}
+            alt=""
+            sizes="2.75rem"
+            className="h-11 w-11 rounded-full bg-sunken object-cover ring-[3px] ring-link ring-offset-2 ring-offset-paper transition-transform duration-300 ease-out-quart group-hover:-rotate-6 group-hover:scale-105"
+            priority
+          />
+        </Link>
+        <DesktopNavigation />
+        <div className="flex items-center gap-2">
+          <ModeToggle />
+          <BookCallButton size="sm" className="!px-4 sm:!px-5" />
+          <MobileNavigation />
         </div>
-      </header>
-      {isHomePage && <div style={{ height: 'var(--content-offset)' }} />}
-    </>
+      </Container>
+    </header>
   )
 }
