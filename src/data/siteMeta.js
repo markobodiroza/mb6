@@ -1,92 +1,28 @@
-
-import logoNP from '@/images/logos/nplogo.svg'
-import logoMicrosoft from '@/images/logos/rt.svg'
-import logoXOR from '@/images/logos/netinfo.svg'
-import logoVanilla from '@/images/logos/vanilla.svg'
-import logoFleek from '@/images/logos/fleeksvg.svg'
-
-import logoGolang from '@/images/logos/icons8-golang.svg'
-import logoKubernetes from '@/images/logos/kubernetes.svg'
-import logoCaptainhook from '@/images/logos/captainhook.svg'  
 const siteMeta = {
-    title: "Marko Bodiroza",
-    description: "Data Engineer & AI Specialist helping companies get more sales, create digital strategies, and transform.",
-    copyright: "Marko Bodiroza",
-    author: {
-        name: "Marko Bodiroza",
-        email: "mb@markobodiroza.com",
-        twitter: "https://twitter.com/markobodiroza",
-        instagram: "https://instagram.com/gradijent",
-        github: "https://github.com/markobodiroza",
-        linkedin: "https://linkedin.com/in/markobodiroza"
-    },
-    siteUrl: "https://markobodiroza.com"
+  title: 'Marko Bodiroza',
+  tagline: 'AI Strategist & System Builder',
+  description:
+    'AI strategist and system builder with 15+ years in digital marketing. I help marketing teams, agencies and B2B companies analyze their processes, plan AI adoption and train their people, whatever AI tools they use.',
+  // Short version for search result snippets (under 160 characters)
+  metaDescription:
+    'AI strategist and system builder helping marketing teams, agencies and B2B companies put AI to work through strategy, systems and training.',
+  copyright: 'Marko Bodiroza',
+  author: {
+    name: 'Marko Bodiroza',
+    email: 'mb@markobodiroza.com',
+    twitter: 'https://twitter.com/markobodiroza',
+    instagram: 'https://instagram.com/gradijent',
+    github: 'https://github.com/markobodiroza',
+    linkedin: 'https://linkedin.com/in/markobodiroza',
+  },
+  siteUrl: 'https://markobodiroza.com',
+  // Booking page URL (Cal.com, Calendly or HubSpot meetings). Until it is set,
+  // every Book a Call button opens an email instead.
+  bookingUrl: 'https://cal.com/markobodiroza/ai-exploratory-meeting',
+  // Form endpoint that accepts a JSON POST (Formspree, Basin, Getform or a
+  // HubSpot-backed handler). Until it is set, the contact form opens the
+  // visitor's email app with the message filled in.
+  formEndpoint: 'https://formspree.io/f/xjygnbnk',
 }
-export const resume = [
-    {
-      company: 'New Perspective',
-      title: 'Director of Marketing',
-      logo: logoNP,
-      start: '2020',
-      end: {
-        label: 'Present',
-        dateTime: new Date().getFullYear(),
-      },
-    },
-    {
-      company: 'RT-RK Institute',
-      title: 'Senior Web Developer',
-      logo: logoMicrosoft,
-      start: '2016',
-      end: '2020',
-    },
-    {
-      company: 'Net Informatika',
-      title: 'Web Developer',
-      logo: logoXOR,
-      start: '2014',
-      end: '2016',
-    },
-  ]
-export const projects = [
-  {
-    name: 'Fleek',
-    description:
-      'Install and manage all the tools you need to be productive.',
-    link: { href: 'https://getfleek.dev', label: 'getfleek.dev' },
-    logo: logoFleek,
-  },
-  {
-    name: 'Vanilla OS',
-    description:
-      'Vanilla OS is an immutable and atomic Ubuntu Linux-based Point Release distribution, that receives updates at the right time, neither before nor after, without sacrificing security and functionality.',
-    link: { href: 'https://vanillaos.org', label: 'vanillaos.org' },
-    logo: logoVanilla,
-  },
-  {
-    name: 'Captain Hook',
-    description:
-      'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'https://github.com/bketelsen/captainhook', label: 'github.com' },
-    logo: logoCaptainhook,
-  },
-  {
-    name: 'Kubernetes',
-    description:
-      'Production-Grade Container Scheduling and Management',
-    link: { href: 'https://github.com/kubernetes/kubernetes', label: 'github.com' },
-    logo: logoKubernetes,
-  },
-  {
-    name: 'Go',
-    description:
-      'Build fast, reliable, and efficient software at scale',
-    link: { href: 'https://go.dev', label: 'go.dev' },
-    logo: logoGolang,
-  },
 
-
-]
-
-
-export default siteMeta;
+export default siteMeta

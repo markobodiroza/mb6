@@ -1,54 +1,41 @@
-import { useEffect, useRef } from 'react'
+import { DefaultSeo } from 'next-seo'
+import localFont from 'next/font/local'
 
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
-import SEO from './next-seo.config'
-import { DefaultSeo } from 'next-seo';
+import SEO from '@/lib/next-seo.config'
+import { useReveal } from '@/lib/useReveal'
 
 import '@/styles/tailwind.css'
-import 'focus-visible'
 
+// Google Sans Flex, self-hosted (no Google requests). The rond build carries
+// the weight and roundness axes only, about 70 KB for Latin. next/font
+// preloads it and sizes the fallback so text does not jump when it loads.
+const sans = localFont({
+  src: '../../node_modules/@fontsource-variable/google-sans-flex/files/google-sans-flex-latin-rond-normal.woff2',
+  weight: '1 1000',
+  display: 'swap',
+  variable: '--font-sans',
+  adjustFontFallback: 'Arial',
+})
 
-import { MDXProvider } from '@mdx-js/react'
-import  Pre  from '@/components/Pre'
-
-
-const components = {
-
-  pre: Pre,
-
-}
-
-function usePrevious(value) {
-  let ref = useRef()
-
-  useEffect(() => {
-    ref.current = value
-  }, [value])
-
-  return ref.current
-}
-
-export default function App({ Component, pageProps, router }) {
-  let previousPathname = usePrevious(router.pathname)
+export default function App({ Component, pageProps }) {
+  useReveal()
 
   return (
-   <>
-   <DefaultSeo {...SEO} />
-        <MDXProvider components={components}>
-      <div className="fixed inset-0 flex justify-center sm:px-8">
-        <div className="flex w-full max-w-7xl lg:px-8">
-          <div className="w-full bg-white ring-1 ring-neutral-100 dark:bg-neutral-900 dark:ring-neutral-300/20" />
-        </div>
-      </div>
-      <div className="relative">
-        <Header />
-        <main>
-          <Component previousPathname={previousPathname} {...pageProps} />
-        </main>
-        <Footer />
-      </div>
-    </MDXProvider>
-    </>
+    <div className={`${sans.variable} flex min-h-screen flex-col font-sans`}>
+      <DefaultSeo {...SEO} />
+      <a
+        href="#main"
+        className="sr-only z-50 rounded-md bg-action px-4 py-2 font-semibold text-action-fg focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+      >
+        Skip to content
+      </a>
+      <Header />
+      <main id="main" className="flex-1">
+        <Component {...pageProps} />
+      </main>
+      <Footer />
+    </div>
   )
 }

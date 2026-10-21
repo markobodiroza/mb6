@@ -1,7 +1,15 @@
 import { Head, Html, Main, NextScript } from 'next/document'
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import siteMeta from '@/data/siteMeta'
 
 const modeScript = `
+  // Scroll reveals only when motion is welcome and the browser supports it
+  if (
+    'IntersectionObserver' in window &&
+    !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  ) {
+    document.documentElement.classList.add('reveal-ready')
+  }
+
   let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
 
   updateMode()
@@ -38,30 +46,45 @@ const modeScript = `
 
 export default function Document() {
   return (
-    <Html className="h-full antialiased" lang="en">
+    <Html lang="en">
       <Head>
         <meta
           name="google-site-verification"
           content="6Y5LdwUX5hOcmfv8BFx27Zy2ody8ntkT20Xe23Nidho"
         />
         <script dangerouslySetInnerHTML={{ __html: modeScript }} />
+        <link rel="icon" href="/fixed/favicons/favicon.ico" sizes="any" />
         <link
-          rel="alternate"
-          type="application/rss+xml"
-          href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.xml`}
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/fixed/favicons/favicon-32x32.png"
         />
         <link
-          rel="alternate"
-          type="application/feed+json"
-          href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.json`}
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/fixed/favicons/favicon-16x16.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/fixed/favicons/apple-touch-icon.png"
+        />
+        <link
+          rel="mask-icon"
+          href="/fixed/favicons/safari-pinned-tab.svg"
+          color="#1a29a2"
+        />
+        <link rel="manifest" href="/fixed/favicons/site.webmanifest" />
+        <meta
+          name="msapplication-config"
+          content="/fixed/favicons/browserconfig.xml"
         />
       </Head>
-      <body className="flex flex-col h-full bg-neutral-50 dark:bg-black">
+      <body>
         <Main />
         <NextScript />
-        <div style={{display: 'none'}}>        <a rel="me" href="https://tty0.social/@bketelsen">Mastodon</a>
-</div>
-      <SpeedInsights />  
       </body>
     </Html>
   )

@@ -1,201 +1,277 @@
-import Image from "next/image";
+import Image from 'next/image'
 import Link from 'next/link'
+import { NextSeo } from 'next-seo'
 
-import { Button } from '@/components/Button'
-import { Card } from '@/components/Card'
+import { BookCallButton, Button } from '@/components/Button'
 import { Container } from '@/components/Container'
+import { CtaBand } from '@/components/CtaBand'
+import { ArrowRightIcon } from '@/components/Icons'
+import { InsightRow } from '@/components/InsightRow'
+import { JsonLd } from '@/components/JsonLd'
 import {
-  TwitterIcon,
-  InstagramIcon,
-  LinkedInIcon,
-} from '@/components/SocialIcons'
+  hourlyRate,
+  pricingPackages,
+  processSteps,
+  services,
+} from '@/data/content'
+import { insights } from '@/data/insights'
+import siteMeta from '@/data/siteMeta'
+import portraitImage from '@/images/marko-head.jpg'
+import { contactHref } from '@/lib/contact'
+import { formatPrice } from '@/lib/formatPrice'
+import { absoluteUrl, pageOpenGraph, personSchema } from '@/lib/seo'
 
+// Projects, day rates and retainers are priced differently, so the teaser
+// names each one instead of mixing them under "from"
+const projectPackages = pricingPackages.filter((pkg) =>
+  ['per project', 'per process'].includes(pkg.unit)
+)
+const lowestProjectPrice = Math.min(...projectPackages.map((pkg) => pkg.price))
+const workshop = pricingPackages.find((pkg) => pkg.unit === 'per day')
+const advisory = pricingPackages.find((pkg) => pkg.unit === 'per month')
 
-import { generateRssFeed } from '@/lib/generateRssFeed'
-import { getAllArticles } from '@/lib/getAllArticles'
-import { formatDate } from '@/lib/formatDate'
-import  siteMeta, {resume} from '@/data/siteMeta'
-import { NextSeo } from 'next-seo';
+const ruleOnNight =
+  'border-[color-mix(in_oklch,var(--on-night)_18%,transparent)]'
 
-
-function BriefcaseIcon(props) {
+function Hero() {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      {...props}
+    <section className="blueprint on-brand overflow-hidden text-on-brand">
+      <Container className="grid items-center gap-12 py-16 sm:py-24 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-14 lg:py-28">
+        <div>
+          <p className="enter eyebrow text-citron">{siteMeta.tagline}</p>
+          <h1 className="text-display enter-rise mt-6">
+            I Help Teams Put{' '}
+            <span className="marker text-citron">AI to Work</span> in Their
+            Daily Operations
+          </h1>
+          <p
+            className="text-lead enter mt-7 max-w-xl text-on-brand-muted"
+            style={{ '--i': 1 }}
+          >
+            I map how your team works, plan where AI fits, build the systems and
+            train your people to run them. I work in the tools you already have,
+            whether that is ChatGPT, Claude, Gemini or something else.
+          </p>
+          <div
+            className="enter mt-10 flex flex-col gap-4 sm:flex-row"
+            style={{ '--i': 2 }}
+          >
+            <BookCallButton variant="on-brand" />
+            <Button variant="on-brand-outline" href={contactHref()}>
+              Send a Message
+            </Button>
+          </div>
+          <p
+            className="enter mt-10 max-w-xl text-[1.0625rem] font-medium text-on-brand-muted"
+            style={{ '--i': 3 }}
+          >
+            15+ years in digital marketing, engineering, AI and SEO. Working
+            with marketing teams, agencies and B2B companies.
+          </p>
+        </div>
+        <div className="relative mx-auto w-full max-w-[17rem] sm:max-w-sm lg:max-w-none">
+          <div
+            aria-hidden="true"
+            className="enter-settle absolute -bottom-4 -right-4 h-full w-full rounded-[1.75rem] bg-citron"
+          />
+          <Image
+            src={portraitImage}
+            alt="Portrait of Marko Bodiroza"
+            sizes="(min-width: 1024px) 26rem, 24rem"
+            className="relative aspect-[4/5] w-full rounded-[1.75rem] object-cover object-[50%_30%]"
+            priority
+          />
+        </div>
+      </Container>
+    </section>
+  )
+}
+
+function ServicesOverview() {
+  return (
+    <section aria-labelledby="services-heading" className="pt-section">
+      <Container>
+        <div
+          data-reveal
+          className="flex flex-wrap items-end justify-between gap-6"
+        >
+          <div className="max-w-2xl">
+            <p className="eyebrow text-link">What I Do</p>
+            <h2 id="services-heading" className="text-section mt-4">
+              Services
+            </h2>
+            <p className="text-lead mt-5 text-graphite">
+              From strategy and roadmap to the AI systems your team runs on.
+            </p>
+          </div>
+          <Button variant="secondary" href="/services">
+            All Services
+            <ArrowRightIcon className="h-4 w-4" />
+          </Button>
+        </div>
+        <ol className="mt-14 grid gap-x-14 sm:grid-cols-2">
+          {services.map((service, index) => (
+            <li
+              key={service.title}
+              data-reveal
+              style={{ '--i': index % 2 }}
+              className="grid grid-cols-[4.5rem_1fr] gap-x-4 border-t-2 border-ink py-8"
+            >
+              <span className="big-numeral text-link" aria-hidden="true">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <div className="pt-1">
+                <h3 className="text-title">{service.title}</h3>
+                <p className="mt-2 text-graphite">{service.summary}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </Container>
+    </section>
+  )
+}
+
+function ProcessAndPricing() {
+  return (
+    <section
+      aria-labelledby="process-heading"
+      className="on-night mt-section py-section bg-night text-on-night dark:border-y-2 dark:border-rule"
     >
-      <path
-        d="M2.75 9.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
-        className="fill-neutral-100 stroke-neutral-400 dark:fill-neutral-100/10 dark:stroke-neutral-500"
-      />
-      <path
-        d="M3 14.25h6.249c.484 0 .952-.002 1.316.319l.777.682a.996.996 0 0 0 1.316 0l.777-.682c.364-.32.832-.319 1.316-.319H21M8.75 6.5V4.75a2 2 0 0 1 2-2h2.5a2 2 0 0 1 2 2V6.5"
-        className="stroke-neutral-400 dark:stroke-neutral-500"
-      />
-    </svg>
-  )
-}
-
-function ArrowDownIcon(props) {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
-      <path
-        d="M4.75 8.75 8 12.25m0 0 3.25-3.5M8 12.25v-8.5"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
-
-function Article({ article }) {
-  return (
-    <Card as="article">
-      <Card.Title href={`/blog/${article.slug}`}>
-        {article.title}
-      </Card.Title>
-      <Card.Eyebrow as="time" dateTime={article.date} decorate>
-        {formatDate(article.date)}
-      </Card.Eyebrow>
-      <Card.Description>{article.description}</Card.Description>
-      <Card.Cta>Read article</Card.Cta>
-    </Card>
-  )
-}
-
-function SocialLink({ icon: Icon, ...props }) {
-  return (
-    <Link className="p-1 -m-1 group" {...props}>
-      <Icon className="w-6 h-6 transition fill-neutral-500 group-hover:fill-neutral-700 dark:fill-neutral-400 dark:group-hover:fill-neutral-300" />
-    </Link>
-  )
-}
-
-function Resume() {
-
-  return (
-    <div className="p-6 border rounded-2xl border-neutral-100 dark:border-neutral-700/40">
-      <h2 className="flex text-sm font-semibold text-neutral-900 dark:text-neutral-100">
-        <BriefcaseIcon className="flex-none w-6 h-6" />
-        <span className="ml-3">Work</span>
-      </h2>
-      <ol className="mt-6 space-y-4">
-        {resume.map((role, roleIndex) => (
-          <li key={roleIndex} className="flex gap-4">
-            <div className="relative flex items-center justify-center flex-none w-10 h-10 mt-1 rounded-full shadow-md shadow-neutral-800/5 ring-1 ring-neutral-900/5 dark:border dark:border-neutral-700/50 dark:bg-neutral-800 dark:ring-0">
-              <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
-            </div>
-            <dl className="flex flex-wrap flex-auto gap-x-2">
-              <dt className="sr-only">Company</dt>
-              <dd className="flex-none w-full text-sm font-medium text-neutral-900 dark:text-neutral-100">
-                {role.company}
-              </dd>
-              <dt className="sr-only">Role</dt>
-              <dd className="text-xs text-neutral-500 dark:text-neutral-400">
-                {role.title}
-              </dd>
-              <dt className="sr-only">Date</dt>
-              <dd
-                className="ml-auto text-xs text-neutral-500 dark:text-neutral-500"
-                aria-label={`${role.start.label ?? role.start} until ${
-                  role.end.label ?? role.end
-                }`}
+      <Container>
+        <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] lg:gap-20">
+          <div data-reveal>
+            <p className="eyebrow text-citron">Process</p>
+            <h2 id="process-heading" className="text-section mt-4">
+              How I Work
+            </h2>
+            <p className="text-lead mt-5 max-w-md text-on-night-muted">
+              I get one thing working before scaling it, and your people stay in
+              charge of the decisions that matter.
+            </p>
+            <Link
+              href="/process"
+              className="group mt-8 inline-flex items-center gap-2 font-bold text-citron"
+            >
+              More on My Process
+              <ArrowRightIcon className="h-4 w-4 transition-transform duration-200 ease-out-quart group-hover:translate-x-0.5" />
+            </Link>
+          </div>
+          <ol className={`border-t ${ruleOnNight}`}>
+            {processSteps.map((step, index) => (
+              <li
+                key={step.title}
+                data-reveal
+                style={{ '--i': index }}
+                className={`grid grid-cols-[3.5rem_1fr] gap-x-4 border-b py-6 sm:grid-cols-[3.5rem_13rem_1fr] sm:gap-x-6 ${ruleOnNight}`}
               >
-                <time dateTime={role.start.dateTime ?? role.start}>
-                  {role.start.label ?? role.start}
-                </time>{' '}
-                <span aria-hidden="true">—</span>{' '}
-                <time dateTime={role.end.dateTime ?? role.end}>
-                  {role.end.label ?? role.end}
-                </time>
-              </dd>
-            </dl>
-          </li>
-        ))}
-      </ol>
-      <Button href="https://linkedin.com/in/markobodiroza" variant="secondary" className="w-full mt-6 group">
-               Connect with me on LinkedIn
-        <ArrowDownIcon className="w-4 h-4 transition stroke-neutral-400 group-active:stroke-neutral-700 dark:group-hover:stroke-neutral-50 dark:group-active:stroke-neutral-50" />
-      </Button>
-    </div>
+                <span
+                  className="text-[1.625rem] font-[850] leading-none tracking-[-0.04em] text-citron"
+                  aria-hidden="true"
+                >
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 className="text-[1.1875rem] font-bold leading-[1.35]">
+                  {step.title.replace(/^\d+\.\s*/, '')}
+                </h3>
+                <p className="col-start-2 mt-1 text-[0.9375rem] leading-[1.6] text-on-night-muted sm:col-start-auto sm:mt-0">
+                  {step.description}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </div>
+        <div
+          data-reveal
+          className="mt-20 flex flex-col gap-8 rounded-[1.75rem] bg-citron p-8 text-on-citron sm:flex-row sm:items-center sm:justify-between sm:p-10"
+        >
+          <div>
+            <p className="eyebrow">Pricing</p>
+            <p className="mt-3 text-[clamp(1.75rem,1.3rem+1.6vw,2.5rem)] font-[800] leading-[1.1] tracking-[-0.03em]">
+              Projects from {formatPrice(lowestProjectPrice)}
+            </p>
+            <p className="mt-2 text-[1.0625rem] font-medium">
+              Workshops from {formatPrice(workshop.price)} a day. Monthly
+              advisory from {formatPrice(advisory.price)}. Hourly at{' '}
+              {formatPrice(hourlyRate.price)}.
+            </p>
+          </div>
+          <Button variant="night" href="/pricing">
+            See Pricing
+            <ArrowRightIcon className="h-4 w-4" />
+          </Button>
+        </div>
+      </Container>
+    </section>
   )
 }
 
-export default function Home({ articles }) {
+function LatestInsights() {
+  return (
+    <section aria-labelledby="insights-heading" className="pt-section">
+      <Container>
+        <div
+          data-reveal
+          className="flex flex-wrap items-end justify-between gap-6"
+        >
+          <div className="max-w-2xl">
+            <p className="eyebrow text-link">Insights</p>
+            <h2 id="insights-heading" className="text-section mt-4">
+              Latest Thinking
+            </h2>
+            <p className="text-lead mt-5 text-graphite">
+              Short, practical notes on AI search and putting AI to work.
+            </p>
+          </div>
+          <Button variant="secondary" href="/insights">
+            All Insights
+            <ArrowRightIcon className="h-4 w-4" />
+          </Button>
+        </div>
+        <div className="mt-12 border-t-2 border-ink">
+          {insights.slice(0, 3).map((insight) => (
+            <InsightRow key={insight.slug} insight={insight} />
+          ))}
+        </div>
+      </Container>
+    </section>
+  )
+}
+
+export default function Home() {
   return (
     <>
-    <NextSeo
-      title="Marko Bodiroza: Marketing Engineer, SEO Expert"
-      description={siteMeta.description}
-      canonical="https://markobodiroza.com/"
-      openGraph={{
-        url: 'https://markobodiroza.com',
-        images: [
-          {
-            url: `https://og.markobodiroza.com/api/og?title=${siteMeta.title}&desc=${siteMeta.description}`,
-            width: 1200,
-            height: 600,
-            alt: 'Og Image Alt',
-            type: 'image/jpeg',
-          }
-        ],
-        siteName: 'markobodiroza.com',
-      }}
-    />
-      <Container className="mt-9">
-        <div className="max-w-2xl text-lg">
-         <h1 className="text-4xl font-bold tracking-tight text-neutral-800 dark:text-neutral-100 sm:text-5xl min-h-9">
-           Helping innovative companies fuel growth with next-gen digital marketing and AI.
-          </h1>
-          <p className="mt-6 prose dark:prose-invert">
-           Hi there! I'm Marko Bodiroza. At the heart of digital marketing innovation for 14 years, I’ve pioneered strategies in AI, SEO, and web and content development. 
-          </p>
-          <div className="flex gap-6 mt-6">
-            <SocialLink
-              href={siteMeta.author.twitter}
-              aria-label="Follow on Twitter"
-              icon={TwitterIcon}
-            />
-            <SocialLink
-              href={siteMeta.author.linkedin}
-              aria-label="Follow on LinkedIn"
-              icon={LinkedInIcon}
-            />
-          </div>
-        </div>
-      </Container>
-      <Container className="mt-24 md:mt-28">
-        <div className="grid max-w-xl grid-cols-1 mx-auto gap-y-20 lg:max-w-none lg:grid-cols-2">
-          <div className="flex flex-col gap-16">
-            {articles.map((article) => (
-              <Article key={article.slug} article={article} />
-            ))}
-          </div>
-          <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Resume />
-          </div>
-        </div>
-      </Container>
+      <NextSeo
+        title={`${siteMeta.title}: ${siteMeta.tagline}`}
+        description={siteMeta.metaDescription}
+        canonical={absoluteUrl('/')}
+        openGraph={pageOpenGraph({
+          path: '/',
+          title: siteMeta.title,
+          description: siteMeta.tagline,
+        })}
+      />
+      <JsonLd
+        id="website"
+        data={{
+          '@graph': [
+            {
+              '@type': 'WebSite',
+              '@id': absoluteUrl('/#website'),
+              url: siteMeta.siteUrl,
+              name: siteMeta.title,
+              description: siteMeta.description,
+              publisher: { '@id': personSchema['@id'] },
+            },
+            personSchema,
+          ],
+        }}
+      />
+      <Hero />
+      <ServicesOverview />
+      <ProcessAndPricing />
+      <LatestInsights />
+      <CtaBand />
     </>
   )
-}
-
-export async function getStaticProps() {
-  if (process.env.NODE_ENV === 'production') {
-    await generateRssFeed()
-  }
-
-  return {
-    props: {
-      articles: (await getAllArticles())
-        .slice(0, 4)
-        .map(({ component, ...meta }) => meta),
-    },
-  }
 }
