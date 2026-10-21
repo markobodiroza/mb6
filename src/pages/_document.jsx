@@ -40,6 +40,10 @@ export default function Document() {
   return (
     <Html className="h-full antialiased" lang="en">
       <Head>
+        <meta
+          name="google-site-verification"
+          content="6Y5LdwUX5hOcmfv8BFx27Zy2ody8ntkT20Xe23Nidho"
+        />
         <script dangerouslySetInnerHTML={{ __html: modeScript }} />
         <link
           rel="alternate"
