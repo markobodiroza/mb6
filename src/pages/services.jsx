@@ -51,22 +51,26 @@ function Service({ service, index }) {
           ))}
         </ul>
       </div>
-      <div className="rounded-[1.25rem] bg-sunken p-6 sm:p-7 lg:sticky lg:top-28 lg:self-start">
+      <div className="on-brand rounded-[1.25rem] bg-brand p-6 text-on-brand shadow-card sm:p-7 lg:sticky lg:top-28 lg:self-start dark:bg-raised">
         <p>
-          <span className="label block text-muted">Good Fit For</span>
+          <span className="label block text-on-brand-muted">Good Fit For</span>
           <span className="mt-1 block font-bold">
             {service.roles.join(', ')}
           </span>
-          <span className="mt-1 block text-graphite">{service.goodFit}</span>
+          <span className="mt-1 block text-on-brand-muted">
+            {service.goodFit}
+          </span>
         </p>
         {pkg && (
-          <p className="mt-6 border-t border-rule pt-6">
-            <span className="label block text-muted">Priced As</span>
+          <p className="mt-6 border-t border-[color-mix(in_oklch,var(--on-brand)_25%,transparent)] pt-6">
+            <span className="label block text-on-brand-muted">Priced As</span>
             <Link
               href={`/pricing#${pkg.slug}`}
-              className="group mt-1 inline-flex items-center gap-2 font-bold text-link"
+              className="group mt-1 inline-flex items-center gap-2 font-bold text-citron"
             >
-              <span className="marker-hover">{pkg.name}</span>
+              <span className="underline-offset-4 group-hover:underline">
+                {pkg.name}
+              </span>
               <ArrowRightIcon className="h-4 w-4 transition-transform duration-200 ease-out-quart group-hover:translate-x-1" />
             </Link>
           </p>

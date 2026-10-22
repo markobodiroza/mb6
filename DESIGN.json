@@ -1,0 +1,253 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-22T21:30:00Z",
+  "title": "Design System: Marko Bodiroza",
+  "extensions": {
+    "colorMeta": {
+      "pigment-ultramarine": {
+        "role": "primary",
+        "displayName": "Pigment Ultramarine",
+        "canonical": "oklch(0.37 0.19 268)",
+        "tonalRamp": [
+          "oklch(0.15 0.08 268)",
+          "oklch(0.23 0.11 268)",
+          "oklch(0.31 0.15 268)",
+          "oklch(0.37 0.19 268)",
+          "oklch(0.48 0.17 266)",
+          "oklch(0.62 0.13 264)",
+          "oklch(0.78 0.08 262)",
+          "oklch(0.93 0.03 262)"
+        ]
+      },
+      "lapel-citron": {
+        "role": "secondary",
+        "displayName": "Lapel Citron",
+        "canonical": "oklch(0.91 0.19 117)",
+        "tonalRamp": [
+          "oklch(0.35 0.08 117)",
+          "oklch(0.5 0.12 117)",
+          "oklch(0.65 0.15 117)",
+          "oklch(0.78 0.18 117)",
+          "oklch(0.86 0.19 117)",
+          "oklch(0.91 0.19 117)",
+          "oklch(0.95 0.12 117)",
+          "oklch(0.98 0.05 117)"
+        ]
+      },
+      "night-ink": {
+        "role": "tertiary",
+        "displayName": "Night Ink",
+        "canonical": "oklch(0.2 0.03 268)"
+      },
+      "cool-paper": {
+        "role": "neutral",
+        "displayName": "Cool Paper",
+        "canonical": "oklch(0.985 0.005 265)"
+      },
+      "sunken-paper": {
+        "role": "neutral",
+        "displayName": "Sunken Paper",
+        "canonical": "oklch(0.955 0.018 265)"
+      },
+      "night-page": {
+        "role": "neutral",
+        "displayName": "Night Page (dark)",
+        "canonical": "oklch(0.23 0.09 268)"
+      },
+      "night-field": {
+        "role": "primary",
+        "displayName": "Night Field (dark brand fields)",
+        "canonical": "oklch(0.28 0.14 268)"
+      },
+      "night-section": {
+        "role": "tertiary",
+        "displayName": "Night Section (dark)",
+        "canonical": "oklch(0.34 0.13 268)"
+      },
+      "night-raised": {
+        "role": "neutral",
+        "displayName": "Night Raised (dark cards)",
+        "canonical": "oklch(0.42 0.17 268)"
+      }
+    },
+    "typographyMeta": {
+      "page-title": {
+        "displayName": "Page Title",
+        "purpose": "Hero headline, page titles and the closing band."
+      },
+      "section": { "displayName": "Section", "purpose": "Section headings." },
+      "heading": {
+        "displayName": "Heading",
+        "purpose": "Service and work titles, pricing teaser, Not Sure band."
+      },
+      "subhead": {
+        "displayName": "Subhead",
+        "purpose": "Package names, Process steps, article sections."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Small headings, FAQ questions, insight titles."
+      },
+      "lead": { "displayName": "Lead", "purpose": "Intros under headings." },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All reading text, 60ch maximum."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Title Case in-card labels, notes, chips and small print."
+      },
+      "price": {
+        "displayName": "Price",
+        "purpose": "Package and hourly prices."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card",
+        "value": "0 1px 2px oklch(0.2 0.03 268 / 0.08), 0 12px 28px -14px oklch(0.37 0.19 268 / 0.4)",
+        "purpose": "Raised diagram steps and the services fit box. Dark mode uses a deeper navy shadow."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Entrances, reveals and pops."
+      },
+      {
+        "name": "ease-out-quart",
+        "value": "cubic-bezier(0.25, 1, 0.5, 1)",
+        "purpose": "Hover and state feedback at 200ms."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Book a Call",
+      "kind": "button",
+      "refersTo": "button-book-call",
+      "description": "The primary call to action. Citron on blue fields.",
+      "html": "<a class=\"ds-btn-call\" href=\"#\">Book a Call</a>",
+      "css": ".ds-btn-call { display: inline-flex; align-items: center; height: 52px; padding: 0 28px; border-radius: 9999px; background: var(--color-citron, oklch(0.91 0.19 117)); color: var(--color-on-citron, oklch(0.2 0.03 268)); font-weight: 700; text-decoration: none; transition: background-color 200ms cubic-bezier(0.25, 1, 0.5, 1), transform 200ms cubic-bezier(0.25, 1, 0.5, 1); } .ds-btn-call:hover { background: oklch(0.985 0.005 265); } .ds-btn-call:active { transform: translateY(1px) scale(0.97); } .ds-btn-call:focus-visible { outline: 2px solid oklch(0.91 0.19 117); outline-offset: 3px; }"
+    },
+    {
+      "name": "Send Inquiry",
+      "kind": "button",
+      "refersTo": "button-send-inquiry",
+      "description": "The second call to action. Ink outline on paper.",
+      "html": "<a class=\"ds-btn-inquiry\" href=\"#\">Send Inquiry</a>",
+      "css": ".ds-btn-inquiry { display: inline-flex; align-items: center; height: 52px; padding: 0 28px; border-radius: 9999px; border: 2px solid oklch(0.2 0.03 268); color: oklch(0.2 0.03 268); font-weight: 700; text-decoration: none; transition: background-color 200ms, color 200ms; } .ds-btn-inquiry:hover { background: oklch(0.2 0.03 268); color: oklch(0.985 0.005 265); } .ds-btn-inquiry:focus-visible { outline: 2px solid oklch(0.5 0.2 266); outline-offset: 3px; }"
+    },
+    {
+      "name": "Arrow Link",
+      "kind": "custom",
+      "description": "Every non-CTA action: bold link text with a trailing arrow.",
+      "html": "<a class=\"ds-arrow\" href=\"#\">See All Services <svg viewBox=\"0 0 16 16\" fill=\"none\" width=\"16\" height=\"16\"><path d=\"M3.5 8h9m0 0L9 4.5M12.5 8 9 11.5\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a>",
+      "css": ".ds-arrow { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: oklch(0.4 0.19 268); text-decoration: none; } .ds-arrow svg { transition: transform 200ms cubic-bezier(0.25, 1, 0.5, 1); } .ds-arrow:hover svg { transform: translateX(4px); } .ds-arrow:focus-visible { outline: 2px solid oklch(0.5 0.2 266); outline-offset: 3px; }"
+    },
+    {
+      "name": "Tool Tag",
+      "kind": "chip",
+      "refersTo": "tool-tag",
+      "description": "A tinted pill naming a tool.",
+      "html": "<span class=\"ds-tag\">Claude</span>",
+      "css": ".ds-tag { display: inline-block; padding: 6px 14px; border-radius: 9999px; background: color-mix(in oklch, oklch(0.4 0.19 268) 14%, oklch(0.985 0.005 265)); color: oklch(0.4 0.19 268); font-size: 0.9375rem; font-weight: 600; }"
+    },
+    {
+      "name": "Diagram Step",
+      "kind": "card",
+      "refersTo": "diagram-step",
+      "description": "A raised step on a pale blue diagram panel.",
+      "html": "<div class=\"ds-panel\"><div class=\"ds-step\"><p class=\"ds-step-title\">Company Research</p><p class=\"ds-step-note\">AI tools and MCP connectors</p></div></div>",
+      "css": ".ds-panel { background: oklch(0.955 0.018 265); border-radius: 28px; padding: 36px; } .ds-step { background: oklch(0.985 0.005 265); color: oklch(0.2 0.03 268); border-radius: 16px; padding: 12px 16px; box-shadow: 0 1px 2px oklch(0.2 0.03 268 / 0.08), 0 12px 28px -14px oklch(0.37 0.19 268 / 0.4); } .ds-step-title { margin: 0; font-weight: 700; } .ds-step-note { margin: 4px 0 0; font-size: 0.9375rem; color: oklch(0.33 0.025 268); }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Paper field with a 2px Field Line outline.",
+      "html": "<input class=\"ds-input\" placeholder=\"you@company.com\">",
+      "css": ".ds-input { width: 100%; padding: 12px 16px; border-radius: 12px; border: 2px solid oklch(0.62 0.03 265); background: oklch(0.985 0.005 265); color: oklch(0.2 0.03 268); font-size: 1.0625rem; transition: border-color 200ms; } .ds-input:hover { border-color: oklch(0.33 0.025 268); } .ds-input:focus { outline: none; border-color: oklch(0.4 0.19 268); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Blueprint With a Highlighter",
+    "overview": "A precise engineering drawing someone has gone over with a highlighter. Deep pigment ultramarine carries the big moments; a sharp citron, taken from the lime pin on Marko's lapel, marks what matters; night ink and cool paper give the page real contrast. The drafting grid lives only on the large brand fields. The site is a working tool for busy decision makers: a sticky header, two calls to action everywhere and predictable page shapes, framed in color from a blue header to a night footer.",
+    "keyCharacteristics": [
+      "Full palette with clear roles: ultramarine fields, citron highlights, night sections, cool paper",
+      "A 48px drafting grid on brand fields only",
+      "One sans family on a 1.25 type scale, with heavy rounded headings",
+      "Pill buttons, and only two of them: Book a Call and Send Inquiry",
+      "Flat surfaces, except raised cards, which take one soft blue-tinted shadow",
+      "Light and a designed dark mode, both WCAG 2.2 AA"
+    ],
+    "rules": [
+      {
+        "name": "The Highlighter Rule",
+        "body": "Citron is a background or a color on blue and night fields. It is never text on light paper.",
+        "section": "colors"
+      },
+      {
+        "name": "The Committed Field Rule",
+        "body": "Ultramarine appears as large solid fields or as an action color, never as a gradient, glow or text gradient. The drafting grid is the only pattern allowed on it, and only on brand fields.",
+        "section": "colors"
+      },
+      {
+        "name": "The Even Steps Rule",
+        "body": "In dark mode each surface sits on its own lightness step (0.23, 0.27, 0.28, 0.34, 0.42). Two adjacent surfaces closer than one step will blend, so they are forbidden next to each other.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Pure Values Rule",
+        "body": "No #000 and no #fff. Every neutral is tinted toward hue 265 to 268.",
+        "section": "colors"
+      },
+      {
+        "name": "The 1.25 Rule",
+        "body": "Every step is at least 25% larger than the one below. Sizes between steps are forbidden; if something needs to stand out, change its weight, not its size.",
+        "section": "typography"
+      },
+      {
+        "name": "The Title Case Label Rule",
+        "body": "Labels are Title Case, bold and small. No uppercase, letter-spaced eyebrows above headings.",
+        "section": "typography"
+      },
+      {
+        "name": "The ExtraBold Ceiling Rule",
+        "body": "Nothing heavier than 800.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Lift Rule",
+        "body": "Only raised cards cast a shadow, and only the card shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use only two buttons: Book a Call and Send Inquiry. Every other action is an arrow link.",
+      "Do keep type on the 1.25 scale: 15, 17, 21 and 26.5px, then the fluid heading, section and page title steps.",
+      "Do frame every page with color: blue header, blue closing band, night footer.",
+      "Do keep the dark-mode surfaces on their own steps (0.23, 0.27, 0.28, 0.34, 0.42) so nothing disappears.",
+      "Do use citron to highlight one thing per view: a phrase, a result, a button.",
+      "Do keep body text at 17px, Graphite or darker, and 60ch maximum.",
+      "Do follow the copy rules in PRODUCT.md: Title Case headings, no em dashes, no serial comma before \"and\", no invented numbers."
+    ],
+    "donts": [
+      "Don't use the generic AI startup look: purple gradients, glowing orbs, neon on black or robot and brain imagery.",
+      "Don't fall back to the template portfolio look this site started from, interchangeable with thousands of developer blogs.",
+      "Don't use the corporate agency look: stock photos of handshakes, buzzword heroes or logo walls.",
+      "Don't use the guru or course seller look: countdowns, hype claims, big-number testimonials or aggressive upsells.",
+      "Don't put the drafting grid on diagrams, cards or anything smaller than a full-width brand field.",
+      "Don't add uppercase eyebrows above headings or decorative numerals beside items that have no order.",
+      "Don't let dark mode go black, or reuse the light-mode blue on dark-mode brand fields.",
+      "Don't put citron text on paper, or use gradient text, glassmorphism, side-stripe borders or grids of identical icon cards.",
+      "Don't add shadows beyond the single card shadow on raised cards."
+    ]
+  }
+}
