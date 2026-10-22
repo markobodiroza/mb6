@@ -19,15 +19,11 @@ export function Testimonials({ items = testimonials }) {
         <h2
           id="testimonials-heading"
           data-reveal
-          className="text-section max-w-2xl xl:mx-[calc(50%-min(50vw-3rem,45rem))]"
+          className="text-section max-w-2xl"
         >
           What Clients Say
         </h2>
-        {/* Wider than the text column on large screens, like the diagrams */}
-        <ul
-          role="list"
-          className="mt-10 grid gap-6 lg:grid-cols-3 xl:mx-[calc(50%-min(50vw-3rem,45rem))]"
-        >
+        <ul role="list" className="mt-10 grid gap-6 lg:grid-cols-3">
           {items.map((item, index) => (
             <li
               key={item.author}

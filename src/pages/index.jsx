@@ -10,7 +10,7 @@ import { Testimonials } from '@/components/Testimonials'
 import { WorkDiagram } from '@/components/WorkDiagram'
 import { processSteps, services } from '@/data/content'
 import siteMeta from '@/data/siteMeta'
-import { featuredWorkSlug, workExamples } from '@/data/work'
+import { featuredWorkSlug, workExamples, workOutcomes } from '@/data/work'
 import portraitImage from '@/images/marko-head.jpg'
 import { contactHref } from '@/lib/contact'
 import { absoluteUrl, pageOpenGraph, personSchema } from '@/lib/seo'
@@ -113,7 +113,7 @@ function ServicesOverview() {
   )
 }
 
-function FeaturedWork({ example }) {
+function FeaturedWork({ example, outcomes }) {
   return (
     <section aria-labelledby="work-heading" className="pt-section">
       <Container>
@@ -126,12 +126,12 @@ function FeaturedWork({ example }) {
               <span className="font-bold text-ink">{example.title}.</span>{' '}
               {example.teaser}
             </p>
-            {/* The outcomes at a glance, mirroring the process steps */}
+            {/* Results across the work, mirroring the process steps */}
             <ul
               role="list"
               className="mt-6 mb-auto flex flex-col items-start gap-2"
             >
-              {example.highlights.map((item) => (
+              {outcomes.map((item) => (
                 <li
                   key={item}
                   className="inline-flex items-center gap-2 rounded-full bg-sunken py-1.5 pr-3.5 pl-1.5 text-ui font-semibold dark:bg-raised dark:text-on-raised"
@@ -192,7 +192,7 @@ function FeaturedWork({ example }) {
   )
 }
 
-export default function Home({ featured }) {
+export default function Home({ featured, outcomes }) {
   return (
     <>
       <NextSeo
@@ -223,7 +223,7 @@ export default function Home({ featured }) {
       />
       <Hero />
       <ServicesOverview />
-      <FeaturedWork example={featured} />
+      <FeaturedWork example={featured} outcomes={outcomes} />
       <Testimonials />
       <CtaBand title="Put AI to Work in Your Team" />
     </>
@@ -234,6 +234,7 @@ export default function Home({ featured }) {
 export function getStaticProps() {
   return {
     props: {
+      outcomes: workOutcomes,
       featured: workExamples.find(
         (example) => example.slug === featuredWorkSlug,
       ),

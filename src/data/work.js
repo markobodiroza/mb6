@@ -135,13 +135,6 @@ export const workExamples = [
     ],
     teaser:
       'Prep and follow-up for a B2B sales team, so every call is ready before it starts.',
-    // Short outcome labels for the Home teaser
-    highlights: [
-      'Prepared for Every First Meeting',
-      'Follow-Up Within 30 Minutes',
-      '95% Book a Second Meeting',
-      'Runs in HubSpot and Slack',
-    ],
     tools: ['Email', 'Zapier', 'HubSpot', 'Google Drive', 'Slack'],
     diagram: [
       {
@@ -266,4 +259,13 @@ export const workExamples = [
 ]
 
 // The example featured on the home page
+// Results across the work examples, listed under Recent Work on Home
+export const workOutcomes = [
+  'About $180,000 a Year in Team Costs Saved',
+  '95% of Prospects Book a Second Meeting',
+  'At Least 10 Hours a Week Saved',
+  'Follow-Up Within 30 Minutes',
+  'Revenue Grew 90% in Six Months',
+]
+
 export const featuredWorkSlug = 'sales-follow-up'
