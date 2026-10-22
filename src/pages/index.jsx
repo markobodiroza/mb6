@@ -27,8 +27,8 @@ const projectPackages = pricingPackages.filter((pkg) =>
   ['per project', 'per process'].includes(pkg.unit),
 )
 const lowestProjectPrice = Math.min(...projectPackages.map((pkg) => pkg.price))
-const workshop = pricingPackages.find((pkg) => pkg.unit === 'per day')
-const advisory = pricingPackages.find((pkg) => pkg.unit === 'per month')
+const workshop = pricingPackages.find((pkg) => pkg.slug === 'workshop')
+const advisory = pricingPackages.find((pkg) => pkg.slug === 'advisory')
 
 const ruleOnNight =
   'border-[color-mix(in_oklch,var(--on-night)_18%,transparent)]'
@@ -189,8 +189,8 @@ function ProcessAndPricing() {
               Projects from {formatPrice(lowestProjectPrice)}
             </p>
             <p className="mt-2 text-[1.0625rem] font-medium">
-              Workshops from {formatPrice(workshop.price)} a day. Monthly
-              advisory from {formatPrice(advisory.price)}. Hourly at{' '}
+              Workshops from {formatPrice(workshop.price)}. Monthly advisory
+              from {formatPrice(advisory.price)}. Hourly at{' '}
               {formatPrice(hourlyRate.price)}.
             </p>
           </div>

@@ -320,7 +320,7 @@ export const pricingPackages = [
     slug: 'workshop',
     bestFor: 'Your team has AI tools but not the habits to use them well.',
     price: 3500,
-    unit: 'per day',
+    unit: 'per workshop',
     description:
       'Hands-on AI training built around your team’s real work, so people leave with skills they use the next day.',
     includes: [
@@ -381,7 +381,7 @@ export const pricingFaqs = [
   {
     question: 'How long does a project take?',
     answer:
-      'An AI Audit and Roadmap takes 4 to 6 weeks from kickoff to the final walkthrough. An AI Process Build takes 6 to 10 weeks per process, from mapping to handover. Workshops are booked by the day, with a prep call beforehand. Monthly Advisory starts with a 3-month minimum and then continues month to month.',
+      'An AI Audit and Roadmap takes 4 to 6 weeks from kickoff to the final walkthrough. An AI Process Build takes 6 to 10 weeks per process, from mapping to handover. Workshops are priced per workshop, with a prep call beforehand. Monthly Advisory starts with a 3-month minimum and then continues month to month.',
   },
   {
     question: 'What exactly is in scope?',

@@ -51,7 +51,7 @@ function Package({ pkg, index }) {
             featured ? 'text-on-brand-muted' : 'text-graphite',
           )}
         >
-          {pkg.bestFor}
+          <span className="font-bold">Best for:</span> {pkg.bestFor}
         </p>
         <p className="mt-6 flex flex-wrap items-baseline gap-x-2">
           <span className="text-[0.9375rem] font-semibold">From</span>
