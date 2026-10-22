@@ -22,7 +22,9 @@ export function InsightRow({ insight, as: Heading = 'h3' }) {
             {insight.title}
           </Link>
         </Heading>
-        <p className="mt-2 max-w-prose text-graphite">{insight.description}</p>
+        <p className="mt-2 max-w-measure text-graphite">
+          {insight.description}
+        </p>
       </div>
       <ArrowRightIcon className="hidden h-5 w-5 text-link transition-transform duration-200 ease-out-quart group-hover:translate-x-1 sm:block" />
     </article>

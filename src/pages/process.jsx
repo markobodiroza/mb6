@@ -73,7 +73,7 @@ export default function Process() {
                   <p className="mt-1 text-[0.9375rem] text-muted italic">
                     {step.note}
                   </p>
-                  <p className="mt-3 max-w-prose text-[1.125rem] leading-[1.65] text-graphite">
+                  <p className="mt-3 max-w-measure text-[1.125rem] leading-[1.65] text-graphite">
                     {step.detail}
                   </p>
                   <p className="mt-5 inline-flex flex-wrap items-baseline gap-x-2 rounded-full bg-sunken px-4 py-2">

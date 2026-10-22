@@ -56,7 +56,7 @@ export default function Insight({ insight, more }) {
         {insight.description}
       </PageHeader>
       <Container className="mt-lead grid gap-16 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)] lg:gap-20">
-        <article className="max-w-prose">
+        <article className="max-w-measure">
           <p className="text-lead font-medium">{insight.intro}</p>
           {insight.sections.map((section) => (
             <section key={section.heading} className="mt-12">

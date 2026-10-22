@@ -44,7 +44,7 @@ export function Faq({ items, title = 'Questions About Timeline and Scope' }) {
                 <PlusIcon className="h-5 w-5" />
               </span>
             </summary>
-            <p className="max-w-prose pr-14 pb-7 text-[1.0625rem] leading-[1.7] text-graphite">
+            <p className="max-w-measure pr-14 pb-7 text-[1.0625rem] leading-[1.7] text-graphite">
               {item.answer}
             </p>
           </details>

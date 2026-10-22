@@ -37,7 +37,8 @@
     var(--font-google-sans), ui-sans-serif, system-ui, -apple-system, Segoe UI,
     sans-serif;
 
-  --container-prose: 60ch;
+  /* Reading measure. Tailwind 4 fixes max-w-prose at 65ch, so it gets a name */
+  --container-measure: 60ch;
 
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 }

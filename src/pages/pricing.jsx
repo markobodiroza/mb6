@@ -231,7 +231,7 @@ export default function Pricing() {
             >
               Hourly Advisory
             </h2>
-            <p className="mt-2 max-w-prose text-graphite">
+            <p className="mt-2 max-w-measure text-graphite">
               {hourlyRate.description}
             </p>
           </div>

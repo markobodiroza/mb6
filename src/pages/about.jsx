@@ -87,7 +87,7 @@ function Tools() {
       <h2 id="tools-heading" className="text-section">
         Tools I Work With
       </h2>
-      <p className="text-lead mt-5 max-w-prose text-graphite">
+      <p className="text-lead mt-5 max-w-measure text-graphite">
         I pick tools for the job and the team, not the other way around. These
         are the ones I reach for most.
       </p>
