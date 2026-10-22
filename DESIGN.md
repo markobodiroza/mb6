@@ -293,6 +293,9 @@ Flows drawn in HTML. Each diagram is a full-bleed band (edge to edge, 56 to 80px
 - **Errors:** a friendly sentence under the field, the field marked invalid and focus moved to the first problem.
 - **Success:** a citron panel with a drawn check mark.
 
+### Page Width
+Every section that is not full-bleed sits in one container: up to 1440px wide including its 20px (32px from 640px) side padding. Header, footer, diagram lanes and testimonials share this edge; running text keeps its own measure.
+
 ### Navigation
 - **Header:** sticky, 80px tall, paper at the top of the page; once scrolled it switches to Sunken Paper with a Field Line edge so it never blends into paper sections. A 44px round portrait in a link-colored ring links home. Links (Services, Work, Pricing, About, Contact; Insights live on About; Home is the portrait) are 44px tall, graphite, ink on hover with a sunken pill; the current page gets a 3px link-colored mark. The full menu shows from 1024px; below that a menu button opens a full-width panel.
 - **Footer:** night ink in light mode; in dark mode it drops to Night Page with a rule on top, so the page always ends on its darkest surface. Name, tagline and page links.
