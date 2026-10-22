@@ -3,9 +3,9 @@ import clsx from 'clsx'
 // Flow diagrams for work examples, drawn in HTML so they stay readable on
 // phones (lanes stack top to bottom) and follow dark mode. Data shape is
 // described in src/data/work.js.
-// Plain steps sit on a soft fill; only optional steps keep an outline
-const fill = 'bg-[color-mix(in_oklch,var(--on-brand)_10%,transparent)]'
-const line = 'border-[color-mix(in_oklch,var(--on-brand)_45%,transparent)]'
+// Steps are raised cards: paper on a pale blue panel in light mode,
+// ultramarine on a night blue panel in dark mode. Optional steps are
+// dashed outlines; the result step is citron.
 
 // Text is centered while a lane stacks, to line up with its arrows
 function Node({ node, layout }) {
@@ -15,10 +15,10 @@ function Node({ node, layout }) {
         'rounded-2xl px-4 py-3',
         layout.text,
         node.highlight
-          ? 'bg-citron text-on-citron'
+          ? 'bg-citron text-on-citron shadow-card'
           : node.dashed
-            ? clsx('border-[1.5px] border-dashed', line)
-            : fill,
+            ? 'border-2 border-dashed border-field text-ink'
+            : 'bg-paper text-ink shadow-card dark:bg-brand dark:text-on-brand',
       )}
     >
       <p className="leading-snug font-bold">{node.title}</p>
@@ -26,7 +26,9 @@ function Node({ node, layout }) {
         <p
           className={clsx(
             'mt-1 text-ui leading-snug',
-            node.highlight ? 'text-on-citron' : 'text-on-brand-muted',
+            node.highlight
+              ? 'text-on-citron'
+              : 'text-graphite dark:text-on-brand-muted',
           )}
         >
           {node.note}
@@ -60,7 +62,7 @@ function Connector({ twoWay, layout }) {
     <span
       aria-hidden="true"
       className={clsx(
-        'flex flex-none items-center justify-center py-1.5 text-on-brand-muted',
+        'flex flex-none items-center justify-center py-1.5 text-link',
         layout.connector,
       )}
     >
@@ -87,9 +89,7 @@ function Lane({ lane }) {
   let layout = across[lane.steps.length >= 6 ? 'xl' : 'lg']
   return (
     <div>
-      <p className={clsx('label text-on-brand-muted', layout.text)}>
-        {lane.label}
-      </p>
+      <p className={clsx('label text-muted', layout.text)}>{lane.label}</p>
       <ol className={clsx('mt-4 flex flex-col', layout.list)}>
         {lane.steps.map((step, index) => (
           <li
@@ -122,7 +122,7 @@ export function WorkDiagram({ lanes, label, className }) {
     <figure
       aria-label={label}
       className={clsx(
-        'blueprint on-brand rounded-[1.75rem] p-6 text-on-brand sm:p-9',
+        'rounded-[1.75rem] bg-sunken p-6 sm:p-9 dark:bg-night',
         className,
       )}
     >
