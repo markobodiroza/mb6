@@ -11,7 +11,6 @@ const siteMeta = {
     name: 'Marko Bodiroza',
     email: 'mb@markobodiroza.com',
     twitter: 'https://twitter.com/markobodiroza',
-    github: 'https://github.com/markobodiroza',
     linkedin: 'https://linkedin.com/in/markobodiroza',
   },
   siteUrl: 'https://markobodiroza.com',
