@@ -32,6 +32,9 @@
   --color-night: var(--night);
   --color-on-night: var(--on-night);
   --color-on-night-muted: var(--on-night-muted);
+  --color-raised: var(--raised);
+  --color-on-raised: var(--on-raised);
+  --color-on-raised-muted: var(--on-raised-muted);
 
   --font-sans:
     var(--font-google-sans), ui-sans-serif, system-ui, -apple-system, Segoe UI,
@@ -40,15 +43,15 @@
   /* Reading measure. Tailwind 4 fixes max-w-prose at 65ch, so it gets a name */
   --container-measure: 60ch;
 
-  /* Type scale. Fixed sizes for text and UI; fluid headings are the
-     composite utilities further down (heading, section, page title). */
+  /* Type scale: 1.25 ratio from a 17px body. ui 15, body 17, lead and
+     title 21, subhead 26.5, then the fluid heading (28 to 33), section
+     (34 to 41) and page title (42 to 64) utilities further down. Caption
+     and price are the two special sizes. */
   --text-caption: 0.8125rem;
   --text-ui: 0.9375rem;
   --text-body: 1.0625rem;
-  --text-prose: 1.125rem;
-  --text-card: 1.1875rem;
-  --text-headline: 1.375rem;
-  --text-subhead: 1.625rem;
+  --text-lead-size: 1.3125rem;
+  --text-subhead: 1.65rem;
   --text-price: 3rem;
 
   /* One soft, blue-tinted lift for raised cards */
@@ -118,6 +121,11 @@
     --danger: oklch(0.5 0.2 25);
     --danger-line: oklch(0.55 0.2 25);
 
+    /* Raised cards (diagram steps, tool tags in dark) */
+    --raised: oklch(0.985 0.005 265);
+    --on-raised: oklch(0.2 0.03 268);
+    --on-raised-muted: oklch(0.33 0.025 268);
+
     --card-shadow:
       0 1px 2px oklch(0.2 0.03 268 / 0.08),
       0 12px 28px -14px oklch(0.37 0.19 268 / 0.4);
@@ -138,15 +146,15 @@
     --graphite: oklch(0.89 0.03 262);
     --muted: oklch(0.8 0.045 262);
 
-    --brand: oklch(0.38 0.19 268);
-    --brand-line: oklch(0.43 0.18 268);
+    --brand: oklch(0.28 0.14 268);
+    --brand-line: oklch(0.33 0.14 268);
     --on-brand: oklch(0.98 0.006 265);
     --on-brand-muted: oklch(0.92 0.04 262);
 
     --citron: oklch(0.91 0.19 117);
     --on-citron: oklch(0.2 0.03 268);
 
-    --night: oklch(0.3 0.12 268);
+    --night: oklch(0.34 0.13 268);
     --on-night: oklch(0.97 0.008 265);
     --on-night-muted: oklch(0.84 0.03 262);
 
@@ -160,6 +168,10 @@
     --field: oklch(0.58 0.08 262);
     --danger: oklch(0.82 0.12 25);
     --danger-line: oklch(0.72 0.17 25);
+
+    --raised: oklch(0.42 0.17 268);
+    --on-raised: oklch(0.98 0.006 265);
+    --on-raised-muted: oklch(0.92 0.04 262);
 
     --card-shadow:
       0 1px 2px oklch(0.1 0.05 268 / 0.5),
@@ -240,27 +252,34 @@
 /* Type roles. One family; headings get rounder, heavier letterforms. */
 @layer components {
   .text-page-title {
-    font-size: clamp(2.5rem, 1.7rem + 3vw, 4.25rem);
+    font-size: clamp(2.625rem, 1.7rem + 3.3vw, 4rem);
     @apply leading-[1.08] font-[800] tracking-[-0.035em];
   }
 
   /* Titles of services, work examples and feature blocks */
   .text-heading {
-    font-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.375rem);
+    font-size: clamp(1.75rem, 1.5rem + 0.9vw, 2.0625rem);
     @apply leading-[1.16] font-[780] tracking-[-0.03em];
   }
 
+  /* Package names, process steps and article sections */
+  .text-subhead {
+    font-size: var(--text-subhead);
+    @apply leading-[1.2] font-[760] tracking-[-0.02em];
+  }
+
   .text-section {
-    font-size: clamp(2rem, 1.5rem + 1.8vw, 3rem);
+    font-size: clamp(2.125rem, 1.6rem + 1.9vw, 2.5625rem);
     @apply leading-[1.12] font-[780] tracking-[-0.03em];
   }
 
   .text-title {
-    @apply text-headline leading-[1.25] font-[720] tracking-[-0.018em];
+    @apply text-lead-size leading-[1.25] font-[720] tracking-[-0.018em];
   }
 
   .text-lead {
-    @apply text-card leading-[1.55] sm:text-[1.3125rem];
+    font-size: clamp(1.1875rem, 1.1rem + 0.35vw, 1.3125rem);
+    @apply leading-[1.55];
   }
 
   /* Small Title Case label for in-card headings and dates */
