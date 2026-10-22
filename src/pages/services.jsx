@@ -30,9 +30,9 @@ function Service({ service, index }) {
   return (
     <article
       data-reveal
-      className="grid gap-x-16 gap-y-8 border-t-2 border-ink py-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)]"
+      className="grid gap-x-16 gap-y-10 border-t-2 border-ink py-14 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]"
     >
-      <div className="lg:sticky lg:top-28 lg:self-start">
+      <div>
         <div className="flex items-start gap-4">
           <ServiceIcon
             name={service.icon}
@@ -42,9 +42,7 @@ function Service({ service, index }) {
             {service.title}
           </h2>
         </div>
-      </div>
-      <div>
-        <p className="text-lead text-graphite">{service.description}</p>
+        <p className="text-lead mt-6 text-graphite">{service.description}</p>
         <h3 className="label mt-9 text-link">You Get</h3>
         <ul role="list" className="mt-4 space-y-3">
           {service.deliverables.map((item) => (
@@ -54,27 +52,27 @@ function Service({ service, index }) {
             </li>
           ))}
         </ul>
-        <div className="mt-9 flex flex-col gap-5 rounded-[1.25rem] bg-sunken p-6 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            <span className="label block text-muted">Good Fit For</span>
-            <span className="mt-1 block font-bold">
-              {service.roles.join(', ')}
-            </span>
-            <span className="mt-1 block text-graphite">{service.goodFit}</span>
+      </div>
+      <div className="rounded-[1.25rem] bg-sunken p-6 sm:p-7 lg:sticky lg:top-28 lg:self-start">
+        <p>
+          <span className="label block text-muted">Good Fit For</span>
+          <span className="mt-1 block font-bold">
+            {service.roles.join(', ')}
+          </span>
+          <span className="mt-1 block text-graphite">{service.goodFit}</span>
+        </p>
+        {pkg && (
+          <p className="mt-6 border-t border-rule pt-6">
+            <span className="label block text-muted">Priced As</span>
+            <Link
+              href={`/pricing#${pkg.slug}`}
+              className="group mt-1 inline-flex items-center gap-2 font-bold text-link"
+            >
+              <span className="marker-hover">{pkg.name}</span>
+              <ArrowRightIcon className="h-4 w-4 transition-transform duration-200 ease-out-quart group-hover:translate-x-1" />
+            </Link>
           </p>
-          {pkg && (
-            <p className="flex-none">
-              <span className="label block text-muted">Priced As</span>
-              <Link
-                href={`/pricing#${pkg.slug}`}
-                className="group mt-1 inline-flex items-center gap-2 font-bold text-link"
-              >
-                <span className="marker-hover">{pkg.name}</span>
-                <ArrowRightIcon className="h-4 w-4 transition-transform duration-200 ease-out-quart group-hover:translate-x-1" />
-              </Link>
-            </p>
-          )}
-        </div>
+        )}
       </div>
     </article>
   )
@@ -84,7 +82,7 @@ function NotSureBand() {
   return (
     <aside
       data-reveal
-      className="my-6 flex flex-col gap-6 rounded-[1.75rem] bg-citron p-8 text-on-citron sm:flex-row sm:items-center sm:justify-between sm:p-10"
+      className="mb-14 flex flex-col gap-6 rounded-[1.75rem] bg-citron p-8 text-on-citron sm:flex-row sm:items-center sm:justify-between sm:p-10"
     >
       <div>
         <p className="text-[clamp(1.5rem,1.2rem+1vw,2rem)] leading-[1.15] font-extrabold tracking-[-0.03em]">

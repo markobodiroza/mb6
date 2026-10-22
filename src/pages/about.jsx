@@ -80,7 +80,7 @@ function WorkHistory() {
 
 function ToolChip({ children }) {
   return (
-    <li className="rounded-full border-2 border-rule px-3.5 py-1.5 text-[0.9375rem] font-semibold">
+    <li className="rounded-full bg-sunken px-3.5 py-1.5 text-[0.9375rem] font-semibold text-link">
       {children}
     </li>
   )
