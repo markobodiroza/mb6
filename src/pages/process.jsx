@@ -57,18 +57,18 @@ export default function Process() {
                   aria-hidden="true"
                   className={
                     index < processSteps.length - 1
-                      ? 'rail-draw absolute bottom-0 left-[1.75rem] top-14 w-0.5 bg-rule sm:left-[2.25rem] sm:top-[4.5rem]'
-                      : 'rail-draw absolute bottom-0 left-[1.75rem] top-14 border-l-2 border-dashed border-link sm:left-[2.25rem] sm:top-[4.5rem]'
+                      ? 'rail-draw absolute bottom-0 left-7 top-14 w-0.5 bg-rule sm:left-9 sm:top-18'
+                      : 'rail-draw absolute bottom-0 left-7 top-14 border-l-2 border-dashed border-link sm:left-9 sm:top-18'
                   }
                 />
                 <span
                   aria-hidden="true"
-                  className="flex h-14 w-14 items-center justify-center rounded-full bg-citron text-[1.375rem] font-[850] text-on-citron sm:h-[4.5rem] sm:w-[4.5rem] sm:text-[1.625rem]"
+                  className="flex h-14 w-14 items-center justify-center rounded-full bg-citron text-[1.375rem] font-[850] text-on-citron sm:h-18 sm:w-18 sm:text-[1.625rem]"
                 >
                   {index + 1}
                 </span>
                 <div className="pt-2 sm:pt-4">
-                  <h2 className="text-[1.625rem] font-[780] leading-[1.15] tracking-[-0.025em]">
+                  <h2 className="text-[1.625rem] font-[780] leading-[1.15] tracking-tight">
                     {step.title.replace(/^\d+\.\s*/, '')}
                   </h2>
                   <p className="mt-1 text-[0.9375rem] italic text-muted">
@@ -90,7 +90,7 @@ export default function Process() {
             >
               <span
                 aria-hidden="true"
-                className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-link text-link sm:h-[4.5rem] sm:w-[4.5rem]"
+                className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-link text-link sm:h-18 sm:w-18"
               >
                 <svg
                   viewBox="0 0 32 32"

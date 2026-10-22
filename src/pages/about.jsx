@@ -166,7 +166,7 @@ export default function About() {
         their teams actually use.
       </PageHeader>
       <Container className="mt-lead grid gap-12 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-20">
-        <div className="max-w-[38rem] space-y-6 text-[1.125rem] leading-[1.7] text-graphite">
+        <div className="max-w-152 space-y-6 text-[1.125rem] leading-[1.7] text-graphite">
           <p className="text-lead text-ink">
             I’m Marko Bodiroza, an AI strategist and system builder. I started
             as a web developer, spent more than 15 years across web, SEO and
@@ -199,7 +199,7 @@ export default function About() {
               src={portraitImage}
               alt="Portrait of Marko Bodiroza"
               sizes="(min-width: 1024px) 22rem, 100vw"
-              className="relative aspect-[4/5] w-full rounded-[1.75rem] object-cover object-[50%_30%]"
+              className="relative aspect-4/5 w-full rounded-[1.75rem] object-cover object-[50%_30%]"
               preload
             />
           </div>

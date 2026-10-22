@@ -106,9 +106,9 @@ function ModeToggle() {
   }, [])
 
   function disableTransitionsTemporarily() {
-    document.documentElement.classList.add('[&_*]:!transition-none')
+    document.documentElement.classList.add('**:transition-none!')
     window.setTimeout(() => {
-      document.documentElement.classList.remove('[&_*]:!transition-none')
+      document.documentElement.classList.remove('**:transition-none!')
     }, 0)
   }
 
@@ -293,7 +293,7 @@ function MobileNavigation() {
 export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-rule bg-paper">
-      <Container className="flex h-[4.5rem] items-center gap-4">
+      <Container className="flex h-18 items-center gap-4">
         <Link
           href="/"
           aria-label="Marko Bodiroza, home"
@@ -310,7 +310,7 @@ export function Header() {
         <DesktopNavigation />
         <div className="flex items-center gap-2">
           <ModeToggle />
-          <BookCallButton size="sm" className="!px-4 sm:!px-5" />
+          <BookCallButton size="sm" className="px-4! sm:px-5!" />
           <MobileNavigation />
         </div>
       </Container>

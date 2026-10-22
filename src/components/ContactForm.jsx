@@ -12,7 +12,7 @@ import {
 } from '@/lib/contact'
 
 const inputStyles =
-  'block w-full rounded-xl border-2 border-field bg-paper px-4 py-3 text-[1.0625rem] text-ink transition-colors duration-200 placeholder:text-muted hover:border-graphite focus:border-link focus:outline-none aria-[invalid=true]:border-danger-line'
+  'block w-full rounded-xl border-2 border-field bg-paper px-4 py-3 text-[1.0625rem] text-ink transition-colors duration-200 placeholder:text-muted hover:border-graphite focus:border-link focus:outline-hidden aria-invalid:border-danger-line'
 
 const errorText = 'text-[0.9375rem] font-semibold text-danger'
 
@@ -175,7 +175,7 @@ function ProficiencyPicker({ id, value, onChange, error }) {
             <label
               key={level.value}
               className={clsx(
-                'relative flex cursor-pointer items-center gap-4 rounded-xl border-2 px-4 py-3 transition-colors duration-200 has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-[var(--focus)] sm:flex-col sm:gap-1 sm:px-1 sm:text-center',
+                'relative flex cursor-pointer items-center gap-4 rounded-xl border-2 px-4 py-3 transition-colors duration-200 has-focus-visible:outline-solid has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--focus) sm:flex-col sm:gap-1 sm:px-1 sm:text-center',
                 checked
                   ? 'tile-pop border-action bg-action text-action-fg'
                   : error
@@ -202,7 +202,7 @@ function ProficiencyPicker({ id, value, onChange, error }) {
         })}
       </div>
       <p
-        className="mt-3 min-h-[1.5rem] text-[0.9375rem] text-graphite"
+        className="mt-3 min-h-6 text-[0.9375rem] text-graphite"
         aria-live="polite"
       >
         {selected && (

@@ -104,7 +104,7 @@ function Package({ pkg, index }) {
       )}
     >
       <div className="flex items-start justify-between gap-4">
-        <h2 className="text-[1.625rem] font-[780] leading-[1.15] tracking-[-0.025em]">
+        <h2 className="text-[1.625rem] font-[780] leading-[1.15] tracking-tight">
           {pkg.name}
         </h2>
         {featured && (
@@ -113,7 +113,7 @@ function Package({ pkg, index }) {
           </span>
         )}
       </div>
-      <p className={clsx('mt-3 text-[1.0625rem] leading-[1.5]', theme.muted)}>
+      <p className={clsx('mt-3 text-[1.0625rem] leading-normal', theme.muted)}>
         <span className="font-bold">Best for:</span> {pkg.bestFor}
       </p>
       <p className="mt-6 flex flex-wrap items-baseline gap-x-2">
@@ -131,7 +131,7 @@ function Package({ pkg, index }) {
       <h3 className={clsx('eyebrow mt-8 border-t pt-6', theme.rule)}>
         Included
       </h3>
-      <ul role="list" className="mt-4 space-y-2 text-[0.9375rem] leading-[1.5]">
+      <ul role="list" className="mt-4 space-y-2 text-[0.9375rem] leading-normal">
         {pkg.includes.map((item) => (
           <li key={item} className="flex gap-3">
             <CheckIcon
@@ -145,12 +145,12 @@ function Package({ pkg, index }) {
         {featured ? (
           <BookCallButton
             variant={theme.button}
-            className="!h-auto min-h-[3.25rem] w-full !whitespace-normal !py-3 text-center"
+            className="h-auto! min-h-13 w-full whitespace-normal! py-3! text-center"
           />
         ) : (
           <Button
             variant={theme.button}
-            className="!h-auto min-h-[3.25rem] w-full !whitespace-normal !py-3 text-center"
+            className="h-auto! min-h-13 w-full whitespace-normal! py-3! text-center"
             href={contactHref(pkg.name)}
           >
             Send an Inquiry
@@ -224,7 +224,7 @@ export default function Pricing() {
           <div>
             <h2
               id="hourly-heading"
-              className="text-[1.625rem] font-[780] leading-[1.15] tracking-[-0.025em]"
+              className="text-[1.625rem] font-[780] leading-[1.15] tracking-tight"
             >
               Hourly Advisory
             </h2>

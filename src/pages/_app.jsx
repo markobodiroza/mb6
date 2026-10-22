@@ -15,7 +15,7 @@ const sans = localFont({
   src: '../../node_modules/@fontsource-variable/google-sans-flex/files/google-sans-flex-latin-rond-normal.woff2',
   weight: '1 1000',
   display: 'swap',
-  variable: '--font-sans',
+  variable: '--font-google-sans',
   adjustFontFallback: 'Arial',
 })
 

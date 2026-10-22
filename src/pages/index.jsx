@@ -69,7 +69,7 @@ function Hero() {
             with marketing teams, agencies and B2B companies.
           </p>
         </div>
-        <div className="relative mx-auto w-full max-w-[17rem] sm:max-w-sm lg:max-w-none">
+        <div className="relative mx-auto w-full max-w-68 sm:max-w-sm lg:max-w-none">
           <div
             aria-hidden="true"
             className="enter-settle absolute -bottom-4 -right-4 h-full w-full rounded-[1.75rem] bg-citron"
@@ -78,7 +78,7 @@ function Hero() {
             src={portraitImage}
             alt="Portrait of Marko Bodiroza"
             sizes="(min-width: 1024px) 26rem, 24rem"
-            className="relative aspect-[4/5] w-full rounded-[1.75rem] object-cover object-[50%_30%]"
+            className="relative aspect-4/5 w-full rounded-[1.75rem] object-cover object-[50%_30%]"
             preload
           />
         </div>
@@ -187,7 +187,7 @@ function ProcessAndPricing() {
         >
           <div>
             <p className="eyebrow">Pricing</p>
-            <p className="mt-3 text-[clamp(1.75rem,1.3rem+1.6vw,2.5rem)] font-[800] leading-[1.1] tracking-[-0.03em]">
+            <p className="mt-3 text-[clamp(1.75rem,1.3rem+1.6vw,2.5rem)] font-extrabold leading-[1.1] tracking-[-0.03em]">
               Projects from {formatPrice(lowestProjectPrice)}
             </p>
             <p className="mt-2 text-[1.0625rem] font-medium">

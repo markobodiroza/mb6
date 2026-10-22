@@ -1,6 +1,66 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss';
+
+/* Dark mode follows the .dark class the theme script sets on <html> */
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Theme tokens point at the runtime color variables below. Inline keeps the
+ * var() lookups in each utility, so they resolve per element and follow the
+ * .dark and next/font variables the way Tailwind 3 did.
+ */
+@theme inline {
+  --color-paper: var(--paper);
+  --color-sunken: var(--sunken);
+  --color-rule: var(--rule);
+  --color-ink: var(--ink);
+  --color-graphite: var(--graphite);
+  --color-muted: var(--muted);
+  --color-brand: var(--brand);
+  --color-brand-line: var(--brand-line);
+  --color-on-brand: var(--on-brand);
+  --color-on-brand-muted: var(--on-brand-muted);
+  --color-action: var(--action);
+  --color-action-hover: var(--action-hover);
+  --color-action-fg: var(--action-fg);
+  --color-link: var(--link);
+  --color-focus: var(--focus);
+  --color-field: var(--field);
+  --color-danger: var(--danger);
+  --color-danger-line: var(--danger-line);
+  --color-citron: var(--citron);
+  --color-on-citron: var(--on-citron);
+  --color-night: var(--night);
+  --color-on-night: var(--on-night);
+  --color-on-night-muted: var(--on-night-muted);
+
+  --font-sans:
+    var(--font-google-sans), ui-sans-serif, system-ui, -apple-system,
+    Segoe UI, sans-serif;
+
+  --container-prose: 60ch;
+
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/*
+ * Tailwind 4 borders default to currentColor; Tailwind 3 used gray-200.
+ * Keep the old default so borders without a color class look the same.
+ */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+
+  /* Tailwind 4 no longer gives buttons a pointer cursor */
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}
 
 /*
  * Color tokens. Brand hue 268 is a pigment ultramarine; lighter tints shift
@@ -130,25 +190,28 @@
 }
 
 /* Spacing rhythm: one fluid scale for the space between big blocks */
-@layer utilities {
-  .mt-lead {
-    margin-top: clamp(3.5rem, 2.6rem + 3vw, 6rem);
-  }
-  .mt-section {
-    margin-top: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
-  }
-  .mb-section {
-    margin-bottom: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
-  }
-  .pt-section {
-    padding-top: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
-  }
-  .py-section {
-    padding-block: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
-  }
-  .gap-section {
-    gap: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
-  }
+@utility mt-lead {
+  margin-top: clamp(3.5rem, 2.6rem + 3vw, 6rem);
+}
+
+@utility mt-section {
+  margin-top: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
+}
+
+@utility mb-section {
+  margin-bottom: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
+}
+
+@utility pt-section {
+  padding-top: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
+}
+
+@utility py-section {
+  padding-block: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
+}
+
+@utility gap-section {
+  gap: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
 }
 
 /* Type roles. One family; headings get rounder, heavier letterforms. */

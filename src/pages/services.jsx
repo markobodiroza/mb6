@@ -72,7 +72,7 @@ function NotSureBand() {
       className="my-6 flex flex-col gap-6 rounded-[1.75rem] bg-citron p-8 text-on-citron sm:flex-row sm:items-center sm:justify-between sm:p-10"
     >
       <div>
-        <p className="text-[clamp(1.5rem,1.2rem+1vw,2rem)] font-[800] leading-[1.15] tracking-[-0.03em]">
+        <p className="text-[clamp(1.5rem,1.2rem+1vw,2rem)] font-extrabold leading-[1.15] tracking-[-0.03em]">
           Not Sure Which You Need?
         </p>
         <p className="mt-2 text-[1.0625rem] font-medium">
