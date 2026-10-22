@@ -44,7 +44,7 @@ function WorkHistory() {
       <h2 id="work-heading" className="text-section">
         Work History
       </h2>
-      <ol className="mt-10 border-t-2 border-ink">
+      <ol className="mt-8 border-t-2 border-ink">
         {resume.map((role, index) => (
           <li
             key={role.company}

@@ -86,7 +86,7 @@ export default function Insight({ insight, more }) {
             className="mt-14 rounded-[1.25rem] bg-sunken p-7 sm:p-8"
           >
             <h2 className="text-title">Where to Start</h2>
-            <ul role="list" className="mt-5 space-y-3">
+            <ul role="list" className="mt-4 space-y-3">
               {insight.nextSteps.map((step, index) => (
                 <li key={step} className="flex gap-4">
                   <span

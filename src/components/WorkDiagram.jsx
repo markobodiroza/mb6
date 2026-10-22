@@ -12,7 +12,7 @@ function Node({ node, layout }) {
   return (
     <div
       className={clsx(
-        'rounded-2xl px-4 py-3',
+        'flex h-full flex-col justify-center rounded-2xl px-4 py-3',
         layout.text,
         node.highlight
           ? 'bg-citron text-on-citron shadow-card'
@@ -40,14 +40,14 @@ function Node({ node, layout }) {
 const across = {
   lg: {
     list: 'lg:flex-row',
-    item: 'lg:flex-1 lg:flex-row lg:items-center',
+    item: 'lg:flex-1 lg:flex-row lg:items-stretch',
     connector: 'lg:px-1.5 lg:py-0',
     arrow: 'lg:rotate-0',
     text: 'text-center lg:text-left',
   },
   xl: {
     list: 'xl:flex-row',
-    item: 'xl:flex-1 xl:flex-row xl:items-center',
+    item: 'xl:flex-1 xl:flex-row xl:items-stretch',
     connector: 'xl:px-1.5 xl:py-0',
     arrow: 'xl:rotate-0',
     text: 'text-center xl:text-left',
@@ -60,7 +60,7 @@ function Connector({ twoWay, layout }) {
     <span
       aria-hidden="true"
       className={clsx(
-        'flex flex-none items-center justify-center py-1.5 text-link',
+        'flex flex-none items-center justify-center self-center py-1.5 text-link',
         layout.connector,
       )}
     >
@@ -88,7 +88,7 @@ function Lane({ lane }) {
   return (
     <div>
       <p className={clsx('label text-muted', layout.text)}>{lane.label}</p>
-      <ol className={clsx('mt-4 flex flex-col', layout.list)}>
+      <ol className={clsx('mt-3 flex flex-col', layout.list)}>
         {lane.steps.map((step, index) => (
           <li
             key={step.title ?? index}
@@ -97,7 +97,7 @@ function Lane({ lane }) {
             {index > 0 && <Connector twoWay={step.twoWay} layout={layout} />}
             <div className="min-w-0 flex-1">
               {step.stack ? (
-                <ul role="list" className="grid gap-2">
+                <ul role="list" className="grid h-full gap-2">
                   {step.stack.map((node) => (
                     <li key={node.title}>
                       <Node node={node} layout={layout} />
@@ -125,7 +125,7 @@ export function WorkDiagram({ lanes, label, className }) {
       )}
     >
       {lanes.map((lane, index) => (
-        <div key={lane.label} className={clsx(index > 0 && 'mt-10')}>
+        <div key={lane.label} className={clsx(index > 0 && 'mt-8')}>
           <Lane lane={lane} />
         </div>
       ))}

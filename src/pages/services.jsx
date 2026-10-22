@@ -40,7 +40,7 @@ function Service({ service, index }) {
           />
           <h2 className="text-heading">{service.title}</h2>
         </div>
-        <p className="text-lead mt-6 text-graphite">{service.description}</p>
+        <p className="text-lead mt-4 text-graphite">{service.description}</p>
         <h3 className="label mt-9 text-link">You Get</h3>
         <ul role="list" className="mt-4 space-y-3">
           {service.deliverables.map((item) => (
