@@ -42,7 +42,7 @@ function Package({ pkg, index }) {
           : 'border-2 border-rule bg-paper transition-colors duration-200 hover:border-ink dark:bg-sunken',
       )}
     >
-      <div className="flex flex-col items-start lg:pr-14">
+      <div className="flex flex-col items-start justify-center lg:pr-14">
         {featured && (
           <span className="label mb-4 rounded-full bg-citron px-3 py-1 text-on-citron">
             Start Here
