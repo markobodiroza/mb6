@@ -75,7 +75,7 @@ export function ProcessSection() {
                   <p className="mt-3 max-w-measure text-body leading-[1.65] text-graphite">
                     {step.detail}
                   </p>
-                  <p className="mt-5 inline-flex flex-wrap items-baseline gap-x-2 rounded-full bg-sunken px-4 py-2">
+                  <p className="mt-5 inline-flex flex-wrap items-baseline gap-x-2 rounded-2xl bg-sunken px-4 py-2">
                     <span className="label text-link">You Get</span>
                     <span className="font-semibold">{step.outcome}</span>
                   </p>

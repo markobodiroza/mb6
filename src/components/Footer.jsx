@@ -40,8 +40,8 @@ export function Footer() {
           &copy; {new Date().getFullYear()} {siteMeta.copyright}. This website
           uses no cookies, no tracking and no analytics.
           <br />
-          Form submissions are only used to contact you back, and if we don’t
-          engage further I delete the data after 30 days.
+          Form inquiries are only used to reply to you, and the data is not
+          stored for more than 30 days.
         </p>
         <p className="lg:flex-none lg:text-right">
           15+ years in digital marketing, engineering, AI and SEO.

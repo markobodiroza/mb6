@@ -99,9 +99,9 @@ function Credentials() {
             key={badge.name}
             data-reveal
             style={{ '--i': index }}
-            className="flex flex-col items-center rounded-[1.25rem] bg-sunken p-3 text-center dark:bg-raised"
+            className="flex flex-col items-center text-center"
           >
-            {/* Badges keep their own colors, so they sit on a light disc in dark mode */}
+            {/* Badges keep their own colors, so dark mode puts a light disc behind them */}
             <span className="flex aspect-square w-full items-center justify-center rounded-full dark:bg-on-raised">
               <Image
                 src={badge.image}
@@ -110,12 +110,10 @@ function Credentials() {
                 className="h-auto w-[88%]"
               />
             </span>
-            <span className="mt-2 text-caption leading-snug font-bold dark:text-on-raised">
+            <span className="mt-3 text-caption leading-snug font-bold">
               {badge.name}
             </span>
-            <span className="text-caption text-graphite dark:text-on-raised-muted">
-              {badge.issuer}
-            </span>
+            <span className="text-caption text-graphite">{badge.issuer}</span>
           </li>
         ))}
       </ul>
@@ -163,11 +161,7 @@ function Credentials() {
 }
 
 function ToolChip({ children }) {
-  return (
-    <li className="rounded-full bg-[color-mix(in_oklch,var(--link)_14%,var(--paper))] px-3.5 py-1.5 text-ui font-semibold text-link dark:bg-raised dark:text-on-raised">
-      {children}
-    </li>
-  )
+  return <li className="tag">{children}</li>
 }
 
 function Tools() {
@@ -337,7 +331,7 @@ export default function About({ insights: items }) {
           </a>
         </div>
         <aside className="lg:pt-2">
-          <div className="relative w-full max-w-sm">
+          <div className="relative mx-auto w-full max-w-52 sm:max-w-sm lg:mx-0">
             <div
               aria-hidden="true"
               className="absolute -right-4 -bottom-4 h-full w-full rounded-[1.75rem] bg-citron"
@@ -345,7 +339,7 @@ export default function About({ insights: items }) {
             <Image
               src={portraitImage}
               alt="Portrait of Marko Bodiroza"
-              sizes="(min-width: 1248px) 384px, (min-width: 1024px) calc((100vw - 144px) / 2.6), (min-width: 424px) 384px, calc(100vw - 40px)"
+              sizes="(min-width: 1248px) 384px, (min-width: 1024px) calc((100vw - 144px) / 2.6), (min-width: 640px) 384px, 208px"
               className="relative aspect-4/5 w-full rounded-[1.75rem] object-cover object-[50%_30%]"
               preload
             />
