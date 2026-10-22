@@ -47,17 +47,31 @@ for (let insight of await insights()) {
 }
 urls = [...urls.values()]
 
-// Home first, then by path
-urls.sort((a, b) =>
-  a.loc === `${siteUrl}/`
-    ? -1
-    : b.loc === `${siteUrl}/`
-      ? 1
-      : a.loc.localeCompare(b.loc),
+// Main pages in menu order, then articles newest first
+let order = [
+  '/',
+  '/services',
+  '/work',
+  '/pricing',
+  '/about',
+  '/contact',
+  '/insights',
+]
+let rank = (loc) => {
+  let index = order.indexOf(new URL(loc).pathname)
+  return index === -1 ? order.length : index
+}
+urls.sort(
+  (a, b) =>
+    rank(a.loc) - rank(b.loc) ||
+    (b.lastmod ?? '').localeCompare(a.lastmod ?? '') ||
+    a.loc.localeCompare(b.loc),
 )
 
 let sitemap = [
   '<?xml version="1.0" encoding="UTF-8"?>',
+  // Browsers show the list as a page; search engines ignore the stylesheet
+  '<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>',
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
   ...urls.map(
     ({ loc, lastmod }) =>
