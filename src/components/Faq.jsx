@@ -31,7 +31,7 @@ export function Faq({ items, title = 'Questions About Timeline and Scope' }) {
       <h2 id="faq-heading" className="text-section">
         {title}
       </h2>
-      <div className="mt-8 border-t-2 border-ink">
+      <div className="mt-8 border-t-2 border-ink dark:border-field">
         {items.map((item) => (
           <details key={item.question} className="group border-b border-rule">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-lead-size leading-[1.35] font-bold marker:hidden [&::-webkit-details-marker]:hidden">

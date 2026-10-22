@@ -37,14 +37,13 @@ const ruleOnNight =
 function Hero() {
   return (
     <section className="blueprint on-brand overflow-hidden text-on-brand">
-      <Container className="grid gap-10 py-16 sm:py-24 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-x-14 lg:gap-y-7 lg:py-28">
+      <Container className="grid gap-10 py-14 sm:py-20 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-x-14 lg:gap-y-7 lg:py-20">
         <div className="lg:self-end">
           <p className="enter text-lead-size leading-snug font-bold text-citron">
             {siteMeta.author.name}, AI Strategist and System Builder
           </p>
           <h1 className="enter-rise text-page-title mt-5">
-            I Help Teams Put{' '}
-            <span className="marker text-citron">AI to Work</span> in Their
+            I Help Teams Put <span className="marker">AI to Work</span> in Their
             Daily Operations
           </h1>
         </div>
@@ -117,7 +116,7 @@ function ServicesOverview() {
               key={service.title}
               data-reveal
               style={{ '--i': index % 2 }}
-              className="grid grid-cols-[3rem_1fr] gap-x-4 border-t-2 border-ink py-8"
+              className="grid grid-cols-[3rem_1fr] gap-x-4 border-t-2 border-ink py-8 dark:border-field"
             >
               <ServiceIcon name={service.icon} className="h-9 w-9 text-link" />
               <div className="pt-1">
@@ -178,7 +177,7 @@ function ProcessAndPricing() {
               charge of the decisions that matter.
             </p>
             <ArrowLink
-              href="/process"
+              href="/pricing#process"
               color="text-citron"
               marker={false}
               className="mt-8"
@@ -251,7 +250,7 @@ function LatestInsights({ latest }) {
           </div>
           <ArrowLink href="/insights">Read All Insights</ArrowLink>
         </div>
-        <div className="mt-12 border-t-2 border-ink">
+        <div className="mt-12 border-t-2 border-ink dark:border-field">
           {latest.map((insight) => (
             <InsightRow key={insight.slug} insight={insight} />
           ))}

@@ -21,7 +21,7 @@ function Story({ example }) {
     <article
       id={example.slug}
       aria-labelledby={`${example.slug}-title`}
-      className="scroll-mt-28 border-t-2 border-ink pt-12"
+      className="scroll-mt-28 border-t-2 border-ink pt-12 dark:border-field"
     >
       <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
         <div>

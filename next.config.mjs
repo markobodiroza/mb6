@@ -13,6 +13,7 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      { source: '/process', destination: '/pricing#process', permanent: true },
       { source: '/thoughts', destination: '/insights', permanent: true },
       { source: '/blog', destination: '/insights', permanent: true },
       { source: '/blog/:slug*', destination: '/insights', permanent: true },

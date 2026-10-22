@@ -12,7 +12,6 @@ const navigation = [
   { href: '/', label: 'Home' },
   { href: '/services', label: 'Services' },
   { href: '/work', label: 'Work' },
-  { href: '/process', label: 'Process' },
   { href: '/pricing', label: 'Pricing' },
   { href: '/insights', label: 'Insights' },
   { href: '/about', label: 'About' },
@@ -147,25 +146,27 @@ function DesktopNavigation() {
   return (
     <nav aria-label="Main" className="hidden lg:block">
       <ul className="flex items-center gap-1 text-ui font-medium">
-        {navigation.map((item) => (
-          <li key={item.href}>
-            <Link
-              href={item.href}
-              aria-current={isActive(item.href) ? 'page' : undefined}
-              className={clsx(
-                'relative block rounded-full px-3.5 py-2 transition-colors duration-200',
-                isActive(item.href)
-                  ? 'text-ink'
-                  : 'text-graphite hover:bg-sunken hover:text-ink',
-              )}
-            >
-              {item.label}
-              {isActive(item.href) && (
-                <span className="absolute inset-x-3.5 bottom-0.5 h-[3px] rounded-full bg-link" />
-              )}
-            </Link>
-          </li>
-        ))}
+        {navigation
+          .filter((item) => item.href !== '/')
+          .map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                aria-current={isActive(item.href) ? 'page' : undefined}
+                className={clsx(
+                  'relative flex min-h-11 items-center rounded-full px-3.5 transition-colors duration-200',
+                  isActive(item.href)
+                    ? 'text-ink'
+                    : 'text-graphite hover:bg-sunken hover:text-ink',
+                )}
+              >
+                {item.label}
+                {isActive(item.href) && (
+                  <span className="absolute inset-x-3.5 bottom-0.5 h-[3px] rounded-full bg-link" />
+                )}
+              </Link>
+            </li>
+          ))}
       </ul>
     </nav>
   )

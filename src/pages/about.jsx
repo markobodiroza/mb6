@@ -1,12 +1,15 @@
+import { Fragment } from 'react'
 import Image from 'next/image'
 
 import { BookCallButton, Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { CtaBand } from '@/components/CtaBand'
+import { InsightRow } from '@/components/InsightRow'
 import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
 import { NextSeo } from '@/components/Seo'
 import { resume, tools } from '@/data/content'
+import { insightSummary, insights } from '@/data/insights'
 import siteMeta from '@/data/siteMeta'
 import portraitImage from '@/images/marko-head.jpg'
 import { contactHref } from '@/lib/contact'
@@ -44,7 +47,7 @@ function WorkHistory() {
       <h2 id="work-heading" className="text-section">
         Work History
       </h2>
-      <ol className="mt-8 border-t-2 border-ink">
+      <ol className="mt-8 border-t-2 border-ink dark:border-field">
         {resume.map((role, index) => (
           <li
             key={role.company}
@@ -96,7 +99,7 @@ function Tools() {
         I pick tools for the job and the team, not the other way around. Here is
         what I work with, by category.
       </p>
-      <dl className="mt-8 border-t-2 border-ink">
+      <dl className="mt-8 border-t-2 border-ink dark:border-field">
         {tools.map((group) => (
           <div
             key={group.category}
@@ -106,8 +109,18 @@ function Tools() {
             <dt className="font-bold">{group.category}</dt>
             <dd>
               <ul role="list" className="flex flex-wrap gap-2">
-                {group.items.map((item) => (
-                  <ToolChip key={item}>{item}</ToolChip>
+                {group.items.map((item, index) => (
+                  <Fragment key={item}>
+                    {/* Wide screens split each group into two even rows */}
+                    {index === Math.ceil(group.items.length / 2) && (
+                      <li
+                        role="presentation"
+                        aria-hidden="true"
+                        className="hidden basis-full lg:block"
+                      />
+                    )}
+                    <ToolChip>{item}</ToolChip>
+                  </Fragment>
                 ))}
               </ul>
             </dd>
@@ -118,7 +131,52 @@ function Tools() {
   )
 }
 
-export default function About() {
+// Latest notes first; the rest open in place
+function LatestInsights({ items }) {
+  let [latest, rest] = [items.slice(0, 3), items.slice(3)]
+  return (
+    <section aria-labelledby="insights-heading">
+      <h2 id="insights-heading" className="text-section">
+        Latest Insights
+      </h2>
+      <p className="text-lead mt-5 max-w-measure text-graphite">
+        Short, practical notes on AI search and putting AI to work.
+      </p>
+      <div className="mt-8 border-t-2 border-ink dark:border-field">
+        {latest.map((insight) => (
+          <InsightRow key={insight.slug} insight={insight} />
+        ))}
+      </div>
+      {rest.length > 0 && (
+        <details className="group">
+          <summary className="flex cursor-pointer list-none items-center justify-between gap-6 border-b border-rule py-6 text-lead-size font-bold marker:hidden [&::-webkit-details-marker]:hidden">
+            See More Insights
+            <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-sunken text-link transition-transform duration-300 ease-out-quart group-open:rotate-45">
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+                className="h-5 w-5"
+              >
+                <path
+                  d="M10 4v12M4 10h12"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span>
+          </summary>
+          {rest.map((insight) => (
+            <InsightRow key={insight.slug} insight={insight} />
+          ))}
+        </details>
+      )}
+    </section>
+  )
+}
+
+export default function About({ insights: items }) {
   return (
     <>
       <NextSeo
@@ -201,8 +259,14 @@ export default function About() {
       <Container className="mt-section flex flex-col gap-section">
         <WorkHistory />
         <Tools />
+        <LatestInsights items={items} />
       </Container>
       <CtaBand />
     </>
   )
+}
+
+// Read at build time, so full articles stay out of the page's JavaScript
+export function getStaticProps() {
+  return { props: { insights: insights.map(insightSummary) } }
 }
