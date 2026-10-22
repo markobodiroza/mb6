@@ -23,13 +23,30 @@ function Story({ example }) {
       aria-labelledby={`${example.slug}-title`}
       className="scroll-mt-28 border-t-2 border-ink pt-12"
     >
-      <p className="label text-link">{example.client}</p>
-      <h2
-        id={`${example.slug}-title`}
-        className="mt-2 max-w-3xl text-[clamp(1.75rem,1.4rem+1.2vw,2.5rem)] leading-[1.1] font-[780] tracking-[-0.03em]"
-      >
-        {example.title}
-      </h2>
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
+        <div>
+          <p className="label text-link">{example.client}</p>
+          <h2
+            id={`${example.slug}-title`}
+            className="mt-2 max-w-3xl text-[clamp(1.75rem,1.4rem+1.2vw,2.5rem)] leading-[1.1] font-[780] tracking-[-0.03em]"
+          >
+            {example.title}
+          </h2>
+        </div>
+        <div className="lg:max-w-md lg:flex-none">
+          <h3 className="label text-muted lg:text-right">Tools</h3>
+          <ul role="list" className="mt-3 flex flex-wrap gap-2 lg:justify-end">
+            {example.tools.map((tool) => (
+              <li
+                key={tool}
+                className="rounded-full border-2 border-rule px-3.5 py-1.5 text-[0.9375rem] font-semibold"
+              >
+                {tool}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
       <WorkDiagram
         lanes={example.diagram}
         label={`Diagram: ${example.title}`}
@@ -64,19 +81,6 @@ function Story({ example }) {
             ))}
           </ul>
         </section>
-      </div>
-      <div className="mt-10">
-        <h3 className="label text-muted">Tools</h3>
-        <ul role="list" className="mt-3 flex flex-wrap gap-2">
-          {example.tools.map((tool) => (
-            <li
-              key={tool}
-              className="rounded-full border-2 border-rule px-3.5 py-1.5 text-[0.9375rem] font-semibold"
-            >
-              {tool}
-            </li>
-          ))}
-        </ul>
       </div>
     </article>
   )
