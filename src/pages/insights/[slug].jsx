@@ -134,7 +134,10 @@ export default function Insight({ insight, more }) {
           </div>
         </Container>
       )}
-      <CtaBand />
+      <CtaBand title="Put This Idea to Work">
+        Tell me how your team works today and we will find the first place this
+        can help.
+      </CtaBand>
     </>
   )
 }

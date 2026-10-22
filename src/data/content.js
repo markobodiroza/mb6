@@ -3,6 +3,14 @@
 import logoNP from '@/images/logos/nplogo.svg'
 import logoRTRK from '@/images/logos/rt.svg'
 import logoNetInfo from '@/images/logos/netinfo.svg'
+import badgeClaudeArchitect from '@/images/badges/claude-certified-architect.png'
+import badgeClaudeCode from '@/images/badges/claude-code-partner.png'
+import badgeGenAiLeader from '@/images/badges/google-generative-ai-leader.png'
+import badgeCato from '@/images/badges/cato-ai-cybersecurity.png'
+import badgeGoogleAi from '@/images/badges/google-ai-professional.png'
+import badgeDataEngineer from '@/images/badges/google-cloud-data-engineer.png'
+import badgeSectionExpert from '@/images/badges/section-ai-expert.png'
+import badgeSectionProficiency from '@/images/badges/section-ai-proficiency.png'
 export const resume = [
   {
     company: 'New Perspective Marketing',
@@ -54,6 +62,8 @@ export const resume = [
 export const services = [
   {
     title: 'AI Strategy and Roadmap',
+    slug: 'strategy',
+    short: 'Strategy and Roadmap',
     icon: 'route',
     summary:
       'Where AI fits in your business, what to do first and how it pays off.',
@@ -70,6 +80,8 @@ export const services = [
   },
   {
     title: 'Process Analysis and Redesign',
+    slug: 'process-redesign',
+    short: 'Process Redesign',
     icon: 'flow',
     summary:
       'A clear map of how work really runs, redesigned with AI in the right places.',
@@ -86,6 +98,8 @@ export const services = [
   },
   {
     title: 'AI Systems and Automation',
+    slug: 'automation',
+    short: 'Systems and Automation',
     icon: 'gear',
     summary:
       'Working AI systems for your recurring work, built in the tools you already use.',
@@ -102,6 +116,8 @@ export const services = [
   },
   {
     title: 'Team Enablement and Training',
+    slug: 'training',
+    short: 'Training',
     icon: 'team',
     summary:
       'Hands-on training and shared setups that turn AI tools into team habits.',
@@ -118,6 +134,8 @@ export const services = [
   },
   {
     title: 'AI Search Visibility and AEO',
+    slug: 'aeo',
+    short: 'AI Search and AEO',
     icon: 'search',
     summary:
       'Answer engine optimization (AEO): get your brand cited in ChatGPT, Google AI Overviews and other AI answers.',
@@ -135,6 +153,8 @@ export const services = [
   },
   {
     title: 'Fractional AI Leadership',
+    slug: 'fractional',
+    short: 'Fractional Leadership',
     icon: 'compass',
     summary:
       'Ongoing strategic guidance while your team adopts AI, without a full-time hire.',
@@ -205,6 +225,74 @@ export const processSteps = [
 ]
 
 // The short list shown first on About; the full list sits behind a toggle
+export const memberships = [
+  {
+    organization: 'Serbian AI Society',
+    role: 'Member',
+    field: 'Science and Technology',
+    start: { label: 'Nov 2024', dateTime: '2024-11' },
+  },
+]
+
+export const badges = [
+  {
+    name: 'Claude Certified Architect, Foundations',
+    issuer: 'Anthropic',
+    image: badgeClaudeArchitect,
+  },
+  {
+    name: 'Claude Code Partner',
+    issuer: 'Anthropic',
+    image: badgeClaudeCode,
+  },
+  {
+    name: 'Generative AI Leader',
+    issuer: 'Google Cloud',
+    image: badgeGenAiLeader,
+  },
+  {
+    name: 'AI Professional Certificate',
+    issuer: 'Google',
+    image: badgeGoogleAi,
+  },
+  {
+    name: 'Professional Data Engineer',
+    issuer: 'Google Cloud',
+    image: badgeDataEngineer,
+  },
+  { name: 'AI Expert', issuer: 'Section', image: badgeSectionExpert },
+  {
+    name: 'AI Proficiency',
+    issuer: 'Section',
+    image: badgeSectionProficiency,
+  },
+  { name: 'AI Cybersecurity', issuer: 'Cato Networks', image: badgeCato },
+]
+
+export const credentials = [
+  { issuer: 'Google', items: ['Google Ads Search'] },
+  {
+    issuer: 'HubSpot',
+    items: [
+      'Onboarding Accreditation',
+      'Revenue Operations',
+      'Delivering Client Success',
+      'Contextual Marketing',
+      'Growth-Driven Design Agency',
+    ],
+  },
+  { issuer: 'Intel', items: ['AI Readiness'] },
+  {
+    issuer: 'LinkedIn',
+    items: [
+      'Certified Marketing Insider',
+      'Marketing Solutions Fundamentals',
+      'Content and Creative Design',
+      'Marketing Strategy',
+    ],
+  },
+]
+
 export const tools = [
   {
     category: 'AI',
@@ -215,7 +303,6 @@ export const tools = [
       'Perplexity',
       'Grok',
       'DeepSeek',
-      'Mistral',
       'NotebookLM',
       'Claude Code',
       'Cursor',
@@ -236,7 +323,6 @@ export const tools = [
       'HubSpot Workflows',
       'MCP (Model Context Protocol)',
       'Python',
-      'Google Apps Script',
     ],
   },
   {
@@ -251,6 +337,7 @@ export const tools = [
       'Screaming Frog',
       'Lucky Orange',
       'Apollo',
+      'Clay',
     ],
   },
   {
@@ -426,5 +513,23 @@ export const serviceFaqs = [
     question: 'Do you work remotely or on-site?',
     answer:
       'I work remotely with teams in the US and Europe, in English. My working day overlaps with US East Coast mornings and the whole European day. Workshops can also run on-site anywhere in Europe, with flights and accommodation covered by the client.',
+  },
+]
+
+export const testimonials = [
+  {
+    quote:
+      'Marko’s AI implementation saved us $180,000 a year. He understood what we needed, explained the technical decisions clearly, and delivered before the deadline. What I appreciated most was how straightforward he made the whole process. I never felt I had to chase him.',
+    author: 'CEO, Mid-Sized Business',
+  },
+  {
+    quote:
+      'Marko helped us build AI services we could offer under our own brand, and taught us along the way. He knows both the AI and the engineering behind it, but makes everything easy to understand. Easy to work with, generous with his knowledge, and finished ahead of schedule.',
+    author: 'Owner, Mid-Sized Agency',
+  },
+  {
+    quote:
+      'Our revenue grew 90% in six months with Marko’s help. He brought strong AI and engineering knowledge, and was always testing ideas and looking for ways to improve.',
+    author: 'Marketing Director, B2B Manufacturer',
   },
 ]

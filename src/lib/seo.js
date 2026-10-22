@@ -53,6 +53,33 @@ export const personSchema = {
     'HubSpot',
     'Python',
   ],
+  memberOf: { '@type': 'Organization', name: 'Serbian AI Society' },
+  // Written out for the same reason as knowsAbout
+  hasCredential: [
+    ['Claude Certified Architect, Foundations', 'Anthropic'],
+    ['Claude Code Partner Badge', 'Anthropic'],
+    ['Generative AI Leader', 'Google Cloud'],
+    ['AI Professional Certificate', 'Google'],
+    ['Professional Data Engineer', 'Google Cloud'],
+    ['Google Ads Search Certification', 'Google'],
+    ['AI Expert', 'Section'],
+    ['AI Proficiency', 'Section'],
+    ['HubSpot Onboarding Accreditation', 'HubSpot'],
+    ['Revenue Operations', 'HubSpot Academy'],
+    ['Delivering Client Success', 'HubSpot Academy'],
+    ['Contextual Marketing', 'HubSpot Academy'],
+    ['Growth-Driven Design Agency', 'HubSpot Academy'],
+    ['LinkedIn Certified Marketing Insider', 'LinkedIn'],
+    ['LinkedIn Marketing Solutions Fundamentals', 'LinkedIn'],
+    ['LinkedIn Content and Creative Design', 'LinkedIn'],
+    ['LinkedIn Marketing Strategy', 'LinkedIn'],
+    ['AI Readiness', 'Intel'],
+    ['AI Cybersecurity', 'Cato Networks'],
+  ].map(([name, issuer]) => ({
+    '@type': 'EducationalOccupationalCredential',
+    name,
+    recognizedBy: { '@type': 'Organization', name: issuer },
+  })),
   sameAs: [siteMeta.author.linkedin, siteMeta.author.twitter],
 }
 

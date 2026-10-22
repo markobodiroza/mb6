@@ -147,8 +147,8 @@ function SuccessMessage({ name, viaEmail }) {
             Received.
           </h2>
           <p className="text-lead mt-4 max-w-lg">
-            I will review your project and get back to you with a suggested next
-            step.
+            I will review your project and reply within 1 business day with a
+            suggested next step.
           </p>
         </>
       )}
@@ -156,70 +156,50 @@ function SuccessMessage({ name, viaEmail }) {
   )
 }
 
+// A dropdown from 1 to 5, with the chosen level explained underneath
 function ProficiencyPicker({ id, value, onChange, error }) {
   let selected = proficiencyLevels.find(
     (level) => String(level.value) === value,
   )
 
   return (
-    <fieldset aria-describedby={error ? `${id}-error` : undefined}>
-      <legend className="flex w-full items-baseline justify-between gap-4">
-        <span className="font-bold">How AI-Forward Is Your Company?</span>
-        <span className="text-right text-ui text-muted">
-          <span className="sr-only">, </span>
-          Optional
-        </span>
-      </legend>
-      <p className="mt-1 text-ui text-graphite">
-        1 means just exploring, 5 means AI is built into how you work.
-      </p>
-      <div className="mt-3 grid gap-2 sm:grid-cols-5">
-        {proficiencyLevels.map((level) => {
-          let checked = String(level.value) === value
-          return (
-            <label
-              key={level.value}
-              className={clsx(
-                'relative flex cursor-pointer items-center gap-4 rounded-xl border-2 px-4 py-3 transition-colors duration-200 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--focus) has-focus-visible:outline-solid sm:flex-col sm:gap-1 sm:px-1 sm:text-center',
-                checked
-                  ? 'tile-pop border-action bg-action text-action-fg'
-                  : error
-                    ? 'border-danger-line hover:border-graphite'
-                    : 'border-field hover:border-graphite',
-              )}
-            >
-              <input
-                type="radio"
-                name="proficiency"
-                value={level.value}
-                checked={checked}
-                onChange={onChange}
-                className="sr-only"
-              />
-              <span className="text-lead-size leading-none font-extrabold">
-                {level.value}
-              </span>
-              <span className="text-ui leading-tight font-semibold sm:text-caption">
-                {level.label}
-              </span>
-            </label>
-          )
-        })}
-      </div>
-      <p className="mt-3 min-h-6 text-ui text-graphite" aria-live="polite">
-        {selected && (
+    <Field
+      label="How AI-Forward Is Your Company?"
+      hint="Optional"
+      id={id}
+      error={error}
+    >
+      <Select
+        id={id}
+        name="proficiency"
+        value={value}
+        onChange={onChange}
+        aria-describedby={clsx(`${id}-detail`, error && `${id}-error`)}
+        aria-invalid={error ? true : undefined}
+        className={clsx(selectStyles, !value && 'text-muted')}
+      >
+        <option value="">Select a level</option>
+        {proficiencyLevels.map((level) => (
+          <option key={level.value} value={level.value} className="text-ink">
+            {level.value}. {level.label}
+          </option>
+        ))}
+      </Select>
+      <p
+        id={`${id}-detail`}
+        className="mt-2 text-ui text-graphite"
+        aria-live="polite"
+      >
+        {selected ? (
           <>
             <span className="font-bold text-ink">{selected.label}:</span>{' '}
             {selected.description}
           </>
+        ) : (
+          '1 means just exploring, 5 means AI is built into how you work.'
         )}
       </p>
-      {error && (
-        <p id={`${id}-error`} className={errorText}>
-          {error}
-        </p>
-      )}
-    </fieldset>
+    </Field>
   )
 }
 
@@ -486,10 +466,6 @@ export function ContactForm() {
             'Send Inquiry'
           )}
         </Button>
-        <p className="text-ui text-muted">
-          Your inquiry is delivered through Formspree and used only to reply to
-          you.
-        </p>
       </div>
     </form>
   )

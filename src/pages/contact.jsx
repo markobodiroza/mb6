@@ -52,7 +52,8 @@ export default function Contact() {
       />
       <PageHeader title="Tell Me About Your Project">
         Share where your team is today and what you want AI to take on. A few
-        details up front make our first conversation far more useful.
+        details up front make our first conversation far more useful. I reply
+        within 1 business day.
       </PageHeader>
       <Container className="mt-lead mb-section grid gap-16 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-20">
         <ContactForm />

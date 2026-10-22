@@ -7,6 +7,7 @@ import { CtaBand } from '@/components/CtaBand'
 import { Faq } from '@/components/Faq'
 import { ArrowRightIcon, CheckIcon, ServiceIcon } from '@/components/Icons'
 import { JsonLd } from '@/components/JsonLd'
+import { JumpNav } from '@/components/JumpNav'
 import { PageHeader } from '@/components/PageHeader'
 import { NextSeo } from '@/components/Seo'
 import { pricingPackages, serviceFaqs, services } from '@/data/content'
@@ -29,8 +30,9 @@ function Service({ service, index }) {
 
   return (
     <article
+      id={service.slug}
       data-reveal
-      className="grid gap-x-16 gap-y-10 border-t-2 border-ink py-14 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] dark:border-field"
+      className="grid scroll-mt-28 gap-x-16 gap-y-10 border-t-2 border-ink py-14 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] dark:border-field"
     >
       <div>
         <div className="flex items-start gap-4">
@@ -144,7 +146,15 @@ export default function Services() {
         redesign how work gets done and build the systems that run it, in the
         tools you already use.
       </PageHeader>
-      <Container className="mt-lead">
+      <Container>
+        <JumpNav
+          items={services.map((service) => ({
+            href: `#${service.slug}`,
+            label: service.short,
+          }))}
+        />
+      </Container>
+      <Container className="mt-10">
         {services.map((service, index) => (
           <Fragment key={service.title}>
             {index === 3 && <NotSureBand />}
@@ -155,7 +165,10 @@ export default function Services() {
           <Faq items={serviceFaqs} title="Questions About Working Together" />
         </div>
       </Container>
-      <CtaBand />
+      <CtaBand title="Not Sure Which Service Fits?">
+        Tell me where your team is today. On a short call we will match your
+        goals to the right service.
+      </CtaBand>
     </>
   )
 }

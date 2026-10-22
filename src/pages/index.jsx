@@ -3,36 +3,17 @@ import Image from 'next/image'
 import { ArrowLink, BookCallButton, Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { CtaBand } from '@/components/CtaBand'
-import { ServiceIcon } from '@/components/Icons'
-import { InsightRow } from '@/components/InsightRow'
+import { CheckIcon, ServiceIcon } from '@/components/Icons'
 import { JsonLd } from '@/components/JsonLd'
 import { NextSeo } from '@/components/Seo'
+import { Testimonials } from '@/components/Testimonials'
 import { WorkDiagram } from '@/components/WorkDiagram'
-import {
-  hourlyRate,
-  pricingPackages,
-  processSteps,
-  services,
-} from '@/data/content'
-import { insightSummary, insights } from '@/data/insights'
+import { processSteps, services } from '@/data/content'
 import siteMeta from '@/data/siteMeta'
 import { featuredWorkSlug, workExamples } from '@/data/work'
 import portraitImage from '@/images/marko-head.jpg'
 import { contactHref } from '@/lib/contact'
-import { formatPrice } from '@/lib/formatPrice'
 import { absoluteUrl, pageOpenGraph, personSchema } from '@/lib/seo'
-
-// Projects, day rates and retainers are priced differently, so the teaser
-// names each one instead of mixing them under "from"
-const projectPackages = pricingPackages.filter((pkg) =>
-  ['per project', 'per process'].includes(pkg.unit),
-)
-const lowestProjectPrice = Math.min(...projectPackages.map((pkg) => pkg.price))
-const workshop = pricingPackages.find((pkg) => pkg.slug === 'workshop')
-const advisory = pricingPackages.find((pkg) => pkg.slug === 'advisory')
-
-const ruleOnNight =
-  'border-[color-mix(in_oklch,var(--on-night)_18%,transparent)]'
 
 function Hero() {
   return (
@@ -84,7 +65,8 @@ function Hero() {
             style={{ '--i': 3 }}
           >
             15+ years in digital marketing, engineering, AI and SEO. Working
-            with marketing teams, agencies and B2B companies.
+            with marketing teams, agencies and B2B companies. Certified by
+            Anthropic, Google and HubSpot.
           </p>
         </div>
       </Container>
@@ -135,132 +117,82 @@ function FeaturedWork({ example }) {
   return (
     <section aria-labelledby="work-heading" className="pt-section">
       <Container>
-        <div
-          data-reveal
-          className="flex flex-wrap items-end justify-between gap-6"
-        >
-          <div className="max-w-2xl">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-0">
+          <div data-reveal className="flex flex-col items-start lg:pr-16">
             <h2 id="work-heading" className="text-section">
               Recent Work
             </h2>
             <p className="text-lead mt-5 text-graphite">
               <span className="font-bold text-ink">{example.title}.</span>{' '}
-              {example.summary}
+              {example.teaser}
             </p>
+            {/* The outcomes at a glance, mirroring the process steps */}
+            <ul
+              role="list"
+              className="mt-6 mb-auto flex flex-col items-start gap-2"
+            >
+              {example.highlights.map((item) => (
+                <li
+                  key={item}
+                  className="inline-flex items-center gap-2 rounded-full bg-sunken py-1.5 pr-3.5 pl-1.5 text-ui font-semibold dark:bg-raised dark:text-on-raised"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="flex h-6 w-6 items-center justify-center rounded-full bg-citron text-on-citron"
+                  >
+                    <CheckIcon className="h-3.5 w-3.5" />
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <ArrowLink href="/work" className="mt-8">
+              See All Work
+            </ArrowLink>
           </div>
-          <ArrowLink href="/work">See All Work</ArrowLink>
+          <div
+            data-reveal
+            style={{ '--i': 1 }}
+            className="flex flex-col items-start border-t border-rule pt-12 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-16"
+          >
+            <h2 className="text-section">How I Work</h2>
+            <p className="text-lead mt-5 text-graphite">
+              I get one thing working before scaling it, and your people stay in
+              charge of the decisions that matter.
+            </p>
+            {/* The five steps at a glance, in order */}
+            <ol className="mt-6 mb-auto flex flex-col items-start gap-2">
+              {processSteps.map((step, index) => (
+                <li
+                  key={step.title}
+                  className="inline-flex items-center gap-2 rounded-full bg-sunken py-1.5 pr-3.5 pl-1.5 text-ui font-semibold dark:bg-raised dark:text-on-raised"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="numeral flex h-6 w-6 items-center justify-center rounded-full bg-citron text-caption font-extrabold text-on-citron"
+                  >
+                    {index + 1}
+                  </span>
+                  {step.title.replace(/^\d+\.\s*/, '')}
+                </li>
+              ))}
+            </ol>
+            <ArrowLink href="/pricing#process" className="mt-8">
+              See the Full Process
+            </ArrowLink>
+          </div>
         </div>
         <WorkDiagram
           lanes={example.diagram}
           label={`Diagram: ${example.title}`}
-          className="mt-10"
+          className="mt-12"
         />
       </Container>
     </section>
   )
 }
 
-function ProcessAndPricing() {
-  return (
-    <section
-      aria-labelledby="process-heading"
-      className="on-night mt-section bg-night py-section text-on-night dark:border-y-2 dark:border-rule"
-    >
-      <Container>
-        <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] lg:gap-20">
-          <div data-reveal>
-            <h2 id="process-heading" className="text-section">
-              How I Work
-            </h2>
-            <p className="text-lead mt-5 max-w-md text-on-night-muted">
-              I get one thing working before scaling it, and your people stay in
-              charge of the decisions that matter.
-            </p>
-            <ArrowLink
-              href="/pricing#process"
-              color="text-citron"
-              marker={false}
-              className="mt-8"
-            >
-              See the Full Process
-            </ArrowLink>
-          </div>
-          <ol className={`border-t ${ruleOnNight}`}>
-            {processSteps.map((step, index) => (
-              <li
-                key={step.title}
-                data-reveal
-                style={{ '--i': index }}
-                className={`grid grid-cols-[3.5rem_1fr] gap-x-4 border-b py-6 sm:grid-cols-[3.5rem_13rem_1fr] sm:gap-x-6 ${ruleOnNight}`}
-              >
-                <span
-                  className="text-subhead leading-none font-extrabold tracking-[-0.04em] text-citron"
-                  aria-hidden="true"
-                >
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className="text-lead-size leading-[1.35] font-bold">
-                  {step.title.replace(/^\d+\.\s*/, '')}
-                </h3>
-                <p className="col-start-2 mt-1 text-ui leading-[1.6] text-on-night-muted sm:col-start-auto sm:mt-0">
-                  {step.description}
-                </p>
-              </li>
-            ))}
-          </ol>
-        </div>
-        <div
-          data-reveal
-          className="mt-20 flex flex-col gap-8 rounded-[1.75rem] bg-citron p-8 text-on-citron sm:flex-row sm:items-center sm:justify-between sm:p-10"
-        >
-          <div>
-            <p className="text-heading">
-              Projects from {formatPrice(lowestProjectPrice)}
-            </p>
-            <p className="mt-2 text-body font-medium">
-              Workshops from {formatPrice(workshop.price)}. Monthly advisory
-              from {formatPrice(advisory.price)}. Hourly at{' '}
-              {formatPrice(hourlyRate.price)}.
-            </p>
-          </div>
-          <ArrowLink href="/pricing" color="text-on-citron" marker={false}>
-            Compare All Packages
-          </ArrowLink>
-        </div>
-      </Container>
-    </section>
-  )
-}
-
-function LatestInsights({ latest }) {
-  return (
-    <section aria-labelledby="insights-heading" className="pt-section">
-      <Container>
-        <div
-          data-reveal
-          className="flex flex-wrap items-end justify-between gap-6"
-        >
-          <div className="max-w-2xl">
-            <h2 id="insights-heading" className="text-section">
-              Latest Insights
-            </h2>
-            <p className="text-lead mt-5 text-graphite">
-              Short, practical notes on AI search and putting AI to work.
-            </p>
-          </div>
-          <ArrowLink href="/insights">Read All Insights</ArrowLink>
-        </div>
-        <div className="mt-12 border-t-2 border-ink dark:border-field">
-          {latest.map((insight) => (
-            <InsightRow key={insight.slug} insight={insight} />
-          ))}
-        </div>
-      </Container>
-    </section>
-  )
-}
-
-export default function Home({ latest, featured }) {
+export default function Home({ featured }) {
   return (
     <>
       <NextSeo
@@ -292,18 +224,16 @@ export default function Home({ latest, featured }) {
       <Hero />
       <ServicesOverview />
       <FeaturedWork example={featured} />
-      <ProcessAndPricing />
-      <LatestInsights latest={latest} />
-      <CtaBand />
+      <Testimonials />
+      <CtaBand title="Put AI to Work in Your Team" />
     </>
   )
 }
 
-// Read at build time, so full articles stay out of the page's JavaScript
+// Read at build time, so the other work examples stay out of the page's JavaScript
 export function getStaticProps() {
   return {
     props: {
-      latest: insights.slice(0, 3).map(insightSummary),
       featured: workExamples.find(
         (example) => example.slug === featuredWorkSlug,
       ),

@@ -49,31 +49,13 @@ function Package({ pkg, index }) {
           </span>
         )}
         <h2 className="text-subhead">{pkg.name}</h2>
-        <p
-          className={clsx(
-            'mt-2 text-body leading-normal',
-            featured ? 'text-on-brand-muted' : 'text-graphite',
-          )}
-        >
-          <span className="font-bold">Best for:</span> {pkg.bestFor}
-        </p>
-        <p className="mt-5 flex flex-wrap items-baseline gap-x-2">
+        <p className="mt-4 flex flex-wrap items-baseline gap-x-2">
           <span className="text-ui font-semibold">From</span>
           <span className="text-price leading-none font-extrabold tracking-[-0.045em]">
             {formatPrice(pkg.price)}
           </span>
           <span className="text-ui font-semibold">USD {pkg.unit}</span>
         </p>
-        {pkg.term && (
-          <p
-            className={clsx(
-              'mt-1 text-ui',
-              featured ? 'text-on-brand-muted' : 'text-muted',
-            )}
-          >
-            {pkg.term}
-          </p>
-        )}
         <Button
           variant={featured ? 'on-brand' : 'secondary'}
           className="mt-7 w-full sm:w-auto"
@@ -111,6 +93,107 @@ function Package({ pkg, index }) {
         </ul>
       </div>
     </article>
+  )
+}
+
+// One-line summary of every option, linking down to its full row
+function PricingSummary() {
+  let rows = [
+    ...pricingPackages.map((pkg) => ({
+      href: `#${pkg.slug}`,
+      name: pkg.name,
+      featured: pkg.featured,
+      bestFor: pkg.bestFor,
+      price: formatPrice(pkg.price),
+      unit: `USD ${pkg.unit}`,
+      from: true,
+      term: pkg.term,
+    })),
+    {
+      href: '#hourly',
+      name: 'Hourly Advisory',
+      bestFor: 'You need a second opinion or a smaller request.',
+      price: formatPrice(hourlyRate.price),
+      unit: 'USD per hour',
+      term: 'As needed',
+    },
+  ]
+
+  return (
+    <section aria-labelledby="summary-heading" className="mt-lead">
+      <h2 id="summary-heading" className="text-heading">
+        Pricing at a Glance
+      </h2>
+      <div className="mt-6 overflow-hidden rounded-[1.75rem] border-2 border-rule bg-paper shadow-card dark:border-transparent dark:bg-sunken">
+        <table className="w-full border-separate border-spacing-0 text-left max-md:block md:table-fixed">
+          <colgroup className="max-md:hidden">
+            <col className="w-1/4" />
+            <col className="w-1/4" />
+            <col className="w-1/4" />
+            <col className="w-1/4" />
+          </colgroup>
+          <thead className="max-md:sr-only">
+            <tr className="on-brand text-ui text-on-brand [&>th]:bg-brand [&>th]:shadow-[1px_0_0_var(--brand)] dark:[&>th]:bg-raised dark:[&>th]:shadow-[1px_0_0_var(--raised)]">
+              <th scope="col" className="py-4 pr-6 pl-7 font-bold">
+                Package
+              </th>
+              <th scope="col" className="py-4 pr-6 font-bold">
+                Price
+              </th>
+              <th scope="col" className="py-4 pr-6 font-bold">
+                Best For
+              </th>
+              <th scope="col" className="py-4 pr-7 font-bold">
+                Timing
+              </th>
+            </tr>
+          </thead>
+          <tbody className="max-md:block">
+            {rows.map((row) => (
+              <tr
+                key={row.name}
+                className={clsx(
+                  'align-top transition-colors duration-200 max-md:grid max-md:gap-1.5 max-md:border-t max-md:border-rule max-md:px-5 max-md:py-6 max-md:first:border-t-0 md:[&:not(:first-child)>*]:border-t md:[&>*]:border-rule',
+                  row.featured
+                    ? 'bg-[color-mix(in_oklch,var(--citron)_24%,var(--paper))] dark:bg-[color-mix(in_oklch,var(--citron)_12%,var(--sunken))]'
+                    : 'hover:bg-sunken dark:hover:bg-night',
+                )}
+              >
+                <th scope="row" className="py-5 pr-6 pl-7 font-bold max-md:p-0">
+                  <a href={row.href} className="link marker-hover">
+                    {row.name}
+                  </a>
+                  {row.featured && (
+                    <span className="mt-2 block w-fit rounded-full bg-citron px-3 py-1 text-caption font-bold text-on-citron">
+                      Start Here
+                    </span>
+                  )}
+                </th>
+                <td className="py-5 pr-6 max-md:p-0">
+                  {row.from && (
+                    <span className="text-caption font-semibold text-graphite">
+                      From{' '}
+                    </span>
+                  )}
+                  <span className="numeral text-lead-size font-extrabold tracking-[-0.03em] text-link">
+                    {row.price}
+                  </span>
+                  <span className="block text-caption font-semibold text-graphite">
+                    {row.unit}
+                  </span>
+                </td>
+                <td className="py-5 pr-6 text-balance text-graphite max-md:p-0">
+                  {row.bestFor}
+                </td>
+                <td className="py-5 pr-7 text-graphite max-md:p-0">
+                  {row.term}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
   )
 }
 
@@ -183,14 +266,16 @@ export default function Pricing() {
         before we start. Final prices depend on your team size and scope.
       </PageHeader>
       <Container>
-        <div className="mt-lead grid gap-6">
+        <PricingSummary />
+        <div className="mt-section grid gap-6">
           {pricingPackages.map((pkg, index) => (
             <Package key={pkg.slug} pkg={pkg} index={index} />
           ))}
         </div>
         <section
+          id="hourly"
           aria-labelledby="hourly-heading"
-          className="mt-6 grid gap-6 rounded-[1.75rem] border-2 border-dashed border-ink p-7 sm:p-9 md:grid-cols-[1fr_auto_auto] md:items-center md:gap-10 dark:border-field"
+          className="mt-6 grid scroll-mt-28 gap-6 rounded-[1.75rem] border-2 border-dashed border-ink p-7 sm:p-9 md:grid-cols-[1fr_auto_auto] md:items-center md:gap-10 dark:border-field"
         >
           <div>
             <h2 id="hourly-heading" className="text-subhead">
@@ -217,7 +302,10 @@ export default function Pricing() {
           <Faq items={pricingFaqs} title="Questions About Pricing and Scope" />
         </div>
       </Container>
-      <CtaBand />
+      <CtaBand title="Get a Fixed Price for Your Scope">
+        Share your team size and goals. I will confirm the right package and a
+        fixed price before we start.
+      </CtaBand>
     </>
   )
 }

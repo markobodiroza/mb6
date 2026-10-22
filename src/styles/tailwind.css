@@ -64,6 +64,24 @@
  * Tailwind 4 borders default to currentColor; Tailwind 3 used gray-200.
  * Keep the old default so borders without a color class look the same.
  */
+/* Full-bleed bands use 50vw, which counts the scrollbar; clip the overflow */
+@layer base {
+  body {
+    overflow-x: clip;
+  }
+
+  /* No single words left alone on the last line of running text */
+  p,
+  li,
+  dd,
+  td,
+  th,
+  blockquote,
+  figcaption {
+    text-wrap: pretty;
+  }
+}
+
 @layer base {
   *,
   ::after,
@@ -443,21 +461,10 @@
     animation: enter-up 450ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .tile-pop {
-    animation: tile-pop 320ms cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  @keyframes tile-pop {
-    from {
-      transform: scale(0.92);
-    }
-  }
-
   @media (prefers-reduced-motion: reduce) {
     .enter,
     .enter-rise,
     .enter-settle,
-    .tile-pop,
     .marker,
     .check-draw,
     details[open] > :not(summary) {

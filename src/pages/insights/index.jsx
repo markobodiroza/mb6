@@ -54,7 +54,10 @@ export default function Insights({ items }) {
           ))}
         </div>
       </Container>
-      <CtaBand />
+      <CtaBand title="Turn Ideas Into Working Systems">
+        Read something you want for your team? Let’s talk about how to put it to
+        work.
+      </CtaBand>
     </>
   )
 }
