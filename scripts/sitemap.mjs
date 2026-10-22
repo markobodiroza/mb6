@@ -1,34 +1,35 @@
 // Writes public/sitemap.xml and public/robots.txt after `next build`.
-// Pages come from the prerendered HTML, so the sitemap always matches what
-// is served: each page's canonical URL, skipping anything marked noindex.
-// Only articles get a lastmod, from their published date; a build timestamp
-// on every page would teach search engines to ignore lastmod entirely.
+// Routes come from the page files and articles from their data file, not
+// from the build output: on Vercel, pages that use getStaticProps are not
+// on disk yet when postbuild runs. Each URL matches the page's canonical
+// (absoluteUrl in src/lib/seo.js). Only articles get a lastmod, from their
+// published date; a build timestamp on every page would teach search
+// engines to ignore lastmod entirely.
 import { readdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 
 const siteUrl = 'https://markobodiroza.com'
-const pagesDir = '.next/server/pages'
+const pagesDir = 'src/pages'
 
-async function htmlFiles(dir) {
+// Special files, error pages, API routes and dynamic routes are not pages
+// to list. A page marked noindex belongs here too.
+const exclude = /^(_|404|500|api\/)|\[/
+
+async function routes(dir, base = '') {
   let entries = await readdir(dir, { withFileTypes: true })
-  let files = await Promise.all(
+  let found = await Promise.all(
     entries.map((entry) => {
-      let full = path.join(dir, entry.name)
-      if (entry.isDirectory()) return htmlFiles(full)
-      return entry.name.endsWith('.html') ? [full] : []
+      let file = path.posix.join(base, entry.name)
+      if (entry.isDirectory()) return routes(path.join(dir, entry.name), file)
+      if (!entry.name.endsWith('.jsx') || exclude.test(file)) return []
+      let route = file.replace(/\.jsx$/, '').replace(/(^|\/)index$/, '')
+      return [`/${route}`]
     }),
   )
-  return files.flat()
+  return found.flat()
 }
 
-function meta(html, attr, name) {
-  let tag = html.match(new RegExp(`<meta[^>]*${attr}="${name}"[^>]*>`))
-  return tag?.[0].match(/content="([^"]*)"/)?.[1]
-}
-
-// Articles come from their data file too: on Vercel the prerendered pages
-// of dynamic routes are not on disk yet when postbuild runs. The file has
-// no imports, so it loads as a module from a data URL.
+// The data file has no imports, so it loads as a module from a data URL
 async function insights() {
   let source = await readFile('src/data/insights.js', 'utf8')
   let url = `data:text/javascript;base64,${Buffer.from(source).toString('base64')}`
@@ -36,16 +37,9 @@ async function insights() {
 }
 
 let urls = new Map()
-for (let file of await htmlFiles(pagesDir)) {
-  let html = await readFile(file, 'utf8')
-  let canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1]
-  if (!canonical || /noindex/.test(meta(html, 'name', 'robots') ?? '')) continue
-  urls.set(canonical, {
-    loc: canonical,
-    lastmod:
-      meta(html, 'property', 'article:modified_time') ??
-      meta(html, 'property', 'article:published_time'),
-  })
+for (let route of await routes(pagesDir)) {
+  let loc = new URL(route, siteUrl).toString()
+  urls.set(loc, { loc })
 }
 for (let insight of await insights()) {
   let loc = `${siteUrl}/insights/${insight.slug}`
