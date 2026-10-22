@@ -2,7 +2,6 @@ import Link from 'next/link'
 
 import { Container } from '@/components/Container'
 import siteMeta from '@/data/siteMeta'
-import { contactHref } from '@/lib/contact'
 
 const navigation = [
   { href: '/', label: 'Home' },
@@ -23,26 +22,6 @@ export function Footer() {
           <p className="mt-1 text-[0.9375rem] text-on-night-muted">
             {siteMeta.tagline}
           </p>
-          <ul className="mt-4 flex flex-wrap gap-x-6 text-[0.9375rem] font-medium">
-            <li>
-              <Link
-                href={contactHref()}
-                className="inline-block py-2.5 text-citron underline-offset-4 hover:underline"
-              >
-                Send a Message
-              </Link>
-            </li>
-            <li>
-              <a
-                href={siteMeta.author.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block py-2.5 text-citron underline-offset-4 hover:underline"
-              >
-                LinkedIn
-              </a>
-            </li>
-          </ul>
         </div>
         <nav aria-label="Footer">
           <ul className="flex flex-wrap gap-x-7 gap-y-1 text-[0.9375rem] font-medium">

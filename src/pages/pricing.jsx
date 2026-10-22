@@ -1,10 +1,10 @@
 import clsx from 'clsx'
 
-import { BookCallButton, Button } from '@/components/Button'
+import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { CtaBand } from '@/components/CtaBand'
 import { Faq } from '@/components/Faq'
-import { ArrowRightIcon, CheckIcon } from '@/components/Icons'
+import { CheckIcon } from '@/components/Icons'
 import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
 import { NextSeo } from '@/components/Seo'
@@ -21,147 +21,81 @@ import {
 const description =
   'AI strategy and system packages with rates: AI audit and roadmap, team workshops, AI process builds, monthly advisory and hourly advisory.'
 
-// Each package has its own color world so they are easy to tell apart
-const themes = {
-  brand: {
-    card: 'on-brand bg-brand text-on-brand',
-    muted: 'text-on-brand',
-    check: 'text-citron',
-    rule: 'border-[color-mix(in_oklch,var(--on-brand)_25%,transparent)]',
-    dot: 'bg-brand',
-    button: 'on-brand',
-  },
-  citron: {
-    card: 'bg-citron text-on-citron',
-    muted: 'text-on-citron',
-    check: 'text-on-citron',
-    rule: 'border-[color-mix(in_oklch,var(--on-citron)_25%,transparent)]',
-    dot: 'bg-citron ring-2 ring-ink',
-    button: 'night',
-  },
-  night: {
-    card: 'on-night bg-night text-on-night dark:ring-2 dark:ring-rule',
-    muted: 'text-on-night',
-    check: 'text-citron',
-    rule: 'border-[color-mix(in_oklch,var(--on-night)_20%,transparent)]',
-    dot: 'bg-night ring-2 ring-citron',
-    button: 'on-brand-outline',
-  },
-  paper: {
-    card: 'border-2 border-ink bg-paper text-ink dark:border-citron dark:bg-sunken',
-    muted: 'text-graphite',
-    check: 'text-link',
-    rule: 'border-rule',
-    dot: 'bg-paper ring-2 ring-ink dark:bg-sunken dark:ring-citron',
-    button: 'secondary',
-  },
-}
-
-function PackageGuide() {
-  return (
-    <section aria-labelledby="guide-heading" className="mt-lead">
-      <h2 id="guide-heading" className="text-section">
-        Which Package Fits?
-      </h2>
-      <ul role="list" className="mt-8 grid gap-3 md:grid-cols-2">
-        {pricingPackages.map((pkg, index) => (
-          <li key={pkg.slug} data-reveal style={{ '--i': index }}>
-            <a
-              href={`#${pkg.slug}`}
-              className="group flex h-full items-center gap-4 rounded-[1.25rem] border-2 border-rule p-5 transition-colors duration-200 hover:border-ink"
-            >
-              <span
-                aria-hidden="true"
-                className={clsx(
-                  'h-4 w-4 flex-none rounded-full',
-                  themes[pkg.theme].dot,
-                )}
-              />
-              <span className="flex-1">
-                <span className="block text-[1.0625rem] leading-[1.4] font-bold">
-                  {pkg.question}
-                </span>
-                <span className="mt-1 block text-[0.9375rem] text-graphite">
-                  Start with {pkg.name}
-                </span>
-              </span>
-              <ArrowRightIcon className="h-5 w-5 flex-none rotate-90 text-link transition-transform duration-200 ease-out-quart group-hover:translate-y-0.5" />
-            </a>
-          </li>
-        ))}
-      </ul>
-    </section>
-  )
-}
-
 function Package({ pkg, index }) {
-  let theme = themes[pkg.theme]
-  let featured = pkg.theme === 'brand'
+  let featured = pkg.featured
 
   return (
     <article
       id={pkg.slug}
       data-reveal
-      style={{ '--i': index % 2 }}
+      style={{ '--i': index }}
       className={clsx(
-        'flex scroll-mt-28 flex-col rounded-[1.75rem] p-6 sm:p-9',
-        theme.card,
+        'grid scroll-mt-28 gap-8 rounded-[1.75rem] p-6 sm:p-9 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] lg:gap-14 lg:p-10',
+        featured
+          ? 'blueprint on-brand text-on-brand'
+          : 'border-2 border-rule bg-paper dark:bg-sunken',
       )}
     >
-      <div className="flex items-start justify-between gap-4">
-        <h2 className="text-[1.625rem] leading-[1.15] font-[780] tracking-tight">
-          {pkg.name}
-        </h2>
+      <div className="flex flex-col items-start">
         {featured && (
-          <span className="label shrink-0 rounded-full bg-citron px-3 py-1 text-on-citron">
+          <span className="label mb-4 rounded-full bg-citron px-3 py-1 text-on-citron">
             Start Here
           </span>
         )}
-      </div>
-      <p className={clsx('mt-3 text-[1.0625rem] leading-normal', theme.muted)}>
-        <span className="font-bold">Best for:</span> {pkg.bestFor}
-      </p>
-      <p className="mt-6 flex flex-wrap items-baseline gap-x-2">
-        <span className="text-[0.9375rem] font-semibold">From</span>
-        <span className="text-[3rem] leading-none font-[850] tracking-[-0.045em]">
-          {formatPrice(pkg.price)}
-        </span>
-        <span className="text-[0.9375rem] font-semibold">{pkg.unit}</span>
-      </p>
-      {pkg.term && (
-        <p className={clsx('mt-2 text-[0.9375rem] font-semibold', theme.muted)}>
-          {pkg.term}
+        <h2 className="text-[1.625rem] leading-[1.15] font-[780] tracking-tight">
+          {pkg.name}
+        </h2>
+        <p
+          className={clsx(
+            'mt-2 text-[1.0625rem] leading-normal',
+            featured ? 'text-on-brand-muted' : 'text-graphite',
+          )}
+        >
+          {pkg.bestFor}
         </p>
-      )}
-      <h3 className={clsx('label mt-8 border-t pt-6', theme.rule)}>Included</h3>
-      <ul
-        role="list"
-        className="mt-4 space-y-2 text-[0.9375rem] leading-normal"
-      >
-        {pkg.includes.map((item) => (
-          <li key={item} className="flex gap-3">
-            <CheckIcon
-              className={clsx('mt-[0.2rem] h-5 w-5 flex-none', theme.check)}
-            />
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
-      <div className="mt-auto pt-9">
-        {featured ? (
-          <BookCallButton
-            variant={theme.button}
-            className="h-auto! min-h-13 w-full py-3! text-center whitespace-normal!"
-          />
-        ) : (
-          <Button
-            variant={theme.button}
-            className="h-auto! min-h-13 w-full py-3! text-center whitespace-normal!"
-            href={contactHref(pkg.name)}
+        <p className="mt-6 flex flex-wrap items-baseline gap-x-2">
+          <span className="text-[0.9375rem] font-semibold">From</span>
+          <span className="text-[3rem] leading-none font-[850] tracking-[-0.045em]">
+            {formatPrice(pkg.price)}
+          </span>
+          <span className="text-[0.9375rem] font-semibold">{pkg.unit}</span>
+        </p>
+        {pkg.term && (
+          <p
+            className={clsx(
+              'mt-2 text-[0.9375rem]',
+              featured ? 'text-on-brand-muted' : 'text-muted',
+            )}
           >
-            Send an Inquiry
-          </Button>
+            {pkg.term}
+          </p>
         )}
+        <Button
+          variant={featured ? 'on-brand' : 'secondary'}
+          className="mt-8 w-full sm:w-auto"
+          href={contactHref(pkg.name)}
+        >
+          Send an Inquiry
+        </Button>
+      </div>
+      <div>
+        <h3 className="label">Included</h3>
+        <ul
+          role="list"
+          className="mt-4 grid gap-x-8 gap-y-3 text-[0.9375rem] leading-normal sm:grid-cols-2"
+        >
+          {pkg.includes.map((item) => (
+            <li key={item} className="flex gap-3">
+              <CheckIcon
+                className={clsx(
+                  'mt-[0.2rem] h-5 w-5 flex-none',
+                  featured ? 'text-citron' : 'text-link',
+                )}
+              />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </article>
   )
@@ -221,8 +155,7 @@ export default function Pricing() {
         before we start. Final prices depend on your team size and scope.
       </PageHeader>
       <Container>
-        <PackageGuide />
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
+        <div className="mt-lead grid gap-6">
           {pricingPackages.map((pkg, index) => (
             <Package key={pkg.slug} pkg={pkg} index={index} />
           ))}
