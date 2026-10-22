@@ -54,7 +54,7 @@ function Package({ pkg, index }) {
           <span className="text-price leading-none font-extrabold tracking-[-0.045em]">
             {formatPrice(pkg.price)}
           </span>
-          <span className="text-ui font-semibold">USD {pkg.unit}</span>
+          <span className="text-ui font-semibold">{pkg.unit}</span>
         </p>
         <Button
           variant={featured ? 'on-brand' : 'secondary'}
@@ -105,7 +105,7 @@ function PricingSummary() {
       featured: pkg.featured,
       bestFor: pkg.bestFor,
       price: formatPrice(pkg.price),
-      unit: `USD ${pkg.unit}`,
+      unit: pkg.unit,
       from: true,
       term: pkg.term,
     })),
@@ -114,7 +114,7 @@ function PricingSummary() {
       name: 'Hourly Advisory',
       bestFor: 'You need a second opinion or a smaller request.',
       price: formatPrice(hourlyRate.price),
-      unit: 'USD per hour',
+      unit: 'per hour',
       term: 'As needed',
     },
   ]
@@ -124,6 +124,10 @@ function PricingSummary() {
       <h2 id="summary-heading" className="text-heading">
         Pricing at a Glance
       </h2>
+      <p className="mt-3 text-graphite">
+        The audit ends with a prioritized roadmap. Implementation, testing and
+        rollout are included in an AI Process Build.
+      </p>
       <div className="mt-6 overflow-hidden rounded-[1.75rem] border-2 border-rule bg-paper shadow-card dark:border-transparent dark:bg-sunken">
         <table className="w-full border-separate border-spacing-0 text-left max-md:block md:table-fixed">
           <colgroup className="max-md:hidden">
@@ -164,7 +168,7 @@ function PricingSummary() {
                     {row.name}
                   </a>
                   {row.featured && (
-                    <span className="mt-2 block w-fit rounded-full bg-citron px-3 py-1 text-caption font-bold text-on-citron">
+                    <span className="mt-2 block w-fit rounded-full bg-brand px-3 py-1 text-caption font-bold text-on-brand dark:bg-citron dark:text-on-citron">
                       Start Here
                     </span>
                   )}
@@ -289,7 +293,7 @@ export default function Pricing() {
             <span className="text-price leading-none font-extrabold tracking-[-0.045em]">
               {formatPrice(hourlyRate.price)}
             </span>
-            <span className="text-ui text-graphite">USD per hour</span>
+            <span className="text-ui text-graphite">per hour</span>
           </p>
           <Button variant="secondary" href={contactHref('Hourly Advisory')}>
             Send Inquiry

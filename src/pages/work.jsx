@@ -135,8 +135,8 @@ export default function Work() {
         }}
       />
       <PageHeader title="AI Systems at Work">
-        Five systems I built for real teams. Client names stay private; the work
-        and the results are real.
+        Five examples of AI systems I designed and built, including the
+        workflows, review steps and outcomes. Client details are anonymized.
       </PageHeader>
       <Container>
         <JumpNav

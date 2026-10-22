@@ -295,6 +295,11 @@ export default function About({ insights: items }) {
             content and moved into marketing leadership in 2020.
           </p>
           <p>
+            I combine marketing leadership with hands-on engineering, from
+            choosing the right AI use case to building the integrations and
+            training the team.
+          </p>
+          <p>
             Now I help teams put AI into their daily work. I start with how a
             team actually works, find the tasks where AI saves real time and
             plan the rollout. Then I build the workflows, write the guides and
@@ -311,8 +316,16 @@ export default function About({ insights: items }) {
             still do UI/UX design and code in Python.
           </p>
           <p>
-            A fun fact: I created and produced 81 episodes of the Green New
-            Perspective podcast.
+            A fun fact: I produced 81 episodes of the{' '}
+            <a
+              href="https://www.youtube.com/@greennewperspective"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link marker-hover"
+            >
+              Green New Perspective podcast
+            </a>
+            , hosted by Dunya Jovanovic.
           </p>
           <a
             href={siteMeta.author.linkedin}

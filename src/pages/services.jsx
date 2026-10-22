@@ -86,13 +86,17 @@ function NotSureBand() {
   return (
     <aside
       data-reveal
-      className="mb-14 flex flex-col gap-6 rounded-[1.75rem] bg-citron p-8 text-on-citron sm:flex-row sm:items-center sm:justify-between sm:p-10"
+      className="mb-14 flex flex-col gap-6 rounded-[1.75rem] bg-citron p-10 text-on-citron sm:flex-row sm:items-center sm:justify-between sm:p-12"
     >
       <div>
         <p className="text-heading">Not Sure Which You Need?</p>
         <p className="mt-2 text-body font-medium">
-          Most teams start with the AI Audit and Roadmap. It answers that
-          question for you.
+          Strategy and process redesign are both part of the AI Audit and
+          Roadmap.
+        </p>
+        <p className="mt-2 text-body font-medium">
+          Start there if your priorities are unclear. If you already have a
+          defined workflow, we can scope a build directly.
         </p>
       </div>
       <ArrowLink

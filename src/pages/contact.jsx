@@ -80,15 +80,18 @@ export default function Contact() {
           {siteMeta.bookingUrl && (
             <section
               aria-labelledby="call-heading"
-              className="on-brand blueprint rounded-[1.25rem] p-7 text-on-brand"
+              className="on-brand blueprint rounded-[1.25rem] p-8 text-on-brand sm:p-10"
             >
-              <h2 id="call-heading" className="text-title">
+              <h2 id="call-heading" className="text-heading">
                 Prefer to Talk?
               </h2>
-              <p className="mt-2 text-on-brand-muted">
-                Skip the form and book a call directly.
+              <p className="mt-3 text-on-brand-muted">
+                Skip the form and book a free 30-minute call directly.
               </p>
-              <BookCallButton variant="on-brand" className="mt-5" />
+              <p className="mt-1 text-on-brand-muted">
+                You leave with a suggested first step.
+              </p>
+              <BookCallButton variant="on-brand" className="mt-7" />
             </section>
           )}
           <p className="text-graphite">

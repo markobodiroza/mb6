@@ -164,7 +164,7 @@ function ProficiencyPicker({ id, value, onChange, error }) {
 
   return (
     <Field
-      label="How AI-Forward Is Your Company?"
+      label="How Is Your Team Using AI Today?"
       hint="Optional"
       id={id}
       error={error}
@@ -181,7 +181,7 @@ function ProficiencyPicker({ id, value, onChange, error }) {
         <option value="">Select a level</option>
         {proficiencyLevels.map((level) => (
           <option key={level.value} value={level.value} className="text-ink">
-            {level.value}. {level.label}
+            {level.label}
           </option>
         ))}
       </Select>
@@ -196,7 +196,7 @@ function ProficiencyPicker({ id, value, onChange, error }) {
             {selected.description}
           </>
         ) : (
-          '1 means just exploring, 5 means AI is built into how you work.'
+          'Pick the closest match. Not sure is a fine answer.'
         )}
       </p>
     </Field>
@@ -252,7 +252,7 @@ export function ContactForm() {
     let inquiry = {
       ...values,
       website: normalizeWebsite(values.website),
-      proficiency: level ? `${level.value} of 5: ${level.label}` : '',
+      proficiency: level ? level.label : '',
     }
 
     if (!siteMeta.formEndpoint) {
@@ -262,7 +262,7 @@ export function ContactForm() {
         ['Website', inquiry.website],
         ['Topic', inquiry.topic],
         ['Budget', inquiry.budget],
-        ['AI proficiency', inquiry.proficiency],
+        ['AI use today', inquiry.proficiency],
       ]
         .filter(([, value]) => value)
         .map(([label, value]) => `${label}: ${value}`)
@@ -367,7 +367,7 @@ export function ContactForm() {
           id={fieldId('message')}
           name="message"
           rows={6}
-          placeholder="Goals, team size and where AI could help"
+          placeholder="What work takes too much time? Tell me about your team, current tools and what you want to improve."
           required
           value={values.message}
           onChange={update}
