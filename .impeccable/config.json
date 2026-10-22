@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font",
+        "value": "google sans flex",
+        "createdAt": "2026-10-22T18:11:08.182Z",
+        "reason": "Claude: static TTF instances of the DESIGN.md family Google Sans Flex Variable, needed because Satori cannot read variable WOFF2"
+      }
+    ]
+  }
+}

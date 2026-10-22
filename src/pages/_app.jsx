@@ -1,8 +1,8 @@
-import { DefaultSeo } from 'next-seo'
 import localFont from 'next/font/local'
 
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
+import { DefaultSeo } from '@/components/Seo'
 import SEO from '@/lib/next-seo.config'
 import { useReveal } from '@/lib/useReveal'
 
@@ -15,7 +15,7 @@ const sans = localFont({
   src: '../../node_modules/@fontsource-variable/google-sans-flex/files/google-sans-flex-latin-rond-normal.woff2',
   weight: '1 1000',
   display: 'swap',
-  variable: '--font-sans',
+  variable: '--font-google-sans',
   adjustFontFallback: 'Arial',
 })
 
@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }) {
       <DefaultSeo {...SEO} />
       <a
         href="#main"
-        className="sr-only z-50 rounded-md bg-action px-4 py-2 font-semibold text-action-fg focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+        className="sr-only z-50 rounded-md bg-action px-4 py-2 font-semibold text-action-fg focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
       >
         Skip to content
       </a>

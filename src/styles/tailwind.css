@@ -1,6 +1,67 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss';
+
+/* Dark mode follows the .dark class the theme script sets on <html> */
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Theme tokens point at the runtime color variables below. Inline keeps the
+ * var() lookups in each utility, so they resolve per element and follow the
+ * .dark and next/font variables the way Tailwind 3 did.
+ */
+@theme inline {
+  --color-paper: var(--paper);
+  --color-sunken: var(--sunken);
+  --color-rule: var(--rule);
+  --color-ink: var(--ink);
+  --color-graphite: var(--graphite);
+  --color-muted: var(--muted);
+  --color-brand: var(--brand);
+  --color-brand-line: var(--brand-line);
+  --color-on-brand: var(--on-brand);
+  --color-on-brand-muted: var(--on-brand-muted);
+  --color-action: var(--action);
+  --color-action-hover: var(--action-hover);
+  --color-action-fg: var(--action-fg);
+  --color-link: var(--link);
+  --color-focus: var(--focus);
+  --color-field: var(--field);
+  --color-danger: var(--danger);
+  --color-danger-line: var(--danger-line);
+  --color-citron: var(--citron);
+  --color-on-citron: var(--on-citron);
+  --color-night: var(--night);
+  --color-on-night: var(--on-night);
+  --color-on-night-muted: var(--on-night-muted);
+
+  --font-sans:
+    var(--font-google-sans), ui-sans-serif, system-ui, -apple-system, Segoe UI,
+    sans-serif;
+
+  /* Reading measure. Tailwind 4 fixes max-w-prose at 65ch, so it gets a name */
+  --container-measure: 60ch;
+
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/*
+ * Tailwind 4 borders default to currentColor; Tailwind 3 used gray-200.
+ * Keep the old default so borders without a color class look the same.
+ */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+
+  /* Tailwind 4 no longer gives buttons a pointer cursor */
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}
 
 /*
  * Color tokens. Brand hue 268 is a pigment ultramarine; lighter tints shift
@@ -130,46 +191,49 @@
 }
 
 /* Spacing rhythm: one fluid scale for the space between big blocks */
-@layer utilities {
-  .mt-lead {
-    margin-top: clamp(3.5rem, 2.6rem + 3vw, 6rem);
-  }
-  .mt-section {
-    margin-top: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
-  }
-  .mb-section {
-    margin-bottom: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
-  }
-  .pt-section {
-    padding-top: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
-  }
-  .py-section {
-    padding-block: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
-  }
-  .gap-section {
-    gap: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
-  }
+@utility mt-lead {
+  margin-top: clamp(3.5rem, 2.6rem + 3vw, 6rem);
+}
+
+@utility mt-section {
+  margin-top: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
+}
+
+@utility mb-section {
+  margin-bottom: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
+}
+
+@utility pt-section {
+  padding-top: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
+}
+
+@utility py-section {
+  padding-block: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
+}
+
+@utility gap-section {
+  gap: clamp(5rem, 3.6rem + 4.5vw, 8.5rem);
 }
 
 /* Type roles. One family; headings get rounder, heavier letterforms. */
 @layer components {
   .text-display {
     font-size: clamp(2.75rem, 1.5rem + 3.9vw, 5.25rem);
-    @apply font-[820] leading-[0.98] tracking-[-0.04em];
+    @apply leading-[0.98] font-[820] tracking-[-0.04em];
   }
 
   .text-page-title {
     font-size: clamp(2.5rem, 1.7rem + 3vw, 4.25rem);
-    @apply font-[800] leading-[1.02] tracking-[-0.035em];
+    @apply leading-[1.02] font-[800] tracking-[-0.035em];
   }
 
   .text-section {
     font-size: clamp(2rem, 1.5rem + 1.8vw, 3rem);
-    @apply font-[780] leading-[1.06] tracking-[-0.03em];
+    @apply leading-[1.06] font-[780] tracking-[-0.03em];
   }
 
   .text-title {
-    @apply text-[1.375rem] font-[720] leading-[1.25] tracking-[-0.018em];
+    @apply text-[1.375rem] leading-[1.25] font-[720] tracking-[-0.018em];
   }
 
   .text-lead {
@@ -177,7 +241,7 @@
   }
 
   .eyebrow {
-    @apply text-[0.8125rem] font-bold uppercase tracking-[0.1em];
+    @apply text-[0.8125rem] font-bold tracking-[0.1em] uppercase;
   }
 
   .numeral {
@@ -188,7 +252,7 @@
   .big-numeral {
     font-variant-numeric: tabular-nums;
     font-variation-settings: 'ROND' 100;
-    @apply text-[3.25rem] font-[850] leading-none tracking-[-0.05em];
+    @apply text-[3.25rem] leading-none font-[850] tracking-[-0.05em];
   }
 
   .link {
@@ -279,7 +343,8 @@
   .reveal-ready [data-reveal] {
     opacity: 0;
     transform: translateY(26px);
-    transition: opacity 750ms cubic-bezier(0.16, 1, 0.3, 1),
+    transition:
+      opacity 750ms cubic-bezier(0.16, 1, 0.3, 1),
       transform 750ms cubic-bezier(0.16, 1, 0.3, 1);
     transition-delay: calc(var(--i, 0) * 70ms);
   }
@@ -315,7 +380,8 @@
   .reveal-ready [data-reveal] .step-pop {
     transform: scale(0.4);
     opacity: 0;
-    transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1),
+    transition:
+      transform 500ms cubic-bezier(0.16, 1, 0.3, 1),
       opacity 300ms ease-out;
     transition-delay: calc(300ms + var(--i, 0) * 90ms);
   }
@@ -355,7 +421,8 @@
 
   .blueprint {
     background-color: var(--brand);
-    background-image: linear-gradient(var(--brand-line) 1px, transparent 1px),
+    background-image:
+      linear-gradient(var(--brand-line) 1px, transparent 1px),
       linear-gradient(90deg, var(--brand-line) 1px, transparent 1px);
     background-size: 48px 48px;
     background-position: -1px -1px;

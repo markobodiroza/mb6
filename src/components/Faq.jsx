@@ -38,13 +38,13 @@ export function Faq({ items, title = 'Questions About Timeline and Scope' }) {
             open={index === 0}
             className="group border-b border-rule"
           >
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-[1.1875rem] font-bold leading-[1.35] marker:hidden [&::-webkit-details-marker]:hidden">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-[1.1875rem] leading-[1.35] font-bold marker:hidden [&::-webkit-details-marker]:hidden">
               {item.question}
               <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-sunken text-link transition-transform duration-300 ease-out-quart group-open:rotate-45">
                 <PlusIcon className="h-5 w-5" />
               </span>
             </summary>
-            <p className="max-w-prose pb-7 pr-14 text-[1.0625rem] leading-[1.7] text-graphite">
+            <p className="max-w-measure pr-14 pb-7 text-[1.0625rem] leading-[1.7] text-graphite">
               {item.answer}
             </p>
           </details>

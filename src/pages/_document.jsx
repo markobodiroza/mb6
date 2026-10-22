@@ -32,9 +32,9 @@ const modeScript = `
   }
 
   function disableTransitionsTemporarily() {
-    document.documentElement.classList.add('[&_*]:!transition-none')
+    document.documentElement.classList.add('**:transition-none!')
     window.setTimeout(() => {
-      document.documentElement.classList.remove('[&_*]:!transition-none')
+      document.documentElement.classList.remove('**:transition-none!')
     }, 0)
   }
 
@@ -77,6 +77,17 @@ export default function Document() {
           color="#1a29a2"
         />
         <link rel="manifest" href="/fixed/favicons/site.webmanifest" />
+        {/* Browser UI color matches the header paper in each theme */}
+        <meta
+          name="theme-color"
+          content="#f8fafe"
+          media="(prefers-color-scheme: light)"
+        />
+        <meta
+          name="theme-color"
+          content="#0b1746"
+          media="(prefers-color-scheme: dark)"
+        />
         <meta
           name="msapplication-config"
           content="/fixed/favicons/browserconfig.xml"

@@ -106,9 +106,9 @@ function ModeToggle() {
   }, [])
 
   function disableTransitionsTemporarily() {
-    document.documentElement.classList.add('[&_*]:!transition-none')
+    document.documentElement.classList.add('**:transition-none!')
     window.setTimeout(() => {
-      document.documentElement.classList.remove('[&_*]:!transition-none')
+      document.documentElement.classList.remove('**:transition-none!')
     }, 0)
   }
 
@@ -155,7 +155,7 @@ function DesktopNavigation() {
                 'relative block rounded-full px-3.5 py-2 transition-colors duration-200',
                 isActive(item.href)
                   ? 'text-ink'
-                  : 'text-graphite hover:bg-sunken hover:text-ink'
+                  : 'text-graphite hover:bg-sunken hover:text-ink',
               )}
             >
               {item.label}
@@ -236,7 +236,7 @@ function MobileNavigation() {
         onClick={() => close()}
         className={clsx(
           'fixed inset-0 z-50 bg-[color-mix(in_oklch,var(--ink)_45%,transparent)] transition-opacity duration-200 ease-out-quart dark:bg-[color-mix(in_oklch,var(--night)_80%,transparent)]',
-          open ? 'opacity-100' : 'pointer-events-none opacity-0'
+          open ? 'opacity-100' : 'pointer-events-none opacity-0',
         )}
       />
       <div
@@ -245,12 +245,12 @@ function MobileNavigation() {
         role="dialog"
         aria-modal="true"
         aria-label="Menu"
-        inert={open ? undefined : ''}
+        inert={!open}
         className={clsx(
           'fixed inset-x-3 top-3 z-50 origin-top rounded-[1.25rem] border-2 border-rule bg-paper p-6 transition duration-200 ease-out-quart',
           open
             ? 'visible translate-y-0 scale-100 opacity-100'
-            : 'invisible -translate-y-2 scale-[0.98] opacity-0'
+            : 'invisible -translate-y-2 scale-[0.98] opacity-0',
         )}
       >
         <div className="flex items-center justify-between">
@@ -275,7 +275,7 @@ function MobileNavigation() {
                   onClick={() => close(false)}
                   className={clsx(
                     'block py-3',
-                    isActive(item.href) && 'text-link'
+                    isActive(item.href) && 'text-link',
                   )}
                 >
                   {item.label}
@@ -293,7 +293,7 @@ function MobileNavigation() {
 export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-rule bg-paper">
-      <Container className="flex h-[4.5rem] items-center gap-4">
+      <Container className="flex h-18 items-center gap-4">
         <Link
           href="/"
           aria-label="Marko Bodiroza, home"
@@ -303,14 +303,15 @@ export function Header() {
             src={avatarImage}
             alt=""
             sizes="2.75rem"
-            className="h-11 w-11 rounded-full bg-sunken object-cover ring-[3px] ring-link ring-offset-2 ring-offset-paper transition-transform duration-300 ease-out-quart group-hover:-rotate-6 group-hover:scale-105"
-            priority
+            loading="eager"
+            fetchPriority="low"
+            className="h-11 w-11 rounded-full bg-sunken object-cover ring-[3px] ring-link ring-offset-2 ring-offset-paper transition-transform duration-300 ease-out-quart group-hover:scale-105 group-hover:-rotate-6"
           />
         </Link>
         <DesktopNavigation />
         <div className="flex items-center gap-2">
           <ModeToggle />
-          <BookCallButton size="sm" className="!px-4 sm:!px-5" />
+          <BookCallButton size="sm" className="px-4! sm:px-5!" />
           <MobileNavigation />
         </div>
       </Container>

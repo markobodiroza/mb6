@@ -16,13 +16,15 @@ export function InsightRow({ insight, as: Heading = 'h3' }) {
         {formatDate(insight.date)}
       </time>
       <div>
-        <Heading className="text-[1.1875rem] font-bold leading-[1.35] tracking-[-0.01em]">
+        <Heading className="text-[1.1875rem] leading-[1.35] font-bold tracking-[-0.01em]">
           <Link href={`/insights/${insight.slug}`} className="marker-hover">
             <span className="absolute inset-0" aria-hidden="true" />
             {insight.title}
           </Link>
         </Heading>
-        <p className="mt-2 max-w-prose text-graphite">{insight.description}</p>
+        <p className="mt-2 max-w-measure text-graphite">
+          {insight.description}
+        </p>
       </div>
       <ArrowRightIcon className="hidden h-5 w-5 text-link transition-transform duration-200 ease-out-quart group-hover:translate-x-1 sm:block" />
     </article>

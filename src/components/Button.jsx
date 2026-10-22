@@ -14,7 +14,7 @@ const variantStyles = {
 
 const sizeStyles = {
   sm: 'h-11 px-5 text-[0.9375rem]',
-  md: 'h-[3.25rem] px-7 text-[1.0625rem]',
+  md: 'h-13 px-7 text-[1.0625rem]',
 }
 
 export function Button({
@@ -26,10 +26,10 @@ export function Button({
 }) {
   className = clsx(
     // Tactile: a small press on click and the arrow nudges forward on hover
-    'group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-bold transition-[background-color,border-color,color,transform] duration-200 ease-out-quart active:translate-y-px active:scale-[0.97] [&>svg]:transition-transform [&>svg]:duration-200 [&>svg]:ease-out-quart hover:[&>svg]:translate-x-1 disabled:cursor-wait disabled:opacity-70',
+    'group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-bold transition-[background-color,border-color,color,transform] duration-200 ease-out-quart active:translate-y-px active:scale-[0.97] [&>svg]:transition-transform [&>svg]:duration-200 [&>svg]:ease-out-quart [&>svg]:hover:translate-x-1 disabled:cursor-wait disabled:opacity-70',
     variantStyles[variant],
     sizeStyles[size],
-    className
+    className,
   )
 
   if (!href) {

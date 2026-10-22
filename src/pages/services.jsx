@@ -1,6 +1,5 @@
 import { Fragment } from 'react'
 import Link from 'next/link'
-import { NextSeo } from 'next-seo'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
@@ -8,6 +7,7 @@ import { CtaBand } from '@/components/CtaBand'
 import { ArrowRightIcon, CheckIcon } from '@/components/Icons'
 import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
+import { NextSeo } from '@/components/Seo'
 import { pricingPackages, services } from '@/data/content'
 import { absoluteUrl, pageOpenGraph, personSchema } from '@/lib/seo'
 
@@ -15,7 +15,7 @@ const description =
   'AI strategy and systems for marketing teams, agencies and B2B companies: roadmaps, process redesign, automation, training and AEO.'
 
 const packagesBySlug = Object.fromEntries(
-  pricingPackages.map((pkg) => [pkg.slug, pkg])
+  pricingPackages.map((pkg) => [pkg.slug, pkg]),
 )
 
 function Service({ service, index }) {
@@ -30,7 +30,7 @@ function Service({ service, index }) {
         <span className="big-numeral block text-link" aria-hidden="true">
           {String(index + 1).padStart(2, '0')}
         </span>
-        <h2 className="mt-4 text-[clamp(1.75rem,1.4rem+1.2vw,2.25rem)] font-[780] leading-[1.1] tracking-[-0.03em]">
+        <h2 className="mt-4 text-[clamp(1.75rem,1.4rem+1.2vw,2.25rem)] leading-[1.1] font-[780] tracking-[-0.03em]">
           {service.title}
         </h2>
       </div>
@@ -72,7 +72,7 @@ function NotSureBand() {
       className="my-6 flex flex-col gap-6 rounded-[1.75rem] bg-citron p-8 text-on-citron sm:flex-row sm:items-center sm:justify-between sm:p-10"
     >
       <div>
-        <p className="text-[clamp(1.5rem,1.2rem+1vw,2rem)] font-[800] leading-[1.15] tracking-[-0.03em]">
+        <p className="text-[clamp(1.5rem,1.2rem+1vw,2rem)] leading-[1.15] font-extrabold tracking-[-0.03em]">
           Not Sure Which You Need?
         </p>
         <p className="mt-2 text-[1.0625rem] font-medium">

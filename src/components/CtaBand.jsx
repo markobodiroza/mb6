@@ -13,7 +13,7 @@ export function CtaBand({
     <section
       className={clsx(
         'blueprint on-brand text-on-brand',
-        !flush && 'mt-section'
+        !flush && 'mt-section',
       )}
     >
       <Container

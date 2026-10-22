@@ -1,11 +1,11 @@
 import Image from 'next/image'
-import { NextSeo } from 'next-seo'
 
 import { BookCallButton, Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { CtaBand } from '@/components/CtaBand'
 import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
+import { NextSeo } from '@/components/Seo'
 import { coreTools, resume, tools } from '@/data/content'
 import siteMeta from '@/data/siteMeta'
 import portraitImage from '@/images/marko-head.jpg'
@@ -49,7 +49,7 @@ function WorkHistory() {
           >
             <CompanyMark role={role} />
             <div>
-              <p className="text-[1.1875rem] font-bold leading-[1.3]">
+              <p className="text-[1.1875rem] leading-[1.3] font-bold">
                 {role.title}
               </p>
               <p className="text-graphite">{role.company}</p>
@@ -87,7 +87,7 @@ function Tools() {
       <h2 id="tools-heading" className="text-section">
         Tools I Work With
       </h2>
-      <p className="text-lead mt-5 max-w-prose text-graphite">
+      <p className="text-lead mt-5 max-w-measure text-graphite">
         I pick tools for the job and the team, not the other way around. These
         are the ones I reach for most.
       </p>
@@ -166,7 +166,7 @@ export default function About() {
         their teams actually use.
       </PageHeader>
       <Container className="mt-lead grid gap-12 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-20">
-        <div className="max-w-[38rem] space-y-6 text-[1.125rem] leading-[1.7] text-graphite">
+        <div className="max-w-152 space-y-6 text-[1.125rem] leading-[1.7] text-graphite">
           <p className="text-lead text-ink">
             I’m Marko Bodiroza, an AI strategist and system builder. I started
             as a web developer, spent more than 15 years across web, SEO and
@@ -193,14 +193,14 @@ export default function About() {
           <div className="relative w-full max-w-sm">
             <div
               aria-hidden="true"
-              className="absolute -bottom-4 -right-4 h-full w-full rounded-[1.75rem] bg-citron"
+              className="absolute -right-4 -bottom-4 h-full w-full rounded-[1.75rem] bg-citron"
             />
             <Image
               src={portraitImage}
               alt="Portrait of Marko Bodiroza"
-              sizes="(min-width: 1024px) 22rem, 100vw"
-              className="relative aspect-[4/5] w-full rounded-[1.75rem] object-cover object-[50%_30%]"
-              priority
+              sizes="(min-width: 1248px) 384px, (min-width: 1024px) calc((100vw - 144px) / 2.6), (min-width: 424px) 384px, calc(100vw - 40px)"
+              className="relative aspect-4/5 w-full rounded-[1.75rem] object-cover object-[50%_30%]"
+              preload
             />
           </div>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
@@ -219,7 +219,7 @@ export default function About() {
           </a>
         </aside>
       </Container>
-      <Container className="mt-section gap-section flex flex-col">
+      <Container className="mt-section flex flex-col gap-section">
         <WorkHistory />
         <Tools />
       </Container>

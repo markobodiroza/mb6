@@ -1,9 +1,8 @@
-import { NextSeo } from 'next-seo'
-
 import { Container } from '@/components/Container'
 import { CtaBand } from '@/components/CtaBand'
 import { InsightRow } from '@/components/InsightRow'
 import { PageHeader } from '@/components/PageHeader'
+import { NextSeo } from '@/components/Seo'
 import { insights } from '@/data/insights'
 import { absoluteUrl, pageOpenGraph } from '@/lib/seo'
 

@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { NextSeo } from 'next-seo'
 
 import { BookCallButton } from '@/components/Button'
 import { Container } from '@/components/Container'
@@ -8,9 +7,10 @@ import { ArrowRightIcon, ArrowUpRightIcon } from '@/components/Icons'
 import { InsightRow } from '@/components/InsightRow'
 import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
+import { NextSeo } from '@/components/Seo'
 import { insights } from '@/data/insights'
 import { formatDate } from '@/lib/formatDate'
-import { absoluteUrl, pageOpenGraph, personSchema } from '@/lib/seo'
+import { absoluteUrl, ogImage, pageOpenGraph, personSchema } from '@/lib/seo'
 
 export default function Insight({ insight, more }) {
   let path = `/insights/${insight.slug}`
@@ -37,14 +37,37 @@ export default function Insight({ insight, more }) {
       <JsonLd
         id="insight"
         data={{
-          '@type': 'BlogPosting',
-          headline: insight.title,
-          description: insight.description,
-          datePublished: insight.date,
-          url: absoluteUrl(path),
-          mainEntityOfPage: absoluteUrl(path),
-          isBasedOn: insight.sourceUrl,
-          author: personSchema,
+          '@graph': [
+            {
+              '@type': 'BlogPosting',
+              headline: insight.title,
+              description: insight.description,
+              datePublished: insight.date,
+              inLanguage: 'en-US',
+              url: absoluteUrl(path),
+              mainEntityOfPage: absoluteUrl(path),
+              image: ogImage({
+                title: insight.title,
+                description: insight.description,
+              }).url,
+              isBasedOn: insight.sourceUrl,
+              author: personSchema,
+              publisher: { '@id': personSchema['@id'] },
+            },
+            {
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                ['Home', '/'],
+                ['Insights', '/insights'],
+                [insight.title, path],
+              ].map(([name, href], index) => ({
+                '@type': 'ListItem',
+                position: index + 1,
+                name,
+                item: absoluteUrl(href),
+              })),
+            },
+          ],
         }}
       />
       <PageHeader
@@ -56,11 +79,11 @@ export default function Insight({ insight, more }) {
         {insight.description}
       </PageHeader>
       <Container className="mt-lead grid gap-16 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)] lg:gap-20">
-        <article className="max-w-prose">
+        <article className="max-w-measure">
           <p className="text-lead font-medium">{insight.intro}</p>
           {insight.sections.map((section) => (
             <section key={section.heading} className="mt-12">
-              <h2 className="text-[1.625rem] font-[780] leading-[1.2] tracking-[-0.022em]">
+              <h2 className="text-[1.625rem] leading-[1.2] font-[780] tracking-[-0.022em]">
                 {section.heading}
               </h2>
               <p className="mt-3 text-[1.125rem] leading-[1.7] text-graphite">
@@ -104,9 +127,9 @@ export default function Insight({ insight, more }) {
           </p>
         </article>
         <aside className="lg:pt-2">
-          <div className="on-night rounded-[1.75rem] bg-night p-8 text-on-night dark:ring-2 dark:ring-rule lg:sticky lg:top-28">
+          <div className="on-night rounded-[1.75rem] bg-night p-8 text-on-night lg:sticky lg:top-28 dark:ring-2 dark:ring-rule">
             <p className="eyebrow text-citron">Want This for Your Team?</p>
-            <p className="mt-3 text-[1.375rem] font-bold leading-[1.35]">
+            <p className="mt-3 text-[1.375rem] leading-[1.35] font-bold">
               I help marketing teams turn ideas like these into working AI
               systems.
             </p>

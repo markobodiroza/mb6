@@ -3,7 +3,7 @@ import { Container } from '@/components/Container'
 export function PageHeader({ eyebrow, title, children }) {
   return (
     <header className="blueprint on-brand text-on-brand">
-      <Container className="pb-16 pt-16 sm:pb-24 sm:pt-24">
+      <Container className="pt-16 pb-16 sm:pt-24 sm:pb-24">
         {eyebrow && <p className="eyebrow mb-5 text-citron">{eyebrow}</p>}
         <h1 className="text-page-title max-w-4xl">{title}</h1>
         {children && (

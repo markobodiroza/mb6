@@ -1,8 +1,7 @@
-import { NextSeo } from 'next-seo'
-
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { ArrowRightIcon } from '@/components/Icons'
+import { NextSeo } from '@/components/Seo'
 
 export default function NotFound() {
   return (
@@ -12,7 +11,7 @@ export default function NotFound() {
         <Container className="grid gap-10 py-20 sm:py-28 lg:grid-cols-[auto_1fr] lg:items-center lg:gap-16">
           <p
             aria-hidden="true"
-            className="text-[clamp(6rem,4rem+10vw,12rem)] font-[850] leading-[0.85] tracking-[-0.06em] text-citron [font-variation-settings:'ROND'_100]"
+            className="text-[clamp(6rem,4rem+10vw,12rem)] leading-[0.85] font-[850] tracking-[-0.06em] text-citron [font-variation-settings:'ROND'_100]"
           >
             404
           </p>

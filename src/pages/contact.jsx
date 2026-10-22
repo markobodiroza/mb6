@@ -1,9 +1,8 @@
-import { NextSeo } from 'next-seo'
-
 import { BookCallButton } from '@/components/Button'
 import { ContactForm } from '@/components/ContactForm'
 import { Container } from '@/components/Container'
 import { PageHeader } from '@/components/PageHeader'
+import { NextSeo } from '@/components/Seo'
 import siteMeta from '@/data/siteMeta'
 import { absoluteUrl, pageOpenGraph } from '@/lib/seo'
 

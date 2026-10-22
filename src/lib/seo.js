@@ -1,4 +1,5 @@
 import siteMeta from '@/data/siteMeta'
+import portraitImage from '@/images/marko-head.jpg'
 
 export function absoluteUrl(path = '/') {
   return new URL(path, siteMeta.siteUrl).toString()
@@ -8,11 +9,11 @@ export function ogImage({ title, description }) {
   let params = new URLSearchParams({ title, desc: description })
 
   return {
-    url: `https://og.markobodiroza.com/api/og?${params}`,
+    url: absoluteUrl(`/api/og?${params}`),
     width: 1200,
-    height: 600,
+    height: 630,
     alt: title,
-    type: 'image/jpeg',
+    type: 'image/png',
   }
 }
 
@@ -29,7 +30,7 @@ export const personSchema = {
   '@id': absoluteUrl('/#person'),
   name: siteMeta.author.name,
   url: siteMeta.siteUrl,
-  image: absoluteUrl('/favicon.png'),
+  image: absoluteUrl(portraitImage.src),
   jobTitle: siteMeta.tagline,
   description: siteMeta.description,
   alumniOf: {
