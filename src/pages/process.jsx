@@ -1,9 +1,10 @@
 import { Container } from '@/components/Container'
 import { CtaBand } from '@/components/CtaBand'
+import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
 import { NextSeo } from '@/components/Seo'
 import { processSteps } from '@/data/content'
-import { absoluteUrl, pageOpenGraph } from '@/lib/seo'
+import { absoluteUrl, breadcrumbSchema, pageOpenGraph } from '@/lib/seo'
 
 const description =
   'How I run AI projects: understand the work, plan the roadmap, pilot with real work, roll out and train, then review and refine.'
@@ -35,6 +36,31 @@ export default function Process() {
           title: 'How I Work',
           description,
         })}
+      />
+      <JsonLd
+        id="process"
+        data={{
+          '@graph': [
+            {
+              '@type': 'WebPage',
+              url: absoluteUrl('/process'),
+              name: 'How I Work',
+              description,
+              mainEntity: {
+                '@type': 'ItemList',
+                name: 'How Marko Bodiroza runs AI projects',
+                itemListOrder: 'https://schema.org/ItemListOrderAscending',
+                itemListElement: processSteps.map((step, index) => ({
+                  '@type': 'ListItem',
+                  position: index + 1,
+                  name: step.title.replace(/^\d+\.\s*/, ''),
+                  description: step.detail,
+                })),
+              },
+            },
+            breadcrumbSchema([['Process', '/process']]),
+          ],
+        }}
       />
       <PageHeader eyebrow="Process" title="How I Work">
         I get one thing working before scaling it, and people stay in charge of

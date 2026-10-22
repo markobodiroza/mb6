@@ -9,7 +9,12 @@ import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
 import { NextSeo } from '@/components/Seo'
 import { pricingPackages, services } from '@/data/content'
-import { absoluteUrl, pageOpenGraph, personSchema } from '@/lib/seo'
+import {
+  absoluteUrl,
+  breadcrumbSchema,
+  pageOpenGraph,
+  personSchema,
+} from '@/lib/seo'
 
 const description =
   'AI strategy and systems for marketing teams, agencies and B2B companies: roadmaps, process redesign, automation, training and AEO.'
@@ -100,6 +105,10 @@ export default function Services() {
           title: 'Services',
           description,
         })}
+      />
+      <JsonLd
+        id="breadcrumbs"
+        data={breadcrumbSchema([['Services', '/services']])}
       />
       <JsonLd
         id="services"

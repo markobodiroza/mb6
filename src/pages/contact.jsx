@@ -1,10 +1,16 @@
 import { BookCallButton } from '@/components/Button'
 import { ContactForm } from '@/components/ContactForm'
 import { Container } from '@/components/Container'
+import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
 import { NextSeo } from '@/components/Seo'
 import siteMeta from '@/data/siteMeta'
-import { absoluteUrl, pageOpenGraph } from '@/lib/seo'
+import {
+  absoluteUrl,
+  breadcrumbSchema,
+  pageOpenGraph,
+  personSchema,
+} from '@/lib/seo'
 
 const description =
   'Start a project inquiry with Marko Bodiroza about AI strategy, workshops or an AI process build for your team.'
@@ -27,6 +33,21 @@ export default function Contact() {
           title: 'Contact',
           description,
         })}
+      />
+      <JsonLd
+        id="contact"
+        data={{
+          '@graph': [
+            {
+              '@type': 'ContactPage',
+              url: absoluteUrl('/contact'),
+              name: 'Project Inquiry',
+              description,
+              mainEntity: personSchema,
+            },
+            breadcrumbSchema([['Contact', '/contact']]),
+          ],
+        }}
       />
       <PageHeader eyebrow="Project Inquiry" title="Tell Me About Your Project">
         Share where your team is today and what you want AI to take on. A few
