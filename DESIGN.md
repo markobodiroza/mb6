@@ -269,10 +269,10 @@ Running text uses text-wrap: pretty site-wide, so no single word sits alone on a
 One quote per page: the CEO on Home, the agency owner on Work after the agency story (wide ultramarine card) and the manufacturer's marketing director on Pricing, a citron card under What Stays the Same. No review schema, since self-written reviews are not eligible.
 
 ### Closing Band
-Every page ends on the blue band with its own title and line (for example Want a System Like These? on Work); Home uses Put AI to Work in Your Team.
+The footer's bottom row carries the privacy line on the left and the experience and certification line on the right. Every page ends on the blue band with its own title and line (for example Want a System Like These? on Work); Home uses Put AI to Work in Your Team.
 
 ### Pricing at a Glance
-A card table above the packages, four equal columns (Package, Price, Best For, Timing): an ultramarine header row (Night Raised in dark), the Start Here row tinted citron with its pill, prices large in link color with the USD unit underneath, and a sunken hover on other rows. Each package name links to its full row; Hourly Advisory is included. Under 768px each row stacks.
+A card table above the packages, four equal columns (Package, Price, Best For, Timing): an ultramarine header row (Night Raised in dark), the Start Here row tinted citron with its pill, prices large in link color with the unit underneath (no USD label; the FAQ covers currency), and a sunken hover on other rows. Each package name links to its full row; Hourly Advisory is included. Under 768px each row stacks.
 
 ### How I Work (on Pricing)
 The process lives below the packages on Pricing (/process redirects to /pricing#process): five steps with icons in citron discs on a rail, then a loop back to planning, beside a raised ultramarine card of principles.
@@ -288,7 +288,7 @@ Flows drawn in HTML. Each diagram is a full-bleed band (edge to edge, 56 to 80px
 
 ### Inputs / Fields
 - **Style:** 12px corners, 2px Field Line outline, paper fill; hover darkens the outline, focus turns it link-colored and adds the 2px focus ring.
-- **Order:** name, email, website (bare domains accepted, https added), project details, then topic, budget and the AI level dropdown (1 to 5, with the chosen level explained underneath).
+- **Order:** name, email, website (bare domains accepted, https added), project details, then topic, budget and the How Is Your Team Using AI Today? dropdown (Not Yet to Connected to Business Systems, plus Not Sure, with the choice explained underneath).
 - **Required:** only name, email and project details. Website, topic, budget and AI level are marked Optional.
 - **Errors:** a friendly sentence under the field, the field marked invalid and focus moved to the first problem.
 - **Success:** a citron panel with a drawn check mark.

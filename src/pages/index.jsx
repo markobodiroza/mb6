@@ -46,9 +46,10 @@ function Hero() {
             className="text-lead enter max-w-xl text-on-brand-muted"
             style={{ '--i': 1 }}
           >
-            I map how your team works, plan where AI fits, build the systems and
-            train your people to run them. I work in the tools you already have,
-            whether that is Claude, ChatGPT, Gemini or something else.
+            I help agencies and B2B teams reduce manual work across marketing,
+            sales and operations. I map the process, build the system and train
+            your people to use it. I work in the tools you already have, whether
+            that is Claude, ChatGPT, Gemini or something else.
           </p>
           <div
             className="enter mt-10 flex flex-col gap-4 sm:flex-row"
@@ -60,12 +61,10 @@ function Hero() {
             </Button>
           </div>
           <p
-            className="enter mt-10 max-w-xl text-body font-medium text-on-brand-muted"
-            style={{ '--i': 3 }}
+            className="enter mt-4 text-ui font-semibold text-on-brand-muted"
+            style={{ '--i': 2 }}
           >
-            15+ years in digital marketing, engineering, AI and SEO. Working
-            with marketing teams, agencies and B2B companies. Certified by
-            Anthropic, Google and HubSpot.
+            Free 30-minute call. You leave with a suggested first step.
           </p>
         </div>
       </Container>

@@ -21,6 +21,7 @@ export const workExamples = [
       'A request form, start-here guides and hands-on training for each department.',
     ],
     changed: [
+      'Usage typically grows from one early adopter to at least 20 people within three to six months.',
       'Each department works from a shared set of tested skills.',
       'No skill reaches the team until someone other than its builder has tested it.',
       'Every skill has an owner and a status in one place.',
@@ -85,7 +86,7 @@ export const workExamples = [
     ],
     changed: [
       'Content that took a team of six now needs one reviewer.',
-      'About $180,000 a year in team costs saved, based on about $3,000 a month for each of five roles.',
+      'About $180,000 a year in payroll and contractor costs removed, based on about $3,000 a month for each of five roles.',
       'Every piece still goes through a person before it ships.',
     ],
     tools: ['Claude', 'Claude agents', 'Claude plugins', 'Claude skills'],
@@ -131,7 +132,7 @@ export const workExamples = [
     changed: [
       'The team walks into every first meeting prepared.',
       'The follow-up goes out within 30 minutes of the call.',
-      '95% of prospects book a second meeting.',
+      '95% of prospects book a second meeting, up from 20% in the six months before, with about the same number of leads.',
     ],
     teaser:
       'Prep and follow-up for a B2B sales team, so every call is ready before it starts.',
@@ -179,7 +180,7 @@ export const workExamples = [
     ],
     changed: [
       'One person now handles work that used to take ten.',
-      'The team saves at least 10 hours a week.',
+      'A separate technical team saves at least 10 hours a week from one process optimization.',
       'Requests, quotes and records live in one place.',
     ],
     tools: ['HubSpot', 'Zapier', 'Claude'],

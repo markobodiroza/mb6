@@ -29,7 +29,12 @@ export function QuoteCard({ item, tone = 'brand', className }) {
       <blockquote className="mt-4 text-body leading-[1.65] font-medium">
         <p>{item.quote}</p>
       </blockquote>
-      <figcaption className="label mt-6">{item.author}</figcaption>
+      <figcaption className="mt-6">
+        <span className="label block">{item.author}</span>
+        {item.project && (
+          <span className="mt-1 block text-ui opacity-80">{item.project}</span>
+        )}
+      </figcaption>
     </figure>
   )
 }
@@ -54,8 +59,13 @@ export function Quote({ item, className }) {
         <blockquote className="text-lead max-w-4xl font-medium">
           <p>{item.quote}</p>
         </blockquote>
-        <figcaption className="label mt-6 text-citron">
-          {item.author}
+        <figcaption className="mt-6">
+          <span className="label block text-citron">{item.author}</span>
+          {item.project && (
+            <span className="mt-1 block text-ui text-on-brand-muted">
+              {item.project}
+            </span>
+          )}
         </figcaption>
       </div>
     </figure>

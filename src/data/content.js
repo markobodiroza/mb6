@@ -22,15 +22,6 @@ export const resume = [
       'I lead marketing and innovation and run AI projects end to end: designing AI workflows, building automations and connecting the tools a team uses every day.',
   },
   {
-    company: 'Independent Practice',
-    title: 'Founder',
-    monogram: 'MB',
-    start: '2010',
-    end: { label: 'Present', dateTime: new Date().getFullYear() },
-    summary:
-      'My own practice in digital strategy, SEO, web and design for clients, which today focuses on AI strategy and building AI systems.',
-  },
-  {
     company: 'RT-RK',
     title: 'Senior Web Developer',
     logo: logoRTRK,
@@ -41,7 +32,7 @@ export const resume = [
   },
   {
     company: 'moxom studio',
-    title: 'Web Development Specialist and Security Advisor',
+    title: 'Web Dev & Cybersecurity Consultant',
     monogram: 'mx',
     start: '2014',
     end: '2019',
@@ -53,9 +44,18 @@ export const resume = [
     title: 'Web Developer and UX Designer',
     logo: logoNetInfo,
     start: '2012',
-    end: '2016',
+    end: '2014',
     summary:
       'Redesigned the NetCab app interface and built a reusable component system that sped up development across client projects.',
+  },
+  {
+    company: 'Independent Practice',
+    title: 'Founder',
+    monogram: 'MB',
+    start: '2010',
+    end: { label: 'Present', dateTime: new Date().getFullYear() },
+    summary:
+      'My own practice in digital strategy, SEO, web and design for clients, which today focuses on AI strategy and building AI systems.',
   },
 ]
 
@@ -138,18 +138,17 @@ export const services = [
     short: 'AI Search and AEO',
     icon: 'search',
     summary:
-      'Answer engine optimization (AEO): get your brand cited in ChatGPT, Google AI Overviews and other AI answers.',
+      'Answer engine optimization (AEO): help ChatGPT, Google AI Overviews and other AI tools find and reference your expertise.',
     description:
       'Answer engine optimization (AEO) that helps your brand show up when buyers ask AI tools about your category. I track how you appear, audit your site and shape content and structure so AI tools can find and quote it.',
     deliverables: [
       'Tracking of how AI tools describe your brand',
       'An audit of your site for AI and search visibility',
-      'Content and structured data fixes that get you cited',
+      'Content and technical improvements that help AI tools find, understand and reference your expertise',
     ],
     goodFit:
       'Buyers ask ChatGPT about your category and you are not in the answer.',
     roles: ['Marketing Director or CMO'],
-    package: 'advisory',
   },
   {
     title: 'Fractional AI Leadership',
@@ -308,9 +307,7 @@ export const tools = [
       'Cursor',
       'Lovable',
       'Midjourney',
-      'Runway',
       'ElevenLabs',
-      'HeyGen',
     ],
   },
   {
@@ -321,7 +318,7 @@ export const tools = [
       'n8n',
       'Power Automate',
       'HubSpot Workflows',
-      'MCP (Model Context Protocol)',
+      'MCP',
       'Python',
     ],
   },
@@ -329,12 +326,11 @@ export const tools = [
     category: 'Marketing and Data',
     items: [
       'HubSpot',
-      'Google Analytics 4',
+      'Google Analytics',
       'Google Search Console',
       'Semrush',
       'Ahrefs',
       'Databox',
-      'Screaming Frog',
       'Lucky Orange',
       'Apollo',
       'Clay',
@@ -346,10 +342,8 @@ export const tools = [
       'Notion',
       'Asana',
       'ClickUp',
-      'Monday.com',
       'Jira',
       'Confluence',
-      'Trello',
       'Basecamp',
       'Airtable',
       'Slack',
@@ -360,7 +354,7 @@ export const tools = [
 ]
 
 export const hourlyRate = {
-  price: 175,
+  price: 150,
   currency: 'USD',
   description:
     'For advisory calls, second opinions and smaller requests that do not need a full package.',
@@ -373,7 +367,7 @@ export const pricingPackages = [
     term: 'Takes 4 to 6 weeks',
     featured: true,
     bestFor: 'You know AI matters but not where it fits in your work.',
-    price: 4000,
+    price: 3000,
     unit: 'per project',
     description:
       'The best place to start. I find where AI fits in your team’s work and give you a clear, prioritized plan to act on.',
@@ -385,17 +379,18 @@ export const pricingPackages = [
       'Opportunities scored by value, risk and effort',
       'Redesigned processes with AI built into the right steps',
       'Prioritized roadmap of quick wins and longer-term projects',
+      'Monthly, quarterly, yearly or long-term horizons, with team growth and department plans where needed',
       'Owners, tools and success measures for each step',
       'Tool recommendations and AI usage rules',
       'Written report and a walkthrough session with your team',
     ],
   },
   {
-    name: 'Team Workshop',
+    name: 'Team Workshop / AI Training',
     slug: 'workshop',
-    term: 'One workshop, with a prep call and a follow-up Q&A',
+    term: 'From 3 hours to multi-day, with prep and a follow-up',
     bestFor: 'Your team has AI tools but not the habits to use them well.',
-    price: 3500,
+    price: 2000,
     unit: 'per workshop',
     description:
       'Hands-on AI training built around your team’s real work, so people leave with skills they use the next day.',
@@ -405,7 +400,8 @@ export const pricingPackages = [
       'Hands-on practice on your own tasks and documents',
       'Shared prompt library for the topics covered',
       'Shared context and usage rules, so results do not depend on one power user',
-      'Recording of the session',
+      'Work on one to five or more of your biggest problems during the session',
+      'Recording of every session, live or virtual',
       'Reference guides your team keeps',
       'Follow-up Q&A session after the workshop',
     ],
@@ -415,7 +411,7 @@ export const pricingPackages = [
     slug: 'process-build',
     term: 'Takes 6 to 10 weeks per process',
     bestFor: 'One recurring process is eating hours of your team’s week.',
-    price: 8000,
+    price: 5000,
     unit: 'per process',
     description:
       'A complete AI-powered process for recurring work, such as monthly reporting, content production or client onboarding. I map how it runs today, rebuild it with AI and hand it over ready to run.',
@@ -428,7 +424,7 @@ export const pricingPackages = [
       'Sign-off only after someone other than the builder has tested it',
       'Step-by-step documentation and process guides',
       'Training for the people who run the process',
-      'Handover session and support after launch',
+      'Handover session and three months of support after launch',
     ],
   },
   {
@@ -436,19 +432,19 @@ export const pricingPackages = [
     slug: 'advisory',
     term: '3-month minimum, then month to month',
     bestFor: 'You are already rolling out AI and want a steady guide.',
-    price: 3000,
+    price: 2000,
     unit: 'per month',
     description:
       'Ongoing guidance while your team adopts AI, with time to review and improve what you build.',
     includes: [
-      'Regular strategy check-ins with your team and leadership',
-      'Email support between sessions',
+      'Zoom calls as often as you need each week',
+      'Available five days a week, eight hours a day, by email and phone',
+      'A knowledge base and documentation for your team',
       'Reviews of new tools, processes and AI output',
       'Tool, vendor and build decisions reviewed with you',
       'Help prioritizing what to build next',
       'A roadmap that stays current as your needs and the tools change',
       'Guidance on AI usage rules and team adoption',
-      'AI search visibility (AEO): tracking how AI tools describe you, plus site and content fixes',
     ],
   },
 ]
@@ -490,6 +486,31 @@ export const pricingFaqs = [
     answer:
       'Prices are in US dollars. European clients can be invoiced in euros.',
   },
+  {
+    question: 'What counts as one process in an AI Process Build?',
+    answer:
+      'One major recurring process that involves more than two people and takes up a large share of your team’s week. Smaller workflows that feed into it are part of the same build.',
+  },
+  {
+    question: 'How long is a workshop, and how many people can join?',
+    answer:
+      'Anything from a three-hour session to a multi-day retreat, online or at your office. We prepare together, follow a set agenda and record every session, and there is always a follow-up. Your team leaves with plenty of material, and we usually solve one to five or more major problems during the work. I have trained up to 50 people in a single day.',
+  },
+  {
+    question: 'What does Monthly Advisory include, compared with hourly?',
+    answer:
+      'Hourly suits one-off calls and second opinions. Monthly Advisory makes me part of your team: Zoom calls as often as you need each week, email and phone access five days a week for eight hours a day, and a knowledge base and documentation for your people. Nights, weekends and emergencies are billed at double the hourly rate. Hands-on infrastructure work is only charged when it is planned in the roadmap first.',
+  },
+  {
+    question: 'What support do we get after launch?',
+    answer:
+      'An AI Process Build includes three months of support after launch at no extra charge. That covers bug fixes in what we built together, not your other software. Improvements to the process are included when they were defined in the scope or roadmap before we started.',
+  },
+  {
+    question: 'Who owns what you build, and who pays for the tools?',
+    answer:
+      'For process builds and roadmaps, you own the code and everything I create for you. It is usually covered by an NDA and handed over by me at the end. You pay for your own tools, subscriptions and AI token usage.',
+  },
 ]
 
 // Services page: how the work runs day to day
@@ -514,6 +535,21 @@ export const serviceFaqs = [
     answer:
       'I work remotely with teams in the US and Europe, in English. My working day overlaps with US East Coast mornings and the whole European day. Workshops can also run on-site anywhere in Europe, with flights and accommodation covered by the client.',
   },
+  {
+    question: 'Are strategy and process redesign separate projects?',
+    answer:
+      'No. Both are part of the AI Audit and Roadmap. The audit looks at how your team works today, redesigns the processes worth changing and turns them into a prioritized roadmap.',
+  },
+  {
+    question: 'Do we always need an audit first?',
+    answer:
+      'No. Start with an audit if your priorities are unclear. If you already have a defined workflow you want to improve, we can scope an AI Process Build directly.',
+  },
+  {
+    question: 'Do we need to understand AI already?',
+    answer:
+      'No. Many teams I work with are just starting. Tell me what work takes too much time, and I will explain the options in plain language and show what AI can and cannot do for it.',
+  },
 ]
 
 export const testimonials = [
@@ -521,15 +557,21 @@ export const testimonials = [
     quote:
       'Marko’s AI implementation saved us $180,000 a year. He understood what we needed, explained the technical decisions clearly, and delivered before the deadline. What I appreciated most was how straightforward he made the whole process. I never felt I had to chase him.',
     author: 'CEO, Mid-Sized Business',
+    project:
+      'AI Audit and Roadmap, three workshops and builds of key processes. A client for two years, now on hourly advisory.',
   },
   {
     quote:
       'Marko helped us build AI services we could offer under our own brand, and taught us along the way. He knows both the AI and the engineering behind it, but makes everything easy to understand. Easy to work with, generous with his knowledge, and finished ahead of schedule.',
     author: 'Owner, Mid-Sized Agency',
+    project:
+      'White-label AI services for their clients, later bought outright, plus team training. They now offer AI marketing.',
   },
   {
     quote:
       'Our revenue grew 90% in six months with Marko’s help. He brought strong AI and engineering knowledge, and was always testing ideas and looking for ways to improve.',
     author: 'Marketing Director, B2B Manufacturer',
+    project:
+      'AI Audit and Roadmap, then workshops that trained 500+ people. Time saved on hourly client work turned into profit.',
   },
 ]
