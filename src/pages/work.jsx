@@ -44,10 +44,7 @@ function Story({ example }) {
           <h3 className="label text-muted lg:text-right">Tools</h3>
           <ul role="list" className="mt-3 flex flex-wrap gap-2 lg:justify-end">
             {example.tools.map((tool) => (
-              <li
-                key={tool}
-                className="rounded-full bg-[color-mix(in_oklch,var(--link)_14%,var(--paper))] px-3.5 py-1.5 text-ui font-semibold text-link dark:bg-raised dark:text-on-raised"
-              >
+              <li key={tool} className="tag">
                 {tool}
               </li>
             ))}

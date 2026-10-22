@@ -49,9 +49,9 @@ function Package({ pkg, index }) {
           </span>
         )}
         <h2 className="text-subhead">{pkg.name}</h2>
-        <p className="mt-4 flex flex-wrap items-baseline gap-x-2">
+        <p className="mt-4 flex items-baseline gap-x-2 whitespace-nowrap">
           <span className="text-ui font-semibold">From</span>
-          <span className="text-price leading-none font-extrabold tracking-[-0.045em]">
+          <span className="text-price leading-none font-extrabold tracking-[-0.045em] max-sm:text-[2.25rem]">
             {formatPrice(pkg.price)}
           </span>
           <span className="text-ui font-semibold">{pkg.unit}</span>
@@ -153,47 +153,72 @@ function PricingSummary() {
             </tr>
           </thead>
           <tbody className="max-md:block">
-            {rows.map((row) => (
-              <tr
-                key={row.name}
-                className={clsx(
-                  'align-top transition-colors duration-200 max-md:grid max-md:gap-1.5 max-md:border-t max-md:border-rule max-md:px-5 max-md:py-6 max-md:first:border-t-0 md:[&:not(:first-child)>*]:border-t md:[&>*]:border-rule',
-                  row.featured
-                    ? 'bg-[color-mix(in_oklch,var(--citron)_24%,var(--paper))] dark:bg-[color-mix(in_oklch,var(--citron)_12%,var(--sunken))]'
-                    : 'hover:bg-sunken dark:hover:bg-night',
-                )}
-              >
-                <th scope="row" className="py-5 pr-6 pl-7 font-bold max-md:p-0">
-                  <a href={row.href} className="link marker-hover">
-                    {row.name}
-                  </a>
-                  {row.featured && (
-                    <span className="mt-2 block w-fit rounded-full bg-brand px-3 py-1 text-caption font-bold text-on-brand dark:bg-citron dark:text-on-citron">
-                      Start Here
-                    </span>
+            {rows.map((row) => {
+              // The Start Here row sits on blue, so its quiet text lightens
+              let muted = row.featured ? 'text-on-brand-muted' : 'text-graphite'
+              return (
+                <tr
+                  key={row.name}
+                  className={clsx(
+                    'align-top transition-colors duration-200 max-md:grid max-md:gap-1.5 max-md:border-t max-md:border-rule max-md:px-5 max-md:py-6 max-md:first:border-t-0 md:[&:not(:first-child)>*]:border-t md:[&>*]:border-rule',
+                    row.featured
+                      ? 'on-brand text-on-brand max-md:bg-brand max-md:dark:bg-raised [&>*]:bg-brand [&>*]:shadow-[1px_0_0_var(--brand)] dark:[&>*]:bg-raised dark:[&>*]:shadow-[1px_0_0_var(--raised)]'
+                      : 'hover:bg-sunken dark:hover:bg-night',
                   )}
-                </th>
-                <td className="py-5 pr-6 max-md:p-0">
-                  {row.from && (
-                    <span className="text-caption font-semibold text-graphite">
-                      From{' '}
+                >
+                  <th
+                    scope="row"
+                    className="py-5 pr-6 pl-7 font-bold max-md:p-0"
+                  >
+                    <a
+                      href={row.href}
+                      className={clsx(
+                        'link',
+                        row.featured
+                          ? 'text-on-brand decoration-citron'
+                          : 'marker-hover',
+                      )}
+                    >
+                      {row.name}
+                    </a>
+                    {row.featured && (
+                      <span className="mt-2 block w-fit rounded-full bg-citron px-3 py-1 text-caption font-bold text-on-citron">
+                        Start Here
+                      </span>
+                    )}
+                  </th>
+                  <td className="py-5 pr-6 whitespace-nowrap max-md:p-0">
+                    {row.from && (
+                      <span
+                        className={clsx('text-caption font-semibold', muted)}
+                      >
+                        From{' '}
+                      </span>
+                    )}
+                    <span
+                      className={clsx(
+                        'numeral text-lead-size font-extrabold tracking-[-0.03em]',
+                        row.featured ? 'text-citron' : 'text-link',
+                      )}
+                    >
+                      {row.price}
                     </span>
-                  )}
-                  <span className="numeral text-lead-size font-extrabold tracking-[-0.03em] text-link">
-                    {row.price}
-                  </span>
-                  <span className="block text-caption font-semibold text-graphite">
-                    {row.unit}
-                  </span>
-                </td>
-                <td className="py-5 pr-6 text-balance text-graphite max-md:p-0">
-                  {row.bestFor}
-                </td>
-                <td className="py-5 pr-7 text-graphite max-md:p-0">
-                  {row.term}
-                </td>
-              </tr>
-            ))}
+                    <span className={clsx('text-caption font-semibold', muted)}>
+                      {' '}
+                      {row.unit}
+                    </span>
+                  </td>
+                  <td
+                    className={clsx('py-5 pr-6 text-balance max-md:p-0', muted)}
+                  >
+                    {row.bestFor}
+                  </td>
+                  <td className={clsx('py-5 pr-7 max-md:p-0', muted)}>
+                    {row.term}
+                  </td>
+                </tr>
+              )
+            })}
           </tbody>
         </table>
       </div>
@@ -279,25 +304,31 @@ export default function Pricing() {
         <section
           id="hourly"
           aria-labelledby="hourly-heading"
-          className="mt-6 grid scroll-mt-28 gap-6 rounded-[1.75rem] border-2 border-dashed border-ink p-7 sm:p-9 md:grid-cols-[1fr_auto_auto] md:items-center md:gap-10 dark:border-field"
+          className="mt-6 grid scroll-mt-28 gap-8 rounded-[1.75rem] border-2 border-dashed border-ink p-6 sm:p-9 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] lg:gap-0 lg:p-10 dark:border-field"
         >
-          <div>
+          <div className="flex flex-col items-start justify-center lg:pr-14">
             <h2 id="hourly-heading" className="text-subhead">
               Hourly Advisory
             </h2>
-            <p className="mt-2 max-w-measure text-graphite">
+            <p className="mt-4 flex items-baseline gap-x-2 whitespace-nowrap">
+              <span className="text-price leading-none font-extrabold tracking-[-0.045em] max-sm:text-[2.25rem]">
+                {formatPrice(hourlyRate.price)}
+              </span>
+              <span className="text-ui font-semibold">per hour</span>
+            </p>
+            <Button
+              variant="secondary"
+              className="mt-7 w-full sm:w-auto"
+              href={contactHref('Hourly Advisory')}
+            >
+              Send Inquiry
+            </Button>
+          </div>
+          <div className="flex items-center border-rule lg:border-l lg:pl-14">
+            <p className="text-lead max-w-measure text-graphite">
               {hourlyRate.description}
             </p>
           </div>
-          <p className="flex items-baseline gap-2">
-            <span className="text-price leading-none font-extrabold tracking-[-0.045em]">
-              {formatPrice(hourlyRate.price)}
-            </span>
-            <span className="text-ui text-graphite">per hour</span>
-          </p>
-          <Button variant="secondary" href={contactHref('Hourly Advisory')}>
-            Send Inquiry
-          </Button>
         </section>
         <div className="mt-section">
           <ProcessSection />

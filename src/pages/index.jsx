@@ -27,7 +27,7 @@ function Hero() {
             Daily Operations
           </h1>
         </div>
-        <div className="relative mx-auto w-full max-w-68 sm:max-w-sm lg:row-span-2 lg:mr-0 lg:ml-auto lg:max-w-[23rem] lg:self-center">
+        <div className="relative mx-auto w-full max-w-52 sm:max-w-sm lg:row-span-2 lg:mr-0 lg:ml-auto lg:max-w-[23rem] lg:self-center">
           <div
             aria-hidden="true"
             className="enter-settle absolute -right-4 -bottom-4 h-full w-full rounded-[1.75rem] bg-citron"
@@ -35,7 +35,7 @@ function Hero() {
           <Image
             src={portraitImage}
             alt="Portrait of Marko Bodiroza"
-            sizes="(min-width: 1024px) 368px, (min-width: 640px) 384px, 272px"
+            sizes="(min-width: 1024px) 368px, (min-width: 640px) 384px, 208px"
             className="relative aspect-4/5 w-full rounded-[1.75rem] object-cover object-[50%_30%]"
             preload
             fetchPriority="high"
@@ -43,7 +43,7 @@ function Hero() {
         </div>
         <div className="lg:self-start">
           <p
-            className="text-lead enter max-w-xl text-on-brand-muted"
+            className="text-lead enter max-w-2xl text-on-brand-muted"
             style={{ '--i': 1 }}
           >
             I help agencies and B2B teams reduce manual work across marketing,
@@ -61,7 +61,7 @@ function Hero() {
             </Button>
           </div>
           <p
-            className="enter mt-4 text-ui font-semibold text-on-brand-muted"
+            className="enter mt-4 text-center text-ui font-semibold text-on-brand-muted sm:text-left"
             style={{ '--i': 2 }}
           >
             Free 30-minute call. You leave with a suggested first step.
@@ -142,7 +142,7 @@ function ProofAndProcess({ example, outcomes, quote }) {
               {outcomes.map((item) => (
                 <li
                   key={item}
-                  className="inline-flex items-center gap-2 rounded-full bg-sunken py-1.5 pr-3.5 pl-1.5 text-ui font-semibold dark:bg-raised dark:text-on-raised"
+                  className="inline-flex items-center gap-2 rounded-2xl bg-sunken py-1.5 pr-3.5 pl-1.5 text-ui font-semibold dark:bg-raised dark:text-on-raised"
                 >
                   <span
                     aria-hidden="true"
@@ -173,7 +173,7 @@ function ProofAndProcess({ example, outcomes, quote }) {
               {processSteps.map((step, index) => (
                 <li
                   key={step.title}
-                  className="inline-flex items-center gap-2 rounded-full bg-sunken py-1.5 pr-3.5 pl-1.5 text-ui font-semibold dark:bg-raised dark:text-on-raised"
+                  className="inline-flex items-center gap-2 rounded-2xl bg-sunken py-1.5 pr-3.5 pl-1.5 text-ui font-semibold dark:bg-raised dark:text-on-raised"
                 >
                   <span
                     aria-hidden="true"

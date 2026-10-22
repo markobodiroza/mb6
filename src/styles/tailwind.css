@@ -316,6 +316,21 @@
     @apply text-ui font-bold tracking-[0.02em];
   }
 
+  /* Tool and credential tags: a firm blue tint with ink text, outlined so
+     they hold their shape on paper */
+  .tag {
+    @apply rounded-full px-3.5 py-1.5 text-ui font-semibold text-ink;
+    background-color: color-mix(in oklch, var(--link) 20%, var(--paper));
+    box-shadow: inset 0 0 0 1px
+      color-mix(in oklch, var(--link) 40%, transparent);
+  }
+
+  .dark .tag {
+    background-color: var(--raised);
+    color: var(--on-raised);
+    box-shadow: none;
+  }
+
   .link {
     @apply font-semibold text-link underline decoration-1 underline-offset-[0.2em];
   }
