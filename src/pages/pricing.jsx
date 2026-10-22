@@ -55,7 +55,7 @@ function Package({ pkg, index }) {
         </p>
         <p className="mt-6 flex flex-wrap items-baseline gap-x-2">
           <span className="text-[0.9375rem] font-semibold">From</span>
-          <span className="text-[3rem] leading-none font-[850] tracking-[-0.045em]">
+          <span className="text-[3rem] leading-none font-extrabold tracking-[-0.045em]">
             {formatPrice(pkg.price)}
           </span>
           <span className="text-[0.9375rem] font-semibold">{pkg.unit}</span>
@@ -75,7 +75,7 @@ function Package({ pkg, index }) {
           className="mt-8 w-full sm:w-auto"
           href={contactHref(pkg.name)}
         >
-          Send an Inquiry
+          Send Inquiry
         </Button>
       </div>
       <div>
@@ -176,13 +176,13 @@ export default function Pricing() {
             </p>
           </div>
           <p className="flex items-baseline gap-2">
-            <span className="text-[3rem] leading-none font-[850] tracking-[-0.045em]">
+            <span className="text-[3rem] leading-none font-extrabold tracking-[-0.045em]">
               {formatPrice(hourlyRate.price)}
             </span>
             <span className="text-[0.9375rem] text-graphite">per hour</span>
           </p>
           <Button variant="secondary" href={contactHref('Hourly Advisory')}>
-            Send an Inquiry
+            Send Inquiry
           </Button>
         </section>
         <div className="mt-section">

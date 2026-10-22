@@ -6,7 +6,7 @@ import { CtaBand } from '@/components/CtaBand'
 import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
 import { NextSeo } from '@/components/Seo'
-import { coreTools, resume, tools } from '@/data/content'
+import { resume, tools } from '@/data/content'
 import siteMeta from '@/data/siteMeta'
 import portraitImage from '@/images/marko-head.jpg'
 import { contactHref } from '@/lib/contact'
@@ -29,7 +29,7 @@ function CompanyMark({ role }) {
       ) : (
         <span
           aria-hidden="true"
-          className="text-[1.125rem] font-[850] tracking-[-0.03em] text-citron"
+          className="text-[1.125rem] font-extrabold tracking-[-0.03em] text-citron"
         >
           {role.monogram}
         </span>
@@ -93,51 +93,27 @@ function Tools() {
         Tools I Work With
       </h2>
       <p className="text-lead mt-5 max-w-measure text-graphite">
-        I pick tools for the job and the team, not the other way around. These
-        are the ones I reach for most.
+        I pick tools for the job and the team, not the other way around. Here is
+        what I work with, by category.
       </p>
-      <ul role="list" data-reveal className="mt-8 flex flex-wrap gap-2">
-        {coreTools.map((tool) => (
-          <ToolChip key={tool}>{tool}</ToolChip>
+      <dl className="mt-8 border-t-2 border-ink">
+        {tools.map((group) => (
+          <div
+            key={group.category}
+            data-reveal
+            className="grid gap-x-10 gap-y-4 border-b border-rule py-6 sm:grid-cols-[12rem_1fr]"
+          >
+            <dt className="font-bold">{group.category}</dt>
+            <dd>
+              <ul role="list" className="flex flex-wrap gap-2">
+                {group.items.map((item) => (
+                  <ToolChip key={item}>{item}</ToolChip>
+                ))}
+              </ul>
+            </dd>
+          </div>
         ))}
-      </ul>
-      <details className="group mt-8 border-t-2 border-ink">
-        <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-[1.1875rem] font-bold marker:hidden [&::-webkit-details-marker]:hidden">
-          See All Tools
-          <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-sunken text-link transition-transform duration-300 ease-out-quart group-open:rotate-45">
-            <svg
-              viewBox="0 0 20 20"
-              fill="none"
-              aria-hidden="true"
-              className="h-5 w-5"
-            >
-              <path
-                d="M10 4v12M4 10h12"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
-          </span>
-        </summary>
-        <dl className="pb-4">
-          {tools.map((group) => (
-            <div
-              key={group.category}
-              className="grid gap-x-10 gap-y-4 border-t border-rule py-6 sm:grid-cols-[12rem_1fr]"
-            >
-              <dt className="font-bold">{group.category}</dt>
-              <dd>
-                <ul role="list" className="flex flex-wrap gap-2">
-                  {group.items.map((item) => (
-                    <ToolChip key={item}>{item}</ToolChip>
-                  ))}
-                </ul>
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </details>
+      </dl>
     </section>
   )
 }
@@ -209,7 +185,7 @@ export default function About() {
           <div className="mt-10 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
             <BookCallButton />
             <Button variant="secondary" href={contactHref()}>
-              Send a Message
+              Send Inquiry
             </Button>
           </div>
           <a

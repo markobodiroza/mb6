@@ -219,7 +219,7 @@
 @layer components {
   .text-display {
     font-size: clamp(2.75rem, 1.5rem + 3.9vw, 5.25rem);
-    @apply leading-[0.98] font-[820] tracking-[-0.04em];
+    @apply leading-[0.98] font-extrabold tracking-[-0.04em];
   }
 
   .text-page-title {

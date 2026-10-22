@@ -191,7 +191,7 @@ function ProficiencyPicker({ id, value, onChange, error }) {
                 onChange={onChange}
                 className="sr-only"
               />
-              <span className="text-[1.375rem] leading-none font-[850]">
+              <span className="text-[1.375rem] leading-none font-extrabold">
                 {level.value}
               </span>
               <span className="text-[0.9375rem] leading-tight font-semibold sm:text-[0.8125rem]">

@@ -294,7 +294,7 @@ function MobileNavigation() {
 export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-rule bg-paper">
-      <Container className="flex h-18 items-center gap-4">
+      <Container className="flex h-20 items-center gap-4">
         <Link
           href="/"
           aria-label="Marko Bodiroza, home"

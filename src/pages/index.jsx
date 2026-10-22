@@ -1,10 +1,9 @@
 import Image from 'next/image'
-import Link from 'next/link'
 
-import { BookCallButton, Button } from '@/components/Button'
+import { ArrowLink, BookCallButton, Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { CtaBand } from '@/components/CtaBand'
-import { ArrowRightIcon, ServiceIcon } from '@/components/Icons'
+import { ServiceIcon } from '@/components/Icons'
 import { InsightRow } from '@/components/InsightRow'
 import { JsonLd } from '@/components/JsonLd'
 import { NextSeo } from '@/components/Seo'
@@ -40,10 +39,10 @@ function Hero() {
     <section className="blueprint on-brand overflow-hidden text-on-brand">
       <Container className="grid items-center gap-12 py-16 sm:py-24 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-14 lg:py-28">
         <div>
-          <p className="enter label text-citron">
+          <p className="enter text-[1.1875rem] leading-snug font-bold text-citron sm:text-[1.3125rem]">
             {siteMeta.author.name}, AI Strategist and System Builder
           </p>
-          <h1 className="text-display enter-rise mt-6">
+          <h1 className="enter-rise mt-5 text-[clamp(2.5rem,1.4rem+3.3vw,4.5rem)] leading-[0.98] font-extrabold tracking-[-0.04em]">
             I Help Teams Put{' '}
             <span className="marker text-citron">AI to Work</span> in Their
             Daily Operations
@@ -62,7 +61,7 @@ function Hero() {
           >
             <BookCallButton variant="on-brand" />
             <Button variant="on-brand-outline" href={contactHref()}>
-              Send a Message
+              Send Inquiry
             </Button>
           </div>
           <p
@@ -73,7 +72,7 @@ function Hero() {
             with marketing teams, agencies and B2B companies.
           </p>
         </div>
-        <div className="relative mx-auto w-full max-w-68 sm:max-w-sm lg:max-w-none">
+        <div className="relative mx-auto w-full max-w-68 sm:max-w-sm lg:mr-0 lg:ml-auto lg:max-w-[23rem]">
           <div
             aria-hidden="true"
             className="enter-settle absolute -right-4 -bottom-4 h-full w-full rounded-[1.75rem] bg-citron"
@@ -81,7 +80,7 @@ function Hero() {
           <Image
             src={portraitImage}
             alt="Portrait of Marko Bodiroza"
-            sizes="(min-width: 1248px) 434px, (min-width: 1024px) calc((100vw - 120px) / 2.6), (min-width: 640px) 384px, 272px"
+            sizes="(min-width: 1024px) 368px, (min-width: 640px) 384px, 272px"
             className="relative aspect-4/5 w-full rounded-[1.75rem] object-cover object-[50%_30%]"
             preload
             fetchPriority="high"
@@ -108,10 +107,7 @@ function ServicesOverview() {
               From strategy and roadmap to the AI systems your team runs on.
             </p>
           </div>
-          <Button variant="secondary" href="/services">
-            All Services
-            <ArrowRightIcon className="h-4 w-4" />
-          </Button>
+          <ArrowLink href="/services">See All Services</ArrowLink>
         </div>
         <ol className="mt-14 grid gap-x-14 sm:grid-cols-2">
           {services.map((service, index) => (
@@ -151,25 +147,13 @@ function FeaturedWork({ example }) {
               {example.summary}
             </p>
           </div>
-          <Button variant="secondary" href="/work">
-            All Work
-            <ArrowRightIcon className="h-4 w-4" />
-          </Button>
+          <ArrowLink href="/work">See All Work</ArrowLink>
         </div>
         <WorkDiagram
           lanes={example.diagram}
           label={`Diagram: ${example.title}`}
           className="mt-10"
         />
-        <p className="mt-6">
-          <Link
-            href={`/work#${example.slug}`}
-            className="group inline-flex items-center gap-2 font-bold text-link"
-          >
-            <span className="marker-hover">See How It Works</span>
-            <ArrowRightIcon className="h-4 w-4 transition-transform duration-200 ease-out-quart group-hover:translate-x-1" />
-          </Link>
-        </p>
       </Container>
     </section>
   )
@@ -191,13 +175,14 @@ function ProcessAndPricing() {
               I get one thing working before scaling it, and your people stay in
               charge of the decisions that matter.
             </p>
-            <Link
+            <ArrowLink
               href="/process"
-              className="group mt-8 inline-flex items-center gap-2 font-bold text-citron"
+              color="text-citron"
+              marker={false}
+              className="mt-8"
             >
-              More on My Process
-              <ArrowRightIcon className="h-4 w-4 transition-transform duration-200 ease-out-quart group-hover:translate-x-0.5" />
-            </Link>
+              See the Full Process
+            </ArrowLink>
           </div>
           <ol className={`border-t ${ruleOnNight}`}>
             {processSteps.map((step, index) => (
@@ -208,7 +193,7 @@ function ProcessAndPricing() {
                 className={`grid grid-cols-[3.5rem_1fr] gap-x-4 border-b py-6 sm:grid-cols-[3.5rem_13rem_1fr] sm:gap-x-6 ${ruleOnNight}`}
               >
                 <span
-                  className="text-[1.625rem] leading-none font-[850] tracking-[-0.04em] text-citron"
+                  className="text-[1.625rem] leading-none font-extrabold tracking-[-0.04em] text-citron"
                   aria-hidden="true"
                 >
                   {String(index + 1).padStart(2, '0')}
@@ -237,10 +222,9 @@ function ProcessAndPricing() {
               {formatPrice(hourlyRate.price)}.
             </p>
           </div>
-          <Button variant="night" href="/pricing">
-            See Pricing
-            <ArrowRightIcon className="h-4 w-4" />
-          </Button>
+          <ArrowLink href="/pricing" color="text-on-citron" marker={false}>
+            Compare All Packages
+          </ArrowLink>
         </div>
       </Container>
     </section>
@@ -263,10 +247,7 @@ function LatestInsights({ latest }) {
               Short, practical notes on AI search and putting AI to work.
             </p>
           </div>
-          <Button variant="secondary" href="/insights">
-            All Insights
-            <ArrowRightIcon className="h-4 w-4" />
-          </Button>
+          <ArrowLink href="/insights">Read All Insights</ArrowLink>
         </div>
         <div className="mt-12 border-t-2 border-ink">
           {latest.map((insight) => (
