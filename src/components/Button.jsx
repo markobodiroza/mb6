@@ -14,8 +14,8 @@ const variantStyles = {
 }
 
 const sizeStyles = {
-  sm: 'h-11 px-5 text-[0.9375rem]',
-  md: 'h-13 px-7 text-[1.0625rem]',
+  sm: 'h-11 px-5 text-ui',
+  md: 'h-13 px-7 text-body',
 }
 
 export function Button({

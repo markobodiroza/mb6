@@ -12,9 +12,9 @@ import {
 } from '@/lib/contact'
 
 const inputStyles =
-  'block w-full rounded-xl border-2 border-field bg-paper px-4 py-3 text-[1.0625rem] text-ink transition-colors duration-200 placeholder:text-muted hover:border-graphite focus:border-link focus:outline-hidden aria-invalid:border-danger-line'
+  'block w-full rounded-xl border-2 border-field bg-paper px-4 py-3 text-body text-ink transition-colors duration-200 placeholder:text-muted hover:border-graphite focus:border-link focus:outline-hidden aria-invalid:border-danger-line'
 
-const errorText = 'text-[0.9375rem] font-semibold text-danger'
+const errorText = 'text-ui font-semibold text-danger'
 
 const selectStyles = clsx(inputStyles, 'appearance-none pr-12')
 
@@ -59,7 +59,7 @@ function Field({ label, hint, error, children, id }) {
       <label htmlFor={id} className="flex items-baseline justify-between gap-4">
         <span className="font-bold">{label}</span>
         {hint && (
-          <span className="text-right text-[0.9375rem] text-muted">
+          <span className="text-right text-ui text-muted">
             <span className="sr-only">, </span>
             {hint}
           </span>
@@ -160,12 +160,12 @@ function ProficiencyPicker({ id, value, onChange, error }) {
     <fieldset aria-describedby={error ? `${id}-error` : undefined}>
       <legend className="flex w-full items-baseline justify-between gap-4">
         <span className="font-bold">How AI-Forward Is Your Company?</span>
-        <span className="text-right text-[0.9375rem] text-muted">
+        <span className="text-right text-ui text-muted">
           <span className="sr-only">, </span>
           Optional
         </span>
       </legend>
-      <p className="mt-1 text-[0.9375rem] text-graphite">
+      <p className="mt-1 text-ui text-graphite">
         1 means just exploring, 5 means AI is built into how you work.
       </p>
       <div className="mt-3 grid gap-2 sm:grid-cols-5">
@@ -191,20 +191,17 @@ function ProficiencyPicker({ id, value, onChange, error }) {
                 onChange={onChange}
                 className="sr-only"
               />
-              <span className="text-[1.375rem] leading-none font-extrabold">
+              <span className="text-headline leading-none font-extrabold">
                 {level.value}
               </span>
-              <span className="text-[0.9375rem] leading-tight font-semibold sm:text-[0.8125rem]">
+              <span className="text-ui leading-tight font-semibold sm:text-caption">
                 {level.label}
               </span>
             </label>
           )
         })}
       </div>
-      <p
-        className="mt-3 min-h-6 text-[0.9375rem] text-graphite"
-        aria-live="polite"
-      >
+      <p className="mt-3 min-h-6 text-ui text-graphite" aria-live="polite">
         {selected && (
           <>
             <span className="font-bold text-ink">{selected.label}:</span>{' '}
@@ -334,6 +331,7 @@ export function ContactForm() {
             id={fieldId('name')}
             name="name"
             autoComplete="name"
+            placeholder="Your full name"
             required
             value={values.name}
             onChange={update}
@@ -347,6 +345,7 @@ export function ContactForm() {
             name="email"
             type="email"
             autoComplete="email"
+            placeholder="you@company.com"
             required
             value={values.email}
             onChange={update}
@@ -428,7 +427,6 @@ export function ContactForm() {
       />
       <Field
         label="About Your Project"
-        hint="Goals, team size and where AI could help"
         id={fieldId('message')}
         error={errors.message}
       >
@@ -436,6 +434,7 @@ export function ContactForm() {
           id={fieldId('message')}
           name="message"
           rows={6}
+          placeholder="Goals, team size and where AI could help"
           required
           value={values.message}
           onChange={update}
@@ -482,7 +481,7 @@ export function ContactForm() {
             'Send Inquiry'
           )}
         </Button>
-        <p className="text-[0.9375rem] text-muted">
+        <p className="text-ui text-muted">
           Your inquiry is delivered through Formspree and used only to reply to
           you.
         </p>

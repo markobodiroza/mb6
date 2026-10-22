@@ -146,7 +146,7 @@ function DesktopNavigation() {
 
   return (
     <nav aria-label="Main" className="hidden lg:block">
-      <ul className="flex items-center gap-1 text-[0.9375rem] font-medium">
+      <ul className="flex items-center gap-1 text-ui font-medium">
         {navigation.map((item) => (
           <li key={item.href}>
             <Link
@@ -267,7 +267,7 @@ function MobileNavigation() {
           </button>
         </div>
         <nav aria-label="Main" className="mt-4">
-          <ul className="divide-y divide-rule text-[1.125rem] font-semibold">
+          <ul className="divide-y divide-rule text-prose font-semibold">
             {navigation.map((item) => (
               <li key={item.href}>
                 <Link
@@ -291,9 +291,34 @@ function MobileNavigation() {
   )
 }
 
+// Once the page scrolls, the header takes a deeper tone and a stronger
+// line, so it never blends into paper sections below it
+function useScrolled() {
+  let [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    let onScroll = () => setScrolled(window.scrollY > 8)
+    let frame = window.requestAnimationFrame(onScroll)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      window.cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', onScroll)
+    }
+  }, [])
+
+  return scrolled
+}
+
 export function Header() {
+  let scrolled = useScrolled()
+
   return (
-    <header className="sticky top-0 z-40 border-b border-rule bg-paper">
+    <header
+      className={clsx(
+        'sticky top-0 z-40 border-b transition-colors duration-200',
+        scrolled ? 'border-field bg-sunken' : 'border-rule bg-paper',
+      )}
+    >
       <Container className="flex h-20 items-center gap-4">
         <Link
           href="/"
@@ -306,7 +331,7 @@ export function Header() {
             sizes="2.75rem"
             loading="eager"
             fetchPriority="low"
-            className="h-11 w-11 rounded-full bg-sunken object-cover ring-[3px] ring-link ring-offset-2 ring-offset-paper transition-transform duration-300 ease-out-quart group-hover:scale-105 group-hover:-rotate-6"
+            className="h-11 w-11 rounded-full bg-sunken object-cover ring-[3px] ring-link ring-offset-2 ring-offset-transparent transition-transform duration-300 ease-out-quart group-hover:scale-105 group-hover:-rotate-6"
           />
         </Link>
         <DesktopNavigation />

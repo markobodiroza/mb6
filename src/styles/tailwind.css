@@ -40,6 +40,17 @@
   /* Reading measure. Tailwind 4 fixes max-w-prose at 65ch, so it gets a name */
   --container-measure: 60ch;
 
+  /* Type scale. Fixed sizes for text and UI; fluid headings are the
+     composite utilities further down (heading, section, page title). */
+  --text-caption: 0.8125rem;
+  --text-ui: 0.9375rem;
+  --text-body: 1.0625rem;
+  --text-prose: 1.125rem;
+  --text-card: 1.1875rem;
+  --text-headline: 1.375rem;
+  --text-subhead: 1.625rem;
+  --text-price: 3rem;
+
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
@@ -128,7 +139,7 @@
     --citron: oklch(0.91 0.19 117);
     --on-citron: oklch(0.2 0.03 268);
 
-    --night: oklch(0.15 0.055 268);
+    --night: oklch(0.3 0.12 268);
     --on-night: oklch(0.97 0.008 265);
     --on-night-muted: oklch(0.84 0.03 262);
 
@@ -150,7 +161,7 @@
   }
 
   body {
-    @apply bg-paper font-sans text-[1.0625rem] leading-[1.65] text-ink;
+    @apply bg-paper font-sans text-body leading-[1.65] text-ink;
   }
 
   h1,
@@ -217,37 +228,38 @@
 
 /* Type roles. One family; headings get rounder, heavier letterforms. */
 @layer components {
-  .text-display {
-    font-size: clamp(2.75rem, 1.5rem + 3.9vw, 5.25rem);
-    @apply leading-[0.98] font-extrabold tracking-[-0.04em];
-  }
-
   .text-page-title {
     font-size: clamp(2.5rem, 1.7rem + 3vw, 4.25rem);
-    @apply leading-[1.02] font-[800] tracking-[-0.035em];
+    @apply leading-[1.08] font-[800] tracking-[-0.035em];
+  }
+
+  /* Titles of services, work examples and feature blocks */
+  .text-heading {
+    font-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.375rem);
+    @apply leading-[1.16] font-[780] tracking-[-0.03em];
   }
 
   .text-section {
     font-size: clamp(2rem, 1.5rem + 1.8vw, 3rem);
-    @apply leading-[1.06] font-[780] tracking-[-0.03em];
+    @apply leading-[1.12] font-[780] tracking-[-0.03em];
   }
 
   .text-title {
-    @apply text-[1.375rem] leading-[1.25] font-[720] tracking-[-0.018em];
+    @apply text-headline leading-[1.25] font-[720] tracking-[-0.018em];
   }
 
   .text-lead {
-    @apply text-[1.1875rem] leading-[1.55] sm:text-[1.3125rem];
+    @apply text-card leading-[1.55] sm:text-[1.3125rem];
   }
 
   /* Small Title Case label for in-card headings and dates */
   .label {
-    @apply text-[0.9375rem] leading-snug font-bold;
+    @apply text-ui leading-snug font-bold;
   }
 
   .numeral {
     font-variant-numeric: tabular-nums;
-    @apply text-[0.9375rem] font-bold tracking-[0.02em];
+    @apply text-ui font-bold tracking-[0.02em];
   }
 
   .link {

@@ -97,13 +97,11 @@ export default function Process() {
                   />
                 </span>
                 <div className="pt-2 sm:pt-4">
-                  <h2 className="text-[1.625rem] leading-[1.15] font-[780] tracking-tight">
+                  <h2 className="text-subhead leading-[1.2] font-[780] tracking-tight">
                     {step.title.replace(/^\d+\.\s*/, '')}
                   </h2>
-                  <p className="mt-1 text-[0.9375rem] text-muted italic">
-                    {step.note}
-                  </p>
-                  <p className="mt-3 max-w-measure text-[1.125rem] leading-[1.65] text-graphite">
+                  <p className="mt-1 text-ui text-muted italic">{step.note}</p>
+                  <p className="mt-3 max-w-measure text-prose leading-[1.65] text-graphite">
                     {step.detail}
                   </p>
                   <p className="mt-5 inline-flex flex-wrap items-baseline gap-x-2 rounded-full bg-sunken px-4 py-2">
@@ -144,7 +142,7 @@ export default function Process() {
                 </svg>
               </span>
               <div>
-                <p className="text-[1.375rem] leading-[1.3] font-bold">
+                <p className="text-headline leading-[1.3] font-bold">
                   Then Back to Planning
                 </p>
                 <p className="mt-1 text-graphite">

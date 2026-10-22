@@ -37,42 +37,18 @@ const ruleOnNight =
 function Hero() {
   return (
     <section className="blueprint on-brand overflow-hidden text-on-brand">
-      <Container className="grid items-center gap-12 py-16 sm:py-24 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-14 lg:py-28">
-        <div>
-          <p className="enter text-[1.1875rem] leading-snug font-bold text-citron sm:text-[1.3125rem]">
+      <Container className="grid gap-10 py-16 sm:py-24 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-x-14 lg:gap-y-7 lg:py-28">
+        <div className="lg:self-end">
+          <p className="enter text-card leading-snug font-bold text-citron sm:text-[1.3125rem]">
             {siteMeta.author.name}, AI Strategist and System Builder
           </p>
-          <h1 className="enter-rise mt-5 text-[clamp(2.5rem,1.4rem+3.3vw,4.5rem)] leading-[0.98] font-extrabold tracking-[-0.04em]">
+          <h1 className="enter-rise text-page-title mt-5">
             I Help Teams Put{' '}
             <span className="marker text-citron">AI to Work</span> in Their
             Daily Operations
           </h1>
-          <p
-            className="text-lead enter mt-7 max-w-xl text-on-brand-muted"
-            style={{ '--i': 1 }}
-          >
-            I map how your team works, plan where AI fits, build the systems and
-            train your people to run them. I work in the tools you already have,
-            whether that is ChatGPT, Claude, Gemini or something else.
-          </p>
-          <div
-            className="enter mt-10 flex flex-col gap-4 sm:flex-row"
-            style={{ '--i': 2 }}
-          >
-            <BookCallButton variant="on-brand" />
-            <Button variant="on-brand-outline" href={contactHref()}>
-              Send Inquiry
-            </Button>
-          </div>
-          <p
-            className="enter mt-10 max-w-xl text-[1.0625rem] font-medium text-on-brand-muted"
-            style={{ '--i': 3 }}
-          >
-            15+ years in digital marketing, engineering, AI and SEO. Working
-            with marketing teams, agencies and B2B companies.
-          </p>
         </div>
-        <div className="relative mx-auto w-full max-w-68 sm:max-w-sm lg:mr-0 lg:ml-auto lg:max-w-[23rem]">
+        <div className="relative mx-auto w-full max-w-68 sm:max-w-sm lg:row-span-2 lg:mr-0 lg:ml-auto lg:max-w-[23rem] lg:self-center">
           <div
             aria-hidden="true"
             className="enter-settle absolute -right-4 -bottom-4 h-full w-full rounded-[1.75rem] bg-citron"
@@ -85,6 +61,32 @@ function Hero() {
             preload
             fetchPriority="high"
           />
+        </div>
+        <div className="lg:self-start">
+          <p
+            className="text-lead enter max-w-xl text-on-brand-muted"
+            style={{ '--i': 1 }}
+          >
+            I map how your team works, plan where AI fits, build the systems and
+            train your people to run them. I work in the tools you already have,
+            whether that is Claude, ChatGPT, Gemini or something else.
+          </p>
+          <div
+            className="enter mt-10 flex flex-col gap-4 sm:flex-row"
+            style={{ '--i': 2 }}
+          >
+            <BookCallButton variant="on-brand" />
+            <Button variant="on-brand-outline" href={contactHref()}>
+              Send Inquiry
+            </Button>
+          </div>
+          <p
+            className="enter mt-10 max-w-xl text-body font-medium text-on-brand-muted"
+            style={{ '--i': 3 }}
+          >
+            15+ years in digital marketing, engineering, AI and SEO. Working
+            with marketing teams, agencies and B2B companies.
+          </p>
         </div>
       </Container>
     </section>
@@ -193,15 +195,15 @@ function ProcessAndPricing() {
                 className={`grid grid-cols-[3.5rem_1fr] gap-x-4 border-b py-6 sm:grid-cols-[3.5rem_13rem_1fr] sm:gap-x-6 ${ruleOnNight}`}
               >
                 <span
-                  className="text-[1.625rem] leading-none font-extrabold tracking-[-0.04em] text-citron"
+                  className="text-subhead leading-none font-extrabold tracking-[-0.04em] text-citron"
                   aria-hidden="true"
                 >
                   {String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className="text-[1.1875rem] leading-[1.35] font-bold">
+                <h3 className="text-card leading-[1.35] font-bold">
                   {step.title.replace(/^\d+\.\s*/, '')}
                 </h3>
-                <p className="col-start-2 mt-1 text-[0.9375rem] leading-[1.6] text-on-night-muted sm:col-start-auto sm:mt-0">
+                <p className="col-start-2 mt-1 text-ui leading-[1.6] text-on-night-muted sm:col-start-auto sm:mt-0">
                   {step.description}
                 </p>
               </li>
@@ -213,10 +215,10 @@ function ProcessAndPricing() {
           className="mt-20 flex flex-col gap-8 rounded-[1.75rem] bg-citron p-8 text-on-citron sm:flex-row sm:items-center sm:justify-between sm:p-10"
         >
           <div>
-            <p className="text-[clamp(1.75rem,1.3rem+1.6vw,2.5rem)] leading-[1.1] font-extrabold tracking-[-0.03em]">
+            <p className="text-heading">
               Projects from {formatPrice(lowestProjectPrice)}
             </p>
-            <p className="mt-2 text-[1.0625rem] font-medium">
+            <p className="mt-2 text-body font-medium">
               Workshops from {formatPrice(workshop.price)}. Monthly advisory
               from {formatPrice(advisory.price)}. Hourly at{' '}
               {formatPrice(hourlyRate.price)}.

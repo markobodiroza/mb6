@@ -29,7 +29,7 @@ function CompanyMark({ role }) {
       ) : (
         <span
           aria-hidden="true"
-          className="text-[1.125rem] font-extrabold tracking-[-0.03em] text-citron"
+          className="text-prose font-extrabold tracking-[-0.03em] text-citron"
         >
           {role.monogram}
         </span>
@@ -54,9 +54,7 @@ function WorkHistory() {
           >
             <CompanyMark role={role} />
             <div>
-              <p className="text-[1.1875rem] leading-[1.3] font-bold">
-                {role.title}
-              </p>
+              <p className="text-card leading-[1.3] font-bold">{role.title}</p>
               <p className="text-graphite">{role.company}</p>
               <p className="numeral mt-1 text-muted">
                 <time dateTime={String(role.start.dateTime ?? role.start)}>
@@ -80,7 +78,7 @@ function WorkHistory() {
 
 function ToolChip({ children }) {
   return (
-    <li className="rounded-full border-2 border-rule px-3.5 py-1.5 text-[0.9375rem] font-semibold">
+    <li className="rounded-full bg-[color-mix(in_oklch,var(--link)_14%,var(--paper))] px-3.5 py-1.5 text-ui font-semibold text-link dark:bg-brand dark:text-on-brand">
       {children}
     </li>
   )
@@ -145,7 +143,7 @@ export default function About() {
         their teams actually use.
       </PageHeader>
       <Container className="mt-lead grid gap-12 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-20">
-        <div className="max-w-152 space-y-6 text-[1.125rem] leading-[1.7] text-graphite">
+        <div className="max-w-152 space-y-6 text-prose leading-[1.7] text-graphite">
           <p className="text-lead text-ink">
             I’m Marko Bodiroza, an AI strategist and system builder. I started
             as a web developer, spent more than 15 years across web, SEO and
@@ -167,6 +165,14 @@ export default function About() {
             of Novi Sad and am the author of several papers on engineering. I
             still do UI/UX design and code in Python.
           </p>
+          <a
+            href={siteMeta.author.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link marker-hover inline-block py-2.5 font-semibold"
+          >
+            Connect on LinkedIn
+          </a>
         </div>
         <aside className="lg:pt-2">
           <div className="relative w-full max-w-sm">
@@ -188,14 +194,6 @@ export default function About() {
               Send Inquiry
             </Button>
           </div>
-          <a
-            href={siteMeta.author.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link marker-hover mt-4 inline-block py-2.5 font-semibold"
-          >
-            Connect on LinkedIn
-          </a>
         </aside>
       </Container>
       <Container className="mt-section flex flex-col gap-section">

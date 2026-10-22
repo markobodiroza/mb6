@@ -20,12 +20,10 @@ export function Footer() {
       <Container className="flex flex-col gap-8 py-10 lg:flex-row lg:items-center lg:justify-between">
         <div>
           <p className="font-bold">Marko Bodiroza</p>
-          <p className="mt-1 text-[0.9375rem] text-on-night-muted">
-            {siteMeta.tagline}
-          </p>
+          <p className="mt-1 text-ui text-on-night-muted">{siteMeta.tagline}</p>
         </div>
         <nav aria-label="Footer">
-          <ul className="flex flex-wrap gap-x-7 gap-y-1 text-[0.9375rem] font-medium">
+          <ul className="flex flex-wrap gap-x-7 gap-y-1 text-ui font-medium">
             {navigation.map((item) => (
               <li key={item.href}>
                 <Link
@@ -39,7 +37,7 @@ export function Footer() {
           </ul>
         </nav>
       </Container>
-      <Container className="border-t border-[color-mix(in_oklch,var(--on-night)_18%,transparent)] py-6 text-[0.9375rem] text-on-night-muted">
+      <Container className="border-t border-[color-mix(in_oklch,var(--on-night)_18%,transparent)] py-6 text-ui text-on-night-muted">
         &copy; {new Date().getFullYear()} {siteMeta.copyright}. This website
         uses no cookies, no tracking and no analytics.
       </Container>
