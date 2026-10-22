@@ -103,7 +103,7 @@ export default function Insight({ insight, more }) {
           </section>
         </article>
         <aside className="lg:pt-2">
-          <div className="on-night rounded-[1.75rem] bg-night p-8 text-on-night lg:sticky lg:top-28 dark:ring-2 dark:ring-rule">
+          <div className="on-brand rounded-[1.75rem] bg-brand p-8 text-on-brand shadow-card lg:sticky lg:top-28 dark:bg-raised">
             <p className="label text-citron">Want This for Your Team?</p>
             <p className="mt-3 text-lead-size leading-[1.35] font-bold">
               I help marketing teams turn ideas like these into working AI
@@ -111,7 +111,7 @@ export default function Insight({ insight, more }) {
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-4">
               <BookCallButton variant="on-brand" />
-              <ArrowLink href="/insights" color="text-on-night" marker={false}>
+              <ArrowLink href="/insights" color="text-on-brand" marker={false}>
                 Read More Insights
               </ArrowLink>
             </div>
@@ -127,7 +127,7 @@ export default function Insight({ insight, more }) {
           <h2 id="more-heading" className="text-section">
             More Insights
           </h2>
-          <div className="mt-8 border-t-2 border-ink">
+          <div className="mt-8 border-t-2 border-ink dark:border-field">
             {more.map((item) => (
               <InsightRow key={item.slug} insight={item} />
             ))}

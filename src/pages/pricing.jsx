@@ -7,8 +7,14 @@ import { Faq } from '@/components/Faq'
 import { CheckIcon } from '@/components/Icons'
 import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
+import { ProcessSection } from '@/components/ProcessSection'
 import { NextSeo } from '@/components/Seo'
-import { hourlyRate, pricingFaqs, pricingPackages } from '@/data/content'
+import {
+  hourlyRate,
+  pricingFaqs,
+  pricingPackages,
+  processSteps,
+} from '@/data/content'
 import { contactHref } from '@/lib/contact'
 import { formatPrice } from '@/lib/formatPrice'
 import {
@@ -32,7 +38,7 @@ function Package({ pkg, index }) {
       className={clsx(
         'grid scroll-mt-28 gap-8 rounded-[1.75rem] p-6 sm:p-9 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] lg:gap-0 lg:p-10',
         featured
-          ? 'blueprint on-brand text-on-brand transition-[background-position] duration-700 ease-out-quart hover:[background-position:23px_23px]'
+          ? 'on-brand bg-brand text-on-brand'
           : 'border-2 border-rule bg-paper transition-colors duration-200 hover:border-ink dark:bg-sunken',
       )}
     >
@@ -56,7 +62,7 @@ function Package({ pkg, index }) {
           <span className="text-price leading-none font-extrabold tracking-[-0.045em]">
             {formatPrice(pkg.price)}
           </span>
-          <span className="text-ui font-semibold">{pkg.unit}</span>
+          <span className="text-ui font-semibold">USD {pkg.unit}</span>
         </p>
         {pkg.term && (
           <p
@@ -126,6 +132,21 @@ export default function Pricing() {
         data={breadcrumbSchema([['Pricing', '/pricing']])}
       />
       <JsonLd
+        id="process"
+        data={{
+          '@type': 'ItemList',
+          name: 'How Marko Bodiroza runs AI projects',
+          url: absoluteUrl('/pricing#process'),
+          itemListOrder: 'https://schema.org/ItemListOrderAscending',
+          itemListElement: processSteps.map((step, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            name: step.title.replace(/^\d+\.\s*/, ''),
+            description: step.detail,
+          })),
+        }}
+      />
+      <JsonLd
         id="pricing"
         data={{
           '@type': 'OfferCatalog',
@@ -169,7 +190,7 @@ export default function Pricing() {
         </div>
         <section
           aria-labelledby="hourly-heading"
-          className="mt-6 grid gap-6 rounded-[1.75rem] border-2 border-dashed border-ink p-7 sm:p-9 md:grid-cols-[1fr_auto_auto] md:items-center md:gap-10"
+          className="mt-6 grid gap-6 rounded-[1.75rem] border-2 border-dashed border-ink p-7 sm:p-9 md:grid-cols-[1fr_auto_auto] md:items-center md:gap-10 dark:border-field"
         >
           <div>
             <h2 id="hourly-heading" className="text-subhead">
@@ -183,12 +204,15 @@ export default function Pricing() {
             <span className="text-price leading-none font-extrabold tracking-[-0.045em]">
               {formatPrice(hourlyRate.price)}
             </span>
-            <span className="text-ui text-graphite">per hour</span>
+            <span className="text-ui text-graphite">USD per hour</span>
           </p>
           <Button variant="secondary" href={contactHref('Hourly Advisory')}>
             Send Inquiry
           </Button>
         </section>
+        <div className="mt-section">
+          <ProcessSection />
+        </div>
         <div className="mt-section">
           <Faq items={pricingFaqs} title="Questions About Pricing and Scope" />
         </div>

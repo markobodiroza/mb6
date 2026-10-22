@@ -12,7 +12,7 @@ import {
 } from '@/lib/contact'
 
 const inputStyles =
-  'block w-full rounded-xl border-2 border-field bg-paper px-4 py-3 text-body text-ink transition-colors duration-200 placeholder:text-muted hover:border-graphite focus:border-link focus:outline-hidden aria-invalid:border-danger-line'
+  'block w-full rounded-xl border-2 border-field bg-paper px-4 py-3 text-body text-ink transition-colors duration-200 placeholder:text-muted hover:border-graphite focus:border-link aria-invalid:border-danger-line'
 
 const errorText = 'text-ui font-semibold text-danger'
 
@@ -77,6 +77,11 @@ function Field({ label, hint, error, children, id }) {
 
 // Only name, email and the project details are required; the rest helps me
 // prepare but should never stop someone from getting in touch
+function normalizeWebsite(value) {
+  let site = value.trim()
+  return site && !/^https?:\/\//i.test(site) ? `https://${site}` : site
+}
+
 function validate(values) {
   let errors = {}
   if (!values.name.trim()) {
@@ -266,7 +271,7 @@ export function ContactForm() {
     )
     let inquiry = {
       ...values,
-      website: values.website.trim(),
+      website: normalizeWebsite(values.website),
       proficiency: level ? `${level.value} of 5: ${level.label}` : '',
     }
 
@@ -363,7 +368,7 @@ export function ContactForm() {
         <input
           id={fieldId('website')}
           name="website"
-          type="url"
+          type="text"
           inputMode="url"
           autoComplete="url"
           placeholder="yourcompany.com"
@@ -371,6 +376,23 @@ export function ContactForm() {
           onChange={update}
           className={inputStyles}
           {...errorProps('website')}
+        />
+      </Field>
+      <Field
+        label="About Your Project"
+        id={fieldId('message')}
+        error={errors.message}
+      >
+        <textarea
+          id={fieldId('message')}
+          name="message"
+          rows={6}
+          placeholder="Goals, team size and where AI could help"
+          required
+          value={values.message}
+          onChange={update}
+          className={clsx(inputStyles, 'resize-y leading-[1.6]')}
+          {...errorProps('message')}
         />
       </Field>
       <div className="grid gap-7 sm:grid-cols-2">
@@ -425,23 +447,6 @@ export function ContactForm() {
         onChange={update}
         error={errors.proficiency}
       />
-      <Field
-        label="About Your Project"
-        id={fieldId('message')}
-        error={errors.message}
-      >
-        <textarea
-          id={fieldId('message')}
-          name="message"
-          rows={6}
-          placeholder="Goals, team size and where AI could help"
-          required
-          value={values.message}
-          onChange={update}
-          className={clsx(inputStyles, 'resize-y leading-[1.6]')}
-          {...errorProps('message')}
-        />
-      </Field>
       <div aria-hidden="true" className="hidden">
         <label>
           Leave this empty

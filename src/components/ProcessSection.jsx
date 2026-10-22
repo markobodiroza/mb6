@@ -1,15 +1,8 @@
-import { Container } from '@/components/Container'
-import { CtaBand } from '@/components/CtaBand'
 import { ServiceIcon } from '@/components/Icons'
-import { JsonLd } from '@/components/JsonLd'
-import { PageHeader } from '@/components/PageHeader'
-import { NextSeo } from '@/components/Seo'
 import { processSteps } from '@/data/content'
-import { absoluteUrl, breadcrumbSchema, pageOpenGraph } from '@/lib/seo'
 
-const description =
-  'How I run AI projects: understand the work, plan the roadmap, pilot with real work, roll out and train, then review and refine.'
-
+// The five steps and the principles behind them. Lives on Pricing, under
+// the packages, so cost and way of working sit together.
 const principles = [
   {
     title: 'Small Before Big',
@@ -25,50 +18,22 @@ const principles = [
   },
 ]
 
-export default function Process() {
+export function ProcessSection() {
   return (
-    <>
-      <NextSeo
-        title="How I Work: Marko Bodiroza"
-        description={description}
-        canonical={absoluteUrl('/process')}
-        openGraph={pageOpenGraph({
-          path: '/process',
-          title: 'How I Work',
-          description,
-        })}
-      />
-      <JsonLd
-        id="process"
-        data={{
-          '@graph': [
-            {
-              '@type': 'WebPage',
-              url: absoluteUrl('/process'),
-              name: 'How I Work',
-              description,
-              mainEntity: {
-                '@type': 'ItemList',
-                name: 'How Marko Bodiroza runs AI projects',
-                itemListOrder: 'https://schema.org/ItemListOrderAscending',
-                itemListElement: processSteps.map((step, index) => ({
-                  '@type': 'ListItem',
-                  position: index + 1,
-                  name: step.title.replace(/^\d+\.\s*/, ''),
-                  description: step.detail,
-                })),
-              },
-            },
-            breadcrumbSchema([['Process', '/process']]),
-          ],
-        }}
-      />
-      <PageHeader title="How I Work">
+    <section
+      id="process"
+      aria-labelledby="process-heading"
+      className="scroll-mt-28"
+    >
+      <h2 id="process-heading" className="text-section">
+        How I Work
+      </h2>
+      <p className="text-lead mt-5 max-w-2xl text-graphite">
         I get one thing working before scaling it, and people stay in charge of
         the decisions that matter. Every project follows the same five steps,
         and the last one feeds back into the second.
-      </PageHeader>
-      <Container className="mt-lead">
+      </p>
+      <div className="mt-8">
         <div className="grid gap-16 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-20">
           <ol className="relative">
             {processSteps.map((step, index) => (
@@ -97,9 +62,9 @@ export default function Process() {
                   />
                 </span>
                 <div className="pt-2 sm:pt-4">
-                  <h2 className="text-subhead">
+                  <h3 className="text-subhead">
                     {step.title.replace(/^\d+\.\s*/, '')}
-                  </h2>
+                  </h3>
                   <p className="mt-2 text-ui text-muted italic">{step.note}</p>
                   <p className="mt-3 max-w-measure text-body leading-[1.65] text-graphite">
                     {step.detail}
@@ -157,23 +122,22 @@ export default function Process() {
             aria-labelledby="principles-heading"
             className="lg:pt-4"
           >
-            <div className="on-night rounded-[1.75rem] bg-night p-8 text-on-night lg:sticky lg:top-28 dark:ring-2 dark:ring-rule">
-              <h2 id="principles-heading" className="text-title">
+            <div className="on-brand rounded-[1.75rem] bg-brand p-8 text-on-brand shadow-card lg:sticky lg:top-28 dark:bg-raised">
+              <h3 id="principles-heading" className="text-title">
                 What Stays the Same
-              </h2>
+              </h3>
               <ul role="list" className="mt-4 space-y-6">
                 {principles.map((principle) => (
                   <li key={principle.title}>
-                    <h3 className="font-bold text-citron">{principle.title}</h3>
-                    <p className="mt-1 text-on-night-muted">{principle.text}</p>
+                    <p className="font-bold text-citron">{principle.title}</p>
+                    <p className="mt-1 text-on-brand-muted">{principle.text}</p>
                   </li>
                 ))}
               </ul>
             </div>
           </aside>
         </div>
-      </Container>
-      <CtaBand />
-    </>
+      </div>
+    </section>
   )
 }

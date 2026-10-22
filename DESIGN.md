@@ -28,6 +28,12 @@ typography:
     fontWeight: 800
     lineHeight: 1.08
     letterSpacing: "-0.035em"
+  page-header:
+    fontFamily: "Google Sans Flex Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(2.375rem, 1.75rem + 2.2vw, 3.2rem)"
+    fontWeight: 800
+    lineHeight: 1.1
+    letterSpacing: "-0.033em"
     fontVariation: "'ROND' 70"
   section:
     fontFamily: "Google Sans Flex Variable, ui-sans-serif, system-ui, sans-serif"
@@ -171,7 +177,7 @@ A full palette with four roles. Values are OKLCH custom properties in `src/style
 - **Lapel Citron** (oklch(0.91 0.19 117)): the highlighter. The hero highlight, Book a Call on blue fields, the Start Here badge, the photo offset block, the pricing teaser, highlighted diagram results and labels on blue.
 
 ### Tertiary
-- **Night Ink** (oklch(0.2 0.03 268)): the How I Work band, the footer, sidebar cards and all text on paper and citron.
+- **Night Ink** (oklch(0.2 0.03 268)): the Home How I Work band, the footer and all text on paper and citron.
 
 ### Neutral
 - **Cool Paper** (oklch(0.985 0.005 265)): the page, raised cards and package rows.
@@ -200,8 +206,9 @@ Dark mode is never black. Everything steps through one ultramarine family, darke
 
 ### Hierarchy
 A 1.25 ratio from a 17px body. Fixed steps for text and UI, fluid steps for headings.
-- **Page Title** (800, 42 to 64px fluid, 1.08): the hero headline, every page title and the closing band.
-- **Section** (780, 34 to 41px fluid, 1.12): section headings.
+- **Page Title** (800, 42 to 64px fluid, 1.08): the Home hero headline only.
+- **Page Header** (800, 38 to 51px fluid, 1.1): interior page titles, in a shorter blue header.
+- **Section** (780, 34 to 41px fluid, 1.12): section headings and the closing band.
 - **Heading** (780, 28 to 33px fluid, 1.16): service and work example titles, the pricing teaser and the Not Sure band.
 - **Subhead** (760, 26.5px, 1.2): package names, Process steps and article section headings.
 - **Title** (720, 21px, 1.25): small headings such as The Situation, What Happens Next and the Home service names; also FAQ questions and insight titles.
@@ -222,7 +229,7 @@ A 1.25 ratio from a 17px body. Fixed steps for text and UI, fluid steps for head
 
 ## 4. Elevation
 
-Mostly flat. Depth comes from tonal blocks: paper, sunken paper, ultramarine, night and citron. There is one exception, the **raised card**: diagram steps (including highlighted results), the Good Fit For box on Services and the Results card on Work. It is a soft, blue-tinted lift that marks something as an object to look at or follow.
+Mostly flat. Depth comes from tonal blocks: paper, sunken paper, ultramarine, night and citron. There is one exception, the **raised card**: diagram steps (including highlighted results), the Good Fit For box on Services, the Results card on Work, the principles card on Pricing and the article sidebar card. It is a soft, blue-tinted lift that marks something as an object to look at or follow.
 
 ### Shadow Vocabulary
 - **Card** (`0 1px 2px oklch(0.2 0.03 268 / 0.08), 0 12px 28px -14px oklch(0.37 0.19 268 / 0.4)`; dark: `0 1px 2px oklch(0.1 0.05 268 / 0.5), 0 14px 30px -14px oklch(0.08 0.05 268 / 0.85)`): raised diagram steps and the Services fit box. Exposed as the `shadow-card` utility.
@@ -247,7 +254,13 @@ Everything that is not one of the two calls to action is an arrow link: bold lin
 Small pills (15px, semibold): a 14% ultramarine tint with ultramarine text in light mode, Night Raised with white text in dark mode.
 
 ### Package Rows (Pricing)
-Full-width rows with 28px corners: name, Best for, price, duration and Send Inquiry on the left; a two-column Included list on the right, behind a 1px divider on wide screens. The Start Here package sits on a brand field with the drafting grid, and its grid drifts slightly on hover. The other packages are paper with a 2px Blue Rule border that firms to ink on hover. Included checks pop in one after another as a row scrolls into view.
+Full-width rows with 28px corners: name, Best for, price, duration and Send Inquiry on the left; a two-column Included list on the right, behind a 1px divider on wide screens. The Start Here package sits on a plain brand field with no grid. Prices read in USD. The other packages are paper with a 2px Blue Rule border that firms to ink on hover. Included checks pop in one after another as a row scrolls into view.
+
+### How I Work (on Pricing)
+The process lives below the packages on Pricing (/process redirects to /pricing#process): five steps with icons in citron discs on a rail, then a loop back to planning, beside a raised ultramarine card of principles.
+
+### About: Tools and Latest Insights
+Tool chips split into two near-equal rows per category on wide screens. The page ends with Latest Insights: three article rows, then a See More Insights expand for the rest.
 
 ### Services Rows
 Icon and title, the description and You Get on the left; on the right, a raised card (Pigment Ultramarine in light mode, Night Raised in dark) holding Good Fit For (roles, then the situation) and a citron Priced As link.
@@ -256,23 +269,24 @@ Icon and title, the description and You Get on the left; on the right, a raised 
 Flows drawn in HTML. Panels are Sunken Paper in light mode and Night Section in dark mode, with 28px corners and no grid. Steps are raised cards (Cool Paper in light, Night Raised in dark) that share one height within a lane; results are citron; optional steps are dashed Field Line outlines. Each example then tells its story in three parts: Start, What I Built and Results, with Results on a raised ultramarine card. Lanes run left to right on wide screens and stack top to bottom on phones, with centered text and down arrows. From 1280px the panel breaks out of the text column, up to 1440px wide, so no step ever squeezes; numbered steps keep their number and word together.
 
 ### Inputs / Fields
-- **Style:** 12px corners, 2px Field Line outline, paper fill; hover darkens the outline, focus turns it link-colored.
+- **Style:** 12px corners, 2px Field Line outline, paper fill; hover darkens the outline, focus turns it link-colored and adds the 2px focus ring.
+- **Order:** name, email, website (bare domains accepted, https added), project details, then topic, budget and AI level.
 - **Required:** only name, email and project details. Website, topic, budget and AI level are marked Optional.
 - **Errors:** a friendly sentence under the field, the field marked invalid and focus moved to the first problem.
 - **Success:** a citron panel with a drawn check mark.
 
 ### Navigation
-- **Header:** sticky, 80px tall, paper at the top of the page; once scrolled it switches to Sunken Paper with a Field Line edge so it never blends into paper sections. A 44px round portrait in a link-colored ring links home. Links are graphite, ink on hover with a sunken pill; the current page gets a 3px link-colored mark. The full menu shows from 1024px; below that a menu button opens a full-width panel.
+- **Header:** sticky, 80px tall, paper at the top of the page; once scrolled it switches to Sunken Paper with a Field Line edge so it never blends into paper sections. A 44px round portrait in a link-colored ring links home. Links (Services, Work, Pricing, Insights, About, Contact; Home is the portrait) are 44px tall, graphite, ink on hover with a sunken pill; the current page gets a 3px link-colored mark. The full menu shows from 1024px; below that a menu button opens a full-width panel.
 - **Footer:** night ink in light mode; in dark mode it drops to Night Page with a rule on top, so the page always ends on its darkest surface. Name, tagline and page links.
 
 ### Numbered Lists and Icons
 Numbers appear only where order matters: Home process steps (01 to 05) and the 1 to 4 review gates inside a diagram. Services and Process steps use custom line icons (24px grid, 1.75 stroke, round ends) in link color. Short lists use check marks.
 
 ### FAQ
-Native details rows under a 2px ink rule, closed by default, with a plus icon that turns into an x. Pricing covers cost, scope and timing; Services covers tools, data, agencies and remote work. Both are marked up as FAQPage data.
+Native details rows under a 2px ink rule (Field Line in dark mode, as for every decorative divider), closed by default, with a plus icon that turns into an x. Pricing covers cost, scope and timing; Services covers tools, data, agencies and remote work. Both are marked up as FAQPage data.
 
 ### Motion
-Quick and never blocking, with ease-out-expo (cubic-bezier(0.16, 1, 0.3, 1)). The hero rises in on load with a short stagger and the citron highlighter sweeps under "AI to Work"; blocks fade up as they scroll in. Feedback runs at 200ms. Everything is off under reduced motion, and content is never hidden without JavaScript.
+Quick and never blocking, with ease-out-expo (cubic-bezier(0.16, 1, 0.3, 1)). The hero rises in on load with a short stagger and a citron highlighter block sweeps in behind "AI to Work", turning its text to ink; blocks fade up just before they scroll into view. Feedback runs at 200ms. Everything is off under reduced motion, and content is never hidden without JavaScript.
 
 ## 6. Do's and Don'ts
 

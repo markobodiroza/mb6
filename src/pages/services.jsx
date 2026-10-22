@@ -30,7 +30,7 @@ function Service({ service, index }) {
   return (
     <article
       data-reveal
-      className="grid gap-x-16 gap-y-10 border-t-2 border-ink py-14 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]"
+      className="grid gap-x-16 gap-y-10 border-t-2 border-ink py-14 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] dark:border-field"
     >
       <div>
         <div className="flex items-start gap-4">

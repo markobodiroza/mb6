@@ -48,7 +48,7 @@ export default function Insights({ items }) {
         in marketing teams.
       </PageHeader>
       <Container>
-        <div className="mt-lead border-t-2 border-ink">
+        <div className="mt-lead border-t-2 border-ink dark:border-field">
           {items.map((insight) => (
             <InsightRow key={insight.slug} insight={insight} as="h2" />
           ))}

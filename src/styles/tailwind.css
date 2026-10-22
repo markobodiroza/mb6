@@ -256,6 +256,12 @@
     @apply leading-[1.08] font-[800] tracking-[-0.035em];
   }
 
+  /* Interior page titles: one step below the Home display size */
+  .text-page-header {
+    font-size: clamp(2.375rem, 1.75rem + 2.2vw, 3.2rem);
+    @apply leading-[1.1] font-[800] tracking-[-0.033em];
+  }
+
   /* Titles of services, work examples and feature blocks */
   .text-heading {
     font-size: clamp(1.75rem, 1.5rem + 0.9vw, 2.0625rem);
@@ -296,12 +302,15 @@
     @apply font-semibold text-link underline decoration-1 underline-offset-[0.2em];
   }
 
-  /* Highlighter: a marker stroke that sweeps in under text */
+  /* Highlighter: a citron block that sweeps in behind the words */
   .marker {
+    color: var(--on-citron);
+    padding-inline: 0.12em;
+    margin-inline: -0.04em;
     background-image: linear-gradient(var(--citron), var(--citron));
     background-repeat: no-repeat;
-    background-position: 0 92%;
-    background-size: 100% 0.11em;
+    background-position: 0 62%;
+    background-size: 100% 86%;
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
     animation: marker-sweep 900ms cubic-bezier(0.16, 1, 0.3, 1) 400ms both;
@@ -309,7 +318,8 @@
 
   @keyframes marker-sweep {
     from {
-      background-size: 0% 0.11em;
+      color: var(--citron);
+      background-size: 0% 86%;
     }
   }
 
