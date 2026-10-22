@@ -266,7 +266,7 @@ Hero, services, then Recent Work and How I Work side by side above the full-blee
 Running text uses text-wrap: pretty site-wide, so no single word sits alone on a last line; short table cells balance.
 
 ### Testimonials
-Home shows What Clients Say, as wide as the diagrams: three quotes, each on its own surface (ultramarine, sunken, citron) so the row reads as three voices, with the role underneath. Work carries one wide ultramarine quote after the agency story. No review schema, since self-written reviews are not eligible.
+Home shows What Clients Say: three quotes, each on its own surface (ultramarine, sunken, citron) so the row reads as three voices, with the role underneath. Work carries one wide ultramarine quote after the agency story. No review schema, since self-written reviews are not eligible.
 
 ### Closing Band
 Every page ends on the blue band with its own title and line (for example Want a System Like These? on Work); Home uses Put AI to Work in Your Team.
@@ -284,7 +284,7 @@ Credentials and Memberships follows Work History: eight small badge tiles in one
 Icon and title, the description and You Get on the left; on the right, a raised card (Pigment Ultramarine in light mode, Night Raised in dark) holding Good Fit For (roles, then the situation) and a citron Priced As link.
 
 ### Work Diagrams
-Flows drawn in HTML. Each diagram is a full-bleed band (edge to edge, 56 to 80px top and bottom, lanes held to 1440px), Sunken Paper in light mode and Night Section in dark mode, with no grid. Steps are raised cards (Cool Paper in light, Night Raised in dark) that share one height within a lane; results are citron; optional steps are dashed Field Line outlines. Each example then tells its story in three parts: Start, What I Built and Results, with Results on a raised ultramarine card. Lanes run left to right on wide screens and stack top to bottom on phones, with centered text and down arrows. Numbered steps keep their number and word together.
+Flows drawn in HTML. Each diagram is a full-bleed band (edge to edge, 56 to 80px top and bottom, lanes held to the 1440px container), Sunken Paper in light mode and Night Section in dark mode, with no grid. Steps are raised cards (Cool Paper in light, Night Raised in dark) that share one height within a lane; results are citron; optional steps are dashed Field Line outlines. Each example then tells its story in three parts: Start, What I Built and Results, with Results on a raised ultramarine card. Lanes run left to right on wide screens and stack top to bottom on phones, with centered text and down arrows. Numbered steps keep their number and word together.
 
 ### Inputs / Fields
 - **Style:** 12px corners, 2px Field Line outline, paper fill; hover darkens the outline, focus turns it link-colored and adds the 2px focus ring.
