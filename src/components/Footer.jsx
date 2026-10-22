@@ -8,7 +8,6 @@ const navigation = [
   { href: '/services', label: 'Services' },
   { href: '/work', label: 'Work' },
   { href: '/pricing', label: 'Pricing' },
-  { href: '/insights', label: 'Insights' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ]
