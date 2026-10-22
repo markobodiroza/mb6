@@ -133,6 +133,15 @@ export const workExamples = [
       'The follow-up goes out within 30 minutes of the call.',
       '95% of prospects book a second meeting.',
     ],
+    teaser:
+      'Prep and follow-up for a B2B sales team, so every call is ready before it starts.',
+    // Short outcome labels for the Home teaser
+    highlights: [
+      'Prepared for Every First Meeting',
+      'Follow-Up Within 30 Minutes',
+      '95% Book a Second Meeting',
+      'Runs in HubSpot and Slack',
+    ],
     tools: ['Email', 'Zapier', 'HubSpot', 'Google Drive', 'Slack'],
     diagram: [
       {

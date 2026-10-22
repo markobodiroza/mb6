@@ -1,11 +1,15 @@
+import { Fragment } from 'react'
+
 import { Container } from '@/components/Container'
 import { CtaBand } from '@/components/CtaBand'
 import { CheckIcon } from '@/components/Icons'
 import { JsonLd } from '@/components/JsonLd'
 import { JumpNav } from '@/components/JumpNav'
 import { PageHeader } from '@/components/PageHeader'
+import { Quote } from '@/components/Testimonials'
 import { NextSeo } from '@/components/Seo'
 import { WorkDiagram } from '@/components/WorkDiagram'
+import { testimonials } from '@/data/content'
 import { workExamples } from '@/data/work'
 import {
   absoluteUrl,
@@ -13,6 +17,8 @@ import {
   pageOpenGraph,
   personSchema,
 } from '@/lib/seo'
+
+const agencyQuote = testimonials.find((item) => item.author.includes('Agency'))
 
 const description =
   'AI systems Marko Bodiroza built for real teams: agency AI skills, content pipelines, sales follow-up, connected operations and custom MCP connectors.'
@@ -141,8 +147,12 @@ export default function Work() {
         />
       </Container>
       <Container className="mt-14 flex flex-col gap-section">
-        {workExamples.map((example) => (
-          <Story key={example.slug} example={example} />
+        {workExamples.map((example, index) => (
+          <Fragment key={example.slug}>
+            <Story example={example} />
+            {/* The agency owner's words follow the agency system */}
+            {index === 0 && <Quote item={agencyQuote} />}
+          </Fragment>
         ))}
       </Container>
       <CtaBand title="Want a System Like These?">

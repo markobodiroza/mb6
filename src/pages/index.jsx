@@ -3,12 +3,12 @@ import Image from 'next/image'
 import { ArrowLink, BookCallButton, Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { CtaBand } from '@/components/CtaBand'
-import { ServiceIcon } from '@/components/Icons'
+import { CheckIcon, ServiceIcon } from '@/components/Icons'
 import { JsonLd } from '@/components/JsonLd'
 import { NextSeo } from '@/components/Seo'
 import { Testimonials } from '@/components/Testimonials'
 import { WorkDiagram } from '@/components/WorkDiagram'
-import { services } from '@/data/content'
+import { processSteps, services } from '@/data/content'
 import siteMeta from '@/data/siteMeta'
 import { featuredWorkSlug, workExamples } from '@/data/work'
 import portraitImage from '@/images/marko-head.jpg'
@@ -117,30 +117,64 @@ function FeaturedWork({ example }) {
   return (
     <section aria-labelledby="work-heading" className="pt-section">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <div data-reveal className="flex flex-col items-start">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-0">
+          <div data-reveal className="flex flex-col items-start lg:pr-16">
             <h2 id="work-heading" className="text-section">
               Recent Work
             </h2>
-            <p className="text-lead mt-5 flex-1 text-graphite">
+            <p className="text-lead mt-5 text-graphite">
               <span className="font-bold text-ink">{example.title}.</span>{' '}
-              {example.summary}
+              {example.teaser}
             </p>
-            <ArrowLink href="/work" className="mt-6">
+            {/* The outcomes at a glance, mirroring the process steps */}
+            <ul role="list" className="mt-6 mb-auto flex flex-col items-start gap-2">
+              {example.highlights.map((item) => (
+                <li
+                  key={item}
+                  className="inline-flex items-center gap-2 rounded-full bg-sunken py-1.5 pr-3.5 pl-1.5 text-ui font-semibold dark:bg-raised dark:text-on-raised"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="flex h-6 w-6 items-center justify-center rounded-full bg-citron text-on-citron"
+                  >
+                    <CheckIcon className="h-3.5 w-3.5" />
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <ArrowLink href="/work" className="mt-8">
               See All Work
             </ArrowLink>
           </div>
           <div
             data-reveal
             style={{ '--i': 1 }}
-            className="flex flex-col items-start border-t-2 border-ink pt-10 lg:border-t-0 lg:border-l-2 lg:pt-0 lg:pl-16 dark:border-field"
+            className="flex flex-col items-start border-t border-rule pt-12 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-16"
           >
             <h2 className="text-section">How I Work</h2>
-            <p className="text-lead mt-5 flex-1 text-graphite">
+            <p className="text-lead mt-5 text-graphite">
               I get one thing working before scaling it, and your people stay in
               charge of the decisions that matter.
             </p>
-            <ArrowLink href="/pricing#process" className="mt-6">
+            {/* The five steps at a glance, in order */}
+            <ol className="mt-6 mb-auto flex flex-col items-start gap-2">
+              {processSteps.map((step, index) => (
+                <li
+                  key={step.title}
+                  className="inline-flex items-center gap-2 rounded-full bg-sunken py-1.5 pr-3.5 pl-1.5 text-ui font-semibold dark:bg-raised dark:text-on-raised"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="numeral flex h-6 w-6 items-center justify-center rounded-full bg-citron text-caption font-extrabold text-on-citron"
+                  >
+                    {index + 1}
+                  </span>
+                  {step.title.replace(/^\d+\.\s*/, '')}
+                </li>
+              ))}
+            </ol>
+            <ArrowLink href="/pricing#process" className="mt-8">
               See the Full Process
             </ArrowLink>
           </div>

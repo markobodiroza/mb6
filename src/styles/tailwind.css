@@ -461,21 +461,10 @@
     animation: enter-up 450ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .tile-pop {
-    animation: tile-pop 320ms cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  @keyframes tile-pop {
-    from {
-      transform: scale(0.92);
-    }
-  }
-
   @media (prefers-reduced-motion: reduce) {
     .enter,
     .enter-rise,
     .enter-settle,
-    .tile-pop,
     .marker,
     .check-draw,
     details[open] > :not(summary) {

@@ -260,13 +260,13 @@ Full-width rows with 28px corners: name, Best for, price, duration and Send Inqu
 Work and Services open with a Jump To row of 44px pill links (paper with a Blue Rule outline, Night Raised in dark) to each example or service.
 
 ### Home Layout
-Hero, services, then Recent Work and How I Work side by side above the full-bleed diagram, then testimonials and the closing band. No insights list on Home.
+Hero, services, then Recent Work and How I Work side by side above the full-bleed diagram (outcomes as check pills on the left, the five steps as numbered pills on the right, each in one column, split by a 1px rule), then testimonials and the closing band. No insights list on Home.
 
 ### Widows
 Running text uses text-wrap: pretty site-wide, so no single word sits alone on a last line; short table cells balance.
 
 ### Testimonials
-Home shows What Clients Say: three quotes, each on its own surface (ultramarine, sunken, citron) so the row reads as three voices, with the role underneath. No review schema, since self-written reviews are not eligible.
+Home shows What Clients Say, as wide as the diagrams: three quotes, each on its own surface (ultramarine, sunken, citron) so the row reads as three voices, with the role underneath. Work carries one wide ultramarine quote after the agency story. No review schema, since self-written reviews are not eligible.
 
 ### Closing Band
 Every page ends on the blue band with its own title and line (for example Want a System Like These? on Work); Home uses Put AI to Work in Your Team.
@@ -288,7 +288,7 @@ Flows drawn in HTML. Each diagram is a full-bleed band (edge to edge, 56 to 80px
 
 ### Inputs / Fields
 - **Style:** 12px corners, 2px Field Line outline, paper fill; hover darkens the outline, focus turns it link-colored and adds the 2px focus ring.
-- **Order:** name, email, website (bare domains accepted, https added), project details, then topic, budget and AI level.
+- **Order:** name, email, website (bare domains accepted, https added), project details, then topic, budget and the AI level dropdown (1 to 5, with the chosen level explained underneath).
 - **Required:** only name, email and project details. Website, topic, budget and AI level are marked Optional.
 - **Errors:** a friendly sentence under the field, the field marked invalid and focus moved to the first problem.
 - **Success:** a citron panel with a drawn check mark.
