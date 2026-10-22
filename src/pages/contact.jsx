@@ -61,7 +61,7 @@ export default function Contact() {
             <h2 id="next-heading" className="text-title">
               What Happens Next
             </h2>
-            <ul role="list" className="mt-5 space-y-4">
+            <ul role="list" className="mt-4 space-y-4">
               {nextSteps.map((step) => (
                 <li key={step} className="flex items-center gap-4">
                   <span

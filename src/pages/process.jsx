@@ -100,7 +100,7 @@ export default function Process() {
                   <h2 className="text-subhead">
                     {step.title.replace(/^\d+\.\s*/, '')}
                   </h2>
-                  <p className="mt-1 text-ui text-muted italic">{step.note}</p>
+                  <p className="mt-2 text-ui text-muted italic">{step.note}</p>
                   <p className="mt-3 max-w-measure text-body leading-[1.65] text-graphite">
                     {step.detail}
                   </p>
@@ -161,7 +161,7 @@ export default function Process() {
               <h2 id="principles-heading" className="text-title">
                 What Stays the Same
               </h2>
-              <ul role="list" className="mt-6 space-y-6">
+              <ul role="list" className="mt-4 space-y-6">
                 {principles.map((principle) => (
                   <li key={principle.title}>
                     <h3 className="font-bold text-citron">{principle.title}</h3>

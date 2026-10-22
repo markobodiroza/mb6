@@ -30,13 +30,13 @@ function Package({ pkg, index }) {
       data-reveal
       style={{ '--i': index }}
       className={clsx(
-        'grid scroll-mt-28 gap-8 rounded-[1.75rem] p-6 sm:p-9 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] lg:gap-14 lg:p-10',
+        'grid scroll-mt-28 gap-8 rounded-[1.75rem] p-6 sm:p-9 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] lg:gap-0 lg:p-10',
         featured
           ? 'blueprint on-brand text-on-brand transition-[background-position] duration-700 ease-out-quart hover:[background-position:23px_23px]'
           : 'border-2 border-rule bg-paper transition-colors duration-200 hover:border-ink dark:bg-sunken',
       )}
     >
-      <div className="flex flex-col items-start">
+      <div className="flex flex-col items-start lg:pr-14">
         {featured && (
           <span className="label mb-4 rounded-full bg-citron px-3 py-1 text-on-citron">
             Start Here
@@ -51,7 +51,7 @@ function Package({ pkg, index }) {
         >
           <span className="font-bold">Best for:</span> {pkg.bestFor}
         </p>
-        <p className="mt-6 flex flex-wrap items-baseline gap-x-2">
+        <p className="mt-5 flex flex-wrap items-baseline gap-x-2">
           <span className="text-ui font-semibold">From</span>
           <span className="text-price leading-none font-extrabold tracking-[-0.045em]">
             {formatPrice(pkg.price)}
@@ -61,7 +61,7 @@ function Package({ pkg, index }) {
         {pkg.term && (
           <p
             className={clsx(
-              'mt-2 text-ui',
+              'mt-1 text-ui',
               featured ? 'text-on-brand-muted' : 'text-muted',
             )}
           >
@@ -70,17 +70,24 @@ function Package({ pkg, index }) {
         )}
         <Button
           variant={featured ? 'on-brand' : 'secondary'}
-          className="mt-8 w-full sm:w-auto"
+          className="mt-7 w-full sm:w-auto"
           href={contactHref(pkg.name)}
         >
           Send Inquiry
         </Button>
       </div>
-      <div>
+      <div
+        className={clsx(
+          'lg:border-l lg:pl-14',
+          featured
+            ? 'border-[color-mix(in_oklch,var(--on-brand)_25%,transparent)]'
+            : 'border-rule',
+        )}
+      >
         <h3 className="label">Included</h3>
         <ul
           role="list"
-          className="mt-4 grid gap-x-8 gap-y-3 text-ui leading-normal sm:grid-cols-2"
+          className="mt-4 grid gap-x-8 gap-y-2.5 text-ui leading-snug sm:grid-cols-2"
         >
           {pkg.includes.map((item, index) => (
             <li key={item} className="flex gap-3">
@@ -88,7 +95,7 @@ function Package({ pkg, index }) {
               <CheckIcon
                 style={{ '--i': index }}
                 className={clsx(
-                  'step-pop mt-[0.2rem] h-5 w-5 flex-none',
+                  'step-pop mt-[0.15rem] h-4 w-4 flex-none',
                   featured ? 'text-citron' : 'text-link',
                 )}
               />

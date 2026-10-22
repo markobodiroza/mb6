@@ -214,13 +214,15 @@ A 1.25 ratio from a 17px body. Fixed steps for text and UI, fluid steps for head
 ### Named Rules
 **The 1.25 Rule.** Every step is at least 25% larger than the one below. Sizes between steps are forbidden; if something needs to stand out, change its weight, not its size.
 
+**The Spacing Rule.** Section headings sit 20px above an intro and 32px above content. Headings and subheads sit 12 to 16px above their text, 8px above a one-line note. Small titles sit 16px above a list and 8px above a one-line summary.
+
 **The Title Case Label Rule.** Labels are Title Case, bold and small. No uppercase, letter-spaced eyebrows above headings.
 
 **The ExtraBold Ceiling Rule.** Nothing heavier than 800.
 
 ## 4. Elevation
 
-Mostly flat. Depth comes from tonal blocks: paper, sunken paper, ultramarine, night and citron. There is one exception, the **raised card**: diagram steps (including highlighted results) and the Good Fit For box on Services. It is a soft, blue-tinted lift that marks something as an object to look at or follow.
+Mostly flat. Depth comes from tonal blocks: paper, sunken paper, ultramarine, night and citron. There is one exception, the **raised card**: diagram steps (including highlighted results), the Good Fit For box on Services and the Results card on Work. It is a soft, blue-tinted lift that marks something as an object to look at or follow.
 
 ### Shadow Vocabulary
 - **Card** (`0 1px 2px oklch(0.2 0.03 268 / 0.08), 0 12px 28px -14px oklch(0.37 0.19 268 / 0.4)`; dark: `0 1px 2px oklch(0.1 0.05 268 / 0.5), 0 14px 30px -14px oklch(0.08 0.05 268 / 0.85)`): raised diagram steps and the Services fit box. Exposed as the `shadow-card` utility.
@@ -245,13 +247,13 @@ Everything that is not one of the two calls to action is an arrow link: bold lin
 Small pills (15px, semibold): a 14% ultramarine tint with ultramarine text in light mode, Night Raised with white text in dark mode.
 
 ### Package Rows (Pricing)
-Full-width rows with 28px corners: name, Best for, price, duration and Send Inquiry on the left; a two-column Included list on the right. The Start Here package sits on a brand field with the drafting grid, and its grid drifts slightly on hover. The other packages are paper with a 2px Blue Rule border that firms to ink on hover. Included checks pop in one after another as a row scrolls into view.
+Full-width rows with 28px corners: name, Best for, price, duration and Send Inquiry on the left; a two-column Included list on the right, behind a 1px divider on wide screens. The Start Here package sits on a brand field with the drafting grid, and its grid drifts slightly on hover. The other packages are paper with a 2px Blue Rule border that firms to ink on hover. Included checks pop in one after another as a row scrolls into view.
 
 ### Services Rows
 Icon and title, the description and You Get on the left; on the right, a raised card (Pigment Ultramarine in light mode, Night Raised in dark) holding Good Fit For (roles, then the situation) and a citron Priced As link.
 
 ### Work Diagrams
-Flows drawn in HTML. Panels are Sunken Paper in light mode and Night Section in dark mode, with 28px corners and no grid. Steps are raised cards (Cool Paper in light, Night Raised in dark); results are citron; optional steps are dashed Field Line outlines. Lanes run left to right on wide screens and stack top to bottom on phones, with centered text and down arrows. From 1280px the panel breaks out of the text column, up to 1440px wide, so no step ever squeezes; numbered steps keep their number and word together.
+Flows drawn in HTML. Panels are Sunken Paper in light mode and Night Section in dark mode, with 28px corners and no grid. Steps are raised cards (Cool Paper in light, Night Raised in dark) that share one height within a lane; results are citron; optional steps are dashed Field Line outlines. Each example then tells its story in three parts: Start, What I Built and Results, with Results on a raised ultramarine card. Lanes run left to right on wide screens and stack top to bottom on phones, with centered text and down arrows. From 1280px the panel breaks out of the text column, up to 1440px wide, so no step ever squeezes; numbered steps keep their number and word together.
 
 ### Inputs / Fields
 - **Style:** 12px corners, 2px Field Line outline, paper fill; hover darkens the outline, focus turns it link-colored.

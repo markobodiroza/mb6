@@ -52,30 +52,29 @@ function Story({ example }) {
         label={`Diagram: ${example.title}`}
         className="mt-8"
       />
-      <div className="mt-10 grid gap-10 lg:grid-cols-3 lg:gap-12">
+      <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)_minmax(0,1fr)] lg:gap-10">
         <section>
-          <h3 className="text-title">The Situation</h3>
-          <p className="mt-3 leading-[1.65] text-graphite">
-            {example.situation}
-          </p>
+          <h3 className="text-title">Start</h3>
+          <p className="mt-3 text-graphite">{example.situation}</p>
         </section>
         <section>
           <h3 className="text-title">What I Built</h3>
           <ul
             role="list"
-            className="mt-3 list-disc space-y-2 pl-5 text-graphite marker:text-link"
+            className="mt-4 list-disc space-y-2 pl-5 text-graphite marker:text-link"
           >
             {example.built.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
         </section>
-        <section>
-          <h3 className="text-title">What Changed</h3>
-          <ul role="list" className="mt-3 space-y-2">
+        {/* Results carry the story, so they get the raised card */}
+        <section className="on-brand self-start rounded-[1.25rem] bg-brand p-6 text-on-brand shadow-card dark:bg-raised">
+          <h3 className="text-title">Results</h3>
+          <ul role="list" className="mt-4 space-y-3">
             {example.changed.map((item) => (
               <li key={item} className="flex gap-3">
-                <CheckIcon className="mt-[0.2rem] h-5 w-5 flex-none text-link" />
+                <CheckIcon className="mt-[0.2rem] h-5 w-5 flex-none text-citron" />
                 <span className="font-semibold">{item}</span>
               </li>
             ))}
