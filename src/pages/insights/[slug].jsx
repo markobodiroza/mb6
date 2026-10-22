@@ -103,7 +103,7 @@ export default function Insight({ insight, more }) {
           </section>
         </article>
         <aside className="lg:pt-2">
-          <div className="on-brand rounded-[1.75rem] bg-brand p-8 text-on-brand shadow-card lg:sticky lg:top-28 dark:bg-raised">
+          <div className="on-brand rounded-[1.75rem] bg-brand p-8 text-on-brand shadow-card lg:sticky lg:top-28">
             <p className="label text-citron">Want This for Your Team?</p>
             <p className="mt-3 text-lead-size leading-[1.35] font-bold">
               I help marketing teams turn ideas like these into working AI

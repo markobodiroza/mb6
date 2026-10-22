@@ -53,7 +53,7 @@ function Service({ service, index }) {
           ))}
         </ul>
       </div>
-      <div className="on-brand rounded-[1.25rem] bg-brand p-6 text-on-brand shadow-card sm:p-7 lg:sticky lg:top-28 lg:self-start dark:bg-raised">
+      <div className="on-brand rounded-[1.25rem] bg-brand p-6 text-on-brand shadow-card sm:p-7 lg:sticky lg:top-28 lg:self-start">
         <p>
           <span className="label block text-on-brand-muted">Good Fit For</span>
           <span className="mt-1 block font-bold">

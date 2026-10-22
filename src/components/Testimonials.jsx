@@ -2,7 +2,7 @@ import clsx from 'clsx'
 
 const tones = {
   brand: {
-    card: 'on-brand bg-brand text-on-brand shadow-card dark:bg-raised',
+    card: 'on-brand bg-brand text-on-brand shadow-card',
     mark: 'text-citron',
   },
   citron: { card: 'bg-citron text-on-citron', mark: 'text-on-citron' },
@@ -45,7 +45,7 @@ export function Quote({ item, className }) {
     <figure
       data-reveal
       className={clsx(
-        'on-brand grid gap-6 rounded-[1.75rem] bg-brand p-8 text-on-brand shadow-card sm:p-12 lg:grid-cols-[auto_1fr] lg:gap-10 dark:bg-raised',
+        'on-brand grid gap-6 rounded-[1.75rem] bg-brand p-8 text-on-brand shadow-card sm:p-12 lg:grid-cols-[auto_1fr] lg:gap-10',
         className,
       )}
     >

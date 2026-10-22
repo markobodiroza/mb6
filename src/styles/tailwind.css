@@ -150,31 +150,32 @@
   }
 
   /*
-   * Blue night: the page itself turns deep ultramarine instead of black.
-   * Blue fields get brighter so they still lift off the page, night ink
-   * sections sink deeper and citron takes over as the action color.
+   * Ink night: the page is a deep, blue-tinted ink, not black and not blue.
+   * Neutrals stay low in chroma so ultramarine only shows where it means
+   * something: the hero, the closing band and the few cards that carry the
+   * story. Citron takes over as the action color.
    */
   .dark {
     color-scheme: dark;
 
-    --paper: oklch(0.23 0.09 268);
-    --sunken: oklch(0.27 0.105 268);
-    --rule: oklch(0.38 0.11 268);
-    --ink: oklch(0.97 0.008 265);
-    --graphite: oklch(0.89 0.03 262);
-    --muted: oklch(0.8 0.045 262);
+    --paper: oklch(0.19 0.025 266);
+    --sunken: oklch(0.225 0.03 266);
+    --rule: oklch(0.33 0.03 266);
+    --ink: oklch(0.97 0.006 265);
+    --graphite: oklch(0.87 0.015 262);
+    --muted: oklch(0.77 0.02 262);
 
-    --brand: oklch(0.28 0.14 268);
-    --brand-line: oklch(0.33 0.14 268);
+    --brand: oklch(0.34 0.16 268);
+    --brand-line: oklch(0.39 0.15 268);
     --on-brand: oklch(0.98 0.006 265);
-    --on-brand-muted: oklch(0.92 0.04 262);
+    --on-brand-muted: oklch(0.9 0.035 262);
 
     --citron: oklch(0.91 0.19 117);
     --on-citron: oklch(0.2 0.03 268);
 
-    --night: oklch(0.34 0.13 268);
-    --on-night: oklch(0.97 0.008 265);
-    --on-night-muted: oklch(0.84 0.03 262);
+    --night: oklch(0.25 0.035 266);
+    --on-night: oklch(0.97 0.006 265);
+    --on-night-muted: oklch(0.82 0.02 262);
 
     --action: oklch(0.91 0.19 117);
     --action-hover: oklch(0.96 0.13 117);
@@ -183,17 +184,18 @@
     --focus: oklch(0.91 0.19 117);
     --marker: oklch(0.43 0.2 268);
 
-    --field: oklch(0.58 0.08 262);
+    --field: oklch(0.55 0.04 262);
     --danger: oklch(0.82 0.12 25);
     --danger-line: oklch(0.72 0.17 25);
 
-    --raised: oklch(0.42 0.17 268);
-    --on-raised: oklch(0.98 0.006 265);
-    --on-raised-muted: oklch(0.92 0.04 262);
+    /* Neutral lift for steps, tags and pills; blue is kept for brand cards */
+    --raised: oklch(0.29 0.035 266);
+    --on-raised: oklch(0.97 0.006 265);
+    --on-raised-muted: oklch(0.85 0.02 262);
 
     --card-shadow:
-      0 1px 2px oklch(0.1 0.05 268 / 0.5),
-      0 14px 30px -14px oklch(0.08 0.05 268 / 0.85);
+      0 1px 2px oklch(0.1 0.02 266 / 0.5),
+      0 14px 30px -14px oklch(0.06 0.02 266 / 0.8);
   }
 
   html {
