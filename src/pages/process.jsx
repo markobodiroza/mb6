@@ -1,5 +1,6 @@
 import { Container } from '@/components/Container'
 import { CtaBand } from '@/components/CtaBand'
+import { ServiceIcon } from '@/components/Icons'
 import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
 import { NextSeo } from '@/components/Seo'
@@ -62,7 +63,7 @@ export default function Process() {
           ],
         }}
       />
-      <PageHeader eyebrow="Process" title="How I Work">
+      <PageHeader title="How I Work">
         I get one thing working before scaling it, and people stay in charge of
         the decisions that matter. Every project follows the same five steps,
         and the last one feeds back into the second.
@@ -88,9 +89,12 @@ export default function Process() {
                 />
                 <span
                   aria-hidden="true"
-                  className="flex h-14 w-14 items-center justify-center rounded-full bg-citron text-[1.375rem] font-[850] text-on-citron sm:h-18 sm:w-18 sm:text-[1.625rem]"
+                  className="flex h-14 w-14 items-center justify-center rounded-full bg-citron text-on-citron sm:h-18 sm:w-18"
                 >
-                  {index + 1}
+                  <ServiceIcon
+                    name={step.icon}
+                    className="h-7 w-7 sm:h-8 sm:w-8"
+                  />
                 </span>
                 <div className="pt-2 sm:pt-4">
                   <h2 className="text-[1.625rem] leading-[1.15] font-[780] tracking-tight">
@@ -103,7 +107,7 @@ export default function Process() {
                     {step.detail}
                   </p>
                   <p className="mt-5 inline-flex flex-wrap items-baseline gap-x-2 rounded-full bg-sunken px-4 py-2">
-                    <span className="eyebrow text-link">You Get</span>
+                    <span className="label text-link">You Get</span>
                     <span className="font-semibold">{step.outcome}</span>
                   </p>
                 </div>
@@ -141,7 +145,7 @@ export default function Process() {
               </span>
               <div>
                 <p className="text-[1.375rem] leading-[1.3] font-bold">
-                  Then Back to Step 2
+                  Then Back to Planning
                 </p>
                 <p className="mt-1 text-graphite">
                   The next item on the roadmap starts the loop again, so the

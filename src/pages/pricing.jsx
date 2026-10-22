@@ -113,7 +113,7 @@ function Package({ pkg, index }) {
           {pkg.name}
         </h2>
         {featured && (
-          <span className="eyebrow shrink-0 rounded-full bg-citron px-3 py-1 text-[0.8125rem] text-on-citron">
+          <span className="label shrink-0 rounded-full bg-citron px-3 py-1 text-on-citron">
             Start Here
           </span>
         )}
@@ -133,9 +133,7 @@ function Package({ pkg, index }) {
           {pkg.term}
         </p>
       )}
-      <h3 className={clsx('eyebrow mt-8 border-t pt-6', theme.rule)}>
-        Included
-      </h3>
+      <h3 className={clsx('label mt-8 border-t pt-6', theme.rule)}>Included</h3>
       <ul
         role="list"
         className="mt-4 space-y-2 text-[0.9375rem] leading-normal"
@@ -218,7 +216,7 @@ export default function Pricing() {
           ],
         }}
       />
-      <PageHeader eyebrow="Packages and Rates" title="Pricing">
+      <PageHeader title="Pricing">
         Most work is priced as a fixed-scope package, so you know the cost
         before we start. Final prices depend on your team size and scope.
       </PageHeader>

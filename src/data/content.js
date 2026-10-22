@@ -54,6 +54,7 @@ export const resume = [
 export const services = [
   {
     title: 'AI Strategy and Roadmap',
+    icon: 'route',
     summary:
       'Where AI fits in your business, what to do first and how it pays off.',
     description:
@@ -64,10 +65,12 @@ export const services = [
       'Owners, tools and success measures for each step',
     ],
     goodFit: 'You know AI matters but have no plan for it yet.',
+    roles: ['CEO or Agency Owner', 'Mid-Size Business Owner'],
     package: 'audit',
   },
   {
     title: 'Process Analysis and Redesign',
+    icon: 'flow',
     summary:
       'A clear map of how work really runs, redesigned with AI in the right places.',
     description:
@@ -78,10 +81,12 @@ export const services = [
       'A redesigned process with AI built into the right steps',
     ],
     goodFit: 'Your team is busy, but it is not clear where the time goes.',
+    roles: ['Chief Operating Officer (COO)'],
     package: 'audit',
   },
   {
     title: 'AI Systems and Automation',
+    icon: 'gear',
     summary:
       'Working AI systems for your recurring work, built in the tools you already use.',
     description:
@@ -92,10 +97,12 @@ export const services = [
       'Documentation and a handover session',
     ],
     goodFit: 'One recurring process eats hours of your team’s week.',
+    roles: ['Chief Operating Officer (COO)', 'Marketing Director or CMO'],
     package: 'process-build',
   },
   {
     title: 'Team Enablement and Training',
+    icon: 'team',
     summary:
       'Hands-on training and shared setups that turn AI tools into team habits.',
     description:
@@ -106,10 +113,12 @@ export const services = [
       'Recordings and reference guides your team keeps',
     ],
     goodFit: 'Your team has the tools but not the habits.',
+    roles: ['Marketing Director or CMO'],
     package: 'workshop',
   },
   {
     title: 'AI Search Visibility and AEO',
+    icon: 'search',
     summary:
       'Answer engine optimization (AEO): get your brand cited in ChatGPT, Google AI Overviews and other AI answers.',
     description:
@@ -121,10 +130,12 @@ export const services = [
     ],
     goodFit:
       'Buyers ask ChatGPT about your category and you are not in the answer.',
+    roles: ['Marketing Director or CMO'],
     package: 'advisory',
   },
   {
     title: 'Fractional AI Leadership',
+    icon: 'compass',
     summary:
       'Ongoing strategic guidance while your team adopts AI, without a full-time hire.',
     description:
@@ -135,6 +146,7 @@ export const services = [
       'A roadmap that stays current',
     ],
     goodFit: 'You are rolling out AI and want senior guidance on call.',
+    roles: ['CEO or Agency Owner', 'Mid-Size Business Owner'],
     package: 'advisory',
   },
 ]
@@ -142,6 +154,7 @@ export const services = [
 export const processSteps = [
   {
     title: '1. Understand the Work',
+    icon: 'look',
     note: 'where the time goes',
     description:
       'I start with your team’s recurring work, tools and data, and with the decisions that need a person.',
@@ -151,6 +164,7 @@ export const processSteps = [
   },
   {
     title: '2. Plan the Roadmap',
+    icon: 'map',
     note: 'scored and ordered',
     description:
       'We pick the highest-value opportunities and turn them into a roadmap with clear steps and owners.',
@@ -160,6 +174,7 @@ export const processSteps = [
   },
   {
     title: '3. Pilot With Real Work',
+    icon: 'flask',
     note: 'one real workflow first',
     description:
       'We start with one workflow, test it on real tasks and fix what does not work before scaling.',
@@ -169,6 +184,7 @@ export const processSteps = [
   },
   {
     title: '4. Roll Out and Train',
+    icon: 'board',
     note: 'the whole team, with guides',
     description:
       'Your team gets hands-on training, simple guides and clear rules for using AI.',
@@ -178,6 +194,7 @@ export const processSteps = [
   },
   {
     title: '5. Review and Refine',
+    icon: 'checklist',
     note: 'keep, cut, repeat',
     description:
       'We look at what changed, improve what works and drop what nobody uses.',

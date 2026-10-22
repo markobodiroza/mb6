@@ -1,5 +1,6 @@
-// Summaries of articles Marko wrote, hosted here. Each links to the full
-// original. Statistics appear only where the original names a source.
+// Summaries of articles Marko wrote. sourceUrl records where each original
+// lives, for checking facts; it is not shown on the site. Statistics appear
+// only where the original names a source.
 export const insights = [
   {
     slug: 'b2b-marketing-trends-2027',
@@ -218,3 +219,8 @@ export const insights = [
     sourceUrl: 'https://www.npws.net/blog/ai-search-for-manufacturers',
   },
 ]
+
+// The fields lists and links need, so pages do not ship full articles
+export function insightSummary({ slug, title, date, description }) {
+  return { slug, title, date, description }
+}

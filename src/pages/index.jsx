@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { BookCallButton, Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { CtaBand } from '@/components/CtaBand'
-import { ArrowRightIcon } from '@/components/Icons'
+import { ArrowRightIcon, ServiceIcon } from '@/components/Icons'
 import { InsightRow } from '@/components/InsightRow'
 import { JsonLd } from '@/components/JsonLd'
 import { NextSeo } from '@/components/Seo'
@@ -14,7 +14,7 @@ import {
   processSteps,
   services,
 } from '@/data/content'
-import { insights } from '@/data/insights'
+import { insightSummary, insights } from '@/data/insights'
 import siteMeta from '@/data/siteMeta'
 import portraitImage from '@/images/marko-head.jpg'
 import { contactHref } from '@/lib/contact'
@@ -38,7 +38,7 @@ function Hero() {
     <section className="blueprint on-brand overflow-hidden text-on-brand">
       <Container className="grid items-center gap-12 py-16 sm:py-24 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-14 lg:py-28">
         <div>
-          <p className="enter eyebrow text-citron">
+          <p className="enter label text-citron">
             {siteMeta.author.name}, AI Strategist and System Builder
           </p>
           <h1 className="text-display enter-rise mt-6">
@@ -99,8 +99,7 @@ function ServicesOverview() {
           className="flex flex-wrap items-end justify-between gap-6"
         >
           <div className="max-w-2xl">
-            <p className="eyebrow text-link">What I Do</p>
-            <h2 id="services-heading" className="text-section mt-4">
+            <h2 id="services-heading" className="text-section">
               Services
             </h2>
             <p className="text-lead mt-5 text-graphite">
@@ -118,11 +117,9 @@ function ServicesOverview() {
               key={service.title}
               data-reveal
               style={{ '--i': index % 2 }}
-              className="grid grid-cols-[4.5rem_1fr] gap-x-4 border-t-2 border-ink py-8"
+              className="grid grid-cols-[3rem_1fr] gap-x-4 border-t-2 border-ink py-8"
             >
-              <span className="big-numeral text-link" aria-hidden="true">
-                {String(index + 1).padStart(2, '0')}
-              </span>
+              <ServiceIcon name={service.icon} className="h-9 w-9 text-link" />
               <div className="pt-1">
                 <h3 className="text-title">{service.title}</h3>
                 <p className="mt-2 text-graphite">{service.summary}</p>
@@ -144,8 +141,7 @@ function ProcessAndPricing() {
       <Container>
         <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] lg:gap-20">
           <div data-reveal>
-            <p className="eyebrow text-citron">Process</p>
-            <h2 id="process-heading" className="text-section mt-4">
+            <h2 id="process-heading" className="text-section">
               How I Work
             </h2>
             <p className="text-lead mt-5 max-w-md text-on-night-muted">
@@ -189,8 +185,7 @@ function ProcessAndPricing() {
           className="mt-20 flex flex-col gap-8 rounded-[1.75rem] bg-citron p-8 text-on-citron sm:flex-row sm:items-center sm:justify-between sm:p-10"
         >
           <div>
-            <p className="eyebrow">Pricing</p>
-            <p className="mt-3 text-[clamp(1.75rem,1.3rem+1.6vw,2.5rem)] leading-[1.1] font-extrabold tracking-[-0.03em]">
+            <p className="text-[clamp(1.75rem,1.3rem+1.6vw,2.5rem)] leading-[1.1] font-extrabold tracking-[-0.03em]">
               Projects from {formatPrice(lowestProjectPrice)}
             </p>
             <p className="mt-2 text-[1.0625rem] font-medium">
@@ -209,7 +204,7 @@ function ProcessAndPricing() {
   )
 }
 
-function LatestInsights() {
+function LatestInsights({ latest }) {
   return (
     <section aria-labelledby="insights-heading" className="pt-section">
       <Container>
@@ -218,9 +213,8 @@ function LatestInsights() {
           className="flex flex-wrap items-end justify-between gap-6"
         >
           <div className="max-w-2xl">
-            <p className="eyebrow text-link">Insights</p>
-            <h2 id="insights-heading" className="text-section mt-4">
-              Latest Thinking
+            <h2 id="insights-heading" className="text-section">
+              Latest Insights
             </h2>
             <p className="text-lead mt-5 text-graphite">
               Short, practical notes on AI search and putting AI to work.
@@ -232,7 +226,7 @@ function LatestInsights() {
           </Button>
         </div>
         <div className="mt-12 border-t-2 border-ink">
-          {insights.slice(0, 3).map((insight) => (
+          {latest.map((insight) => (
             <InsightRow key={insight.slug} insight={insight} />
           ))}
         </div>
@@ -241,7 +235,7 @@ function LatestInsights() {
   )
 }
 
-export default function Home() {
+export default function Home({ latest }) {
   return (
     <>
       <NextSeo
@@ -273,8 +267,13 @@ export default function Home() {
       <Hero />
       <ServicesOverview />
       <ProcessAndPricing />
-      <LatestInsights />
+      <LatestInsights latest={latest} />
       <CtaBand />
     </>
   )
+}
+
+// Read at build time, so full articles stay out of the page's JavaScript
+export function getStaticProps() {
+  return { props: { latest: insights.slice(0, 3).map(insightSummary) } }
 }

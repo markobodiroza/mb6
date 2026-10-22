@@ -254,7 +254,7 @@ function MobileNavigation() {
         )}
       >
         <div className="flex items-center justify-between">
-          <p className="eyebrow text-muted">Menu</p>
+          <p className="label text-muted">Menu</p>
           <button
             ref={closeRef}
             type="button"

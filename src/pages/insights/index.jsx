@@ -4,14 +4,14 @@ import { InsightRow } from '@/components/InsightRow'
 import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
 import { NextSeo } from '@/components/Seo'
-import { insights } from '@/data/insights'
+import { insightSummary, insights } from '@/data/insights'
 import { absoluteUrl, breadcrumbSchema, pageOpenGraph } from '@/lib/seo'
 
 const title = 'AI Insights'
 const description =
   'Notes by Marko Bodiroza on AI search, AI adoption and how teams can put AI to work.'
 
-export default function Insights() {
+export default function Insights({ items }) {
   return (
     <>
       <NextSeo
@@ -31,7 +31,7 @@ export default function Insights() {
               description,
               mainEntity: {
                 '@type': 'ItemList',
-                itemListElement: insights.map((insight, index) => ({
+                itemListElement: items.map((insight, index) => ({
                   '@type': 'ListItem',
                   position: index + 1,
                   url: absoluteUrl(`/insights/${insight.slug}`),
@@ -43,13 +43,13 @@ export default function Insights() {
           ],
         }}
       />
-      <PageHeader eyebrow="Insights" title={title}>
+      <PageHeader title={title}>
         Short, practical notes on AI search, AI adoption and putting AI to work
         in marketing teams.
       </PageHeader>
       <Container>
         <div className="mt-lead border-t-2 border-ink">
-          {insights.map((insight) => (
+          {items.map((insight) => (
             <InsightRow key={insight.slug} insight={insight} as="h2" />
           ))}
         </div>
@@ -57,4 +57,9 @@ export default function Insights() {
       <CtaBand />
     </>
   )
+}
+
+// Read at build time, so full articles stay out of the page's JavaScript
+export function getStaticProps() {
+  return { props: { items: insights.map(insightSummary) } }
 }

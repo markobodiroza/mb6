@@ -16,7 +16,7 @@ export default function NotFound() {
             404
           </p>
           <div>
-            <p className="eyebrow text-citron">Page Not Found</p>
+            <p className="label text-citron">Page Not Found</p>
             <h1 className="text-page-title mt-4">
               This Page Isn’t on the Roadmap
             </h1>

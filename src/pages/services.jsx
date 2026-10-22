@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { CtaBand } from '@/components/CtaBand'
-import { ArrowRightIcon, CheckIcon } from '@/components/Icons'
+import { ArrowRightIcon, CheckIcon, ServiceIcon } from '@/components/Icons'
 import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
 import { NextSeo } from '@/components/Seo'
@@ -32,16 +32,19 @@ function Service({ service, index }) {
       className="grid gap-x-16 gap-y-8 border-t-2 border-ink py-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)]"
     >
       <div className="lg:sticky lg:top-28 lg:self-start">
-        <span className="big-numeral block text-link" aria-hidden="true">
-          {String(index + 1).padStart(2, '0')}
-        </span>
-        <h2 className="mt-4 text-[clamp(1.75rem,1.4rem+1.2vw,2.25rem)] leading-[1.1] font-[780] tracking-[-0.03em]">
-          {service.title}
-        </h2>
+        <div className="flex items-start gap-4">
+          <ServiceIcon
+            name={service.icon}
+            className="mt-1 h-9 w-9 flex-none text-link"
+          />
+          <h2 className="text-[clamp(1.75rem,1.4rem+1.2vw,2.25rem)] leading-[1.1] font-[780] tracking-[-0.03em]">
+            {service.title}
+          </h2>
+        </div>
       </div>
       <div>
         <p className="text-lead text-graphite">{service.description}</p>
-        <h3 className="eyebrow mt-9 text-link">You Get</h3>
+        <h3 className="label mt-9 text-link">You Get</h3>
         <ul role="list" className="mt-4 space-y-3">
           {service.deliverables.map((item) => (
             <li key={item} className="flex gap-3">
@@ -52,12 +55,15 @@ function Service({ service, index }) {
         </ul>
         <div className="mt-9 flex flex-col gap-5 rounded-[1.25rem] bg-sunken p-6 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            <span className="eyebrow block text-muted">Good Fit If</span>
-            <span className="mt-1 block font-semibold">{service.goodFit}</span>
+            <span className="label block text-muted">Good Fit For</span>
+            <span className="mt-1 block font-bold">
+              {service.roles.join(', ')}
+            </span>
+            <span className="mt-1 block text-graphite">{service.goodFit}</span>
           </p>
           {pkg && (
             <p className="flex-none">
-              <span className="eyebrow block text-muted">Priced As</span>
+              <span className="label block text-muted">Priced As</span>
               <Link
                 href={`/pricing#${pkg.slug}`}
                 className="group mt-1 inline-flex items-center gap-2 font-bold text-link"
@@ -130,7 +136,7 @@ export default function Services() {
           })),
         }}
       />
-      <PageHeader eyebrow="Services" title="AI Strategy and Systems">
+      <PageHeader title="AI Strategy and Systems">
         I help marketing teams, agencies and B2B companies set an AI strategy,
         redesign how work gets done and build the systems that run it, in the
         tools you already use.
