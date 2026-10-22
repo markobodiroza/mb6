@@ -2,7 +2,9 @@
 
 ## Register
 
-product
+brand
+
+A marketing and portfolio site: the design is part of what it sells. (Earlier drafts said product; that register suits app UIs, not this site.)
 
 ## Users
 
@@ -17,9 +19,11 @@ They arrive from LinkedIn, referrals, search or AI answers. They are busy, skept
 
 ## Product Purpose
 
-markobodiroza.com is the personal site of Marko Bodiroza, an AI strategist and system builder with 15+ years in digital marketing. It sells strategy-led AI work: AI strategy and roadmaps, process analysis and redesign, AI systems and automation, team enablement and training, AI search visibility (AEO) and fractional AI leadership. Tool selection is part of the bigger picture, never the headline.
+markobodiroza.com (version 7, October 2026) is the personal site of Marko Bodiroza, an AI strategist and system builder with 15+ years in digital marketing. It sells strategy-led AI work: AI strategy and roadmaps, process analysis and redesign, AI systems and automation, team enablement and training, AI search visibility (AEO) and fractional AI leadership. Tool selection is part of the bigger picture, never the headline.
 
-Success is a qualified inquiry. A visitor should be able to take the next step in whichever way suits them: fill out a contact form, book a call or send an email. (A project inquiry form on /contact sends through Formspree; a booking link is planned. The email address is never shown on the site.)
+Success is a qualified inquiry. A visitor should be able to take the next step in whichever way suits them: book a call or send a project inquiry. (Book a Call opens a Cal.com booking page; the project inquiry form on /contact sends through Formspree. LinkedIn is the fallback contact. The email address is never shown on the site.)
+
+The site practices the AI search visibility it sells: every public page is in the sitemap and carries structured data and a share image, so search engines and AI assistants can describe Marko and his services accurately.
 
 The site is tool-agnostic. It must never read as tied to one AI vendor. It is also personal, not an employer site: his current employer appears only as a work history entry.
 
@@ -49,7 +53,7 @@ References: **Stripe** for confident, clear explanation with rich but discipline
 1. **Practice what you preach.** The site itself should show clear thinking and careful craft, the same qualities he brings to AI projects.
 2. **Clarity before cleverness.** What he does, for whom and what it costs should be obvious within seconds. Personality comes through precision, not decoration.
 3. **Human over hype.** Show a real person and real ways of working. No AI clichés, no inflated claims.
-4. **Every page leads to a conversation.** Each page ends with an easy next step: form, call or email.
+4. **Every page leads to a conversation.** Each page ends with an easy next step: book a call or send an inquiry.
 5. **Tool-agnostic and honest.** Present AI tools as options, label what is real and promise only what is in the brief.
 
 ## Accessibility & Inclusion
