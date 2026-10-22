@@ -254,7 +254,7 @@ Everything that is not one of the two calls to action is an arrow link: bold lin
 Small pills (15px, semibold): a 14% ultramarine tint with ultramarine text in light mode, Night Raised with white text in dark mode.
 
 ### Package Rows (Pricing)
-Full-width rows with 28px corners: name, Best for, price, duration and Send Inquiry on the left; a two-column Included list on the right, behind a 1px divider on wide screens. The Start Here package sits on a plain brand field with no grid. Prices read in USD. The other packages are paper with a 2px Blue Rule border that firms to ink on hover. Included checks pop in one after another as a row scrolls into view.
+Full-width rows with 28px corners: name, price and Send Inquiry on the left (Best For and timing live in the table above); a two-column Included list on the right, behind a 1px divider on wide screens. The Start Here package sits on a plain brand field with no grid. Prices read in USD. The other packages are paper with a 2px Blue Rule border that firms to ink on hover. Included checks pop in one after another as a row scrolls into view.
 
 ### Jump Menus
 Work and Services open with a Jump To row of 44px pill links (paper with a Blue Rule outline, Night Raised in dark) to each example or service.

@@ -49,31 +49,13 @@ function Package({ pkg, index }) {
           </span>
         )}
         <h2 className="text-subhead">{pkg.name}</h2>
-        <p
-          className={clsx(
-            'mt-2 text-body leading-normal',
-            featured ? 'text-on-brand-muted' : 'text-graphite',
-          )}
-        >
-          <span className="font-bold">Best for:</span> {pkg.bestFor}
-        </p>
-        <p className="mt-5 flex flex-wrap items-baseline gap-x-2">
+        <p className="mt-4 flex flex-wrap items-baseline gap-x-2">
           <span className="text-ui font-semibold">From</span>
           <span className="text-price leading-none font-extrabold tracking-[-0.045em]">
             {formatPrice(pkg.price)}
           </span>
           <span className="text-ui font-semibold">USD {pkg.unit}</span>
         </p>
-        {pkg.term && (
-          <p
-            className={clsx(
-              'mt-1 text-ui',
-              featured ? 'text-on-brand-muted' : 'text-muted',
-            )}
-          >
-            {pkg.term}
-          </p>
-        )}
         <Button
           variant={featured ? 'on-brand' : 'secondary'}
           className="mt-7 w-full sm:w-auto"
