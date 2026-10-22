@@ -164,10 +164,7 @@ export default function About() {
           mainEntity: personSchema,
         }}
       />
-      <PageHeader
-        eyebrow="About"
-        title="From Web Developer to AI System Builder"
-      >
+      <PageHeader title="From Web Developer to AI System Builder">
         I help marketing leaders, agencies and B2B founders turn AI into systems
         their teams actually use.
       </PageHeader>

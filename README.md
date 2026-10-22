@@ -42,7 +42,7 @@ Most text lives in data files, not in the pages:
 | ---------------------- | ------------------------------------------------------------------------------- |
 | `src/data/siteMeta.js` | Name, tagline, descriptions, profile links, booking and form URLs               |
 | `src/data/content.js`  | Work history, services, process steps, tools, pricing and FAQ                   |
-| `src/data/insights.js` | Insight summaries; each links to the full article on npws.net                   |
+| `src/data/insights.js` | Insight summaries of Marko's articles                                           |
 | `src/lib/seo.js`       | The Person schema used across the site, plus share image and breadcrumb helpers |
 
 Adding an insight to `insights.js` creates its page, adds it to the sitemap and gives it a share image. Nothing else needs to change.

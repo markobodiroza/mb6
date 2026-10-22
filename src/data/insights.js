@@ -1,5 +1,6 @@
-// Summaries of articles Marko wrote, hosted here. Each links to the full
-// original. Statistics appear only where the original names a source.
+// Summaries of articles Marko wrote. sourceUrl records where each original
+// lives, for checking facts; it is not shown on the site. Statistics appear
+// only where the original names a source.
 export const insights = [
   {
     slug: 'b2b-marketing-trends-2027',
@@ -33,6 +34,10 @@ export const insights = [
       {
         heading: 'Test New Channels With a Holdout',
         body: 'ChatGPT ads are live but hard to target for B2B. Keep search and LinkedIn as the core, and run any test narrow, time-boxed and measured against pipeline.',
+      },
+      {
+        heading: 'Match the Message to Cost and Claims Rules',
+        body: 'Buyers under cost pressure want total cost, supply risk and payback, backed by numbers. Lead clean energy with economics, not subsidies. Check every environmental claim against its evidence: EU rules on generic green claims apply since September 2026, so get legal review for EU markets.',
       },
     ],
     nextSteps: [
@@ -214,3 +219,8 @@ export const insights = [
     sourceUrl: 'https://www.npws.net/blog/ai-search-for-manufacturers',
   },
 ]
+
+// The fields lists and links need, so pages do not ship full articles
+export function insightSummary({ slug, title, date, description }) {
+  return { slug, title, date, description }
+}

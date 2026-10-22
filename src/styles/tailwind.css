@@ -240,19 +240,14 @@
     @apply text-[1.1875rem] leading-[1.55] sm:text-[1.3125rem];
   }
 
-  .eyebrow {
-    @apply text-[0.8125rem] font-bold tracking-[0.1em] uppercase;
+  /* Small Title Case label for in-card headings and dates */
+  .label {
+    @apply text-[0.9375rem] leading-snug font-bold;
   }
 
   .numeral {
     font-variant-numeric: tabular-nums;
     @apply text-[0.9375rem] font-bold tracking-[0.02em];
-  }
-
-  .big-numeral {
-    font-variant-numeric: tabular-nums;
-    font-variation-settings: 'ROND' 100;
-    @apply text-[3.25rem] leading-none font-[850] tracking-[-0.05em];
   }
 
   .link {

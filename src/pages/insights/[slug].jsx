@@ -3,12 +3,12 @@ import Link from 'next/link'
 import { BookCallButton } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { CtaBand } from '@/components/CtaBand'
-import { ArrowRightIcon, ArrowUpRightIcon } from '@/components/Icons'
+import { ArrowRightIcon, CheckIcon } from '@/components/Icons'
 import { InsightRow } from '@/components/InsightRow'
 import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
 import { NextSeo } from '@/components/Seo'
-import { insights } from '@/data/insights'
+import { insightSummary, insights } from '@/data/insights'
 import { formatDate } from '@/lib/formatDate'
 import {
   absoluteUrl,
@@ -56,7 +56,6 @@ export default function Insight({ insight, more }) {
                 title: insight.title,
                 description: insight.description,
               }).url,
-              isBasedOn: insight.sourceUrl,
               author: personSchema,
               publisher: { '@id': personSchema['@id'] },
             },
@@ -68,9 +67,7 @@ export default function Insight({ insight, more }) {
         }}
       />
       <PageHeader
-        eyebrow={
-          <time dateTime={insight.date}>{formatDate(insight.date)}</time>
-        }
+        label={<time dateTime={insight.date}>{formatDate(insight.date)}</time>}
         title={insight.title}
       >
         {insight.description}
@@ -93,39 +90,25 @@ export default function Insight({ insight, more }) {
             className="mt-14 rounded-[1.25rem] bg-sunken p-7 sm:p-8"
           >
             <h2 className="text-title">Where to Start</h2>
-            <ol className="mt-5 space-y-3">
+            <ul role="list" className="mt-5 space-y-3">
               {insight.nextSteps.map((step, index) => (
                 <li key={step} className="flex gap-4">
                   <span
                     aria-hidden="true"
                     style={{ '--i': index }}
-                    className="step-pop flex h-8 w-8 flex-none items-center justify-center rounded-full bg-citron text-[0.9375rem] font-[850] text-on-citron"
+                    className="step-pop flex h-8 w-8 flex-none items-center justify-center rounded-full bg-citron text-on-citron"
                   >
-                    {index + 1}
+                    <CheckIcon className="h-[1.125rem] w-[1.125rem]" />
                   </span>
                   <span className="pt-1">{step}</span>
                 </li>
               ))}
-            </ol>
+            </ul>
           </section>
-          <p className="mt-10 text-graphite">
-            This is a summary. The full article, with sources and examples, was
-            first published on{' '}
-            <a
-              href={insight.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link marker-hover inline-flex items-center gap-1"
-            >
-              npws.net
-              <ArrowUpRightIcon className="h-4 w-4" />
-            </a>
-            .
-          </p>
         </article>
         <aside className="lg:pt-2">
           <div className="on-night rounded-[1.75rem] bg-night p-8 text-on-night lg:sticky lg:top-28 dark:ring-2 dark:ring-rule">
-            <p className="eyebrow text-citron">Want This for Your Team?</p>
+            <p className="label text-citron">Want This for Your Team?</p>
             <p className="mt-3 text-[1.375rem] leading-[1.35] font-bold">
               I help marketing teams turn ideas like these into working AI
               systems.
@@ -171,6 +154,12 @@ export function getStaticPaths() {
 
 export function getStaticProps({ params }) {
   let index = insights.findIndex((insight) => insight.slug === params.slug)
-  let more = insights.filter((_, i) => i !== index).slice(0, 3)
-  return { props: { insight: insights[index], more } }
+  // sourceUrl is for fact checking only, so it stays out of the page data
+  let insight = { ...insights[index] }
+  delete insight.sourceUrl
+  let more = insights
+    .filter((_, i) => i !== index)
+    .slice(0, 3)
+    .map(insightSummary)
+  return { props: { insight, more } }
 }

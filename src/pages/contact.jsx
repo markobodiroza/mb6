@@ -1,6 +1,7 @@
 import { BookCallButton } from '@/components/Button'
 import { ContactForm } from '@/components/ContactForm'
 import { Container } from '@/components/Container'
+import { CheckIcon } from '@/components/Icons'
 import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
 import { NextSeo } from '@/components/Seo'
@@ -49,7 +50,7 @@ export default function Contact() {
           ],
         }}
       />
-      <PageHeader eyebrow="Project Inquiry" title="Tell Me About Your Project">
+      <PageHeader title="Tell Me About Your Project">
         Share where your team is today and what you want AI to take on. A few
         details up front make our first conversation far more useful.
       </PageHeader>
@@ -60,19 +61,19 @@ export default function Contact() {
             <h2 id="next-heading" className="text-title">
               What Happens Next
             </h2>
-            <ol className="mt-5 space-y-4">
-              {nextSteps.map((step, index) => (
+            <ul role="list" className="mt-5 space-y-4">
+              {nextSteps.map((step) => (
                 <li key={step} className="flex items-center gap-4">
                   <span
                     aria-hidden="true"
-                    className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-citron font-[850] text-on-citron"
+                    className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-citron text-on-citron"
                   >
-                    {index + 1}
+                    <CheckIcon className="h-5 w-5" />
                   </span>
                   <span className="font-semibold">{step}</span>
                 </li>
               ))}
-            </ol>
+            </ul>
           </section>
           {/* Book a Call falls back to this page until a booking URL is set */}
           {siteMeta.bookingUrl && (
