@@ -245,7 +245,7 @@ function MobileNavigation() {
         role="dialog"
         aria-modal="true"
         aria-label="Menu"
-        inert={open ? undefined : ''}
+        inert={!open}
         className={clsx(
           'fixed inset-x-3 top-3 z-50 origin-top rounded-[1.25rem] border-2 border-rule bg-paper p-6 transition duration-200 ease-out-quart',
           open
@@ -304,7 +304,7 @@ export function Header() {
             alt=""
             sizes="2.75rem"
             className="h-11 w-11 rounded-full bg-sunken object-cover ring-[3px] ring-link ring-offset-2 ring-offset-paper transition-transform duration-300 ease-out-quart group-hover:-rotate-6 group-hover:scale-105"
-            priority
+            preload
           />
         </Link>
         <DesktopNavigation />

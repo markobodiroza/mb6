@@ -200,7 +200,7 @@ export default function About() {
               alt="Portrait of Marko Bodiroza"
               sizes="(min-width: 1024px) 22rem, 100vw"
               className="relative aspect-[4/5] w-full rounded-[1.75rem] object-cover object-[50%_30%]"
-              priority
+              preload
             />
           </div>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">

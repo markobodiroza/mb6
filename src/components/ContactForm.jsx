@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState } from 'react'
+import { useId, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import clsx from 'clsx'
 
@@ -228,14 +228,17 @@ export function ContactForm() {
   let [values, setValues] = useState(emptyValues)
   let [errors, setErrors] = useState({})
   let [status, setStatus] = useState('idle')
+  let [queryTopic, setQueryTopic] = useState()
 
-  // Preselect the topic from links like /contact?topic=Team%20Workshop
-  useEffect(() => {
-    let topic = router.query.topic
+  // Preselect the topic from links like /contact?topic=Team%20Workshop. The
+  // query arrives after hydration, so state is adjusted while rendering.
+  let topic = router.query.topic
+  if (topic !== queryTopic) {
+    setQueryTopic(topic)
     if (typeof topic === 'string' && contactTopics.includes(topic)) {
       setValues((current) => ({ ...current, topic }))
     }
-  }, [router.query.topic])
+  }
 
   function update(event) {
     let { name, value } = event.target
