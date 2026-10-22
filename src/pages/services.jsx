@@ -4,11 +4,12 @@ import Link from 'next/link'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { CtaBand } from '@/components/CtaBand'
+import { Faq } from '@/components/Faq'
 import { ArrowRightIcon, CheckIcon, ServiceIcon } from '@/components/Icons'
 import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
 import { NextSeo } from '@/components/Seo'
-import { pricingPackages, services } from '@/data/content'
+import { pricingPackages, serviceFaqs, services } from '@/data/content'
 import {
   absoluteUrl,
   breadcrumbSchema,
@@ -148,6 +149,9 @@ export default function Services() {
             <Service service={service} index={index} />
           </Fragment>
         ))}
+        <div className="mt-section">
+          <Faq items={serviceFaqs} title="Questions About Working Together" />
+        </div>
       </Container>
       <CtaBand />
     </>

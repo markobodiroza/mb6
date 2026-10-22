@@ -8,7 +8,7 @@ import { ArrowRightIcon, CheckIcon } from '@/components/Icons'
 import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
 import { NextSeo } from '@/components/Seo'
-import { faqs, hourlyRate, pricingPackages } from '@/data/content'
+import { hourlyRate, pricingFaqs, pricingPackages } from '@/data/content'
 import { contactHref } from '@/lib/contact'
 import { formatPrice } from '@/lib/formatPrice'
 import {
@@ -253,7 +253,7 @@ export default function Pricing() {
           </Button>
         </section>
         <div className="mt-section">
-          <Faq items={faqs} />
+          <Faq items={pricingFaqs} title="Questions About Pricing and Scope" />
         </div>
       </Container>
       <CtaBand />

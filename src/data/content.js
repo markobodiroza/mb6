@@ -377,7 +377,8 @@ export const pricingPackages = [
   },
 ]
 
-export const faqs = [
+// Pricing page: cost, scope and timing
+export const pricingFaqs = [
   {
     question: 'How long does a project take?',
     answer:
@@ -404,12 +405,36 @@ export const faqs = [
       'Most teams start with the AI Audit and Roadmap. It shows where AI will make the biggest difference, and the roadmap tells you which package, if any, to do next. Nothing locks you into a second project.',
   },
   {
+    question: 'How do payments work?',
+    answer:
+      'Workshops are paid in full to book the date. Projects are billed 50% to start and 50% on delivery. Monthly Advisory is billed monthly in advance.',
+  },
+  {
+    question: 'What currency are prices in?',
+    answer: 'All prices are in US dollars.',
+  },
+]
+
+// Services page: how the work runs day to day
+export const serviceFaqs = [
+  {
     question: 'Which AI tools do you work with?',
     answer:
       'Whatever fits your team and your work: ChatGPT, Claude, Gemini, Perplexity and the automation tools you already use. I am not tied to one vendor.',
   },
   {
-    question: 'What currency are prices in?',
-    answer: 'All prices are in US dollars.',
+    question: 'How do you handle our data?',
+    answer:
+      'I am happy to sign your NDA before seeing anything internal. I only use AI tools whose settings keep your data out of model training.',
+  },
+  {
+    question: 'Do you work with agencies on client work?',
+    answer:
+      'Yes, in two ways. I can improve your agency’s own processes and train your team, or support client work under your brand. We agree which in the proposal.',
+  },
+  {
+    question: 'Do you work remotely or on-site?',
+    answer:
+      'I work remotely with teams in the US and Europe. Workshops can also run on-site anywhere in Europe, with flights and accommodation covered by the client.',
   },
 ]
