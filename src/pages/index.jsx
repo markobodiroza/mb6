@@ -127,7 +127,10 @@ function FeaturedWork({ example }) {
               {example.teaser}
             </p>
             {/* The outcomes at a glance, mirroring the process steps */}
-            <ul role="list" className="mt-6 mb-auto flex flex-col items-start gap-2">
+            <ul
+              role="list"
+              className="mt-6 mb-auto flex flex-col items-start gap-2"
+            >
               {example.highlights.map((item) => (
                 <li
                   key={item}
