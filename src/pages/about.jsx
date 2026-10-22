@@ -10,7 +10,12 @@ import { coreTools, resume, tools } from '@/data/content'
 import siteMeta from '@/data/siteMeta'
 import portraitImage from '@/images/marko-head.jpg'
 import { contactHref } from '@/lib/contact'
-import { absoluteUrl, pageOpenGraph, personSchema } from '@/lib/seo'
+import {
+  absoluteUrl,
+  breadcrumbSchema,
+  pageOpenGraph,
+  personSchema,
+} from '@/lib/seo'
 
 const description =
   'Marko Bodiroza is an AI strategist and system builder. He designs and builds the AI systems marketing teams run on every day.'
@@ -150,6 +155,7 @@ export default function About() {
           profile: { firstName: 'Marko', lastName: 'Bodiroza' },
         }}
       />
+      <JsonLd id="breadcrumbs" data={breadcrumbSchema([['About', '/about']])} />
       <JsonLd
         id="profile"
         data={{

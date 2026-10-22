@@ -1,10 +1,11 @@
 import { Container } from '@/components/Container'
 import { CtaBand } from '@/components/CtaBand'
 import { InsightRow } from '@/components/InsightRow'
+import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
 import { NextSeo } from '@/components/Seo'
 import { insights } from '@/data/insights'
-import { absoluteUrl, pageOpenGraph } from '@/lib/seo'
+import { absoluteUrl, breadcrumbSchema, pageOpenGraph } from '@/lib/seo'
 
 const title = 'AI Insights'
 const description =
@@ -18,6 +19,29 @@ export default function Insights() {
         description={description}
         canonical={absoluteUrl('/insights')}
         openGraph={pageOpenGraph({ path: '/insights', title, description })}
+      />
+      <JsonLd
+        id="insights"
+        data={{
+          '@graph': [
+            {
+              '@type': 'CollectionPage',
+              url: absoluteUrl('/insights'),
+              name: title,
+              description,
+              mainEntity: {
+                '@type': 'ItemList',
+                itemListElement: insights.map((insight, index) => ({
+                  '@type': 'ListItem',
+                  position: index + 1,
+                  url: absoluteUrl(`/insights/${insight.slug}`),
+                  name: insight.title,
+                })),
+              },
+            },
+            breadcrumbSchema([['Insights', '/insights']]),
+          ],
+        }}
       />
       <PageHeader eyebrow="Insights" title={title}>
         Short, practical notes on AI search, AI adoption and putting AI to work

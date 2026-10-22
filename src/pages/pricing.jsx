@@ -11,7 +11,12 @@ import { NextSeo } from '@/components/Seo'
 import { faqs, hourlyRate, pricingPackages } from '@/data/content'
 import { contactHref } from '@/lib/contact'
 import { formatPrice } from '@/lib/formatPrice'
-import { absoluteUrl, pageOpenGraph, personSchema } from '@/lib/seo'
+import {
+  absoluteUrl,
+  breadcrumbSchema,
+  pageOpenGraph,
+  personSchema,
+} from '@/lib/seo'
 
 const description =
   'AI strategy and system packages with rates: AI audit and roadmap, team workshops, AI process builds, monthly advisory and hourly advisory.'
@@ -176,6 +181,10 @@ export default function Pricing() {
           title: 'Pricing',
           description,
         })}
+      />
+      <JsonLd
+        id="breadcrumbs"
+        data={breadcrumbSchema([['Pricing', '/pricing']])}
       />
       <JsonLd
         id="pricing"

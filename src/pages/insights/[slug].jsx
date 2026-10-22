@@ -10,7 +10,13 @@ import { PageHeader } from '@/components/PageHeader'
 import { NextSeo } from '@/components/Seo'
 import { insights } from '@/data/insights'
 import { formatDate } from '@/lib/formatDate'
-import { absoluteUrl, ogImage, pageOpenGraph, personSchema } from '@/lib/seo'
+import {
+  absoluteUrl,
+  breadcrumbSchema,
+  ogImage,
+  pageOpenGraph,
+  personSchema,
+} from '@/lib/seo'
 
 export default function Insight({ insight, more }) {
   let path = `/insights/${insight.slug}`
@@ -54,19 +60,10 @@ export default function Insight({ insight, more }) {
               author: personSchema,
               publisher: { '@id': personSchema['@id'] },
             },
-            {
-              '@type': 'BreadcrumbList',
-              itemListElement: [
-                ['Home', '/'],
-                ['Insights', '/insights'],
-                [insight.title, path],
-              ].map(([name, href], index) => ({
-                '@type': 'ListItem',
-                position: index + 1,
-                name,
-                item: absoluteUrl(href),
-              })),
-            },
+            breadcrumbSchema([
+              ['Insights', '/insights'],
+              [insight.title, path],
+            ]),
           ],
         }}
       />

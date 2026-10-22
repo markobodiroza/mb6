@@ -51,3 +51,16 @@ export const personSchema = {
   ],
   sameAs: [siteMeta.author.linkedin, siteMeta.author.twitter],
 }
+
+// Breadcrumb trail from [name, path] pairs, starting at Home
+export function breadcrumbSchema(trail) {
+  return {
+    '@type': 'BreadcrumbList',
+    itemListElement: [['Home', '/'], ...trail].map(([name, path], index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name,
+      item: absoluteUrl(path),
+    })),
+  }
+}
