@@ -14,10 +14,20 @@ const nextConfig = {
   async redirects() {
     return [
       { source: '/process', destination: '/pricing#process', permanent: true },
-      { source: '/thoughts', destination: '/insights', permanent: true },
-      { source: '/blog', destination: '/insights', permanent: true },
-      { source: '/blog/:slug*', destination: '/insights', permanent: true },
-      { source: '/rss/:path*', destination: '/insights', permanent: true },
+      // The articles list now lives at the end of About
+      { source: '/insights', destination: '/about#insights', permanent: true },
+      { source: '/thoughts', destination: '/about#insights', permanent: true },
+      { source: '/blog', destination: '/about#insights', permanent: true },
+      {
+        source: '/blog/:slug*',
+        destination: '/about#insights',
+        permanent: true,
+      },
+      {
+        source: '/rss/:path*',
+        destination: '/about#insights',
+        permanent: true,
+      },
     ]
   },
 }

@@ -58,7 +58,7 @@ export default function Insight({ insight, more }) {
               publisher: { '@id': personSchema['@id'] },
             },
             breadcrumbSchema([
-              ['Insights', '/insights'],
+              ['About', '/about'],
               [insight.title, path],
             ]),
           ],
@@ -111,7 +111,11 @@ export default function Insight({ insight, more }) {
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-4">
               <BookCallButton variant="on-brand" />
-              <ArrowLink href="/insights" color="text-on-brand" marker={false}>
+              <ArrowLink
+                href="/about#insights"
+                color="text-on-brand"
+                marker={false}
+              >
                 Read More Insights
               </ArrowLink>
             </div>
