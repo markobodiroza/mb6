@@ -256,11 +256,14 @@ Small pills (15px, semibold): a 14% ultramarine tint with ultramarine text in li
 ### Package Rows (Pricing)
 Full-width rows with 28px corners: name, Best for, price, duration and Send Inquiry on the left; a two-column Included list on the right, behind a 1px divider on wide screens. The Start Here package sits on a plain brand field with no grid. Prices read in USD. The other packages are paper with a 2px Blue Rule border that firms to ink on hover. Included checks pop in one after another as a row scrolls into view.
 
+### Pricing at a Glance
+A plain table above the packages: package (linking to its row), Best For, price in USD and timing, including Hourly Advisory. Under 768px each row stacks.
+
 ### How I Work (on Pricing)
 The process lives below the packages on Pricing (/process redirects to /pricing#process): five steps with icons in citron discs on a rail, then a loop back to planning, beside a raised ultramarine card of principles.
 
-### About: Tools and Latest Insights
-Tool chips split into two near-equal rows per category on wide screens. The page ends with Latest Insights: three article rows, then a See More Insights expand for the rest.
+### About: Credentials, Tools and Latest Insights
+Credentials and Memberships follows Work History: a row of seven badge tiles (Sunken Paper in light mode, Night Raised in dark with each badge on a light disc so its own colors hold), then issuer rows of chips (Google, HubSpot, LinkedIn) and the Serbian AI Society membership. Tool chips split into two near-equal rows per category on wide screens. The page ends with Latest Insights: three article rows, then a See More Insights expand for the rest.
 
 ### Services Rows
 Icon and title, the description and You Get on the left; on the right, a raised card (Pigment Ultramarine in light mode, Night Raised in dark) holding Good Fit For (roles, then the situation) and a citron Priced As link.

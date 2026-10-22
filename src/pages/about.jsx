@@ -8,7 +8,7 @@ import { InsightRow } from '@/components/InsightRow'
 import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
 import { NextSeo } from '@/components/Seo'
-import { resume, tools } from '@/data/content'
+import { badges, credentials, memberships, resume, tools } from '@/data/content'
 import { insightSummary, insights } from '@/data/insights'
 import siteMeta from '@/data/siteMeta'
 import portraitImage from '@/images/marko-head.jpg'
@@ -77,6 +77,87 @@ function WorkHistory() {
           </li>
         ))}
       </ol>
+    </section>
+  )
+}
+
+function Credentials() {
+  return (
+    <section aria-labelledby="credentials-heading">
+      <h2 id="credentials-heading" className="text-section">
+        Credentials and Memberships
+      </h2>
+      <p className="text-lead mt-5 max-w-measure text-graphite">
+        A selection of my AI, marketing and SEO certifications.
+      </p>
+      <ul
+        role="list"
+        className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7"
+      >
+        {badges.map((badge, index) => (
+          <li
+            key={badge.name}
+            data-reveal
+            style={{ '--i': index }}
+            className="flex flex-col items-center rounded-[1.25rem] bg-sunken p-4 text-center dark:bg-raised"
+          >
+            {/* Badges keep their own colors, so they sit on a light disc in dark mode */}
+            <span className="flex aspect-square w-full items-center justify-center rounded-full dark:bg-on-raised">
+              <Image
+                src={badge.image}
+                alt=""
+                sizes="(min-width: 1024px) 140px, 40vw"
+                className="h-auto w-[88%]"
+              />
+            </span>
+            <span className="mt-3 text-ui leading-snug font-bold dark:text-on-raised">
+              {badge.name}
+            </span>
+            <span className="text-caption text-graphite dark:text-on-raised-muted">
+              {badge.issuer}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <dl className="mt-10 border-t-2 border-ink dark:border-field">
+        {credentials.map((group) => (
+          <div
+            key={group.issuer}
+            data-reveal
+            className="grid gap-x-10 gap-y-4 border-b border-rule py-6 sm:grid-cols-[12rem_1fr]"
+          >
+            <dt className="font-bold">{group.issuer}</dt>
+            <dd>
+              <ul role="list" className="flex flex-wrap gap-2">
+                {group.items.map((item) => (
+                  <ToolChip key={item}>{item}</ToolChip>
+                ))}
+              </ul>
+            </dd>
+          </div>
+        ))}
+        {memberships.map((membership) => (
+          <div
+            key={membership.organization}
+            data-reveal
+            className="grid gap-x-10 gap-y-1 border-b border-rule py-6 sm:grid-cols-[12rem_1fr]"
+          >
+            <dt className="font-bold">Membership</dt>
+            <dd>
+              <p className="font-bold">
+                {membership.role}, {membership.organization}
+              </p>
+              <p className="text-graphite">
+                {membership.field} ·{' '}
+                <time dateTime={membership.start.dateTime}>
+                  {membership.start.label}
+                </time>{' '}
+                to Present
+              </p>
+            </dd>
+          </div>
+        ))}
+      </dl>
     </section>
   )
 }
@@ -258,6 +339,7 @@ export default function About({ insights: items }) {
       </Container>
       <Container className="mt-section flex flex-col gap-section">
         <WorkHistory />
+        <Credentials />
         <Tools />
         <LatestInsights items={items} />
       </Container>

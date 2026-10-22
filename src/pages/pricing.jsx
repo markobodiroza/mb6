@@ -114,6 +114,73 @@ function Package({ pkg, index }) {
   )
 }
 
+// One-line summary of every option, linking down to its full row
+function PricingSummary() {
+  let rows = [
+    ...pricingPackages.map((pkg) => ({
+      href: `#${pkg.slug}`,
+      name: pkg.name,
+      bestFor: pkg.bestFor,
+      price: `From ${formatPrice(pkg.price)} USD ${pkg.unit}`,
+      term: pkg.term,
+    })),
+    {
+      href: '#hourly',
+      name: 'Hourly Advisory',
+      bestFor: 'You need a second opinion or a smaller request.',
+      price: `${formatPrice(hourlyRate.price)} USD per hour`,
+      term: 'As needed',
+    },
+  ]
+
+  return (
+    <section aria-labelledby="summary-heading" className="mt-lead">
+      <h2 id="summary-heading" className="text-heading">
+        Pricing at a Glance
+      </h2>
+      <table className="mt-6 w-full border-t-2 border-ink text-left max-md:block dark:border-field">
+        <thead className="max-md:sr-only">
+          <tr className="text-ui text-graphite">
+            <th scope="col" className="py-3 pr-6 font-bold">
+              Package
+            </th>
+            <th scope="col" className="py-3 pr-6 font-bold">
+              Best For
+            </th>
+            <th scope="col" className="py-3 pr-6 font-bold">
+              Price
+            </th>
+            <th scope="col" className="py-3 font-bold">
+              Timing
+            </th>
+          </tr>
+        </thead>
+        <tbody className="max-md:block">
+          {rows.map((row) => (
+            <tr
+              key={row.name}
+              className="border-t border-rule align-top max-md:grid max-md:gap-1 max-md:py-5"
+            >
+              <th scope="row" className="py-4 pr-6 font-bold max-md:p-0">
+                <a href={row.href} className="link marker-hover">
+                  {row.name}
+                </a>
+              </th>
+              <td className="py-4 pr-6 text-graphite max-md:p-0">
+                {row.bestFor}
+              </td>
+              <td className="numeral py-4 pr-6 font-semibold whitespace-nowrap max-md:p-0">
+                {row.price}
+              </td>
+              <td className="py-4 text-graphite max-md:p-0">{row.term}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+  )
+}
+
 export default function Pricing() {
   return (
     <>
@@ -183,14 +250,16 @@ export default function Pricing() {
         before we start. Final prices depend on your team size and scope.
       </PageHeader>
       <Container>
-        <div className="mt-lead grid gap-6">
+        <PricingSummary />
+        <div className="mt-section grid gap-6">
           {pricingPackages.map((pkg, index) => (
             <Package key={pkg.slug} pkg={pkg} index={index} />
           ))}
         </div>
         <section
+          id="hourly"
           aria-labelledby="hourly-heading"
-          className="mt-6 grid gap-6 rounded-[1.75rem] border-2 border-dashed border-ink p-7 sm:p-9 md:grid-cols-[1fr_auto_auto] md:items-center md:gap-10 dark:border-field"
+          className="mt-6 grid scroll-mt-28 gap-6 rounded-[1.75rem] border-2 border-dashed border-ink p-7 sm:p-9 md:grid-cols-[1fr_auto_auto] md:items-center md:gap-10 dark:border-field"
         >
           <div>
             <h2 id="hourly-heading" className="text-subhead">

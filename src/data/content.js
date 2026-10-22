@@ -3,6 +3,13 @@
 import logoNP from '@/images/logos/nplogo.svg'
 import logoRTRK from '@/images/logos/rt.svg'
 import logoNetInfo from '@/images/logos/netinfo.svg'
+import badgeCato from '@/images/badges/cato-ai-cybersecurity.png'
+import badgeGoogleAi from '@/images/badges/google-ai-professional.png'
+import badgeDataEngineer from '@/images/badges/google-cloud-data-engineer.png'
+import badgeHubSpot from '@/images/badges/hubspot-onboarding.png'
+import badgeIntel from '@/images/badges/intel-ai-readiness.png'
+import badgeSectionExpert from '@/images/badges/section-ai-expert.png'
+import badgeSectionProficiency from '@/images/badges/section-ai-proficiency.png'
 export const resume = [
   {
     company: 'New Perspective Marketing',
@@ -205,6 +212,64 @@ export const processSteps = [
 ]
 
 // The short list shown first on About; the full list sits behind a toggle
+export const memberships = [
+  {
+    organization: 'Serbian AI Society',
+    role: 'Member',
+    field: 'Science and Technology',
+    start: { label: 'Nov 2024', dateTime: '2024-11' },
+  },
+]
+
+export const badges = [
+  {
+    name: 'AI Professional Certificate',
+    issuer: 'Google',
+    image: badgeGoogleAi,
+  },
+  {
+    name: 'Professional Data Engineer',
+    issuer: 'Google Cloud',
+    image: badgeDataEngineer,
+  },
+  { name: 'AI Expert', issuer: 'Section', image: badgeSectionExpert },
+  {
+    name: 'AI Proficiency',
+    issuer: 'Section',
+    image: badgeSectionProficiency,
+  },
+  {
+    name: 'Onboarding Accreditation',
+    issuer: 'HubSpot',
+    image: badgeHubSpot,
+  },
+  { name: 'AI Readiness', issuer: 'Intel', image: badgeIntel },
+  { name: 'AI Cybersecurity', issuer: 'Cato Networks', image: badgeCato },
+]
+
+export const credentials = [
+  { issuer: 'Google', items: ['Generative AI Leader', 'Google Ads Search'] },
+  {
+    issuer: 'HubSpot',
+    items: [
+      'HubSpot Solutions Partner',
+      'Revenue Operations',
+      'Delivering Client Success',
+      'Contextual Marketing',
+      'Growth-Driven Design Agency',
+    ],
+  },
+  {
+    issuer: 'LinkedIn',
+    items: [
+      'Certified Marketing Insider',
+      'Marketing Solutions Fundamentals',
+      'Content and Creative Design',
+      'Marketing Strategy',
+    ],
+  },
+]
+
 export const tools = [
   {
     category: 'AI',
