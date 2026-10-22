@@ -219,17 +219,17 @@
 @layer components {
   .text-display {
     font-size: clamp(2.75rem, 1.5rem + 3.9vw, 5.25rem);
-    @apply leading-[0.98] font-extrabold tracking-[-0.04em];
+    @apply leading-[1.06] font-extrabold tracking-[-0.04em];
   }
 
   .text-page-title {
     font-size: clamp(2.5rem, 1.7rem + 3vw, 4.25rem);
-    @apply leading-[1.02] font-[800] tracking-[-0.035em];
+    @apply leading-[1.08] font-[800] tracking-[-0.035em];
   }
 
   .text-section {
     font-size: clamp(2rem, 1.5rem + 1.8vw, 3rem);
-    @apply leading-[1.06] font-[780] tracking-[-0.03em];
+    @apply leading-[1.12] font-[780] tracking-[-0.03em];
   }
 
   .text-title {

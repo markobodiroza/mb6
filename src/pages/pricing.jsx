@@ -42,7 +42,7 @@ function Package({ pkg, index }) {
             Start Here
           </span>
         )}
-        <h2 className="text-[1.625rem] leading-[1.15] font-[780] tracking-tight">
+        <h2 className="text-[1.625rem] leading-[1.2] font-[780] tracking-tight">
           {pkg.name}
         </h2>
         <p
@@ -167,7 +167,7 @@ export default function Pricing() {
           <div>
             <h2
               id="hourly-heading"
-              className="text-[1.625rem] leading-[1.15] font-[780] tracking-tight"
+              className="text-[1.625rem] leading-[1.2] font-[780] tracking-tight"
             >
               Hourly Advisory
             </h2>

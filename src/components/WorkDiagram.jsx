@@ -5,11 +5,13 @@ import clsx from 'clsx'
 // described in src/data/work.js.
 const line = 'border-[color-mix(in_oklch,var(--on-brand)_38%,transparent)]'
 
-function Node({ node }) {
+// Text is centered while a lane stacks, to line up with its arrows
+function Node({ node, layout }) {
   return (
     <div
       className={clsx(
         'rounded-2xl border-[1.5px] px-4 py-3',
+        layout.text,
         node.highlight ? 'border-citron bg-citron text-on-citron' : line,
         node.dashed && 'border-dashed',
       )}
@@ -36,12 +38,14 @@ const across = {
     item: 'lg:flex-1 lg:flex-row lg:items-center',
     connector: 'lg:px-1.5 lg:py-0',
     arrow: 'lg:rotate-0',
+    text: 'text-center lg:text-left',
   },
   xl: {
     list: 'xl:flex-row',
     item: 'xl:flex-1 xl:flex-row xl:items-center',
     connector: 'xl:px-1.5 xl:py-0',
     arrow: 'xl:rotate-0',
+    text: 'text-center xl:text-left',
   },
 }
 
@@ -78,7 +82,9 @@ function Lane({ lane }) {
   let layout = across[lane.steps.length >= 6 ? 'xl' : 'lg']
   return (
     <div>
-      <p className="label text-on-brand-muted">{lane.label}</p>
+      <p className={clsx('label text-on-brand-muted', layout.text)}>
+        {lane.label}
+      </p>
       <ol className={clsx('mt-4 flex flex-col', layout.list)}>
         {lane.steps.map((step, index) => (
           <li
@@ -91,12 +97,12 @@ function Lane({ lane }) {
                 <ul role="list" className="grid gap-2">
                   {step.stack.map((node) => (
                     <li key={node.title}>
-                      <Node node={node} />
+                      <Node node={node} layout={layout} />
                     </li>
                   ))}
                 </ul>
               ) : (
-                <Node node={step} />
+                <Node node={step} layout={layout} />
               )}
             </div>
           </li>

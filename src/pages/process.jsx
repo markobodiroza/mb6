@@ -97,7 +97,7 @@ export default function Process() {
                   />
                 </span>
                 <div className="pt-2 sm:pt-4">
-                  <h2 className="text-[1.625rem] leading-[1.15] font-[780] tracking-tight">
+                  <h2 className="text-[1.625rem] leading-[1.2] font-[780] tracking-tight">
                     {step.title.replace(/^\d+\.\s*/, '')}
                   </h2>
                   <p className="mt-1 text-[0.9375rem] text-muted italic">

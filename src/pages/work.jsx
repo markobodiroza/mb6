@@ -28,7 +28,7 @@ function Story({ example }) {
           <p className="label text-link">{example.client}</p>
           <h2
             id={`${example.slug}-title`}
-            className="mt-2 max-w-3xl text-[clamp(1.75rem,1.4rem+1.2vw,2.5rem)] leading-[1.1] font-[780] tracking-[-0.03em]"
+            className="mt-2 max-w-3xl text-[clamp(1.75rem,1.4rem+1.2vw,2.5rem)] leading-[1.16] font-[780] tracking-[-0.03em]"
           >
             {example.title}
           </h2>
