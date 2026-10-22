@@ -72,13 +72,13 @@ function Story({ example }) {
             ))}
           </ul>
         </section>
-        {/* Results carry the story, so they get the raised card */}
-        <section className="on-brand self-start rounded-[1.25rem] bg-brand p-6 text-on-brand shadow-card dark:bg-raised">
+        {/* Results sit on a quiet card so the page keeps blue for its brand moments */}
+        <section className="self-start rounded-[1.25rem] bg-sunken p-6 dark:bg-raised">
           <h3 className="text-title">Results</h3>
           <ul role="list" className="mt-4 space-y-3">
             {example.changed.map((item) => (
               <li key={item} className="flex gap-3">
-                <CheckIcon className="mt-[0.2rem] h-5 w-5 flex-none text-citron" />
+                <CheckIcon className="mt-[0.2rem] h-5 w-5 flex-none text-link" />
                 <span className="font-semibold">{item}</span>
               </li>
             ))}

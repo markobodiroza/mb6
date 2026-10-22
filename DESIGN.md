@@ -16,11 +16,11 @@ colors:
   muted-graphite: "oklch(0.45 0.022 268)"
   pale-ultramarine: "oklch(0.88 0.045 262)"
   danger: "oklch(0.5 0.2 25)"
-  night-page: "oklch(0.23 0.09 268)"
-  night-sunken: "oklch(0.27 0.105 268)"
-  night-field: "oklch(0.28 0.14 268)"
-  night-section: "oklch(0.34 0.13 268)"
-  night-raised: "oklch(0.42 0.17 268)"
+  night-page: "oklch(0.19 0.025 266)"
+  night-sunken: "oklch(0.225 0.03 266)"
+  night-field: "oklch(0.34 0.16 268)"
+  night-section: "oklch(0.25 0.035 266)"
+  night-raised: "oklch(0.29 0.035 266)"
 typography:
   page-title:
     fontFamily: "Google Sans Flex Variable, ui-sans-serif, system-ui, sans-serif"
@@ -186,8 +186,8 @@ A full palette with four roles. Values are OKLCH custom properties in `src/style
 - **Field Line** (oklch(0.62 0.03 265)): form outlines (3:1 against paper), dashed diagram steps and the scrolled header edge.
 - **Graphite** (oklch(0.33 0.025 268)) and **Muted Graphite** (oklch(0.45 0.022 268)): body copy and secondary text.
 
-### Dark Theme: Blue Night
-Dark mode is never black. Everything steps through one ultramarine family, darkest to brightest: **Night Page** (0.23) for the page, **Night Sunken** (0.27) for cards and the scrolled header, **Night Field** (0.28) for brand fields such as the hero, **Night Section** (0.34) for night sections and diagram panels, while the footer returns to Night Page so the page ends on its darkest step, and **Night Raised** (0.42) for diagram steps and tool tags. Citron takes over every action role: buttons, links, icons, arrows and focus rings.
+### Dark Theme: Ink Night
+Dark mode is never black and never drenched in blue. The page is a deep, blue-tinted ink: **Night Page** (0.19, chroma 0.025) for the page and footer, **Night Sunken** (0.225) for the scrolled header and quiet cards, **Night Section** (0.25) for diagram panels and bands, **Night Raised** (0.29) for diagram steps, tags, pills and Work results. All of these stay below chroma 0.04. Ultramarine (**Night Field**, 0.34 0.16) is reserved for brand moments: the page headers, the closing band and the few cards that carry the story (quotes, Good Fit For, package price columns, What Stays the Same, the article sidebar and the pricing table header). Citron is the action and link color.
 
 ### Named Rules
 **The Highlighter Rule.** Citron is a background or a color on blue and night fields. It is never text on light paper.
@@ -229,7 +229,7 @@ A 1.25 ratio from a 17px body. Fixed steps for text and UI, fluid steps for head
 
 ## 4. Elevation
 
-Mostly flat. Depth comes from tonal blocks: paper, sunken paper, ultramarine, night and citron. There is one exception, the **raised card**: diagram steps (including highlighted results), the Good Fit For box on Services, the Results card on Work, the principles card on Pricing and the article sidebar card. It is a soft, blue-tinted lift that marks something as an object to look at or follow.
+Mostly flat. Depth comes from tonal blocks: paper, sunken paper, ultramarine, night and citron. There is one exception, the **raised card**: diagram steps (including highlighted results), the Good Fit For box on Services, the principles card on Pricing and the article sidebar card. It is a soft, blue-tinted lift that marks something as an object to look at or follow.
 
 ### Shadow Vocabulary
 - **Card** (`0 1px 2px oklch(0.2 0.03 268 / 0.08), 0 12px 28px -14px oklch(0.37 0.19 268 / 0.4)`; dark: `0 1px 2px oklch(0.1 0.05 268 / 0.5), 0 14px 30px -14px oklch(0.08 0.05 268 / 0.85)`): raised diagram steps and the Services fit box. Exposed as the `shadow-card` utility.
@@ -284,7 +284,7 @@ Credentials and Memberships follows Work History: eight small badge tiles in one
 Icon and title, the description and You Get on the left; on the right, a raised card (Pigment Ultramarine in light mode, Night Raised in dark) holding Good Fit For (roles, then the situation) and a citron Priced As link.
 
 ### Work Diagrams
-Flows drawn in HTML. Each diagram is a full-bleed band (edge to edge, 56 to 80px top and bottom, lanes held to the 1440px container), Sunken Paper in light mode and Night Section in dark mode, with no grid. Steps are raised cards (Cool Paper in light, Night Raised in dark) that share one height within a lane; results are citron; optional steps are dashed Field Line outlines. Each example then tells its story in three parts: Start, What I Built and Results, with Results on a raised ultramarine card. Lanes run left to right on wide screens and stack top to bottom on phones, with centered text and down arrows. Numbered steps keep their number and word together.
+Flows drawn in HTML. Each diagram is a full-bleed band (edge to edge, 56 to 80px top and bottom, lanes held to the 1440px container), Sunken Paper in light mode and Night Section in dark mode, with no grid. Steps are raised cards (Cool Paper in light, Night Raised in dark) that share one height within a lane; results are citron; optional steps are dashed Field Line outlines. Each example then tells its story in three parts: Start, What I Built and Results, with Results on a quiet sunken card (Night Raised in dark) so the page keeps blue for its header, quote and closing band. Lanes run left to right on wide screens and stack top to bottom on phones, with centered text and down arrows. Numbered steps keep their number and word together.
 
 ### Inputs / Fields
 - **Style:** 12px corners, 2px Field Line outline, paper fill; hover darkens the outline, focus turns it link-colored and adds the 2px focus ring.

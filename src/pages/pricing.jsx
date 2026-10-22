@@ -37,7 +37,7 @@ function Package({ pkg, index }) {
       style={{ '--i': index }}
       className="grid scroll-mt-28 overflow-hidden rounded-[1.75rem] border-2 border-rule transition-colors duration-200 hover:border-ink lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] dark:border-transparent dark:hover:border-field"
     >
-      <div className="on-brand flex flex-col items-start justify-center bg-brand p-6 text-on-brand sm:p-9 lg:p-10 dark:bg-raised">
+      <div className="on-brand flex flex-col items-start justify-center bg-brand p-6 text-on-brand sm:p-9 lg:p-10">
         {pkg.featured && (
           <span className="label mb-4 rounded-full bg-citron px-3 py-1 text-on-citron">
             Start Here
@@ -122,7 +122,7 @@ function PricingSummary() {
             <col className="w-1/4" />
           </colgroup>
           <thead className="max-md:sr-only">
-            <tr className="on-brand text-ui text-on-brand [&>th]:bg-brand [&>th]:shadow-[1px_0_0_var(--brand)] dark:[&>th]:bg-raised dark:[&>th]:shadow-[1px_0_0_var(--raised)]">
+            <tr className="on-brand text-ui text-on-brand [&>th]:bg-brand [&>th]:shadow-[1px_0_0_var(--brand)]">
               <th scope="col" className="py-4 pr-6 pl-7 font-bold">
                 Package
               </th>
@@ -280,7 +280,7 @@ export default function Pricing() {
           aria-labelledby="hourly-heading"
           className="mt-6 grid scroll-mt-28 overflow-hidden rounded-[1.75rem] border-2 border-dashed border-ink lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] dark:border-field"
         >
-          <div className="on-brand flex flex-col items-start justify-center bg-brand p-6 text-on-brand sm:p-9 lg:p-10 dark:bg-raised">
+          <div className="on-brand flex flex-col items-start justify-center bg-brand p-6 text-on-brand sm:p-9 lg:p-10">
             <h2 id="hourly-heading" className="text-subhead">
               Hourly Advisory
             </h2>

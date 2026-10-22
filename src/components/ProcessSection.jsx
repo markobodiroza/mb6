@@ -129,7 +129,7 @@ export function ProcessSection() {
             className="lg:pt-4"
           >
             <div className="lg:sticky lg:top-28">
-              <div className="on-brand rounded-[1.75rem] bg-brand p-8 text-on-brand shadow-card dark:bg-raised">
+              <div className="on-brand rounded-[1.75rem] bg-brand p-8 text-on-brand shadow-card">
                 <h3 id="principles-heading" className="text-title">
                   What Stays the Same
                 </h3>
