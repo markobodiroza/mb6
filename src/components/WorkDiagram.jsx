@@ -120,15 +120,18 @@ export function WorkDiagram({ lanes, label, className }) {
     <figure
       aria-label={label}
       className={clsx(
-        'rounded-[1.75rem] bg-sunken p-6 sm:p-9 xl:mx-[calc(50%-min(50vw-1rem,45rem))] dark:bg-night',
+        // Full-bleed band: edge to edge, with the lanes held to 90rem
+        'mx-[calc(50%-50vw)] bg-sunken py-14 sm:py-20 dark:bg-night',
         className,
       )}
     >
-      {lanes.map((lane, index) => (
-        <div key={lane.label} className={clsx(index > 0 && 'mt-8')}>
-          <Lane lane={lane} />
-        </div>
-      ))}
+      <div className="mx-auto max-w-[90rem] px-4 sm:px-8 lg:px-12">
+        {lanes.map((lane, index) => (
+          <div key={lane.label} className={clsx(index > 0 && 'mt-10')}>
+            <Lane lane={lane} />
+          </div>
+        ))}
+      </div>
     </figure>
   )
 }

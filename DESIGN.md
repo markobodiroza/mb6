@@ -174,10 +174,10 @@ A full palette with four roles. Values are OKLCH custom properties in `src/style
 - **Pale Ultramarine** (oklch(0.88 0.045 262)): secondary text on brand fields.
 
 ### Secondary
-- **Lapel Citron** (oklch(0.91 0.19 117)): the highlighter. The hero highlight, Book a Call on blue fields, the Start Here badge, the photo offset block, the pricing teaser, highlighted diagram results and labels on blue.
+- **Lapel Citron** (oklch(0.91 0.19 117)): the highlighter. The hero highlight, Book a Call on blue fields, the Start Here badge, the photo offset block, highlighted diagram results and labels on blue.
 
 ### Tertiary
-- **Night Ink** (oklch(0.2 0.03 268)): the Home How I Work band, the footer and all text on paper and citron.
+- **Night Ink** (oklch(0.2 0.03 268)): the footer and all text on paper and citron.
 
 ### Neutral
 - **Cool Paper** (oklch(0.985 0.005 265)): the page, raised cards and package rows.
@@ -209,7 +209,7 @@ A 1.25 ratio from a 17px body. Fixed steps for text and UI, fluid steps for head
 - **Page Title** (800, 42 to 64px fluid, 1.08): the Home hero headline only.
 - **Page Header** (800, 38 to 51px fluid, 1.1): interior page titles, in a shorter blue header.
 - **Section** (780, 34 to 41px fluid, 1.12): section headings and the closing band.
-- **Heading** (780, 28 to 33px fluid, 1.16): service and work example titles, the pricing teaser and the Not Sure band.
+- **Heading** (780, 28 to 33px fluid, 1.16): service and work example titles, the How I Work strip on Home, Pricing at a Glance and the Not Sure band.
 - **Subhead** (760, 26.5px, 1.2): package names, Process steps and article section headings.
 - **Title** (720, 21px, 1.25): small headings such as The Situation, What Happens Next and the Home service names; also FAQ questions and insight titles.
 - **Lead** (400, 19 to 21px, 1.55): intros under headings.
@@ -256,20 +256,35 @@ Small pills (15px, semibold): a 14% ultramarine tint with ultramarine text in li
 ### Package Rows (Pricing)
 Full-width rows with 28px corners: name, Best for, price, duration and Send Inquiry on the left; a two-column Included list on the right, behind a 1px divider on wide screens. The Start Here package sits on a plain brand field with no grid. Prices read in USD. The other packages are paper with a 2px Blue Rule border that firms to ink on hover. Included checks pop in one after another as a row scrolls into view.
 
+### Jump Menus
+Work and Services open with a Jump To row of 44px pill links (paper with a Blue Rule outline, Night Raised in dark) to each example or service.
+
+### Home Layout
+Hero, services, then Recent Work and How I Work side by side above the full-bleed diagram, then testimonials and the closing band. No insights list on Home.
+
+### Widows
+Running text uses text-wrap: pretty site-wide, so no single word sits alone on a last line; short table cells balance.
+
+### Testimonials
+Home shows What Clients Say: three quotes, each on its own surface (ultramarine, sunken, citron) so the row reads as three voices, with the role underneath. No review schema, since self-written reviews are not eligible.
+
+### Closing Band
+Every page ends on the blue band with its own title and line (for example Want a System Like These? on Work); Home uses Put AI to Work in Your Team.
+
 ### Pricing at a Glance
-A plain table above the packages: package (linking to its row), Best For, price in USD and timing, including Hourly Advisory. Under 768px each row stacks.
+A card table above the packages, four equal columns (Package, Price, Best For, Timing): an ultramarine header row (Night Raised in dark), the Start Here row tinted citron with its pill, prices large in link color with the USD unit underneath, and a sunken hover on other rows. Each package name links to its full row; Hourly Advisory is included. Under 768px each row stacks.
 
 ### How I Work (on Pricing)
 The process lives below the packages on Pricing (/process redirects to /pricing#process): five steps with icons in citron discs on a rail, then a loop back to planning, beside a raised ultramarine card of principles.
 
 ### About: Credentials, Tools and Latest Insights
-Credentials and Memberships follows Work History: ten badge tiles in two rows of five (Sunken Paper in light mode, Night Raised in dark with each badge on a light disc so its own colors hold), then issuer rows of chips (Google, HubSpot, LinkedIn) and the Serbian AI Society membership. Tool chips split into two near-equal rows per category on wide screens. The page ends with Latest Insights: three article rows, then a See More Insights expand for the rest.
+Credentials and Memberships follows Work History: eight small badge tiles in one row on wide screens (Sunken Paper in light mode, Night Raised in dark with each badge on a light disc so its own colors hold), then issuer rows of chips (Google, HubSpot, Intel, LinkedIn) and the Serbian AI Society membership. Tool chips split into two near-equal rows per category on wide screens. The page ends with Latest Insights: three article rows, then a See More Insights expand for the rest.
 
 ### Services Rows
 Icon and title, the description and You Get on the left; on the right, a raised card (Pigment Ultramarine in light mode, Night Raised in dark) holding Good Fit For (roles, then the situation) and a citron Priced As link.
 
 ### Work Diagrams
-Flows drawn in HTML. Panels are Sunken Paper in light mode and Night Section in dark mode, with 28px corners and no grid. Steps are raised cards (Cool Paper in light, Night Raised in dark) that share one height within a lane; results are citron; optional steps are dashed Field Line outlines. Each example then tells its story in three parts: Start, What I Built and Results, with Results on a raised ultramarine card. Lanes run left to right on wide screens and stack top to bottom on phones, with centered text and down arrows. From 1280px the panel breaks out of the text column, up to 1440px wide, so no step ever squeezes; numbered steps keep their number and word together.
+Flows drawn in HTML. Each diagram is a full-bleed band (edge to edge, 56 to 80px top and bottom, lanes held to 1440px), Sunken Paper in light mode and Night Section in dark mode, with no grid. Steps are raised cards (Cool Paper in light, Night Raised in dark) that share one height within a lane; results are citron; optional steps are dashed Field Line outlines. Each example then tells its story in three parts: Start, What I Built and Results, with Results on a raised ultramarine card. Lanes run left to right on wide screens and stack top to bottom on phones, with centered text and down arrows. Numbered steps keep their number and word together.
 
 ### Inputs / Fields
 - **Style:** 12px corners, 2px Field Line outline, paper fill; hover darkens the outline, focus turns it link-colored and adds the 2px focus ring.
@@ -283,7 +298,7 @@ Flows drawn in HTML. Panels are Sunken Paper in light mode and Night Section in 
 - **Footer:** night ink in light mode; in dark mode it drops to Night Page with a rule on top, so the page always ends on its darkest surface. Name, tagline and page links.
 
 ### Numbered Lists and Icons
-Numbers appear only where order matters: Home process steps (01 to 05) and the 1 to 4 review gates inside a diagram. Services and Process steps use custom line icons (24px grid, 1.75 stroke, round ends) in link color. Short lists use check marks.
+Numbers appear only where order matters: the 1 to 4 review gates inside a diagram. Services and Process steps use custom line icons (24px grid, 1.75 stroke, round ends) in link color. Short lists use check marks.
 
 ### FAQ
 Native details rows under a 2px ink rule (Field Line in dark mode, as for every decorative divider), closed by default, with a plus icon that turns into an x. Pricing covers cost, scope and timing; Services covers tools, data, agencies and remote work. Both are marked up as FAQPage data.

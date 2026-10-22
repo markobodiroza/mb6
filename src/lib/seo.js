@@ -65,7 +65,6 @@ export const personSchema = {
     ['AI Expert', 'Section'],
     ['AI Proficiency', 'Section'],
     ['HubSpot Onboarding Accreditation', 'HubSpot'],
-    ['HubSpot Solutions Partner', 'HubSpot'],
     ['Revenue Operations', 'HubSpot Academy'],
     ['Delivering Client Success', 'HubSpot Academy'],
     ['Contextual Marketing', 'HubSpot Academy'],

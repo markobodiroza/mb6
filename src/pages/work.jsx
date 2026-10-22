@@ -2,6 +2,7 @@ import { Container } from '@/components/Container'
 import { CtaBand } from '@/components/CtaBand'
 import { CheckIcon } from '@/components/Icons'
 import { JsonLd } from '@/components/JsonLd'
+import { JumpNav } from '@/components/JumpNav'
 import { PageHeader } from '@/components/PageHeader'
 import { NextSeo } from '@/components/Seo'
 import { WorkDiagram } from '@/components/WorkDiagram'
@@ -131,12 +132,23 @@ export default function Work() {
         Five systems I built for real teams. Client names stay private; the work
         and the results are real.
       </PageHeader>
-      <Container className="mt-lead flex flex-col gap-section">
+      <Container>
+        <JumpNav
+          items={workExamples.map((example) => ({
+            href: `#${example.slug}`,
+            label: example.short,
+          }))}
+        />
+      </Container>
+      <Container className="mt-14 flex flex-col gap-section">
         {workExamples.map((example) => (
           <Story key={example.slug} example={example} />
         ))}
       </Container>
-      <CtaBand />
+      <CtaBand title="Want a System Like These?">
+        Tell me which process takes your team the most time. I will show you
+        what we could build for it.
+      </CtaBand>
     </>
   )
 }

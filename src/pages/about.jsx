@@ -92,25 +92,25 @@ function Credentials() {
       </p>
       <ul
         role="list"
-        className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5"
+        className="mt-8 grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-8"
       >
         {badges.map((badge, index) => (
           <li
             key={badge.name}
             data-reveal
             style={{ '--i': index }}
-            className="flex flex-col items-center rounded-[1.25rem] bg-sunken p-4 text-center dark:bg-raised"
+            className="flex flex-col items-center rounded-[1.25rem] bg-sunken p-3 text-center dark:bg-raised"
           >
             {/* Badges keep their own colors, so they sit on a light disc in dark mode */}
             <span className="flex aspect-square w-full items-center justify-center rounded-full dark:bg-on-raised">
               <Image
                 src={badge.image}
                 alt=""
-                sizes="(min-width: 1024px) 200px, (min-width: 768px) 18vw, 40vw"
+                sizes="(min-width: 1024px) 120px, (min-width: 640px) 20vw, 30vw"
                 className="h-auto w-[88%]"
               />
             </span>
-            <span className="mt-3 text-ui leading-snug font-bold dark:text-on-raised">
+            <span className="mt-2 text-caption leading-snug font-bold dark:text-on-raised">
               {badge.name}
             </span>
             <span className="text-caption text-graphite dark:text-on-raised-muted">
@@ -306,6 +306,10 @@ export default function About({ insights: items }) {
             of Novi Sad and am the author of several papers on engineering. I
             still do UI/UX design and code in Python.
           </p>
+          <p>
+            A fun fact: I created and produced 81 episodes of the Green New
+            Perspective podcast.
+          </p>
           <a
             href={siteMeta.author.linkedin}
             target="_blank"
@@ -343,7 +347,10 @@ export default function About({ insights: items }) {
         <Tools />
         <LatestInsights items={items} />
       </Container>
-      <CtaBand />
+      <CtaBand title="Let’s Work Together">
+        If my background fits what your team needs, book a short call and we
+        will find where AI can help first.
+      </CtaBand>
     </>
   )
 }

@@ -147,8 +147,8 @@ function SuccessMessage({ name, viaEmail }) {
             Received.
           </h2>
           <p className="text-lead mt-4 max-w-lg">
-            I will review your project and get back to you with a suggested next
-            step.
+            I will review your project and reply within 1 business day with a
+            suggested next step.
           </p>
         </>
       )}

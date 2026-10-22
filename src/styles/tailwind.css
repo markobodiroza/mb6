@@ -64,6 +64,24 @@
  * Tailwind 4 borders default to currentColor; Tailwind 3 used gray-200.
  * Keep the old default so borders without a color class look the same.
  */
+/* Full-bleed bands use 50vw, which counts the scrollbar; clip the overflow */
+@layer base {
+  body {
+    overflow-x: clip;
+  }
+
+  /* No single words left alone on the last line of running text */
+  p,
+  li,
+  dd,
+  td,
+  th,
+  blockquote,
+  figcaption {
+    text-wrap: pretty;
+  }
+}
+
 @layer base {
   *,
   ::after,

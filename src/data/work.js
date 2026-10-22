@@ -6,6 +6,7 @@
 export const workExamples = [
   {
     slug: 'agency-ai-system',
+    short: 'Agency AI System',
     client: 'B2B Marketing Agency',
     title: 'An AI System for a Whole Agency Team',
     summary:
@@ -68,6 +69,7 @@ export const workExamples = [
   },
   {
     slug: 'content-pipeline',
+    short: 'Content Pipeline',
     client: 'Large Content Agency',
     title: 'A Content Pipeline for Many Clients',
     summary:
@@ -113,6 +115,7 @@ export const workExamples = [
   },
   {
     slug: 'sales-follow-up',
+    short: 'Sales Follow-Up',
     client: 'B2B Sales Team',
     title: 'From Booked Meeting to Second Meeting',
     summary:
@@ -158,6 +161,7 @@ export const workExamples = [
   },
   {
     slug: 'connected-operations',
+    short: 'Connected Operations',
     client: 'Mid-Size Business',
     title: 'One Connected System for a Growing Business',
     summary:
@@ -200,6 +204,7 @@ export const workExamples = [
   },
   {
     slug: 'google-cloud-connectors',
+    short: 'Google Cloud Connectors',
     client: 'Analytics, Search and Indexing',
     title: 'Custom Connectors for Google Cloud APIs',
     summary:
