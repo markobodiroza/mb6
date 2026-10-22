@@ -137,12 +137,12 @@ function ProofAndProcess({ example, outcomes, quote }) {
             {/* Results across the work, mirroring the process steps */}
             <ul
               role="list"
-              className="mt-6 mb-auto flex flex-col items-start gap-2"
+              className="mt-6 mb-auto flex flex-col items-start gap-2.5"
             >
               {outcomes.map((item) => (
                 <li
                   key={item}
-                  className="inline-flex items-center gap-2 rounded-2xl bg-sunken py-1.5 pr-3.5 pl-1.5 text-ui font-semibold dark:bg-raised dark:text-on-raised"
+                  className="inline-flex items-center gap-2.5 rounded-2xl bg-sunken py-2 pr-4 pl-2 text-ui font-semibold dark:bg-raised dark:text-on-raised"
                 >
                   <span
                     aria-hidden="true"
@@ -169,11 +169,11 @@ function ProofAndProcess({ example, outcomes, quote }) {
               charge of the decisions that matter.
             </p>
             {/* The five steps at a glance, in order */}
-            <ol className="mt-6 mb-auto flex flex-col items-start gap-2">
+            <ol className="mt-6 mb-auto flex flex-col items-start gap-2.5">
               {processSteps.map((step, index) => (
                 <li
                   key={step.title}
-                  className="inline-flex items-center gap-2 rounded-2xl bg-sunken py-1.5 pr-3.5 pl-1.5 text-ui font-semibold dark:bg-raised dark:text-on-raised"
+                  className="inline-flex items-center gap-2.5 rounded-2xl bg-sunken py-2 pr-4 pl-2 text-ui font-semibold dark:bg-raised dark:text-on-raised"
                 >
                   <span
                     aria-hidden="true"
