@@ -77,6 +77,17 @@ export default function Document() {
           color="#1a29a2"
         />
         <link rel="manifest" href="/fixed/favicons/site.webmanifest" />
+        {/* Browser UI color matches the header paper in each theme */}
+        <meta
+          name="theme-color"
+          content="#f8fafe"
+          media="(prefers-color-scheme: light)"
+        />
+        <meta
+          name="theme-color"
+          content="#0b1746"
+          media="(prefers-color-scheme: dark)"
+        />
         <meta
           name="msapplication-config"
           content="/fixed/favicons/browserconfig.xml"

@@ -77,9 +77,10 @@ function Hero() {
           <Image
             src={portraitImage}
             alt="Portrait of Marko Bodiroza"
-            sizes="(min-width: 1024px) 26rem, 24rem"
+            sizes="(min-width: 1248px) 434px, (min-width: 1024px) calc((100vw - 120px) / 2.6), (min-width: 640px) 384px, 272px"
             className="relative aspect-4/5 w-full rounded-[1.75rem] object-cover object-[50%_30%]"
             preload
+            fetchPriority="high"
           />
         </div>
       </Container>

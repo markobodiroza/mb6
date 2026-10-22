@@ -303,8 +303,9 @@ export function Header() {
             src={avatarImage}
             alt=""
             sizes="2.75rem"
+            loading="eager"
+            fetchPriority="low"
             className="h-11 w-11 rounded-full bg-sunken object-cover ring-[3px] ring-link ring-offset-2 ring-offset-paper transition-transform duration-300 ease-out-quart group-hover:scale-105 group-hover:-rotate-6"
-            preload
           />
         </Link>
         <DesktopNavigation />

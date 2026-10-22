@@ -10,7 +10,7 @@ import { PageHeader } from '@/components/PageHeader'
 import { NextSeo } from '@/components/Seo'
 import { insights } from '@/data/insights'
 import { formatDate } from '@/lib/formatDate'
-import { absoluteUrl, pageOpenGraph, personSchema } from '@/lib/seo'
+import { absoluteUrl, ogImage, pageOpenGraph, personSchema } from '@/lib/seo'
 
 export default function Insight({ insight, more }) {
   let path = `/insights/${insight.slug}`
@@ -37,14 +37,37 @@ export default function Insight({ insight, more }) {
       <JsonLd
         id="insight"
         data={{
-          '@type': 'BlogPosting',
-          headline: insight.title,
-          description: insight.description,
-          datePublished: insight.date,
-          url: absoluteUrl(path),
-          mainEntityOfPage: absoluteUrl(path),
-          isBasedOn: insight.sourceUrl,
-          author: personSchema,
+          '@graph': [
+            {
+              '@type': 'BlogPosting',
+              headline: insight.title,
+              description: insight.description,
+              datePublished: insight.date,
+              inLanguage: 'en-US',
+              url: absoluteUrl(path),
+              mainEntityOfPage: absoluteUrl(path),
+              image: ogImage({
+                title: insight.title,
+                description: insight.description,
+              }).url,
+              isBasedOn: insight.sourceUrl,
+              author: personSchema,
+              publisher: { '@id': personSchema['@id'] },
+            },
+            {
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                ['Home', '/'],
+                ['Insights', '/insights'],
+                [insight.title, path],
+              ].map(([name, href], index) => ({
+                '@type': 'ListItem',
+                position: index + 1,
+                name,
+                item: absoluteUrl(href),
+              })),
+            },
+          ],
         }}
       />
       <PageHeader

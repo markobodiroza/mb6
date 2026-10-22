@@ -198,7 +198,7 @@ export default function About() {
             <Image
               src={portraitImage}
               alt="Portrait of Marko Bodiroza"
-              sizes="(min-width: 1024px) 22rem, 100vw"
+              sizes="(min-width: 1248px) 384px, (min-width: 1024px) calc((100vw - 144px) / 2.6), (min-width: 424px) 384px, calc(100vw - 40px)"
               className="relative aspect-4/5 w-full rounded-[1.75rem] object-cover object-[50%_30%]"
               preload
             />
