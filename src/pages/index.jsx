@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { NextSeo } from 'next-seo'
 
 import { BookCallButton, Button } from '@/components/Button'
 import { Container } from '@/components/Container'
@@ -8,6 +7,7 @@ import { CtaBand } from '@/components/CtaBand'
 import { ArrowRightIcon } from '@/components/Icons'
 import { InsightRow } from '@/components/InsightRow'
 import { JsonLd } from '@/components/JsonLd'
+import { NextSeo } from '@/components/Seo'
 import {
   hourlyRate,
   pricingPackages,

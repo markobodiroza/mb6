@@ -1,4 +1,3 @@
-import { NextSeo } from 'next-seo'
 import clsx from 'clsx'
 
 import { BookCallButton, Button } from '@/components/Button'
@@ -8,6 +7,7 @@ import { Faq } from '@/components/Faq'
 import { ArrowRightIcon, CheckIcon } from '@/components/Icons'
 import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
+import { NextSeo } from '@/components/Seo'
 import { faqs, hourlyRate, pricingPackages } from '@/data/content'
 import { contactHref } from '@/lib/contact'
 import { formatPrice } from '@/lib/formatPrice'

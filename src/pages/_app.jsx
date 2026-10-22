@@ -1,8 +1,8 @@
-import { DefaultSeo } from 'next-seo'
 import localFont from 'next/font/local'
 
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
+import { DefaultSeo } from '@/components/Seo'
 import SEO from '@/lib/next-seo.config'
 import { useReveal } from '@/lib/useReveal'
 

@@ -1,11 +1,11 @@
 import Image from 'next/image'
-import { NextSeo } from 'next-seo'
 
 import { BookCallButton, Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { CtaBand } from '@/components/CtaBand'
 import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
+import { NextSeo } from '@/components/Seo'
 import { coreTools, resume, tools } from '@/data/content'
 import siteMeta from '@/data/siteMeta'
 import portraitImage from '@/images/marko-head.jpg'

@@ -1,6 +1,5 @@
 import { Fragment } from 'react'
 import Link from 'next/link'
-import { NextSeo } from 'next-seo'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
@@ -8,6 +7,7 @@ import { CtaBand } from '@/components/CtaBand'
 import { ArrowRightIcon, CheckIcon } from '@/components/Icons'
 import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
+import { NextSeo } from '@/components/Seo'
 import { pricingPackages, services } from '@/data/content'
 import { absoluteUrl, pageOpenGraph, personSchema } from '@/lib/seo'
 

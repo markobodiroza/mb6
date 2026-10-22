@@ -1,8 +1,7 @@
-import { NextSeo } from 'next-seo'
-
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { ArrowRightIcon } from '@/components/Icons'
+import { NextSeo } from '@/components/Seo'
 
 export default function NotFound() {
   return (

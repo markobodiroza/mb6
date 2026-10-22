@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { NextSeo } from 'next-seo'
 
 import { BookCallButton } from '@/components/Button'
 import { Container } from '@/components/Container'
@@ -8,6 +7,7 @@ import { ArrowRightIcon, ArrowUpRightIcon } from '@/components/Icons'
 import { InsightRow } from '@/components/InsightRow'
 import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
+import { NextSeo } from '@/components/Seo'
 import { insights } from '@/data/insights'
 import { formatDate } from '@/lib/formatDate'
 import { absoluteUrl, pageOpenGraph, personSchema } from '@/lib/seo'

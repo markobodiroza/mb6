@@ -1,8 +1,7 @@
-import { NextSeo } from 'next-seo'
-
 import { Container } from '@/components/Container'
 import { CtaBand } from '@/components/CtaBand'
 import { PageHeader } from '@/components/PageHeader'
+import { NextSeo } from '@/components/Seo'
 import { processSteps } from '@/data/content'
 import { absoluteUrl, pageOpenGraph } from '@/lib/seo'
 
