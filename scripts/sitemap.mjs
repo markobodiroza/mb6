@@ -48,15 +48,7 @@ for (let insight of await insights()) {
 urls = [...urls.values()]
 
 // Main pages in menu order, then articles newest first
-let order = [
-  '/',
-  '/services',
-  '/work',
-  '/pricing',
-  '/about',
-  '/contact',
-  '/insights',
-]
+let order = ['/', '/services', '/work', '/pricing', '/about', '/contact']
 let rank = (loc) => {
   let index = order.indexOf(new URL(loc).pathname)
   return index === -1 ? order.length : index

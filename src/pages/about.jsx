@@ -216,7 +216,11 @@ function Tools() {
 function LatestInsights({ items }) {
   let [latest, rest] = [items.slice(0, 3), items.slice(3)]
   return (
-    <section aria-labelledby="insights-heading">
+    <section
+      id="insights"
+      aria-labelledby="insights-heading"
+      className="scroll-mt-28"
+    >
       <h2 id="insights-heading" className="text-section">
         Latest Insights
       </h2>
