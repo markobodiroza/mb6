@@ -29,7 +29,7 @@ export function CtaBand({
         <div className="flex flex-col gap-4 sm:flex-row lg:justify-end">
           <BookCallButton variant="on-brand" />
           <Button variant="on-brand-outline" href={contactHref()}>
-            Send a Message
+            Send Inquiry
           </Button>
         </div>
       </Container>

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import clsx from 'clsx'
 
+import { ArrowRightIcon } from '@/components/Icons'
 import { bookingHref, isExternal } from '@/lib/contact'
 
 const variantStyles = {
@@ -58,5 +59,30 @@ export function BookCallButton({ children = 'Book a Call', ...props }) {
     <Button href={bookingHref()} {...props}>
       {children}
     </Button>
+  )
+}
+
+// Text link to another page. Buttons stay reserved for the two calls to
+// action, Book a Call and Send Inquiry. The highlighter hover only works on
+// paper, so colored sections pass marker={false}.
+export function ArrowLink({
+  href,
+  children,
+  color = 'text-link',
+  marker = true,
+  className,
+}) {
+  return (
+    <Link
+      href={href}
+      className={clsx(
+        'group inline-flex items-center gap-2 font-bold',
+        color,
+        className,
+      )}
+    >
+      <span className={clsx(marker && 'marker-hover')}>{children}</span>
+      <ArrowRightIcon className="h-4 w-4 transition-transform duration-200 ease-out-quart group-hover:translate-x-1" />
+    </Link>
   )
 }

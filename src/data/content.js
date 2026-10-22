@@ -205,19 +205,6 @@ export const processSteps = [
 ]
 
 // The short list shown first on About; the full list sits behind a toggle
-export const coreTools = [
-  'ChatGPT',
-  'Claude',
-  'Gemini',
-  'Perplexity',
-  'NotebookLM',
-  'Zapier',
-  'Make',
-  'n8n',
-  'HubSpot',
-  'Notion',
-]
-
 export const tools = [
   {
     category: 'AI',
@@ -381,36 +368,37 @@ export const pricingFaqs = [
   {
     question: 'How long does a project take?',
     answer:
-      'An AI Audit and Roadmap takes 4 to 6 weeks from kickoff to the final walkthrough. An AI Process Build takes 6 to 10 weeks per process, from mapping to handover. Workshops are priced per workshop, with a prep call beforehand. Monthly Advisory starts with a 3-month minimum and then continues month to month.',
+      'An AI Audit and Roadmap takes 4 to 6 weeks from kickoff to the final walkthrough. An AI Process Build takes 6 to 10 weeks per process, from mapping to handover. Workshops are priced per workshop, with a prep call beforehand. Monthly Advisory starts with a 3-month minimum and then continues month to month. Most projects can start within two weeks of agreeing on scope.',
   },
   {
     question: 'What exactly is in scope?',
     answer:
-      'Each package lists what is included. Before any work starts, I confirm the scope, timeline and price in writing.',
+      'Each package lists what is included. After our first call, you get a written proposal with the scope, timeline and a fixed price within a week, and no work starts until you agree to it.',
   },
   {
     question: 'What if the scope changes once we start?',
     answer:
-      'It happens, and that is fine. We agree on the change, its timeline and its cost before the work continues. No surprise invoices.',
+      'It happens, and that is fine. We agree on any change, its timeline and its cost in writing before the work continues. No surprise invoices.',
   },
   {
     question: 'What do you need from our team?',
     answer:
-      'Time with the people who do the work, access to the tools involved and one person on your side who owns the project. I handle the rest.',
+      'It depends on the package. An Audit needs short interviews with the people doing the work and one owner on your side. A Process Build also needs a few hours a week for testing on real work. In both cases I need access to the tools involved, and I handle the rest.',
   },
   {
     question: 'Where should we start?',
     answer:
-      'Most teams start with the AI Audit and Roadmap. It shows where AI will make the biggest difference, and the roadmap tells you which package, if any, to do next. Nothing locks you into a second project.',
+      'Most teams start with the AI Audit and Roadmap. It shows where AI will make the biggest difference, and the roadmap tells you which package, if any, to do next. The first call is free: 30 minutes to understand your team and suggest where to start.',
   },
   {
     question: 'How do payments work?',
     answer:
-      'Workshops are paid in full to book the date. Projects are billed 50% to start and 50% on delivery. Monthly Advisory is billed monthly in advance.',
+      'Workshops are paid in full to book the date. Projects are billed 50% to start and 50% on delivery. Monthly Advisory is billed monthly in advance. You can pay by bank transfer, card, PayPal or Stripe.',
   },
   {
     question: 'What currency are prices in?',
-    answer: 'All prices are in US dollars.',
+    answer:
+      'Prices are in US dollars. European clients can be invoiced in euros.',
   },
 ]
 
@@ -419,21 +407,21 @@ export const serviceFaqs = [
   {
     question: 'Which AI tools do you work with?',
     answer:
-      'Whatever fits your team and your work: ChatGPT, Claude, Gemini, Perplexity and the automation tools you already use. I am not tied to one vendor.',
+      'Mostly Claude and ChatGPT for AI work, Zapier for automation and the project management tools your team already uses. I pick whatever fits your team and your work, and I am not tied to one vendor.',
   },
   {
     question: 'How do you handle our data?',
     answer:
-      'I am happy to sign your NDA before seeing anything internal. I only use AI tools whose settings keep your data out of model training.',
+      'I am happy to sign your NDA before seeing anything internal. I only use AI tools whose settings keep your data out of model training, and I work in line with GDPR for European clients. I only ask for access to the tools and data the project needs, and you can remove it when we finish.',
   },
   {
     question: 'Do you work with agencies on client work?',
     answer:
-      'Yes, in two ways. I can improve your agency’s own processes and train your team, or support client work under your brand. We agree which in the proposal.',
+      'Yes, in two ways. I can improve your agency’s own processes and train your team, or support client work under your brand. We agree which in the proposal. Playbooks, skills and systems I build for your agency are yours to reuse across clients.',
   },
   {
     question: 'Do you work remotely or on-site?',
     answer:
-      'I work remotely with teams in the US and Europe. Workshops can also run on-site anywhere in Europe, with flights and accommodation covered by the client.',
+      'I work remotely with teams in the US and Europe, in English. My working day overlaps with US East Coast mornings and the whole European day. Workshops can also run on-site anywhere in Europe, with flights and accommodation covered by the client.',
   },
 ]

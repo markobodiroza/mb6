@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import Link from 'next/link'
 
-import { Button } from '@/components/Button'
+import { ArrowLink } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { CtaBand } from '@/components/CtaBand'
 import { Faq } from '@/components/Faq'
@@ -95,10 +95,14 @@ function NotSureBand() {
           question for you.
         </p>
       </div>
-      <Button variant="night" href="/pricing#audit">
-        See the Audit
-        <ArrowRightIcon className="h-4 w-4" />
-      </Button>
+      <ArrowLink
+        href="/pricing#audit"
+        color="text-on-citron"
+        marker={false}
+        className="flex-none"
+      >
+        Read About the Audit
+      </ArrowLink>
     </aside>
   )
 }

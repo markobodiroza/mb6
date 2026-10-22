@@ -32,12 +32,8 @@ export function Faq({ items, title = 'Questions About Timeline and Scope' }) {
         {title}
       </h2>
       <div className="mt-8 border-t-2 border-ink">
-        {items.map((item, index) => (
-          <details
-            key={item.question}
-            open={index === 0}
-            className="group border-b border-rule"
-          >
+        {items.map((item) => (
+          <details key={item.question} className="group border-b border-rule">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-[1.1875rem] leading-[1.35] font-bold marker:hidden [&::-webkit-details-marker]:hidden">
               {item.question}
               <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-sunken text-link transition-transform duration-300 ease-out-quart group-open:rotate-45">

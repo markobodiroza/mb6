@@ -1,9 +1,7 @@
-import Link from 'next/link'
-
-import { BookCallButton } from '@/components/Button'
+import { ArrowLink, BookCallButton } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { CtaBand } from '@/components/CtaBand'
-import { ArrowRightIcon, CheckIcon } from '@/components/Icons'
+import { CheckIcon } from '@/components/Icons'
 import { InsightRow } from '@/components/InsightRow'
 import { JsonLd } from '@/components/JsonLd'
 import { PageHeader } from '@/components/PageHeader'
@@ -114,13 +112,14 @@ export default function Insight({ insight, more }) {
               systems.
             </p>
             <BookCallButton variant="on-brand" className="mt-6" />
-            <Link
+            <ArrowLink
               href="/insights"
-              className="group mt-6 flex items-center gap-2 font-semibold text-on-night-muted hover:text-on-night"
+              color="text-on-night"
+              marker={false}
+              className="mt-6 flex"
             >
-              All Insights
-              <ArrowRightIcon className="h-4 w-4 transition-transform duration-200 ease-out-quart group-hover:translate-x-1" />
-            </Link>
+              Read More Insights
+            </ArrowLink>
           </div>
         </aside>
       </Container>
