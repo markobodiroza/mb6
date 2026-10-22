@@ -8,6 +8,7 @@ import { ArrowRightIcon, ServiceIcon } from '@/components/Icons'
 import { InsightRow } from '@/components/InsightRow'
 import { JsonLd } from '@/components/JsonLd'
 import { NextSeo } from '@/components/Seo'
+import { WorkDiagram } from '@/components/WorkDiagram'
 import {
   hourlyRate,
   pricingPackages,
@@ -16,6 +17,7 @@ import {
 } from '@/data/content'
 import { insightSummary, insights } from '@/data/insights'
 import siteMeta from '@/data/siteMeta'
+import { featuredWorkSlug, workExamples } from '@/data/work'
 import portraitImage from '@/images/marko-head.jpg'
 import { contactHref } from '@/lib/contact'
 import { formatPrice } from '@/lib/formatPrice'
@@ -132,6 +134,47 @@ function ServicesOverview() {
   )
 }
 
+function FeaturedWork({ example }) {
+  return (
+    <section aria-labelledby="work-heading" className="pt-section">
+      <Container>
+        <div
+          data-reveal
+          className="flex flex-wrap items-end justify-between gap-6"
+        >
+          <div className="max-w-2xl">
+            <h2 id="work-heading" className="text-section">
+              Recent Work
+            </h2>
+            <p className="text-lead mt-5 text-graphite">
+              <span className="font-bold text-ink">{example.title}.</span>{' '}
+              {example.summary}
+            </p>
+          </div>
+          <Button variant="secondary" href="/work">
+            All Work
+            <ArrowRightIcon className="h-4 w-4" />
+          </Button>
+        </div>
+        <WorkDiagram
+          lanes={example.diagram}
+          label={`Diagram: ${example.title}`}
+          className="mt-10"
+        />
+        <p className="mt-6">
+          <Link
+            href={`/work#${example.slug}`}
+            className="group inline-flex items-center gap-2 font-bold text-link"
+          >
+            <span className="marker-hover">See How It Works</span>
+            <ArrowRightIcon className="h-4 w-4 transition-transform duration-200 ease-out-quart group-hover:translate-x-1" />
+          </Link>
+        </p>
+      </Container>
+    </section>
+  )
+}
+
 function ProcessAndPricing() {
   return (
     <section
@@ -235,7 +278,7 @@ function LatestInsights({ latest }) {
   )
 }
 
-export default function Home({ latest }) {
+export default function Home({ latest, featured }) {
   return (
     <>
       <NextSeo
@@ -266,6 +309,7 @@ export default function Home({ latest }) {
       />
       <Hero />
       <ServicesOverview />
+      <FeaturedWork example={featured} />
       <ProcessAndPricing />
       <LatestInsights latest={latest} />
       <CtaBand />
@@ -275,5 +319,12 @@ export default function Home({ latest }) {
 
 // Read at build time, so full articles stay out of the page's JavaScript
 export function getStaticProps() {
-  return { props: { latest: insights.slice(0, 3).map(insightSummary) } }
+  return {
+    props: {
+      latest: insights.slice(0, 3).map(insightSummary),
+      featured: workExamples.find(
+        (example) => example.slug === featuredWorkSlug,
+      ),
+    },
+  }
 }

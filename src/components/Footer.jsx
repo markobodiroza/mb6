@@ -6,6 +6,7 @@ import siteMeta from '@/data/siteMeta'
 const navigation = [
   { href: '/', label: 'Home' },
   { href: '/services', label: 'Services' },
+  { href: '/work', label: 'Work' },
   { href: '/process', label: 'Process' },
   { href: '/pricing', label: 'Pricing' },
   { href: '/insights', label: 'Insights' },

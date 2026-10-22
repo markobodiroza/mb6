@@ -11,6 +11,7 @@ import avatarImage from '@/images/marko-head.jpg'
 const navigation = [
   { href: '/', label: 'Home' },
   { href: '/services', label: 'Services' },
+  { href: '/work', label: 'Work' },
   { href: '/process', label: 'Process' },
   { href: '/pricing', label: 'Pricing' },
   { href: '/insights', label: 'Insights' },
@@ -144,7 +145,7 @@ function DesktopNavigation() {
   let isActive = useIsActive()
 
   return (
-    <nav aria-label="Main" className="hidden md:block">
+    <nav aria-label="Main" className="hidden lg:block">
       <ul className="flex items-center gap-1 text-[0.9375rem] font-medium">
         {navigation.map((item) => (
           <li key={item.href}>
@@ -219,7 +220,7 @@ function MobileNavigation() {
   }, [open, close])
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <button
         ref={triggerRef}
         type="button"
