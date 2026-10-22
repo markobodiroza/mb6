@@ -6,9 +6,8 @@ import { CtaBand } from '@/components/CtaBand'
 import { CheckIcon, ServiceIcon } from '@/components/Icons'
 import { JsonLd } from '@/components/JsonLd'
 import { NextSeo } from '@/components/Seo'
-import { Testimonials } from '@/components/Testimonials'
-import { WorkDiagram } from '@/components/WorkDiagram'
-import { processSteps, services } from '@/data/content'
+import { QuoteCard } from '@/components/Testimonials'
+import { processSteps, services, testimonials } from '@/data/content'
 import siteMeta from '@/data/siteMeta'
 import { featuredWorkSlug, workExamples, workOutcomes } from '@/data/work'
 import portraitImage from '@/images/marko-head.jpg'
@@ -113,12 +112,22 @@ function ServicesOverview() {
   )
 }
 
-function FeaturedWork({ example, outcomes }) {
+function ProofAndProcess({ example, outcomes, quote }) {
   return (
-    <section aria-labelledby="work-heading" className="pt-section">
+    <section aria-labelledby="clients-heading" className="pt-section">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-0">
-          <div data-reveal className="flex flex-col items-start lg:pr-16">
+        <div className="grid gap-12 lg:grid-cols-3 lg:gap-0">
+          <div data-reveal className="flex flex-col items-start lg:pr-12">
+            <h2 id="clients-heading" className="text-section">
+              What Clients Say
+            </h2>
+            <QuoteCard item={quote} className="mt-6" />
+          </div>
+          <div
+            data-reveal
+            style={{ '--i': 1 }}
+            className="flex flex-col items-start border-t border-rule pt-12 lg:border-t-0 lg:border-l lg:px-12 lg:pt-0"
+          >
             <h2 id="work-heading" className="text-section">
               Recent Work
             </h2>
@@ -152,10 +161,10 @@ function FeaturedWork({ example, outcomes }) {
           </div>
           <div
             data-reveal
-            style={{ '--i': 1 }}
-            className="flex flex-col items-start border-t border-rule pt-12 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-16"
+            style={{ '--i': 2 }}
+            className="flex flex-col items-start border-t border-rule pt-12 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-12"
           >
-            <h2 className="text-section">How I Work</h2>
+            <h2 className="text-section">The Process</h2>
             <p className="text-lead mt-5 text-graphite">
               I get one thing working before scaling it, and your people stay in
               charge of the decisions that matter.
@@ -182,17 +191,12 @@ function FeaturedWork({ example, outcomes }) {
             </ArrowLink>
           </div>
         </div>
-        <WorkDiagram
-          lanes={example.diagram}
-          label={`Diagram: ${example.title}`}
-          className="mt-12"
-        />
       </Container>
     </section>
   )
 }
 
-export default function Home({ featured, outcomes }) {
+export default function Home({ featured, outcomes, quote }) {
   return (
     <>
       <NextSeo
@@ -223,21 +227,22 @@ export default function Home({ featured, outcomes }) {
       />
       <Hero />
       <ServicesOverview />
-      <FeaturedWork example={featured} outcomes={outcomes} />
-      <Testimonials />
+      <ProofAndProcess example={featured} outcomes={outcomes} quote={quote} />
       <CtaBand title="Put AI to Work in Your Team" />
     </>
   )
 }
 
-// Read at build time, so the other work examples stay out of the page's JavaScript
+// Read at build time, so work and quote data stay out of the page's JavaScript
 export function getStaticProps() {
   return {
     props: {
       outcomes: workOutcomes,
-      featured: workExamples.find(
-        (example) => example.slug === featuredWorkSlug,
+      // Only the lines the teaser shows
+      featured: (({ title, teaser }) => ({ title, teaser }))(
+        workExamples.find((example) => example.slug === featuredWorkSlug),
       ),
+      quote: testimonials.find((item) => item.author.startsWith('CEO')),
     },
   }
 }

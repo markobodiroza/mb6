@@ -260,13 +260,13 @@ Full-width rows with 28px corners: name, price and Send Inquiry on the left (Bes
 Work and Services open with a Jump To row of 44px pill links (paper with a Blue Rule outline, Night Raised in dark) to each example or service.
 
 ### Home Layout
-Hero, services, then Recent Work and How I Work side by side above the full-bleed diagram (outcomes as check pills on the left, the five steps as numbered pills on the right, each in one column, split by a 1px rule), then testimonials and the closing band. No insights list on Home.
+Hero, services, then one three-column section: What Clients Say (the CEO quote on an ultramarine card), Recent Work (outcomes as check pills) and The Process (the five steps as numbered pills), split by 1px rules. Then the closing band. No diagram and no insights list on Home.
 
 ### Widows
 Running text uses text-wrap: pretty site-wide, so no single word sits alone on a last line; short table cells balance.
 
 ### Testimonials
-Home shows What Clients Say: three quotes, each on its own surface (ultramarine, sunken, citron) so the row reads as three voices, with the role underneath. Work carries one wide ultramarine quote after the agency story. No review schema, since self-written reviews are not eligible.
+One quote per page: the CEO on Home, the agency owner on Work after the agency story (wide ultramarine card) and the manufacturer's marketing director on Pricing, a citron card under What Stays the Same. No review schema, since self-written reviews are not eligible.
 
 ### Closing Band
 Every page ends on the blue band with its own title and line (for example Want a System Like These? on Work); Home uses Put AI to Work in Your Team.

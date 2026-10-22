@@ -1,8 +1,14 @@
 import { ServiceIcon } from '@/components/Icons'
-import { processSteps } from '@/data/content'
+import { QuoteCard } from '@/components/Testimonials'
+import { processSteps, testimonials } from '@/data/content'
 
 // The five steps and the principles behind them. Lives on Pricing, under
 // the packages, so cost and way of working sit together.
+// The manufacturer's words sit beside how the work runs
+const revenueQuote = testimonials.find((item) =>
+  item.author.startsWith('Marketing Director'),
+)
+
 const principles = [
   {
     title: 'Small Before Big',
@@ -122,18 +128,23 @@ export function ProcessSection() {
             aria-labelledby="principles-heading"
             className="lg:pt-4"
           >
-            <div className="on-brand rounded-[1.75rem] bg-brand p-8 text-on-brand shadow-card lg:sticky lg:top-28 dark:bg-raised">
-              <h3 id="principles-heading" className="text-title">
-                What Stays the Same
-              </h3>
-              <ul role="list" className="mt-4 space-y-6">
-                {principles.map((principle) => (
-                  <li key={principle.title}>
-                    <p className="font-bold text-citron">{principle.title}</p>
-                    <p className="mt-1 text-on-brand-muted">{principle.text}</p>
-                  </li>
-                ))}
-              </ul>
+            <div className="lg:sticky lg:top-28">
+              <div className="on-brand rounded-[1.75rem] bg-brand p-8 text-on-brand shadow-card dark:bg-raised">
+                <h3 id="principles-heading" className="text-title">
+                  What Stays the Same
+                </h3>
+                <ul role="list" className="mt-4 space-y-6">
+                  {principles.map((principle) => (
+                    <li key={principle.title}>
+                      <p className="font-bold text-citron">{principle.title}</p>
+                      <p className="mt-1 text-on-brand-muted">
+                        {principle.text}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <QuoteCard item={revenueQuote} tone="citron" className="mt-6" />
             </div>
           </aside>
         </div>
