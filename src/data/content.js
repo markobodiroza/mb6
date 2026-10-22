@@ -6,7 +6,7 @@ import logoNetInfo from '@/images/logos/netinfo.svg'
 export const resume = [
   {
     company: 'New Perspective Marketing',
-    title: 'Director of Marketing and Innovation',
+    title: 'Director of Marketing',
     logo: logoNP,
     start: '2020',
     end: { label: 'Present', dateTime: new Date().getFullYear() },

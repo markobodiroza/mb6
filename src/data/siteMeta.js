@@ -2,7 +2,7 @@ const siteMeta = {
   title: 'Marko Bodiroza',
   tagline: 'AI Strategist & System Builder',
   description:
-    'AI strategist and system builder with 15+ years in digital marketing. I help marketing teams, agencies and B2B companies analyze their processes, plan AI adoption and train their people, whatever AI tools they use.',
+    'AI strategist and system builder with 15+ years in digital marketing. Marko helps marketing teams, agencies and B2B companies analyze their processes, plan AI adoption and train their people, whatever AI tools they use.',
   // Short version for search result snippets (under 160 characters)
   metaDescription:
     'AI strategist and system builder helping marketing teams, agencies and B2B companies put AI to work through strategy, systems and training.',
@@ -11,8 +11,6 @@ const siteMeta = {
     name: 'Marko Bodiroza',
     email: 'mb@markobodiroza.com',
     twitter: 'https://twitter.com/markobodiroza',
-    instagram: 'https://instagram.com/gradijent',
-    github: 'https://github.com/markobodiroza',
     linkedin: 'https://linkedin.com/in/markobodiroza',
   },
   siteUrl: 'https://markobodiroza.com',
