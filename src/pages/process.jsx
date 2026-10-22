@@ -56,8 +56,8 @@ export default function Process() {
                   aria-hidden="true"
                   className={
                     index < processSteps.length - 1
-                      ? 'rail-draw absolute bottom-0 left-7 top-14 w-0.5 bg-rule sm:left-9 sm:top-18'
-                      : 'rail-draw absolute bottom-0 left-7 top-14 border-l-2 border-dashed border-link sm:left-9 sm:top-18'
+                      ? 'rail-draw absolute top-14 bottom-0 left-7 w-0.5 bg-rule sm:top-18 sm:left-9'
+                      : 'rail-draw absolute top-14 bottom-0 left-7 border-l-2 border-dashed border-link sm:top-18 sm:left-9'
                   }
                 />
                 <span
@@ -67,10 +67,10 @@ export default function Process() {
                   {index + 1}
                 </span>
                 <div className="pt-2 sm:pt-4">
-                  <h2 className="text-[1.625rem] font-[780] leading-[1.15] tracking-tight">
+                  <h2 className="text-[1.625rem] leading-[1.15] font-[780] tracking-tight">
                     {step.title.replace(/^\d+\.\s*/, '')}
                   </h2>
-                  <p className="mt-1 text-[0.9375rem] italic text-muted">
+                  <p className="mt-1 text-[0.9375rem] text-muted italic">
                     {step.note}
                   </p>
                   <p className="mt-3 max-w-prose text-[1.125rem] leading-[1.65] text-graphite">
@@ -114,7 +114,7 @@ export default function Process() {
                 </svg>
               </span>
               <div>
-                <p className="text-[1.375rem] font-bold leading-[1.3]">
+                <p className="text-[1.375rem] leading-[1.3] font-bold">
                   Then Back to Step 2
                 </p>
                 <p className="mt-1 text-graphite">
@@ -129,7 +129,7 @@ export default function Process() {
             aria-labelledby="principles-heading"
             className="lg:pt-4"
           >
-            <div className="on-night rounded-[1.75rem] bg-night p-8 text-on-night dark:ring-2 dark:ring-rule lg:sticky lg:top-28">
+            <div className="on-night rounded-[1.75rem] bg-night p-8 text-on-night lg:sticky lg:top-28 dark:ring-2 dark:ring-rule">
               <h2 id="principles-heading" className="text-title">
                 What Stays the Same
               </h2>

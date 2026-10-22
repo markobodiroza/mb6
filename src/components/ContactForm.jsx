@@ -29,7 +29,7 @@ function Select({ className, children, ...props }) {
         viewBox="0 0 20 20"
         fill="none"
         aria-hidden="true"
-        className="pointer-events-none absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted"
+        className="pointer-events-none absolute top-1/2 right-4 h-5 w-5 -translate-y-1/2 text-muted"
       >
         <path
           d="m5 8 5 5 5-5"
@@ -89,7 +89,7 @@ function validate(values) {
     errors.website = 'Please add your company website.'
   } else if (
     !/^(https?:\/\/)?[^\s./]+(\.[^\s./]+)+(\/\S*)?$/i.test(
-      values.website.trim()
+      values.website.trim(),
     )
   ) {
     errors.website =
@@ -157,7 +157,7 @@ function SuccessMessage({ name, viaEmail }) {
 
 function ProficiencyPicker({ id, value, onChange, error }) {
   let selected = proficiencyLevels.find(
-    (level) => String(level.value) === value
+    (level) => String(level.value) === value,
   )
 
   return (
@@ -175,12 +175,12 @@ function ProficiencyPicker({ id, value, onChange, error }) {
             <label
               key={level.value}
               className={clsx(
-                'relative flex cursor-pointer items-center gap-4 rounded-xl border-2 px-4 py-3 transition-colors duration-200 has-focus-visible:outline-solid has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--focus) sm:flex-col sm:gap-1 sm:px-1 sm:text-center',
+                'relative flex cursor-pointer items-center gap-4 rounded-xl border-2 px-4 py-3 transition-colors duration-200 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-(--focus) has-focus-visible:outline-solid sm:flex-col sm:gap-1 sm:px-1 sm:text-center',
                 checked
                   ? 'tile-pop border-action bg-action text-action-fg'
                   : error
-                  ? 'border-danger-line hover:border-graphite'
-                  : 'border-field hover:border-graphite'
+                    ? 'border-danger-line hover:border-graphite'
+                    : 'border-field hover:border-graphite',
               )}
             >
               <input
@@ -191,10 +191,10 @@ function ProficiencyPicker({ id, value, onChange, error }) {
                 onChange={onChange}
                 className="sr-only"
               />
-              <span className="text-[1.375rem] font-[850] leading-none">
+              <span className="text-[1.375rem] leading-none font-[850]">
                 {level.value}
               </span>
-              <span className="text-[0.9375rem] font-semibold leading-tight sm:text-[0.8125rem]">
+              <span className="text-[0.9375rem] leading-tight font-semibold sm:text-[0.8125rem]">
                 {level.label}
               </span>
             </label>
@@ -265,7 +265,7 @@ export function ContactForm() {
     }
 
     let level = proficiencyLevels.find(
-      (item) => String(item.value) === values.proficiency
+      (item) => String(item.value) === values.proficiency,
     )
     let inquiry = {
       ...values,
@@ -286,7 +286,7 @@ export function ContactForm() {
       ].join('\n')
       window.location.href = emailHref(
         `Project inquiry: ${inquiry.topic}`,
-        body
+        body,
       )
       setStatus('sent-email')
       return

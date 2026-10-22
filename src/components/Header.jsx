@@ -155,7 +155,7 @@ function DesktopNavigation() {
                 'relative block rounded-full px-3.5 py-2 transition-colors duration-200',
                 isActive(item.href)
                   ? 'text-ink'
-                  : 'text-graphite hover:bg-sunken hover:text-ink'
+                  : 'text-graphite hover:bg-sunken hover:text-ink',
               )}
             >
               {item.label}
@@ -236,7 +236,7 @@ function MobileNavigation() {
         onClick={() => close()}
         className={clsx(
           'fixed inset-0 z-50 bg-[color-mix(in_oklch,var(--ink)_45%,transparent)] transition-opacity duration-200 ease-out-quart dark:bg-[color-mix(in_oklch,var(--night)_80%,transparent)]',
-          open ? 'opacity-100' : 'pointer-events-none opacity-0'
+          open ? 'opacity-100' : 'pointer-events-none opacity-0',
         )}
       />
       <div
@@ -250,7 +250,7 @@ function MobileNavigation() {
           'fixed inset-x-3 top-3 z-50 origin-top rounded-[1.25rem] border-2 border-rule bg-paper p-6 transition duration-200 ease-out-quart',
           open
             ? 'visible translate-y-0 scale-100 opacity-100'
-            : 'invisible -translate-y-2 scale-[0.98] opacity-0'
+            : 'invisible -translate-y-2 scale-[0.98] opacity-0',
         )}
       >
         <div className="flex items-center justify-between">
@@ -275,7 +275,7 @@ function MobileNavigation() {
                   onClick={() => close(false)}
                   className={clsx(
                     'block py-3',
-                    isActive(item.href) && 'text-link'
+                    isActive(item.href) && 'text-link',
                   )}
                 >
                   {item.label}
@@ -303,7 +303,7 @@ export function Header() {
             src={avatarImage}
             alt=""
             sizes="2.75rem"
-            className="h-11 w-11 rounded-full bg-sunken object-cover ring-[3px] ring-link ring-offset-2 ring-offset-paper transition-transform duration-300 ease-out-quart group-hover:-rotate-6 group-hover:scale-105"
+            className="h-11 w-11 rounded-full bg-sunken object-cover ring-[3px] ring-link ring-offset-2 ring-offset-paper transition-transform duration-300 ease-out-quart group-hover:scale-105 group-hover:-rotate-6"
             preload
           />
         </Link>

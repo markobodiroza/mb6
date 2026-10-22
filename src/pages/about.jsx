@@ -49,7 +49,7 @@ function WorkHistory() {
           >
             <CompanyMark role={role} />
             <div>
-              <p className="text-[1.1875rem] font-bold leading-[1.3]">
+              <p className="text-[1.1875rem] leading-[1.3] font-bold">
                 {role.title}
               </p>
               <p className="text-graphite">{role.company}</p>
@@ -193,7 +193,7 @@ export default function About() {
           <div className="relative w-full max-w-sm">
             <div
               aria-hidden="true"
-              className="absolute -bottom-4 -right-4 h-full w-full rounded-[1.75rem] bg-citron"
+              className="absolute -right-4 -bottom-4 h-full w-full rounded-[1.75rem] bg-citron"
             />
             <Image
               src={portraitImage}
@@ -219,7 +219,7 @@ export default function About() {
           </a>
         </aside>
       </Container>
-      <Container className="mt-section gap-section flex flex-col">
+      <Container className="mt-section flex flex-col gap-section">
         <WorkHistory />
         <Tools />
       </Container>

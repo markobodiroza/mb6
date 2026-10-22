@@ -29,7 +29,7 @@ export function Button({
     'group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-bold transition-[background-color,border-color,color,transform] duration-200 ease-out-quart active:translate-y-px active:scale-[0.97] [&>svg]:transition-transform [&>svg]:duration-200 [&>svg]:ease-out-quart [&>svg]:hover:translate-x-1 disabled:cursor-wait disabled:opacity-70',
     variantStyles[variant],
     sizeStyles[size],
-    className
+    className,
   )
 
   if (!href) {

@@ -24,7 +24,7 @@ import { absoluteUrl, pageOpenGraph, personSchema } from '@/lib/seo'
 // Projects, day rates and retainers are priced differently, so the teaser
 // names each one instead of mixing them under "from"
 const projectPackages = pricingPackages.filter((pkg) =>
-  ['per project', 'per process'].includes(pkg.unit)
+  ['per project', 'per process'].includes(pkg.unit),
 )
 const lowestProjectPrice = Math.min(...projectPackages.map((pkg) => pkg.price))
 const workshop = pricingPackages.find((pkg) => pkg.unit === 'per day')
@@ -72,7 +72,7 @@ function Hero() {
         <div className="relative mx-auto w-full max-w-68 sm:max-w-sm lg:max-w-none">
           <div
             aria-hidden="true"
-            className="enter-settle absolute -bottom-4 -right-4 h-full w-full rounded-[1.75rem] bg-citron"
+            className="enter-settle absolute -right-4 -bottom-4 h-full w-full rounded-[1.75rem] bg-citron"
           />
           <Image
             src={portraitImage}
@@ -136,7 +136,7 @@ function ProcessAndPricing() {
   return (
     <section
       aria-labelledby="process-heading"
-      className="on-night mt-section py-section bg-night text-on-night dark:border-y-2 dark:border-rule"
+      className="on-night mt-section bg-night py-section text-on-night dark:border-y-2 dark:border-rule"
     >
       <Container>
         <div className="grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] lg:gap-20">
@@ -166,12 +166,12 @@ function ProcessAndPricing() {
                 className={`grid grid-cols-[3.5rem_1fr] gap-x-4 border-b py-6 sm:grid-cols-[3.5rem_13rem_1fr] sm:gap-x-6 ${ruleOnNight}`}
               >
                 <span
-                  className="text-[1.625rem] font-[850] leading-none tracking-[-0.04em] text-citron"
+                  className="text-[1.625rem] leading-none font-[850] tracking-[-0.04em] text-citron"
                   aria-hidden="true"
                 >
                   {String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className="text-[1.1875rem] font-bold leading-[1.35]">
+                <h3 className="text-[1.1875rem] leading-[1.35] font-bold">
                   {step.title.replace(/^\d+\.\s*/, '')}
                 </h3>
                 <p className="col-start-2 mt-1 text-[0.9375rem] leading-[1.6] text-on-night-muted sm:col-start-auto sm:mt-0">
@@ -187,7 +187,7 @@ function ProcessAndPricing() {
         >
           <div>
             <p className="eyebrow">Pricing</p>
-            <p className="mt-3 text-[clamp(1.75rem,1.3rem+1.6vw,2.5rem)] font-extrabold leading-[1.1] tracking-[-0.03em]">
+            <p className="mt-3 text-[clamp(1.75rem,1.3rem+1.6vw,2.5rem)] leading-[1.1] font-extrabold tracking-[-0.03em]">
               Projects from {formatPrice(lowestProjectPrice)}
             </p>
             <p className="mt-2 text-[1.0625rem] font-medium">
