@@ -36,14 +36,16 @@ export function Footer() {
         </nav>
       </Container>
       <Container className="flex flex-col gap-3 border-t border-[color-mix(in_oklch,var(--on-night)_18%,transparent)] py-6 text-ui text-on-night-muted lg:flex-row lg:justify-between lg:gap-10">
-        <p>
+        <p className="lg:max-w-2xl">
           &copy; {new Date().getFullYear()} {siteMeta.copyright}. This website
           uses no cookies, no tracking and no analytics. Form submissions are
-          only used to contact you back.
+          only used to contact you back, and if we don’t engage further I delete
+          the data after 30 days.
         </p>
-        <p className="lg:text-right">
-          15+ years in digital marketing, engineering, AI and SEO. Certified by
-          Anthropic, Google and HubSpot.
+        <p className="lg:flex-none lg:text-right">
+          15+ years in digital marketing, engineering, AI and SEO.
+          <br />
+          Certified by Anthropic, Google and HubSpot.
         </p>
       </Container>
     </footer>
