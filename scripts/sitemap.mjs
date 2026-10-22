@@ -26,18 +26,32 @@ function meta(html, attr, name) {
   return tag?.[0].match(/content="([^"]*)"/)?.[1]
 }
 
-let urls = []
+// Articles come from their data file too: on Vercel the prerendered pages
+// of dynamic routes are not on disk yet when postbuild runs. The file has
+// no imports, so it loads as a module from a data URL.
+async function insights() {
+  let source = await readFile('src/data/insights.js', 'utf8')
+  let url = `data:text/javascript;base64,${Buffer.from(source).toString('base64')}`
+  return (await import(url)).insights
+}
+
+let urls = new Map()
 for (let file of await htmlFiles(pagesDir)) {
   let html = await readFile(file, 'utf8')
   let canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1]
   if (!canonical || /noindex/.test(meta(html, 'name', 'robots') ?? '')) continue
-  urls.push({
+  urls.set(canonical, {
     loc: canonical,
     lastmod:
       meta(html, 'property', 'article:modified_time') ??
       meta(html, 'property', 'article:published_time'),
   })
 }
+for (let insight of await insights()) {
+  let loc = `${siteUrl}/insights/${insight.slug}`
+  urls.set(loc, { loc, lastmod: insight.date })
+}
+urls = [...urls.values()]
 
 // Home first, then by path
 urls.sort((a, b) =>
