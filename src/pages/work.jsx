@@ -39,7 +39,7 @@ function Story({ example }) {
             {example.tools.map((tool) => (
               <li
                 key={tool}
-                className="rounded-full bg-sunken px-3.5 py-1.5 text-[0.9375rem] font-semibold text-link"
+                className="rounded-full bg-[color-mix(in_oklch,var(--link)_14%,var(--paper))] px-3.5 py-1.5 text-[0.9375rem] font-semibold text-link dark:bg-brand dark:text-on-brand"
               >
                 {tool}
               </li>

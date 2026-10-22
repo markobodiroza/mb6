@@ -80,7 +80,7 @@ function WorkHistory() {
 
 function ToolChip({ children }) {
   return (
-    <li className="rounded-full bg-sunken px-3.5 py-1.5 text-[0.9375rem] font-semibold text-link">
+    <li className="rounded-full bg-[color-mix(in_oklch,var(--link)_14%,var(--paper))] px-3.5 py-1.5 text-[0.9375rem] font-semibold text-link dark:bg-brand dark:text-on-brand">
       {children}
     </li>
   )
