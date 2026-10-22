@@ -92,7 +92,7 @@ function Credentials() {
       </p>
       <ul
         role="list"
-        className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7"
+        className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5"
       >
         {badges.map((badge, index) => (
           <li
@@ -106,7 +106,7 @@ function Credentials() {
               <Image
                 src={badge.image}
                 alt=""
-                sizes="(min-width: 1024px) 140px, 40vw"
+                sizes="(min-width: 1024px) 200px, (min-width: 768px) 18vw, 40vw"
                 className="h-auto w-[88%]"
               />
             </span>

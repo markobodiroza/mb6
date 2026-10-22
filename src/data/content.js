@@ -3,6 +3,9 @@
 import logoNP from '@/images/logos/nplogo.svg'
 import logoRTRK from '@/images/logos/rt.svg'
 import logoNetInfo from '@/images/logos/netinfo.svg'
+import badgeClaudeArchitect from '@/images/badges/claude-certified-architect.png'
+import badgeClaudeCode from '@/images/badges/claude-code-partner.png'
+import badgeGenAiLeader from '@/images/badges/google-generative-ai-leader.png'
 import badgeCato from '@/images/badges/cato-ai-cybersecurity.png'
 import badgeGoogleAi from '@/images/badges/google-ai-professional.png'
 import badgeDataEngineer from '@/images/badges/google-cloud-data-engineer.png'
@@ -223,6 +226,21 @@ export const memberships = [
 
 export const badges = [
   {
+    name: 'Claude Certified Architect, Foundations',
+    issuer: 'Anthropic',
+    image: badgeClaudeArchitect,
+  },
+  {
+    name: 'Claude Code Partner',
+    issuer: 'Anthropic',
+    image: badgeClaudeCode,
+  },
+  {
+    name: 'Generative AI Leader',
+    issuer: 'Google Cloud',
+    image: badgeGenAiLeader,
+  },
+  {
     name: 'AI Professional Certificate',
     issuer: 'Google',
     image: badgeGoogleAi,
@@ -248,7 +266,7 @@ export const badges = [
 ]
 
 export const credentials = [
-  { issuer: 'Google', items: ['Generative AI Leader', 'Google Ads Search'] },
+  { issuer: 'Google', items: ['Google Ads Search'] },
   {
     issuer: 'HubSpot',
     items: [

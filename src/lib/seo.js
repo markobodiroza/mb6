@@ -56,6 +56,8 @@ export const personSchema = {
   memberOf: { '@type': 'Organization', name: 'Serbian AI Society' },
   // Written out for the same reason as knowsAbout
   hasCredential: [
+    ['Claude Certified Architect, Foundations', 'Anthropic'],
+    ['Claude Code Partner Badge', 'Anthropic'],
     ['Generative AI Leader', 'Google Cloud'],
     ['AI Professional Certificate', 'Google'],
     ['Professional Data Engineer', 'Google Cloud'],

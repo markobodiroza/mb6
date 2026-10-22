@@ -263,7 +263,7 @@ A plain table above the packages: package (linking to its row), Best For, price 
 The process lives below the packages on Pricing (/process redirects to /pricing#process): five steps with icons in citron discs on a rail, then a loop back to planning, beside a raised ultramarine card of principles.
 
 ### About: Credentials, Tools and Latest Insights
-Credentials and Memberships follows Work History: a row of seven badge tiles (Sunken Paper in light mode, Night Raised in dark with each badge on a light disc so its own colors hold), then issuer rows of chips (Google, HubSpot, LinkedIn) and the Serbian AI Society membership. Tool chips split into two near-equal rows per category on wide screens. The page ends with Latest Insights: three article rows, then a See More Insights expand for the rest.
+Credentials and Memberships follows Work History: ten badge tiles in two rows of five (Sunken Paper in light mode, Night Raised in dark with each badge on a light disc so its own colors hold), then issuer rows of chips (Google, HubSpot, LinkedIn) and the Serbian AI Society membership. Tool chips split into two near-equal rows per category on wide screens. The page ends with Latest Insights: three article rows, then a See More Insights expand for the rest.
 
 ### Services Rows
 Icon and title, the description and You Get on the left; on the right, a raised card (Pigment Ultramarine in light mode, Night Raised in dark) holding Good Fit For (roles, then the situation) and a citron Priced As link.
