@@ -21,7 +21,7 @@ function Node({ node, layout }) {
             : 'bg-raised text-on-raised shadow-card',
       )}
     >
-      <p className="leading-snug font-bold">{node.title}</p>
+      <p className="leading-snug font-bold text-balance">{node.title}</p>
       {node.note && (
         <p
           className={clsx(
@@ -120,7 +120,7 @@ export function WorkDiagram({ lanes, label, className }) {
     <figure
       aria-label={label}
       className={clsx(
-        'rounded-[1.75rem] bg-sunken p-6 sm:p-9 dark:bg-night',
+        'rounded-[1.75rem] bg-sunken p-6 sm:p-9 xl:mx-[calc(50%-min(50vw-1rem,45rem))] dark:bg-night',
         className,
       )}
     >

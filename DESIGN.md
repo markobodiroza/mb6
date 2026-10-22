@@ -3,38 +3,63 @@ name: Marko Bodiroza
 description: AI strategy and systems, made clear. Sharp, warm, memorable.
 colors:
   pigment-ultramarine: "oklch(0.37 0.19 268)"
-  blueprint-line: "oklch(0.415 0.185 268)"
+  blueprint-line: "oklch(0.435 0.18 268)"
   ultramarine-deep: "oklch(0.31 0.17 268)"
+  ultramarine-link: "oklch(0.4 0.19 268)"
   lapel-citron: "oklch(0.91 0.19 117)"
   night-ink: "oklch(0.2 0.03 268)"
   cool-paper: "oklch(0.985 0.005 265)"
   sunken-paper: "oklch(0.955 0.018 265)"
   blue-rule: "oklch(0.87 0.022 265)"
+  field-line: "oklch(0.62 0.03 265)"
   graphite: "oklch(0.33 0.025 268)"
   muted-graphite: "oklch(0.45 0.022 268)"
   pale-ultramarine: "oklch(0.88 0.045 262)"
+  danger: "oklch(0.5 0.2 25)"
+  night-page: "oklch(0.23 0.09 268)"
+  night-sunken: "oklch(0.27 0.105 268)"
+  night-field: "oklch(0.28 0.14 268)"
+  night-section: "oklch(0.34 0.13 268)"
+  night-raised: "oklch(0.42 0.17 268)"
 typography:
-  display:
+  page-title:
     fontFamily: "Google Sans Flex Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(2.75rem, 1.5rem + 3.9vw, 5.25rem)"
-    fontWeight: 820
-    lineHeight: 0.98
-    letterSpacing: "-0.04em"
-    fontVariation: "'ROND' 70"
-  headline:
-    fontFamily: "Google Sans Flex Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(2.5rem, 1.7rem + 3vw, 4.25rem)"
+    fontSize: "clamp(2.625rem, 1.7rem + 3.3vw, 4rem)"
     fontWeight: 800
-    lineHeight: 1.02
+    lineHeight: 1.08
     letterSpacing: "-0.035em"
     fontVariation: "'ROND' 70"
-  title:
+  section:
     fontFamily: "Google Sans Flex Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(2rem, 1.5rem + 1.8vw, 3rem)"
+    fontSize: "clamp(2.125rem, 1.6rem + 1.9vw, 2.5625rem)"
     fontWeight: 780
-    lineHeight: 1.06
+    lineHeight: 1.12
     letterSpacing: "-0.03em"
     fontVariation: "'ROND' 70"
+  heading:
+    fontFamily: "Google Sans Flex Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(1.75rem, 1.5rem + 0.9vw, 2.0625rem)"
+    fontWeight: 780
+    lineHeight: 1.16
+    letterSpacing: "-0.03em"
+    fontVariation: "'ROND' 70"
+  subhead:
+    fontFamily: "Google Sans Flex Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.65rem"
+    fontWeight: 760
+    lineHeight: 1.2
+    letterSpacing: "-0.02em"
+  title:
+    fontFamily: "Google Sans Flex Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.3125rem"
+    fontWeight: 720
+    lineHeight: 1.25
+    letterSpacing: "-0.018em"
+  lead:
+    fontFamily: "Google Sans Flex Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(1.1875rem, 1.1rem + 0.35vw, 1.3125rem)"
+    fontWeight: 400
+    lineHeight: 1.55
   body:
     fontFamily: "Google Sans Flex Variable, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1.0625rem"
@@ -42,11 +67,19 @@ typography:
     lineHeight: 1.65
   label:
     fontFamily: "Google Sans Flex Variable, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "0.8125rem"
+    fontSize: "0.9375rem"
     fontWeight: 700
-    letterSpacing: "0.1em"
+    lineHeight: 1.375
+  price:
+    fontFamily: "Google Sans Flex Variable, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "3rem"
+    fontWeight: 800
+    lineHeight: 1
+    letterSpacing: "-0.045em"
 rounded:
-  card: "20px"
+  field: "12px"
+  card: "16px"
+  panel: "20px"
   feature: "28px"
   full: "9999px"
 spacing:
@@ -54,8 +87,15 @@ spacing:
   md: "16px"
   lg: "24px"
   xl: "48px"
-  section: "144px"
+  lead: "clamp(3.5rem, 2.6rem + 3vw, 6rem)"
+  section: "clamp(5rem, 3.6rem + 4.5vw, 8.5rem)"
 components:
+  button-book-call:
+    backgroundColor: "{colors.lapel-citron}"
+    textColor: "{colors.night-ink}"
+    rounded: "{rounded.full}"
+    padding: "0 28px"
+    height: "52px"
   button-primary:
     backgroundColor: "{colors.pigment-ultramarine}"
     textColor: "{colors.cool-paper}"
@@ -64,36 +104,36 @@ components:
     height: "52px"
   button-primary-hover:
     backgroundColor: "{colors.ultramarine-deep}"
-  button-on-brand:
-    backgroundColor: "{colors.lapel-citron}"
-    textColor: "{colors.night-ink}"
-    rounded: "{rounded.full}"
-    padding: "0 28px"
-    height: "52px"
-  button-on-brand-hover:
-    backgroundColor: "{colors.cool-paper}"
-  button-night:
-    backgroundColor: "{colors.night-ink}"
-    textColor: "{colors.cool-paper}"
-    rounded: "{rounded.full}"
-    padding: "0 28px"
-    height: "52px"
-  button-secondary:
+  button-send-inquiry:
     backgroundColor: "{colors.cool-paper}"
     textColor: "{colors.night-ink}"
     rounded: "{rounded.full}"
     padding: "0 28px"
     height: "52px"
-  package-card:
+  package-row:
     backgroundColor: "{colors.cool-paper}"
-    textColor: "{colors.night-ink}"
-    rounded: "{rounded.card}"
-    padding: "36px"
-  pricing-teaser:
-    backgroundColor: "{colors.lapel-citron}"
     textColor: "{colors.night-ink}"
     rounded: "{rounded.feature}"
     padding: "40px"
+  diagram-panel:
+    backgroundColor: "{colors.sunken-paper}"
+    rounded: "{rounded.feature}"
+    padding: "36px"
+  diagram-step:
+    backgroundColor: "{colors.cool-paper}"
+    textColor: "{colors.night-ink}"
+    rounded: "{rounded.card}"
+    padding: "12px 16px"
+  tool-tag:
+    backgroundColor: "{colors.sunken-paper}"
+    textColor: "{colors.ultramarine-link}"
+    rounded: "{rounded.full}"
+    padding: "6px 14px"
+  input:
+    backgroundColor: "{colors.cool-paper}"
+    textColor: "{colors.night-ink}"
+    rounded: "{rounded.field}"
+    padding: "12px 16px"
 ---
 
 # Design System: Marko Bodiroza
@@ -102,155 +142,145 @@ components:
 
 **Creative North Star: "The Blueprint With a Highlighter"**
 
-A precise engineering drawing that someone has gone over with a highlighter. Deep pigment ultramarine carries the big moments with a faint drafting grid; a sharp citron, taken from the lime pin on Marko's lapel, marks what matters; deep night ink gives the page real contrast. The result should feel confident and human, never corporate.
+A precise engineering drawing someone has gone over with a highlighter. Deep pigment ultramarine carries the big moments; a sharp citron, taken from the lime pin on Marko's lapel, marks what matters; night ink and cool paper give the page real contrast. It should feel confident and human, never corporate. The drafting grid lives only on the large brand fields (hero, page headers, the closing band and the Start Here package). Diagrams and cards never carry it.
 
-The site is a working tool for busy decision makers, so structure stays familiar: a sticky header, one obvious next step (Book a Call) everywhere and predictable page shapes. Every inner page opens on a blue header and closes on a blue Book a Call band over a night-ink footer, so color frames each page. Personality comes from scale (very large, rounded, heavy headings), the citron accent and strong tonal contrast between blue, night and paper sections. Motion is responsive only: 200 ms color and position feedback on hover and focus, no entrance choreography, all disabled under reduced motion.
+The site is a working tool for busy decision makers, so structure stays familiar: a sticky header, two calls to action everywhere (Book a Call and Send Inquiry) and predictable page shapes. Every inner page opens on a blue header and closes on a blue band over a night footer, so color frames each page. Personality comes from scale (large, heavy, rounded headings), the citron accent and strong tonal steps between blue, night and paper.
 
-This system explicitly rejects the **generic AI startup** look (purple gradients, glowing orbs, neon on black, robot or brain imagery), the **template portfolio** look this site started from, the **corporate agency** look (stock photos of handshakes, buzzword heroes, logo walls) and the **guru or course seller** look (countdowns, hype claims, big-number testimonials, aggressive upsells). It also rejects its own first draft: beige paper with grey-slate text and thin rules read as corporate.
+This system rejects the **generic AI startup** look (purple gradients, glowing orbs, neon on black, robot or brain imagery), the **template portfolio** look this site started from, the **corporate agency** look (stock photos of handshakes, buzzword heroes, logo walls) and the **guru or course seller** look (countdowns, hype claims, big-number testimonials, aggressive upsells). It also rejects its own earlier drafts: beige paper with grey-slate text, uppercase eyebrows above every heading and decorative numerals.
 
 **Key Characteristics:**
-- Full palette with clear roles: ultramarine fields, citron highlights, night-ink sections, cool paper
-- A 48px drafting grid on ultramarine as the signature motif
-- Very large, heavy headings with rounded letterforms (Google Sans Flex, ROND axis)
-- Pill buttons; generous 20px to 28px corners on cards and feature blocks
-- Big numerals and thick 2px ink rules instead of thin grey lines
-- Light first, with a designed dark mode; WCAG 2.2 AA in both
+- Full palette with clear roles: ultramarine fields, citron highlights, night sections, cool paper
+- A 48px drafting grid on brand fields only
+- One sans family on a 1.25 type scale, with heavy rounded headings
+- Pill buttons, and only two of them: Book a Call and Send Inquiry
+- Flat surfaces, except raised cards (diagram steps), which take one soft blue-tinted shadow
+- Light and a designed dark mode, both WCAG 2.2 AA
 
 ## 2. Colors
 
-A full palette with four deliberate roles. All values are OKLCH custom properties in `src/styles/tailwind.css`; dark mode redefines only the semantic layer under `.dark`.
+A full palette with four roles. Values are OKLCH custom properties in `src/styles/tailwind.css`; dark mode redefines the semantic layer under `.dark`.
 
 ### Primary
-- **Pigment Ultramarine** (oklch(0.37 0.19 268)): hero and page-header fields, the closing Book a Call band, primary buttons, big numerals and links on paper.
-- **Blueprint Line** (oklch(0.415 0.185 268)): the 1px drafting grid on ultramarine fields and the hover fill for outline buttons on them.
-- **Ultramarine Deep** (oklch(0.31 0.17 268)): hover for primary buttons.
-- **Pale Ultramarine** (oklch(0.88 0.045 262)): body text and outline borders on ultramarine (7.8:1).
+- **Pigment Ultramarine** (oklch(0.37 0.19 268)): hero and page-header fields, the closing band, the Start Here package, primary buttons on paper.
+- **Blueprint Line** (oklch(0.435 0.18 268)): the 1px drafting grid on brand fields.
+- **Ultramarine Deep** (oklch(0.31 0.17 268)): primary button hover.
+- **Ultramarine Link** (oklch(0.4 0.19 268)): links, icons, check marks and arrow links on paper.
+- **Pale Ultramarine** (oklch(0.88 0.045 262)): secondary text on brand fields.
 
 ### Secondary
-- **Lapel Citron** (oklch(0.91 0.19 117)): the highlighter. Eyebrows and the highlighted phrase in the hero, the Book a Call button on blue fields, step numbers on night ink, the offset block behind the portrait, the pricing teaser block and the "Start Here" badge. 8.8:1 on ultramarine, 14.3:1 on night ink.
+- **Lapel Citron** (oklch(0.91 0.19 117)): the highlighter. The hero highlight, Book a Call on blue fields, the Start Here badge, the photo offset block, the pricing teaser, highlighted diagram results and labels on blue.
 
 ### Tertiary
-- **Night Ink** (oklch(0.2 0.03 268)): the How I Work section, the hourly rate block, the footer and all text on paper and on citron (17.4:1 on paper).
+- **Night Ink** (oklch(0.2 0.03 268)): the How I Work band, the footer, sidebar cards and all text on paper and citron.
 
 ### Neutral
-- **Cool Paper** (oklch(0.985 0.005 265)): page background, tinted toward the brand.
-- **Sunken Paper** (oklch(0.955 0.018 265)): hover fills.
-- **Blue Rule** (oklch(0.87 0.022 265)): card borders and quiet dividers.
-- **Graphite** (oklch(0.33 0.025 268)): body copy (11.7:1).
-- **Muted Graphite** (oklch(0.45 0.022 268)): dates, units and labels (7.1:1).
+- **Cool Paper** (oklch(0.985 0.005 265)): the page, raised cards and package rows.
+- **Sunken Paper** (oklch(0.955 0.018 265)): diagram panels, the services box, hover fills and the scrolled header.
+- **Blue Rule** (oklch(0.87 0.022 265)): quiet dividers and package row borders.
+- **Field Line** (oklch(0.62 0.03 265)): form outlines (3:1 against paper), dashed diagram steps and the scrolled header edge.
+- **Graphite** (oklch(0.33 0.025 268)) and **Muted Graphite** (oklch(0.45 0.022 268)): body copy and secondary text.
 
 ### Dark Theme: Blue Night
-Dark mode is not black. The page itself turns deep ultramarine (oklch(0.23 0.09 268)), blue fields sit slightly brighter (oklch(0.38 0.19 268)) so they lift off the page without drifting toward neon, night-ink sections sink deeper (oklch(0.15 0.055 268)) and citron takes over every action role: buttons, links, numerals, the active nav mark and focus rings. Text is a near-white tinted toward the brand.
+Dark mode is never black. Everything steps through one ultramarine family, darkest to brightest: **Night Page** (0.23) for the page, **Night Sunken** (0.27) for cards and the scrolled header, **Night Field** (0.28) for brand fields such as the hero, **Night Section** (0.34) for night sections and diagram panels, while the footer returns to Night Page so the page ends on its darkest step, and **Night Raised** (0.42) for diagram steps and tool tags. Citron takes over every action role: buttons, links, icons, arrows and focus rings.
 
 ### Named Rules
-**The Highlighter Rule.** Citron is a background or a color on ultramarine and night ink. It is never text on light paper, where it would fail contrast. In dark mode the paper is blue, so citron becomes the link and action color.
+**The Highlighter Rule.** Citron is a background or a color on blue and night fields. It is never text on light paper.
 
-**The Committed Field Rule.** Ultramarine appears as large solid fields or as action color. Never as a gradient wash, glow or text gradient. The drafting grid is the only pattern allowed on it.
+**The Committed Field Rule.** Ultramarine appears as large solid fields or as an action color, never as a gradient, glow or text gradient. The drafting grid is the only pattern allowed on it, and only on brand fields.
+
+**The Even Steps Rule.** In dark mode each surface sits on its own lightness step (0.23, 0.27, 0.28, 0.34, 0.42). Two adjacent surfaces closer than one step will blend, so they are forbidden next to each other.
 
 **The No Pure Values Rule.** No #000 and no #fff. Every neutral is tinted toward hue 265 to 268.
 
-**The Light Tint Hue Rule.** Blue tints lighter than L 0.7 shift to hue 262 so they never drift toward lavender.
-
 ## 3. Typography
 
-**Display and Body Font:** Google Sans Flex (self-hosted from `@fontsource-variable/google-sans-flex`, weight and roundness axes only, about 71 KB for Latin)
+**Display and Body Font:** Google Sans Flex (self-hosted from `@fontsource-variable/google-sans-flex`; weight and roundness axes)
 
-**Character:** One flexible family. Headings use heavy weights (780 to 850) with the roundness axis at 70, which makes them friendly and memorable instead of corporate. Body text stays at roundness 0 for crisp reading.
+**Character:** One flexible family. Headings use heavy weights (720 to 800) with the roundness axis at 70, friendly and memorable rather than corporate. Body text stays crisp at roundness 0.
 
 ### Hierarchy
-- **Display** (820, fluid 2.75rem to 5.25rem, line-height 0.98, -0.04em, ROND 70): the homepage hero headline and the closing Book a Call heading.
-- **Page Title** (800, fluid 2.5rem to 4.25rem, 1.02, -0.035em): one H1 per inner page, on the blue header.
-- **Section** (780, fluid 2rem to 3rem, 1.06, -0.03em): section headings.
-- **Title** (720 to 760, 1.375rem to 1.625rem, 1.2 to 1.25): service names, steps, package names.
-- **Lead** (400, 1.1875rem to 1.3125rem, 1.55): intros under headings.
-- **Long-form** (400, 1.125rem, 1.65 to 1.7): reading text on About, Insights summaries, Process steps and the mobile menu, capped at 60ch (about 75 characters).
-- **Body** (400, 1.0625rem, 1.65): paragraphs and FAQ answers, capped at 60ch.
-- **UI** (500 to 700, 0.9375rem): buttons, nav, footer links, form hints, dates and small supporting text.
-- **Label** (700, 0.8125rem, 0.1em, uppercase): eyebrows such as "What I Do" and "Process".
-- **Numeral** (700, 0.9375rem, tabular figures): dates, small list numbers and step counters.
-- **Big Numeral** (850, 3.25rem, ROND 100, tabular figures): service numbers on Home and Services.
-- **Price** (850, 3rem, -0.045em): package and hourly prices on Pricing.
+A 1.25 ratio from a 17px body. Fixed steps for text and UI, fluid steps for headings.
+- **Page Title** (800, 42 to 64px fluid, 1.08): the hero headline, every page title and the closing band.
+- **Section** (780, 34 to 41px fluid, 1.12): section headings.
+- **Heading** (780, 28 to 33px fluid, 1.16): service and work example titles, the pricing teaser and the Not Sure band.
+- **Subhead** (760, 26.5px, 1.2): package names, Process steps and article section headings.
+- **Title** (720, 21px, 1.25): small headings such as The Situation, What Happens Next and the Home service names; also FAQ questions and insight titles.
+- **Lead** (400, 19 to 21px, 1.55): intros under headings.
+- **Body** (400, 17px, 1.65 to 1.7): all reading text, capped at 60ch.
+- **Label** (700, 15px, Title Case): in-card labels such as You Get, Good Fit For, Priced As, Included and Tools; also notes, chips, nav and small print.
+- **Price** (800, 48px, -0.045em): package and hourly prices.
+- **Caption** (13px): the AI-level tile labels only.
 
 ### Named Rules
-**The One Family Rule.** One typeface, flexed through weight and roundness. No second family.
+**The 1.25 Rule.** Every step is at least 25% larger than the one below. Sizes between steps are forbidden; if something needs to stand out, change its weight, not its size.
 
-**The Title Case Rule.** Headings use Title Case with short words lowercase, never end with a period and are balanced with `text-wrap: balance`.
+**The Title Case Label Rule.** Labels are Title Case, bold and small. No uppercase, letter-spaced eyebrows above headings.
+
+**The ExtraBold Ceiling Rule.** Nothing heavier than 800.
 
 ## 4. Elevation
 
-Flat. No shadows. Depth comes from tonal blocks (paper, ultramarine, night ink, citron) and from one deliberate offset: a citron block shifted 16px behind the hero portrait.
+Mostly flat. Depth comes from tonal blocks: paper, sunken paper, ultramarine, night and citron. There is one exception, the **raised card**: diagram steps (including highlighted results) and the Good Fit For box on Services. It is a soft, blue-tinted lift that marks something as an object to look at or follow.
+
+### Shadow Vocabulary
+- **Card** (`0 1px 2px oklch(0.2 0.03 268 / 0.08), 0 12px 28px -14px oklch(0.37 0.19 268 / 0.4)`; dark: `0 1px 2px oklch(0.1 0.05 268 / 0.5), 0 14px 30px -14px oklch(0.08 0.05 268 / 0.85)`): raised diagram steps and the Services fit box. Exposed as the `shadow-card` utility.
 
 ### Named Rules
-**The No Shadow Rule.** Stand out with tone, color or a thicker border, never a drop shadow.
+**The One Lift Rule.** Only raised cards cast a shadow, and only the card shadow. If a second shadow style appears, or a large container gets a shadow, it is wrong.
 
 ## 5. Components
 
 ### Buttons
-Friendly and decisive: full pills, bold labels, solid fills.
-- **Shape:** fully rounded (9999px); 52px tall with 28px side padding, 44px for the header.
-- **Primary:** ultramarine with paper text; hover deepens to Ultramarine Deep.
-- **On Blue:** citron with night-ink text, used for Book a Call on every ultramarine field; hover turns paper. Its outline partner uses a pale ultramarine border.
-- **Night:** night ink with paper text, used on citron blocks; hover turns ultramarine.
-- **Secondary:** paper with a 2px ink outline; hover fills with ink and flips the text to paper.
-- **Focus:** 2px ring offset 3px; ultramarine on paper, citron on ultramarine and night ink.
-- **Book a Call:** links to `siteMeta.bookingUrl`, or opens a pre-addressed email until it is set.
+Decisive full pills with bold labels. Only two calls to action exist.
+- **Shape:** fully rounded (9999px); 52px tall with 28px side padding, 44px in the header.
+- **Book a Call:** citron with night text on blue fields; ultramarine on paper in light mode, citron in dark mode. Opens the Cal.com booking page.
+- **Send Inquiry:** the outline partner on blue fields (pale ultramarine border), or a 2px ink outline on paper. Goes to /contact, with the topic preselected from a package.
+- **Feedback:** every button presses down 1px and scales to 97%; arrows nudge forward on hover.
+- **Focus:** 2px ring offset 3px; ultramarine on paper, citron on blue and night.
 
-### Cards / Containers
-- **Package cards (Pricing only):** 28px corners, 36px padding, each in its own color world so packages are told apart at a glance: AI Audit and Roadmap on an ultramarine blueprint field with a citron "Start Here" badge, Team Workshop on citron, AI Process Build on night ink (with a rule ring in dark mode), Monthly Advisory on paper with a 2px ink outline. Each card leads with a "Best for" line. A "Which Package Fits?" guide above links to each card with a matching color dot.
-- **Hourly block:** paper with a 2px dashed ink outline, so it reads as the flexible option and stays visible in both themes.
-- **Feature blocks:** 28px corners. The citron pricing teaser on the homepage and the night-ink hourly rate block on Pricing.
+### Arrow Links
+Everything that is not one of the two calls to action is an arrow link: bold link-colored text with a trailing arrow that nudges on hover, and a highlighter pass behind the words on paper. Labels are verb-led ("See All Services", "Read All Insights", "Compare All Packages").
 
-### Forms
-- **Inputs:** 12px corners, 2px field-colored border (oklch(0.62 0.03 265) light, oklch(0.58 0.08 262) dark, at least 3:1 against the page), paper fill; hover darkens the border, focus turns it link-colored. Labels sit above in bold, with optional hints on the right.
-- **Required fields:** only name, email and project details; website, topic, budget and AI level are optional and say so.
-- **Errors:** danger tokens (oklch(0.5 0.2 25) text and oklch(0.55 0.2 25) outline in light, oklch(0.82 0.12 25) and oklch(0.72 0.17 25) in dark).
-- **Validation:** checked on submit; each problem shows a friendly sentence under its field, the field is marked invalid and focus moves to the first one.
-- **Success:** a citron panel with a drawn check mark. Until `siteMeta.formEndpoint` is set, the form opens the visitor's email app with the message filled in.
+### Tool Tags
+Small pills (15px, semibold): a 14% ultramarine tint with ultramarine text in light mode, Night Raised with white text in dark mode.
+
+### Package Rows (Pricing)
+Full-width rows with 28px corners: name, Best for, price, duration and Send Inquiry on the left; a two-column Included list on the right. The Start Here package sits on a brand field with the drafting grid, and its grid drifts slightly on hover. The other packages are paper with a 2px Blue Rule border that firms to ink on hover. Included checks pop in one after another as a row scrolls into view.
+
+### Services Rows
+Icon and title, the description and You Get on the left; on the right, a raised card (Pigment Ultramarine in light mode, Night Raised in dark) holding Good Fit For (roles, then the situation) and a citron Priced As link.
+
+### Work Diagrams
+Flows drawn in HTML. Panels are Sunken Paper in light mode and Night Section in dark mode, with 28px corners and no grid. Steps are raised cards (Cool Paper in light, Night Raised in dark); results are citron; optional steps are dashed Field Line outlines. Lanes run left to right on wide screens and stack top to bottom on phones, with centered text and down arrows. From 1280px the panel breaks out of the text column, up to 1440px wide, so no step ever squeezes; numbered steps keep their number and word together.
+
+### Inputs / Fields
+- **Style:** 12px corners, 2px Field Line outline, paper fill; hover darkens the outline, focus turns it link-colored.
+- **Required:** only name, email and project details. Website, topic, budget and AI level are marked Optional.
+- **Errors:** a friendly sentence under the field, the field marked invalid and focus moved to the first problem.
+- **Success:** a citron panel with a drawn check mark.
 
 ### Navigation
-- **Header:** sticky, solid paper with a rule bottom edge, 72px tall. A 44px round portrait in a 3px link-colored ring (ultramarine in light mode, citron in dark) links home (no name text; it tilts slightly on hover). Nav starts with Home; links in graphite, ink on hover with a sunken pill; current page in ink with a 3px link-colored mark; 44px theme toggle; pill Book a Call button.
-- **Mobile:** a menu button opens a full-width panel with large links and a full-width Book a Call button.
-- **Footer:** night ink with citron email and LinkedIn links, page links on the right and the privacy line below.
+- **Header:** sticky, 80px tall, paper at the top of the page; once scrolled it switches to Sunken Paper with a Field Line edge so it never blends into paper sections. A 44px round portrait in a link-colored ring links home. Links are graphite, ink on hover with a sunken pill; the current page gets a 3px link-colored mark. The full menu shows from 1024px; below that a menu button opens a full-width panel.
+- **Footer:** night ink in light mode; in dark mode it drops to Night Page with a rule on top, so the page always ends on its darkest surface. Name, tagline and page links.
 
-### Numbered Lists
-The signature structure. Services use big ultramarine numerals over 2px ink rules; homepage steps use citron numerals on night ink; Process page steps are 72px citron discs joined by a thin rule, each with a short italic note; after step 5 the rail turns dashed and ends in a looping arrow back to step 2. The steps appear once, never as a separate diagram.
-
-### Page Header
-Every inner page opens on an ultramarine field with the drafting grid, a citron eyebrow, a large page title and a pale ultramarine intro.
-
-### Delight
-Playful but quick, never blocking.
-- **Highlighter sweep:** a citron marker stroke draws under "AI to Work" in the hero on load (900 ms, ease-out-expo, 400 ms delay). Disabled under reduced motion; the stroke is simply there.
-- **Highlighter hover:** text links (Insights titles, About contact links) get a marker pass behind the words on hover: citron in light mode, ultramarine in dark mode.
-- **Tactile buttons:** every button presses down 1px and scales to 97% on click; arrows inside buttons nudge forward on hover.
-- **404 page:** "This Page Isn’t on the Roadmap" on a blueprint field with a huge citron 404 and a way back.
-
-### Motion
-Quick, confident and never blocking. Easing is ease-out-expo (cubic-bezier(0.16, 1, 0.3, 1)); nothing bounces.
-- **Hero entrance:** eyebrow, intro, buttons and proof line rise in on load with a 90 ms stagger (700 ms each). The headline only rises 14px and is never hidden, so the largest paint is not delayed. The citron block behind the portrait settles into its offset.
-- **Scroll reveals:** blocks marked `data-reveal` fade up 26px over 750 ms as they enter the viewport, staggered 70 ms within a group. They are only hidden when an inline script has confirmed IntersectionObserver support and no reduced-motion preference, so content is never lost without JavaScript.
-- **Process loop:** the loop arrow at the end of the Process steps draws itself when it scrolls into view.
-- **Feedback:** button press (1px down, 97% scale), arrow nudges, highlighter hovers, a pop on the chosen AI proficiency tile and a drawn check on form success.
-- **Reduced motion:** every entrance, reveal and pop is off; content is simply there.
-
-### Spacing Rhythm
-Two fluid tokens set the big gaps: lead space from a page header to its first content (clamp 3.5rem to 6rem) and section space between major blocks (clamp 5rem to 8.5rem). Inside blocks, spacing stays tight (8px to 32px) so groups read clearly.
+### Numbered Lists and Icons
+Numbers appear only where order matters: Home process steps (01 to 05) and the 1 to 4 review gates inside a diagram. Services and Process steps use custom line icons (24px grid, 1.75 stroke, round ends) in link color. Short lists use check marks.
 
 ### FAQ
-Native details and summary rows (keyboard accessible, no JavaScript needed) under a 2px ink rule, with a plus icon in a sunken circle that turns into an x when open. The first question opens by default. Marked up as FAQPage structured data. Lives on Pricing and covers timeline, scope, changes, what the team provides, where to start, tools and currency.
+Native details rows under a 2px ink rule, closed by default, with a plus icon that turns into an x. Pricing covers cost, scope and timing; Services covers tools, data, agencies and remote work. Both are marked up as FAQPage data.
 
-### Blueprint Band
-The closing call to action on every page: an ultramarine field with the drafting grid, a display-size "Book a Call" heading, one sentence, a citron Book a Call button and an email button. It sits flush against colored sections and directly above the night-ink footer.
+### Motion
+Quick and never blocking, with ease-out-expo (cubic-bezier(0.16, 1, 0.3, 1)). The hero rises in on load with a short stagger and the citron highlighter sweeps under "AI to Work"; blocks fade up as they scroll in. Feedback runs at 200ms. Everything is off under reduced motion, and content is never hidden without JavaScript.
 
 ## 6. Do's and Don'ts
 
 ### Do:
-- **Do** keep the small uppercase label above page and section headings (Label style, citron on blue, link color on paper). It is a deliberate wayfinding choice: the detector's hero-eyebrow-chip and kicker-above-heading warnings are accepted for this site.
-- **Do** make Book a Call the most visible action on every page: header, hero and closing band.
-- **Do** frame every page with color: blue header, blue closing band, night-ink footer.
-- **Do** use citron to highlight one thing per view: a phrase, a number, a button.
-- **Do** keep body text at 1.0625rem (1.125rem for long-form reading), Graphite or darker, and 60ch maximum.
-- **Do** meet WCAG 2.2 AA in both themes, including text on ultramarine, citron and night ink.
+- **Do** use only two buttons: Book a Call and Send Inquiry. Every other action is an arrow link.
+- **Do** keep type on the 1.25 scale: 15, 17, 21 and 26.5px, then the fluid heading, section and page title steps.
+- **Do** frame every page with color: blue header, blue closing band, night footer.
+- **Do** keep the dark-mode surfaces on their own steps (0.23, 0.27, 0.28, 0.34, 0.42) so nothing disappears.
+- **Do** use citron to highlight one thing per view: a phrase, a result, a button.
+- **Do** keep body text at 17px, Graphite or darker, and 60ch maximum.
 - **Do** follow the copy rules in PRODUCT.md: Title Case headings, no em dashes, no serial comma before "and", no invented numbers.
 
 ### Don't:
@@ -258,6 +288,8 @@ The closing call to action on every page: an ultramarine field with the drafting
 - **Don't** fall back to the template portfolio look this site started from, interchangeable with thousands of developer blogs.
 - **Don't** use the corporate agency look: stock photos of handshakes, buzzword heroes or logo walls.
 - **Don't** use the guru or course seller look: countdowns, hype claims, big-number testimonials or aggressive upsells.
-- **Don't** return to beige paper, grey-slate text and thin grey rules; that combination read as corporate.
-- **Don't** put citron text on paper, use gradient text, glassmorphism, drop shadows, side-stripe borders or grids of identical icon cards.
-- **Don't** animate on page load; motion only answers hover, focus and state changes.
+- **Don't** put the drafting grid on diagrams, cards or anything smaller than a full-width brand field.
+- **Don't** add uppercase eyebrows above headings or decorative numerals beside items that have no order.
+- **Don't** let dark mode go black, or reuse the light-mode blue on dark-mode brand fields.
+- **Don't** put citron text on paper, or use gradient text, glassmorphism, side-stripe borders or grids of identical icon cards.
+- **Don't** add shadows beyond the single card shadow on raised cards.
