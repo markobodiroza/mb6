@@ -21,7 +21,7 @@ export function CtaBand({
         className="grid gap-10 py-20 sm:py-28 lg:grid-cols-[1.4fr_1fr] lg:items-end"
       >
         <div>
-          <h2 className="text-display">{title}</h2>
+          <h2 className="text-page-title">{title}</h2>
           <p className="text-lead mt-5 max-w-xl text-on-brand-muted">
             {children}
           </p>

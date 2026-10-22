@@ -146,7 +146,7 @@ function DesktopNavigation() {
 
   return (
     <nav aria-label="Main" className="hidden lg:block">
-      <ul className="flex items-center gap-1 text-[0.9375rem] font-medium">
+      <ul className="flex items-center gap-1 text-ui font-medium">
         {navigation.map((item) => (
           <li key={item.href}>
             <Link
@@ -267,7 +267,7 @@ function MobileNavigation() {
           </button>
         </div>
         <nav aria-label="Main" className="mt-4">
-          <ul className="divide-y divide-rule text-[1.125rem] font-semibold">
+          <ul className="divide-y divide-rule text-prose font-semibold">
             {navigation.map((item) => (
               <li key={item.href}>
                 <Link

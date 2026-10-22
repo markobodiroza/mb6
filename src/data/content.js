@@ -283,6 +283,7 @@ export const pricingPackages = [
   {
     name: 'AI Audit and Roadmap',
     slug: 'audit',
+    term: 'Takes 4 to 6 weeks',
     featured: true,
     bestFor: 'You know AI matters but not where it fits in your work.',
     price: 4000,
@@ -305,6 +306,7 @@ export const pricingPackages = [
   {
     name: 'Team Workshop',
     slug: 'workshop',
+    term: 'One workshop, with a prep call and a follow-up Q&A',
     bestFor: 'Your team has AI tools but not the habits to use them well.',
     price: 3500,
     unit: 'per workshop',
@@ -324,6 +326,7 @@ export const pricingPackages = [
   {
     name: 'AI Process Build',
     slug: 'process-build',
+    term: 'Takes 6 to 10 weeks per process',
     bestFor: 'One recurring process is eating hours of your team’s week.',
     price: 8000,
     unit: 'per process',

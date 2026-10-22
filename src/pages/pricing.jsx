@@ -32,8 +32,8 @@ function Package({ pkg, index }) {
       className={clsx(
         'grid scroll-mt-28 gap-8 rounded-[1.75rem] p-6 sm:p-9 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] lg:gap-14 lg:p-10',
         featured
-          ? 'blueprint on-brand text-on-brand'
-          : 'border-2 border-rule bg-paper dark:bg-sunken',
+          ? 'blueprint on-brand text-on-brand transition-[background-position] duration-700 ease-out-quart hover:[background-position:23px_23px]'
+          : 'border-2 border-rule bg-paper transition-colors duration-200 hover:border-ink dark:bg-sunken',
       )}
     >
       <div className="flex flex-col items-start">
@@ -42,28 +42,28 @@ function Package({ pkg, index }) {
             Start Here
           </span>
         )}
-        <h2 className="text-[1.625rem] leading-[1.2] font-[780] tracking-tight">
+        <h2 className="text-subhead leading-[1.2] font-[780] tracking-tight">
           {pkg.name}
         </h2>
         <p
           className={clsx(
-            'mt-2 text-[1.0625rem] leading-normal',
+            'mt-2 text-body leading-normal',
             featured ? 'text-on-brand-muted' : 'text-graphite',
           )}
         >
           <span className="font-bold">Best for:</span> {pkg.bestFor}
         </p>
         <p className="mt-6 flex flex-wrap items-baseline gap-x-2">
-          <span className="text-[0.9375rem] font-semibold">From</span>
-          <span className="text-[3rem] leading-none font-extrabold tracking-[-0.045em]">
+          <span className="text-ui font-semibold">From</span>
+          <span className="text-price leading-none font-extrabold tracking-[-0.045em]">
             {formatPrice(pkg.price)}
           </span>
-          <span className="text-[0.9375rem] font-semibold">{pkg.unit}</span>
+          <span className="text-ui font-semibold">{pkg.unit}</span>
         </p>
         {pkg.term && (
           <p
             className={clsx(
-              'mt-2 text-[0.9375rem]',
+              'mt-2 text-ui',
               featured ? 'text-on-brand-muted' : 'text-muted',
             )}
           >
@@ -82,13 +82,15 @@ function Package({ pkg, index }) {
         <h3 className="label">Included</h3>
         <ul
           role="list"
-          className="mt-4 grid gap-x-8 gap-y-3 text-[0.9375rem] leading-normal sm:grid-cols-2"
+          className="mt-4 grid gap-x-8 gap-y-3 text-ui leading-normal sm:grid-cols-2"
         >
-          {pkg.includes.map((item) => (
+          {pkg.includes.map((item, index) => (
             <li key={item} className="flex gap-3">
+              {/* Checks pop in one after another as the card scrolls in */}
               <CheckIcon
+                style={{ '--i': index }}
                 className={clsx(
-                  'mt-[0.2rem] h-5 w-5 flex-none',
+                  'step-pop mt-[0.2rem] h-5 w-5 flex-none',
                   featured ? 'text-citron' : 'text-link',
                 )}
               />
@@ -167,7 +169,7 @@ export default function Pricing() {
           <div>
             <h2
               id="hourly-heading"
-              className="text-[1.625rem] leading-[1.2] font-[780] tracking-tight"
+              className="text-subhead leading-[1.2] font-[780] tracking-tight"
             >
               Hourly Advisory
             </h2>
@@ -176,10 +178,10 @@ export default function Pricing() {
             </p>
           </div>
           <p className="flex items-baseline gap-2">
-            <span className="text-[3rem] leading-none font-extrabold tracking-[-0.045em]">
+            <span className="text-price leading-none font-extrabold tracking-[-0.045em]">
               {formatPrice(hourlyRate.price)}
             </span>
-            <span className="text-[0.9375rem] text-graphite">per hour</span>
+            <span className="text-ui text-graphite">per hour</span>
           </p>
           <Button variant="secondary" href={contactHref('Hourly Advisory')}>
             Send Inquiry

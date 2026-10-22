@@ -3,24 +3,29 @@ import clsx from 'clsx'
 // Flow diagrams for work examples, drawn in HTML so they stay readable on
 // phones (lanes stack top to bottom) and follow dark mode. Data shape is
 // described in src/data/work.js.
-const line = 'border-[color-mix(in_oklch,var(--on-brand)_38%,transparent)]'
+// Plain steps sit on a soft fill; only optional steps keep an outline
+const fill = 'bg-[color-mix(in_oklch,var(--on-brand)_10%,transparent)]'
+const line = 'border-[color-mix(in_oklch,var(--on-brand)_45%,transparent)]'
 
 // Text is centered while a lane stacks, to line up with its arrows
 function Node({ node, layout }) {
   return (
     <div
       className={clsx(
-        'rounded-2xl border-[1.5px] px-4 py-3',
+        'rounded-2xl px-4 py-3',
         layout.text,
-        node.highlight ? 'border-citron bg-citron text-on-citron' : line,
-        node.dashed && 'border-dashed',
+        node.highlight
+          ? 'bg-citron text-on-citron'
+          : node.dashed
+            ? clsx('border-[1.5px] border-dashed', line)
+            : fill,
       )}
     >
       <p className="leading-snug font-bold">{node.title}</p>
       {node.note && (
         <p
           className={clsx(
-            'mt-1 text-[0.9375rem] leading-snug',
+            'mt-1 text-ui leading-snug',
             node.highlight ? 'text-on-citron' : 'text-on-brand-muted',
           )}
         >
@@ -122,13 +127,7 @@ export function WorkDiagram({ lanes, label, className }) {
       )}
     >
       {lanes.map((lane, index) => (
-        <div
-          key={lane.label}
-          className={clsx(
-            index > 0 && 'mt-8 border-t border-dashed pt-8',
-            line,
-          )}
-        >
+        <div key={lane.label} className={clsx(index > 0 && 'mt-10')}>
           <Lane lane={lane} />
         </div>
       ))}

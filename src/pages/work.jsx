@@ -28,7 +28,7 @@ function Story({ example }) {
           <p className="label text-link">{example.client}</p>
           <h2
             id={`${example.slug}-title`}
-            className="mt-2 max-w-3xl text-[clamp(1.75rem,1.4rem+1.2vw,2.5rem)] leading-[1.16] font-[780] tracking-[-0.03em]"
+            className="text-heading mt-2 max-w-3xl"
           >
             {example.title}
           </h2>
@@ -39,7 +39,7 @@ function Story({ example }) {
             {example.tools.map((tool) => (
               <li
                 key={tool}
-                className="rounded-full bg-[color-mix(in_oklch,var(--link)_14%,var(--paper))] px-3.5 py-1.5 text-[0.9375rem] font-semibold text-link dark:bg-brand dark:text-on-brand"
+                className="rounded-full bg-[color-mix(in_oklch,var(--link)_14%,var(--paper))] px-3.5 py-1.5 text-ui font-semibold text-link dark:bg-brand dark:text-on-brand"
               >
                 {tool}
               </li>

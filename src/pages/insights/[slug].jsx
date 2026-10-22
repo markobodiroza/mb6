@@ -75,10 +75,10 @@ export default function Insight({ insight, more }) {
           <p className="text-lead font-medium">{insight.intro}</p>
           {insight.sections.map((section) => (
             <section key={section.heading} className="mt-12">
-              <h2 className="text-[1.625rem] leading-[1.2] font-[780] tracking-[-0.022em]">
+              <h2 className="text-subhead leading-[1.2] font-[780] tracking-[-0.022em]">
                 {section.heading}
               </h2>
-              <p className="mt-3 text-[1.125rem] leading-[1.7] text-graphite">
+              <p className="mt-3 text-prose leading-[1.7] text-graphite">
                 {section.body}
               </p>
             </section>
@@ -107,19 +107,16 @@ export default function Insight({ insight, more }) {
         <aside className="lg:pt-2">
           <div className="on-night rounded-[1.75rem] bg-night p-8 text-on-night lg:sticky lg:top-28 dark:ring-2 dark:ring-rule">
             <p className="label text-citron">Want This for Your Team?</p>
-            <p className="mt-3 text-[1.375rem] leading-[1.35] font-bold">
+            <p className="mt-3 text-headline leading-[1.35] font-bold">
               I help marketing teams turn ideas like these into working AI
               systems.
             </p>
-            <BookCallButton variant="on-brand" className="mt-6" />
-            <ArrowLink
-              href="/insights"
-              color="text-on-night"
-              marker={false}
-              className="mt-6 flex"
-            >
-              Read More Insights
-            </ArrowLink>
+            <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-4">
+              <BookCallButton variant="on-brand" />
+              <ArrowLink href="/insights" color="text-on-night" marker={false}>
+                Read More Insights
+              </ArrowLink>
+            </div>
           </div>
         </aside>
       </Container>

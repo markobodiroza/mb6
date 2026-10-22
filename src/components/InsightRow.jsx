@@ -16,7 +16,7 @@ export function InsightRow({ insight, as: Heading = 'h3' }) {
         {formatDate(insight.date)}
       </time>
       <div>
-        <Heading className="text-[1.1875rem] leading-[1.35] font-bold tracking-[-0.01em]">
+        <Heading className="text-card leading-[1.35] font-bold tracking-[-0.01em]">
           <Link href={`/insights/${insight.slug}`} className="marker-hover">
             <span className="absolute inset-0" aria-hidden="true" />
             {insight.title}

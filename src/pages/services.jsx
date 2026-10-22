@@ -38,9 +38,7 @@ function Service({ service, index }) {
             name={service.icon}
             className="mt-1 h-9 w-9 flex-none text-link"
           />
-          <h2 className="text-[clamp(1.75rem,1.4rem+1.2vw,2.25rem)] leading-[1.16] font-[780] tracking-[-0.03em]">
-            {service.title}
-          </h2>
+          <h2 className="text-heading">{service.title}</h2>
         </div>
         <p className="text-lead mt-6 text-graphite">{service.description}</p>
         <h3 className="label mt-9 text-link">You Get</h3>
@@ -85,10 +83,8 @@ function NotSureBand() {
       className="mb-14 flex flex-col gap-6 rounded-[1.75rem] bg-citron p-8 text-on-citron sm:flex-row sm:items-center sm:justify-between sm:p-10"
     >
       <div>
-        <p className="text-[clamp(1.5rem,1.2rem+1vw,2rem)] leading-[1.2] font-extrabold tracking-[-0.03em]">
-          Not Sure Which You Need?
-        </p>
-        <p className="mt-2 text-[1.0625rem] font-medium">
+        <p className="text-heading">Not Sure Which You Need?</p>
+        <p className="mt-2 text-body font-medium">
           Most teams start with the AI Audit and Roadmap. It answers that
           question for you.
         </p>
