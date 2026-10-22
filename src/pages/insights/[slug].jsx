@@ -75,10 +75,8 @@ export default function Insight({ insight, more }) {
           <p className="text-lead font-medium">{insight.intro}</p>
           {insight.sections.map((section) => (
             <section key={section.heading} className="mt-12">
-              <h2 className="text-subhead leading-[1.2] font-[780] tracking-[-0.022em]">
-                {section.heading}
-              </h2>
-              <p className="mt-3 text-prose leading-[1.7] text-graphite">
+              <h2 className="text-subhead">{section.heading}</h2>
+              <p className="mt-3 text-body leading-[1.7] text-graphite">
                 {section.body}
               </p>
             </section>
@@ -107,7 +105,7 @@ export default function Insight({ insight, more }) {
         <aside className="lg:pt-2">
           <div className="on-night rounded-[1.75rem] bg-night p-8 text-on-night lg:sticky lg:top-28 dark:ring-2 dark:ring-rule">
             <p className="label text-citron">Want This for Your Team?</p>
-            <p className="mt-3 text-headline leading-[1.35] font-bold">
+            <p className="mt-3 text-lead-size leading-[1.35] font-bold">
               I help marketing teams turn ideas like these into working AI
               systems.
             </p>

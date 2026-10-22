@@ -29,7 +29,7 @@ function CompanyMark({ role }) {
       ) : (
         <span
           aria-hidden="true"
-          className="text-prose font-extrabold tracking-[-0.03em] text-citron"
+          className="text-body font-extrabold tracking-[-0.03em] text-citron"
         >
           {role.monogram}
         </span>
@@ -54,7 +54,9 @@ function WorkHistory() {
           >
             <CompanyMark role={role} />
             <div>
-              <p className="text-card leading-[1.3] font-bold">{role.title}</p>
+              <p className="text-lead-size leading-[1.3] font-bold">
+                {role.title}
+              </p>
               <p className="text-graphite">{role.company}</p>
               <p className="numeral mt-1 text-muted">
                 <time dateTime={String(role.start.dateTime ?? role.start)}>
@@ -78,7 +80,7 @@ function WorkHistory() {
 
 function ToolChip({ children }) {
   return (
-    <li className="rounded-full bg-[color-mix(in_oklch,var(--link)_14%,var(--paper))] px-3.5 py-1.5 text-ui font-semibold text-link dark:bg-brand dark:text-on-brand">
+    <li className="rounded-full bg-[color-mix(in_oklch,var(--link)_14%,var(--paper))] px-3.5 py-1.5 text-ui font-semibold text-link dark:bg-raised dark:text-on-raised">
       {children}
     </li>
   )
@@ -143,7 +145,7 @@ export default function About() {
         their teams actually use.
       </PageHeader>
       <Container className="mt-lead grid gap-12 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-20">
-        <div className="max-w-152 space-y-6 text-prose leading-[1.7] text-graphite">
+        <div className="max-w-152 space-y-6 text-body leading-[1.7] text-graphite">
           <p className="text-lead text-ink">
             I’m Marko Bodiroza, an AI strategist and system builder. I started
             as a web developer, spent more than 15 years across web, SEO and

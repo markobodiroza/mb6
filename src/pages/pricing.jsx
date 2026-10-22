@@ -42,9 +42,7 @@ function Package({ pkg, index }) {
             Start Here
           </span>
         )}
-        <h2 className="text-subhead leading-[1.2] font-[780] tracking-tight">
-          {pkg.name}
-        </h2>
+        <h2 className="text-subhead">{pkg.name}</h2>
         <p
           className={clsx(
             'mt-2 text-body leading-normal',
@@ -167,10 +165,7 @@ export default function Pricing() {
           className="mt-6 grid gap-6 rounded-[1.75rem] border-2 border-dashed border-ink p-7 sm:p-9 md:grid-cols-[1fr_auto_auto] md:items-center md:gap-10"
         >
           <div>
-            <h2
-              id="hourly-heading"
-              className="text-subhead leading-[1.2] font-[780] tracking-tight"
-            >
+            <h2 id="hourly-heading" className="text-subhead">
               Hourly Advisory
             </h2>
             <p className="mt-2 max-w-measure text-graphite">

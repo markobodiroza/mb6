@@ -18,7 +18,7 @@ function Node({ node, layout }) {
           ? 'bg-citron text-on-citron shadow-card'
           : node.dashed
             ? 'border-2 border-dashed border-field text-ink'
-            : 'bg-paper text-ink shadow-card dark:bg-brand dark:text-on-brand',
+            : 'bg-raised text-on-raised shadow-card',
       )}
     >
       <p className="leading-snug font-bold">{node.title}</p>
@@ -26,9 +26,7 @@ function Node({ node, layout }) {
         <p
           className={clsx(
             'mt-1 text-ui leading-snug',
-            node.highlight
-              ? 'text-on-citron'
-              : 'text-graphite dark:text-on-brand-muted',
+            node.highlight ? 'text-on-citron' : 'text-on-raised-muted',
           )}
         >
           {node.note}

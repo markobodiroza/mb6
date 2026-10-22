@@ -267,7 +267,7 @@ function MobileNavigation() {
           </button>
         </div>
         <nav aria-label="Main" className="mt-4">
-          <ul className="divide-y divide-rule text-prose font-semibold">
+          <ul className="divide-y divide-rule text-body font-semibold">
             {navigation.map((item) => (
               <li key={item.href}>
                 <Link

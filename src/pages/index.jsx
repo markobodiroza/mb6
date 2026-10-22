@@ -39,7 +39,7 @@ function Hero() {
     <section className="blueprint on-brand overflow-hidden text-on-brand">
       <Container className="grid gap-10 py-16 sm:py-24 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-x-14 lg:gap-y-7 lg:py-28">
         <div className="lg:self-end">
-          <p className="enter text-card leading-snug font-bold text-citron sm:text-[1.3125rem]">
+          <p className="enter text-lead-size leading-snug font-bold text-citron">
             {siteMeta.author.name}, AI Strategist and System Builder
           </p>
           <h1 className="enter-rise text-page-title mt-5">
@@ -200,7 +200,7 @@ function ProcessAndPricing() {
                 >
                   {String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className="text-card leading-[1.35] font-bold">
+                <h3 className="text-lead-size leading-[1.35] font-bold">
                   {step.title.replace(/^\d+\.\s*/, '')}
                 </h3>
                 <p className="col-start-2 mt-1 text-ui leading-[1.6] text-on-night-muted sm:col-start-auto sm:mt-0">
