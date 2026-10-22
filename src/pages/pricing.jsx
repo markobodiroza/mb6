@@ -27,23 +27,18 @@ import {
 const description =
   'AI strategy and system packages with rates: AI audit and roadmap, team workshops, AI process builds, monthly advisory and hourly advisory.'
 
+// Every package leads with a blue column (name, price, inquiry) and lists
+// what is included on paper beside it
 function Package({ pkg, index }) {
-  let featured = pkg.featured
-
   return (
     <article
       id={pkg.slug}
       data-reveal
       style={{ '--i': index }}
-      className={clsx(
-        'grid scroll-mt-28 gap-8 rounded-[1.75rem] p-6 sm:p-9 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] lg:gap-0 lg:p-10',
-        featured
-          ? 'on-brand bg-brand text-on-brand'
-          : 'border-2 border-rule bg-paper transition-colors duration-200 hover:border-ink dark:bg-sunken',
-      )}
+      className="grid scroll-mt-28 overflow-hidden rounded-[1.75rem] border-2 border-rule transition-colors duration-200 hover:border-ink lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] dark:border-transparent dark:hover:border-field"
     >
-      <div className="flex flex-col items-start justify-center lg:pr-14">
-        {featured && (
+      <div className="on-brand flex flex-col items-start justify-center bg-brand p-6 text-on-brand sm:p-9 lg:p-10 dark:bg-raised">
+        {pkg.featured && (
           <span className="label mb-4 rounded-full bg-citron px-3 py-1 text-on-citron">
             Start Here
           </span>
@@ -57,21 +52,14 @@ function Package({ pkg, index }) {
           <span className="text-ui font-semibold">{pkg.unit}</span>
         </p>
         <Button
-          variant={featured ? 'on-brand' : 'secondary'}
+          variant="on-brand"
           className="mt-7 w-full sm:w-auto"
           href={contactHref(pkg.name)}
         >
           Send Inquiry
         </Button>
       </div>
-      <div
-        className={clsx(
-          'lg:border-l lg:pl-14',
-          featured
-            ? 'border-[color-mix(in_oklch,var(--on-brand)_25%,transparent)]'
-            : 'border-rule',
-        )}
-      >
+      <div className="bg-paper p-6 sm:p-9 lg:p-10 dark:bg-sunken">
         <h3 className="label">Included</h3>
         <ul
           role="list"
@@ -82,10 +70,7 @@ function Package({ pkg, index }) {
               {/* Checks pop in one after another as the card scrolls in */}
               <CheckIcon
                 style={{ '--i': index }}
-                className={clsx(
-                  'step-pop mt-[0.15rem] h-4 w-4 flex-none',
-                  featured ? 'text-citron' : 'text-link',
-                )}
+                className="step-pop mt-[0.15rem] h-4 w-4 flex-none text-link"
               />
               <span>{item}</span>
             </li>
@@ -154,35 +139,24 @@ function PricingSummary() {
           </thead>
           <tbody className="max-md:block">
             {rows.map((row) => {
-              // The Start Here row sits on blue, so its quiet text lightens
-              let muted = row.featured ? 'text-on-brand-muted' : 'text-graphite'
+              let muted = 'text-graphite'
               return (
                 <tr
                   key={row.name}
                   className={clsx(
                     'align-top transition-colors duration-200 max-md:grid max-md:gap-1.5 max-md:border-t max-md:border-rule max-md:px-5 max-md:py-6 max-md:first:border-t-0 md:[&:not(:first-child)>*]:border-t md:[&>*]:border-rule',
-                    row.featured
-                      ? 'on-brand text-on-brand max-md:bg-brand max-md:dark:bg-raised [&>*]:bg-brand [&>*]:shadow-[1px_0_0_var(--brand)] dark:[&>*]:bg-raised dark:[&>*]:shadow-[1px_0_0_var(--raised)]'
-                      : 'hover:bg-sunken dark:hover:bg-night',
+                    row.featured ? '' : 'hover:bg-sunken dark:hover:bg-night',
                   )}
                 >
                   <th
                     scope="row"
                     className="py-5 pr-6 pl-7 font-bold max-md:p-0"
                   >
-                    <a
-                      href={row.href}
-                      className={clsx(
-                        'link',
-                        row.featured
-                          ? 'text-on-brand decoration-citron'
-                          : 'marker-hover',
-                      )}
-                    >
+                    <a href={row.href} className={clsx('link', 'marker-hover')}>
                       {row.name}
                     </a>
                     {row.featured && (
-                      <span className="mt-2 block w-fit rounded-full bg-citron px-3 py-1 text-caption font-bold text-on-citron">
+                      <span className="mt-2 block w-fit rounded-full bg-brand px-3 py-1 text-caption font-bold text-on-brand dark:bg-citron dark:text-on-citron">
                         Start Here
                       </span>
                     )}
@@ -198,7 +172,7 @@ function PricingSummary() {
                     <span
                       className={clsx(
                         'numeral text-lead-size font-extrabold tracking-[-0.03em]',
-                        row.featured ? 'text-citron' : 'text-link',
+                        'text-link',
                       )}
                     >
                       {row.price}
@@ -304,9 +278,9 @@ export default function Pricing() {
         <section
           id="hourly"
           aria-labelledby="hourly-heading"
-          className="mt-6 grid scroll-mt-28 gap-8 rounded-[1.75rem] border-2 border-dashed border-ink p-6 sm:p-9 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] lg:gap-0 lg:p-10 dark:border-field"
+          className="mt-6 grid scroll-mt-28 overflow-hidden rounded-[1.75rem] border-2 border-dashed border-ink lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] dark:border-field"
         >
-          <div className="flex flex-col items-start justify-center lg:pr-14">
+          <div className="on-brand flex flex-col items-start justify-center bg-brand p-6 text-on-brand sm:p-9 lg:p-10 dark:bg-raised">
             <h2 id="hourly-heading" className="text-subhead">
               Hourly Advisory
             </h2>
@@ -317,14 +291,14 @@ export default function Pricing() {
               <span className="text-ui font-semibold">per hour</span>
             </p>
             <Button
-              variant="secondary"
+              variant="on-brand"
               className="mt-7 w-full sm:w-auto"
               href={contactHref('Hourly Advisory')}
             >
               Send Inquiry
             </Button>
           </div>
-          <div className="flex items-center border-rule lg:border-l lg:pl-14">
+          <div className="flex items-center bg-paper p-6 sm:p-9 lg:p-10 dark:bg-sunken">
             <p className="text-lead max-w-measure text-graphite">
               {hourlyRate.description}
             </p>

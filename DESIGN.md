@@ -254,7 +254,7 @@ Everything that is not one of the two calls to action is an arrow link: bold lin
 Small pills (15px, semibold): a 14% ultramarine tint with ultramarine text in light mode, Night Raised with white text in dark mode.
 
 ### Package Rows (Pricing)
-Full-width rows with 28px corners: name, price and Send Inquiry on the left (Best For and timing live in the table above); a two-column Included list on the right, behind a 1px divider on wide screens. The Start Here package sits on a plain brand field with no grid. Prices read in USD. The other packages are paper with a 2px Blue Rule border that firms to ink on hover. Included checks pop in one after another as a row scrolls into view.
+Full-width cards with 28px corners, split in two: a blue first column (Pigment Ultramarine, Night Raised in dark) holds the name, price on one line and a citron Send Inquiry; the Included list sits on paper beside it. Start Here is a citron pill on the audit only. Hourly Advisory follows the same split inside a dashed outline. Best For and timing live in the table above.
 
 ### Jump Menus
 Work and Services open with a Jump To row of 44px pill links (paper with a Blue Rule outline, Night Raised in dark) to each example or service.
@@ -272,7 +272,7 @@ One quote per page: the CEO on Home, the agency owner on Work after the agency s
 The footer's bottom row carries the privacy line on the left and the experience and certification line on the right. Every page ends on the blue band with its own title and line (for example Want a System Like These? on Work); Home uses Put AI to Work in Your Team.
 
 ### Pricing at a Glance
-A card table above the packages, four equal columns (Package, Price, Best For, Timing): an ultramarine header row (Night Raised in dark), the Start Here row tinted citron with its pill, prices large in link color with the unit underneath (no USD label; the FAQ covers currency), and a sunken hover on other rows. Each package name links to its full row; Hourly Advisory is included. Under 768px each row stacks.
+A card table above the packages, four equal columns (Package, Price, Best For, Timing): an ultramarine header row (Night Raised in dark), white rows with a blue Start Here pill on the audit, prices large in link color with the unit underneath (no USD label; the FAQ covers currency), and a sunken hover on other rows. Each package name links to its full row; Hourly Advisory is included. Under 768px each row stacks.
 
 ### How I Work (on Pricing)
 The process lives below the packages on Pricing (/process redirects to /pricing#process): five steps with icons in citron discs on a rail, then a loop back to planning, beside a raised ultramarine card of principles.
@@ -304,7 +304,7 @@ Every section that is not full-bleed sits in one container: up to 1440px wide in
 Numbers appear only where order matters: the 1 to 4 review gates inside a diagram. Services and Process steps use custom line icons (24px grid, 1.75 stroke, round ends) in link color. Short lists use check marks.
 
 ### FAQ
-Native details rows under a 2px ink rule (Field Line in dark mode, as for every decorative divider), closed by default, with a plus icon that turns into an x. Pricing covers cost, scope and timing; Services covers tools, data, agencies and remote work. Both are marked up as FAQPage data.
+Native details rows in two columns on wide screens, each under a 2px ink rule (Field Line in dark mode, as for every decorative divider), closed by default, with a plus icon that turns into an x. Pricing covers cost, scope and timing; Services covers tools, data, agencies and remote work. Both are marked up as FAQPage data.
 
 ### Motion
 Quick and never blocking, with ease-out-expo (cubic-bezier(0.16, 1, 0.3, 1)). The hero rises in on load with a short stagger and a citron highlighter block sweeps in behind "AI to Work", turning its text to ink; blocks fade up just before they scroll into view. Feedback runs at 200ms. Everything is off under reduced motion, and content is never hidden without JavaScript.
