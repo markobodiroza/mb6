@@ -75,19 +75,20 @@ function Field({ label, hint, error, children, id }) {
   )
 }
 
+// Only name, email and the project details are required; the rest helps me
+// prepare but should never stop someone from getting in touch
 function validate(values) {
   let errors = {}
-  if (values.name.trim().split(/\s+/).filter(Boolean).length < 2) {
-    errors.name = 'Please add your first and last name.'
+  if (!values.name.trim()) {
+    errors.name = 'Please add your name.'
   }
   if (!values.email.trim()) {
     errors.email = 'Please add your email so I can reply.'
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) {
     errors.email = 'That email looks incomplete. Check for a typo?'
   }
-  if (!values.website.trim()) {
-    errors.website = 'Please add your company website.'
-  } else if (
+  if (
+    values.website.trim() &&
     !/^(https?:\/\/)?[^\s./]+(\.[^\s./]+)+(\/\S*)?$/i.test(
       values.website.trim(),
     )
@@ -95,13 +96,8 @@ function validate(values) {
     errors.website =
       'That does not look like a web address. Try yourcompany.com'
   }
-  if (!values.topic) errors.topic = 'Please pick what you need help with.'
-  if (!values.budget) errors.budget = 'Please pick a budget range.'
-  if (!values.proficiency) {
-    errors.proficiency = 'Please pick the level that fits best.'
-  }
-  if (values.message.trim().length < 20) {
-    errors.message = 'A few sentences about the project help a lot.'
+  if (!values.message.trim()) {
+    errors.message = 'Please tell me a little about the project.'
   }
   return errors
 }
@@ -164,6 +160,10 @@ function ProficiencyPicker({ id, value, onChange, error }) {
     <fieldset aria-describedby={error ? `${id}-error` : undefined}>
       <legend className="flex w-full items-baseline justify-between gap-4">
         <span className="font-bold">How AI-Forward Is Your Company?</span>
+        <span className="text-right text-[0.9375rem] text-muted">
+          <span className="sr-only">, </span>
+          Optional
+        </span>
       </legend>
       <p className="mt-1 text-[0.9375rem] text-graphite">
         1 means just exploring, 5 means AI is built into how you work.
@@ -270,22 +270,23 @@ export function ContactForm() {
     let inquiry = {
       ...values,
       website: values.website.trim(),
-      proficiency: `${level.value} of 5: ${level.label}`,
+      proficiency: level ? `${level.value} of 5: ${level.label}` : '',
     }
 
     if (!siteMeta.formEndpoint) {
-      let body = [
-        `Name: ${inquiry.name}`,
-        `Email: ${inquiry.email}`,
-        `Website: ${inquiry.website}`,
-        `Topic: ${inquiry.topic}`,
-        `Budget: ${inquiry.budget}`,
-        `AI proficiency: ${inquiry.proficiency}`,
-        '',
-        inquiry.message,
-      ].join('\n')
+      let details = [
+        ['Name', inquiry.name],
+        ['Email', inquiry.email],
+        ['Website', inquiry.website],
+        ['Topic', inquiry.topic],
+        ['Budget', inquiry.budget],
+        ['AI proficiency', inquiry.proficiency],
+      ]
+        .filter(([, value]) => value)
+        .map(([label, value]) => `${label}: ${value}`)
+      let body = [...details, '', inquiry.message].join('\n')
       window.location.href = emailHref(
-        `Project inquiry: ${inquiry.topic}`,
+        `Project inquiry${inquiry.topic ? `: ${inquiry.topic}` : ''}`,
         body,
       )
       setStatus('sent-email')
@@ -303,7 +304,7 @@ export function ContactForm() {
         // _subject sets the email subject in Formspree; email becomes reply-to
         body: JSON.stringify({
           ...inquiry,
-          _subject: `Project inquiry from ${inquiry.name}: ${inquiry.topic}`,
+          _subject: `Project inquiry from ${inquiry.name}${inquiry.topic ? `: ${inquiry.topic}` : ''}`,
         }),
       })
       if (!response.ok) throw new Error(`Form returned ${response.status}`)
@@ -327,11 +328,8 @@ export function ContactForm() {
 
   return (
     <form ref={formRef} noValidate onSubmit={onSubmit} className="space-y-8">
-      <p className="text-[0.9375rem] font-semibold text-graphite">
-        All fields are required.
-      </p>
       <div className="grid gap-7 sm:grid-cols-2">
-        <Field label="Your Full Name" id={fieldId('name')} error={errors.name}>
+        <Field label="Your Name" id={fieldId('name')} error={errors.name}>
           <input
             id={fieldId('name')}
             name="name"
@@ -359,6 +357,7 @@ export function ContactForm() {
       </div>
       <Field
         label="Company Website"
+        hint="Optional"
         id={fieldId('website')}
         error={errors.website}
       >
@@ -369,7 +368,6 @@ export function ContactForm() {
           inputMode="url"
           autoComplete="url"
           placeholder="yourcompany.com"
-          required
           value={values.website}
           onChange={update}
           className={inputStyles}
@@ -379,21 +377,19 @@ export function ContactForm() {
       <div className="grid gap-7 sm:grid-cols-2">
         <Field
           label="What Do You Need?"
+          hint="Optional"
           id={fieldId('topic')}
           error={errors.topic}
         >
           <Select
             id={fieldId('topic')}
             name="topic"
-            required
             value={values.topic}
             onChange={update}
             className={clsx(selectStyles, !values.topic && 'text-muted')}
             {...errorProps('topic')}
           >
-            <option value="" disabled>
-              Select one
-            </option>
+            <option value="">Select one</option>
             {contactTopics.map((topic) => (
               <option key={topic} className="text-ink">
                 {topic}
@@ -403,21 +399,19 @@ export function ContactForm() {
         </Field>
         <Field
           label="Budget Range"
+          hint="Optional"
           id={fieldId('budget')}
           error={errors.budget}
         >
           <Select
             id={fieldId('budget')}
             name="budget"
-            required
             value={values.budget}
             onChange={update}
             className={clsx(selectStyles, !values.budget && 'text-muted')}
             {...errorProps('budget')}
           >
-            <option value="" disabled>
-              Select a range
-            </option>
+            <option value="">Select a range</option>
             {budgetRanges.map((range) => (
               <option key={range} className="text-ink">
                 {range}

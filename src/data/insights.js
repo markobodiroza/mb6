@@ -34,6 +34,10 @@ export const insights = [
         heading: 'Test New Channels With a Holdout',
         body: 'ChatGPT ads are live but hard to target for B2B. Keep search and LinkedIn as the core, and run any test narrow, time-boxed and measured against pipeline.',
       },
+      {
+        heading: 'Match the Message to Cost and Claims Rules',
+        body: 'Buyers under cost pressure want total cost, supply risk and payback, backed by numbers. Lead clean energy with economics, not subsidies. Check every environmental claim against its evidence: EU rules on generic green claims apply since September 2026, so get legal review for EU markets.',
+      },
     ],
     nextSteps: [
       'Test the questions your buyers actually ask in AI tools and log the answers.',

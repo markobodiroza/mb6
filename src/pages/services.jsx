@@ -56,13 +56,16 @@ function Service({ service, index }) {
             <span className="mt-1 block font-semibold">{service.goodFit}</span>
           </p>
           {pkg && (
-            <Link
-              href={`/pricing#${pkg.slug}`}
-              className="group inline-flex flex-none items-center gap-2 font-bold text-link"
-            >
-              <span className="marker-hover">{pkg.name}</span>
-              <ArrowRightIcon className="h-4 w-4 transition-transform duration-200 ease-out-quart group-hover:translate-x-1" />
-            </Link>
+            <p className="flex-none">
+              <span className="eyebrow block text-muted">Priced As</span>
+              <Link
+                href={`/pricing#${pkg.slug}`}
+                className="group mt-1 inline-flex items-center gap-2 font-bold text-link"
+              >
+                <span className="marker-hover">{pkg.name}</span>
+                <ArrowRightIcon className="h-4 w-4 transition-transform duration-200 ease-out-quart group-hover:translate-x-1" />
+              </Link>
+            </p>
           )}
         </div>
       </div>

@@ -354,6 +354,8 @@ export const pricingPackages = [
       'Help prioritizing what to build next',
       'Roadmap updates as your needs change',
       'Guidance on AI usage rules and team adoption',
+      'AI search visibility (AEO): tracking how AI tools describe you, plus site and content fixes',
+      'Fractional AI leadership: priorities and tool, vendor and build decisions with your leadership',
     ],
   },
 ]

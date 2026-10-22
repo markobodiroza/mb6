@@ -38,7 +38,9 @@ function Hero() {
     <section className="blueprint on-brand overflow-hidden text-on-brand">
       <Container className="grid items-center gap-12 py-16 sm:py-24 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-14 lg:py-28">
         <div>
-          <p className="enter eyebrow text-citron">{siteMeta.tagline}</p>
+          <p className="enter eyebrow text-citron">
+            {siteMeta.author.name}, AI Strategist and System Builder
+          </p>
           <h1 className="text-display enter-rise mt-6">
             I Help Teams Put{' '}
             <span className="marker text-citron">AI to Work</span> in Their
