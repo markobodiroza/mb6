@@ -14,7 +14,7 @@ const navigation = [
 
 export function Footer() {
   return (
-    <footer className="on-night bg-night text-on-night dark:border-t dark:border-rule dark:bg-paper">
+    <footer className="on-night border-t border-rule bg-night text-on-night">
       <Container className="flex flex-col gap-8 py-10 lg:flex-row lg:items-center lg:justify-between">
         <div>
           <p className="font-bold">Marko Bodiroza</p>

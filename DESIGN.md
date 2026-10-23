@@ -186,8 +186,8 @@ A full palette with four roles. Values are OKLCH custom properties in `src/style
 - **Field Line** (oklch(0.62 0.03 265)): form outlines (3:1 against paper), dashed diagram steps and the scrolled header edge.
 - **Graphite** (oklch(0.33 0.025 268)) and **Muted Graphite** (oklch(0.45 0.022 268)): body copy and secondary text.
 
-### Dark Theme: Ink Night
-Dark mode is never black and never drenched in blue. The page is a deep, blue-tinted ink: **Night Page** (0.19, chroma 0.025) for the page and footer, **Night Sunken** (0.225) for the scrolled header and quiet cards, **Night Section** (0.25) for diagram panels and bands, **Night Raised** (0.29) for diagram steps, tags, pills and Work results. All of these stay below chroma 0.04. Ultramarine (**Night Field**, 0.34 0.16) is reserved for brand moments: the page headers, the closing band and the few cards that carry the story (quotes, Good Fit For, package price columns, What Stays the Same, the article sidebar and the pricing table header). Citron is the action and link color.
+### Dark Theme: Slate Night
+Neutrals are Tailwind slate in both modes. Light: page, header and footer on slate-50 and slate-100, diagram panels and pills on slate-200, rules slate-300, text slate-900 and slate-700. Dark: the page is slate-800; the scrolled header, recessed bands (diagram panels) and footer sit a step darker on slate-900; lifted objects (diagram steps, pills, the pricing table, card sides) sit a step lighter on slate-700, with rules on slate-600, so every layer stays visible. Tags read like the primary button in each mode: solid ultramarine with light text in light mode, citron with ink text in dark. Ultramarine stays for the page headers, the closing band and the story cards; citron is the dark-mode action and link color.
 
 ### Named Rules
 **The Highlighter Rule.** Citron is a background or a color on blue and night fields. It is never text on light paper.
@@ -298,7 +298,7 @@ Every section that is not full-bleed sits in one container: up to 1440px wide in
 
 ### Navigation
 - **Header:** sticky, 80px tall, paper at the top of the page; once scrolled it switches to Sunken Paper with a Field Line edge so it never blends into paper sections. A 44px round portrait in a link-colored ring links home. Links (Services, Work, Pricing, About, Contact; Insights live on About; Home is the portrait) are 44px tall, graphite, ink on hover with a sunken pill; the current page gets a 3px link-colored mark. The full menu shows from 1024px; below that a menu button opens a full-width panel.
-- **Footer:** night ink in light mode; in dark mode it drops to Night Page with a rule on top, so the page always ends on its darkest surface. Name, tagline and page links.
+- **Footer:** light in light mode (slate-100 with a rule on top), slate-900 in dark mode. Name, tagline and page links.
 
 ### Numbered Lists and Icons
 Numbers appear only where order matters: the 1 to 4 review gates inside a diagram. Services and Process steps use custom line icons (24px grid, 1.75 stroke, round ends) in link color. Short lists use check marks.

@@ -142,7 +142,7 @@ function ProofAndProcess({ example, outcomes, quote }) {
               {outcomes.map((item) => (
                 <li
                   key={item}
-                  className="inline-flex items-center gap-2.5 rounded-2xl bg-pill py-2 pr-4 pl-2 text-ui font-semibold dark:bg-raised dark:text-on-raised"
+                  className="inline-flex items-center gap-2.5 rounded-2xl bg-pill py-2 pr-4 pl-2 text-ui font-semibold"
                 >
                   <span
                     aria-hidden="true"
@@ -173,7 +173,7 @@ function ProofAndProcess({ example, outcomes, quote }) {
               {processSteps.map((step, index) => (
                 <li
                   key={step.title}
-                  className="inline-flex items-center gap-2.5 rounded-2xl bg-pill py-2 pr-4 pl-2 text-ui font-semibold dark:bg-raised dark:text-on-raised"
+                  className="inline-flex items-center gap-2.5 rounded-2xl bg-pill py-2 pr-4 pl-2 text-ui font-semibold"
                 >
                   <span
                     aria-hidden="true"

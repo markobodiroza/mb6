@@ -26,7 +26,7 @@ const description =
 function CompanyMark({ role }) {
   // Always-dark tile: some logos include a white mark
   return (
-    <span className="flex h-14 w-14 flex-none items-center justify-center rounded-2xl bg-night dark:ring-2 dark:ring-rule">
+    <span className="flex h-14 w-14 flex-none items-center justify-center rounded-2xl bg-[#0f172b] dark:ring-2 dark:ring-rule">
       {role.logo ? (
         <Image src={role.logo} alt="" className="h-8 w-8" unoptimized />
       ) : (

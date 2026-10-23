@@ -36,6 +36,7 @@
   --color-panel: var(--panel);
   --color-pill: var(--pill);
   --color-tag-bg: var(--tag-bg);
+  --color-tag-fg: var(--tag-fg);
   --color-card-side: var(--card-side);
   --color-rule-strong: var(--rule-strong);
   --color-on-raised: var(--on-raised);
@@ -106,19 +107,19 @@
 /*
  * Color tokens. Brand hue 268 is a pigment ultramarine; lighter tints shift
  * to 262 so they stay blue instead of drifting toward lavender. Neutrals are
- * tinted toward the brand. Citron is the energy accent: a background or a
+ * Tailwind slate, whose cool tint sits close to the brand. Citron is the energy accent: a background or a
  * color on blue and ink fields, never text on paper.
  */
 @layer base {
   :root {
     color-scheme: light;
 
-    --paper: oklch(0.985 0.005 265);
-    --sunken: oklch(0.955 0.018 265);
-    --rule: oklch(0.87 0.022 265);
-    --ink: oklch(0.2 0.03 268);
-    --graphite: oklch(0.33 0.025 268);
-    --muted: oklch(0.45 0.022 268);
+    --paper: #f8fafc; /* slate-50 */
+    --sunken: #f1f5f9; /* slate-100 */
+    --rule: #cad5e2; /* slate-300 */
+    --ink: #0f172b; /* slate-900 */
+    --graphite: #314158; /* slate-700 */
+    --muted: #45556c; /* slate-600 */
 
     --brand: oklch(0.37 0.19 268);
     --brand-line: oklch(0.435 0.18 268);
@@ -128,9 +129,9 @@
     --citron: oklch(0.91 0.19 117);
     --on-citron: oklch(0.2 0.03 268);
 
-    --night: oklch(0.2 0.03 268);
-    --on-night: oklch(0.985 0.005 265);
-    --on-night-muted: oklch(0.82 0.025 265);
+    --night: #f1f5f9; /* slate-100: the footer stays light */
+    --on-night: #0f172b; /* slate-900 */
+    --on-night-muted: #45556c; /* slate-600 */
 
     --action: oklch(0.37 0.19 268);
     --action-hover: oklch(0.31 0.17 268);
@@ -140,21 +141,23 @@
     --marker: oklch(0.91 0.19 117);
 
     /* Form field outlines need 3:1 against the page (WCAG 1.4.11) */
-    --field: oklch(0.62 0.03 265);
+    --field: #62748e; /* slate-500 */
     --danger: oklch(0.5 0.2 25);
     --danger-line: oklch(0.55 0.2 25);
 
     /* Raised cards (diagram steps, tool tags in dark) */
-    --raised: oklch(0.985 0.005 265);
-    --on-raised: oklch(0.2 0.03 268);
-    --on-raised-muted: oklch(0.33 0.025 268);
+    --raised: #f8fafc; /* slate-50 */
+    --on-raised: #0f172b; /* slate-900 */
+    --on-raised-muted: #314158; /* slate-700 */
 
     /* Surfaces with their own token so each can be tuned on its own */
-    --panel: var(--sunken);
-    --pill: var(--sunken);
-    --tag-bg: color-mix(in oklch, var(--link) 20%, var(--paper));
-    --card-side: var(--paper);
-    --rule-strong: var(--ink);
+    --panel: #e2e8f0; /* slate-200 */
+    --pill: #e2e8f0; /* slate-200 */
+    /* Tags read like the primary button: solid brand with light text */
+    --tag-bg: var(--brand);
+    --tag-fg: var(--on-brand);
+    --card-side: #f1f5f9; /* slate-100 */
+    --rule-strong: #0f172b; /* slate-900 */
 
     --card-shadow:
       0 1px 2px oklch(0.2 0.03 268 / 0.08),
@@ -162,32 +165,32 @@
   }
 
   /*
-   * Ink night: the page is a deep, blue-tinted ink, not black and not blue.
-   * Neutrals stay low in chroma so ultramarine only shows where it means
-   * something: the hero, the closing band and the few cards that carry the
-   * story. Citron takes over as the action color.
+   * Slate night: the page is slate-800, recessed bands and the footer sit a
+   * step darker on slate-900 and lifted objects (steps, pills, tags, tables)
+   * a step lighter on slate-700, so every layer stays visible. Ultramarine
+   * only shows where it means something; citron is the action color.
    */
   .dark {
     color-scheme: dark;
 
-    --paper: oklch(0.19 0.025 266);
-    --sunken: oklch(0.225 0.03 266);
-    --rule: oklch(0.33 0.03 266);
-    --ink: oklch(0.97 0.006 265);
-    --graphite: oklch(0.87 0.015 262);
-    --muted: oklch(0.77 0.02 262);
+    --paper: #1d293d; /* slate-800 */
+    --sunken: #0f172b; /* slate-900 */
+    --rule: #45556c; /* slate-600 */
+    --ink: #f8fafc; /* slate-50 */
+    --graphite: #cad5e2; /* slate-300 */
+    --muted: #90a1b9; /* slate-400 */
 
-    --brand: oklch(0.34 0.16 268);
-    --brand-line: oklch(0.39 0.15 268);
+    --brand: oklch(0.4 0.19 268);
+    --brand-line: oklch(0.46 0.18 268);
     --on-brand: oklch(0.98 0.006 265);
     --on-brand-muted: oklch(0.9 0.035 262);
 
     --citron: oklch(0.91 0.19 117);
     --on-citron: oklch(0.2 0.03 268);
 
-    --night: oklch(0.25 0.035 266);
-    --on-night: oklch(0.97 0.006 265);
-    --on-night-muted: oklch(0.82 0.02 262);
+    --night: #0f172b; /* slate-900 */
+    --on-night: #f1f5f9; /* slate-100 */
+    --on-night-muted: #90a1b9; /* slate-400 */
 
     --action: oklch(0.91 0.19 117);
     --action-hover: oklch(0.96 0.13 117);
@@ -196,20 +199,22 @@
     --focus: oklch(0.91 0.19 117);
     --marker: oklch(0.43 0.2 268);
 
-    --field: oklch(0.55 0.04 262);
+    --field: #62748e; /* slate-500 */
     --danger: oklch(0.82 0.12 25);
     --danger-line: oklch(0.72 0.17 25);
 
     /* Neutral lift for steps, tags and pills; blue is kept for brand cards */
-    --raised: oklch(0.29 0.035 266);
-    --on-raised: oklch(0.97 0.006 265);
-    --on-raised-muted: oklch(0.85 0.02 262);
+    --raised: #314158; /* slate-700 */
+    --on-raised: #f8fafc; /* slate-50 */
+    --on-raised-muted: #cad5e2; /* slate-300 */
 
-    --panel: var(--night);
-    --pill: var(--raised);
-    --tag-bg: var(--raised);
-    --card-side: var(--sunken);
-    --rule-strong: var(--field);
+    --panel: #0f172b; /* slate-900 */
+    --pill: #314158; /* slate-700 */
+    /* Tags match the dark-mode primary button: citron with ink text */
+    --tag-bg: var(--citron);
+    --tag-fg: var(--on-citron);
+    --card-side: #314158; /* slate-700 */
+    --rule-strong: #62748e; /* slate-500 */
 
     --card-shadow:
       0 1px 2px oklch(0.1 0.02 266 / 0.5),
@@ -339,14 +344,9 @@
   /* Tool and credential tags: a firm blue tint with ink text, outlined so
      they hold their shape on paper */
   .tag {
-    @apply rounded-full px-3.5 py-1.5 text-ui font-semibold text-ink;
+    @apply rounded-full px-3.5 py-1.5 text-ui font-semibold;
     background-color: var(--tag-bg);
-    box-shadow: inset 0 0 0 1px
-      color-mix(in oklch, var(--link) 40%, transparent);
-  }
-
-  .dark .tag {
-    box-shadow: none;
+    color: var(--tag-fg);
   }
 
   .link {
