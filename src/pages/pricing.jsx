@@ -59,7 +59,7 @@ function Package({ pkg, index }) {
           Send Inquiry
         </Button>
       </div>
-      <div className="bg-paper p-6 sm:p-9 lg:p-10 dark:bg-sunken">
+      <div className="bg-card-side p-6 sm:p-9 lg:p-10">
         <h3 className="label">Included</h3>
         <ul
           role="list"
@@ -113,7 +113,7 @@ function PricingSummary() {
         The audit ends with a prioritized roadmap. Implementation, testing and
         rollout are included in an AI Process Build.
       </p>
-      <div className="mt-6 overflow-hidden rounded-[1.75rem] border-2 border-rule bg-paper shadow-card dark:border-transparent dark:bg-sunken">
+      <div className="mt-6 overflow-hidden rounded-[1.75rem] border-2 border-rule bg-card-side shadow-card">
         <table className="w-full border-separate border-spacing-0 text-left max-md:block md:table-fixed">
           <colgroup className="max-md:hidden">
             <col className="w-1/4" />
@@ -145,7 +145,7 @@ function PricingSummary() {
                   key={row.name}
                   className={clsx(
                     'align-top transition-colors duration-200 max-md:grid max-md:gap-1.5 max-md:border-t max-md:border-rule max-md:px-5 max-md:py-6 max-md:first:border-t-0 md:[&:not(:first-child)>*]:border-t md:[&>*]:border-rule',
-                    row.featured ? '' : 'hover:bg-sunken dark:hover:bg-night',
+                    row.featured ? '' : 'hover:bg-panel',
                   )}
                 >
                   <th
@@ -278,7 +278,7 @@ export default function Pricing() {
         <section
           id="hourly"
           aria-labelledby="hourly-heading"
-          className="mt-6 grid scroll-mt-28 overflow-hidden rounded-[1.75rem] border-2 border-dashed border-ink lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] dark:border-field"
+          className="mt-6 grid scroll-mt-28 overflow-hidden rounded-[1.75rem] border-2 border-dashed border-rule-strong lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)]"
         >
           <div className="on-brand flex flex-col items-start justify-center bg-brand p-6 text-on-brand sm:p-9 lg:p-10">
             <h2 id="hourly-heading" className="text-subhead">
@@ -298,7 +298,7 @@ export default function Pricing() {
               Send Inquiry
             </Button>
           </div>
-          <div className="flex items-center bg-paper p-6 sm:p-9 lg:p-10 dark:bg-sunken">
+          <div className="flex items-center bg-card-side p-6 sm:p-9 lg:p-10">
             <p className="text-lead max-w-measure text-graphite">
               {hourlyRate.description}
             </p>

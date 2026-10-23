@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic'
 import localFont from 'next/font/local'
 
 import { Footer } from '@/components/Footer'
@@ -7,6 +8,12 @@ import SEO from '@/lib/next-seo.config'
 import { useReveal } from '@/lib/useReveal'
 
 import '@/styles/tailwind.css'
+
+// The color panel only exists on the dev server; production builds drop it
+const DevColorPanel =
+  process.env.NODE_ENV === 'development'
+    ? dynamic(() => import('@/components/DevColorPanel'), { ssr: false })
+    : () => null
 
 // Google Sans Flex, self-hosted (no Google requests). The rond build carries
 // the weight and roundness axes only, about 70 KB for Latin. next/font
@@ -36,6 +43,7 @@ export default function App({ Component, pageProps }) {
         <Component {...pageProps} />
       </main>
       <Footer />
+      <DevColorPanel />
     </div>
   )
 }

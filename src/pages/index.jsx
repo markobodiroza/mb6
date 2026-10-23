@@ -96,7 +96,7 @@ function ServicesOverview() {
               key={service.title}
               data-reveal
               style={{ '--i': index % 2 }}
-              className="grid grid-cols-[3rem_1fr] gap-x-4 border-t-2 border-ink py-8 dark:border-field"
+              className="grid grid-cols-[3rem_1fr] gap-x-4 border-t-2 border-rule-strong py-8"
             >
               <ServiceIcon name={service.icon} className="h-9 w-9 text-link" />
               <div className="pt-1">
@@ -142,7 +142,7 @@ function ProofAndProcess({ example, outcomes, quote }) {
               {outcomes.map((item) => (
                 <li
                   key={item}
-                  className="inline-flex items-center gap-2.5 rounded-2xl bg-sunken py-2 pr-4 pl-2 text-ui font-semibold dark:bg-raised dark:text-on-raised"
+                  className="inline-flex items-center gap-2.5 rounded-2xl bg-pill py-2 pr-4 pl-2 text-ui font-semibold"
                 >
                   <span
                     aria-hidden="true"
@@ -173,7 +173,7 @@ function ProofAndProcess({ example, outcomes, quote }) {
               {processSteps.map((step, index) => (
                 <li
                   key={step.title}
-                  className="inline-flex items-center gap-2.5 rounded-2xl bg-sunken py-2 pr-4 pl-2 text-ui font-semibold dark:bg-raised dark:text-on-raised"
+                  className="inline-flex items-center gap-2.5 rounded-2xl bg-pill py-2 pr-4 pl-2 text-ui font-semibold"
                 >
                   <span
                     aria-hidden="true"

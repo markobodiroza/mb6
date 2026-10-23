@@ -131,7 +131,7 @@ export default function Insight({ insight, more }) {
           <h2 id="more-heading" className="text-section">
             More Insights
           </h2>
-          <div className="mt-8 border-t-2 border-ink dark:border-field">
+          <div className="mt-8 border-t-2 border-rule-strong">
             {more.map((item) => (
               <InsightRow key={item.slug} insight={item} />
             ))}

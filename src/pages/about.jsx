@@ -26,7 +26,7 @@ const description =
 function CompanyMark({ role }) {
   // Always-dark tile: some logos include a white mark
   return (
-    <span className="flex h-14 w-14 flex-none items-center justify-center rounded-2xl bg-night dark:ring-2 dark:ring-rule">
+    <span className="flex h-14 w-14 flex-none items-center justify-center rounded-2xl bg-[#0f172b] dark:ring-2 dark:ring-rule">
       {role.logo ? (
         <Image src={role.logo} alt="" className="h-8 w-8" unoptimized />
       ) : (
@@ -47,7 +47,7 @@ function WorkHistory() {
       <h2 id="work-heading" className="text-section">
         Work History
       </h2>
-      <ol className="mt-8 border-t-2 border-ink dark:border-field">
+      <ol className="mt-8 border-t-2 border-rule-strong">
         {resume.map((role, index) => (
           <li
             key={role.company}
@@ -117,7 +117,7 @@ function Credentials() {
           </li>
         ))}
       </ul>
-      <dl className="mt-10 border-t-2 border-ink dark:border-field">
+      <dl className="mt-10 border-t-2 border-rule-strong">
         {credentials.map((group) => (
           <div
             key={group.issuer}
@@ -174,7 +174,7 @@ function Tools() {
         I pick tools for the job and the team, not the other way around. Here is
         what I work with, by category.
       </p>
-      <dl className="mt-8 border-t-2 border-ink dark:border-field">
+      <dl className="mt-8 border-t-2 border-rule-strong">
         {tools.map((group) => (
           <div
             key={group.category}
@@ -221,7 +221,7 @@ function LatestInsights({ items }) {
       <p className="text-lead mt-5 max-w-measure text-graphite">
         Short, practical notes on AI search and putting AI to work.
       </p>
-      <div className="mt-8 border-t-2 border-ink dark:border-field">
+      <div className="mt-8 border-t-2 border-rule-strong">
         {latest.map((insight) => (
           <InsightRow key={insight.slug} insight={insight} />
         ))}
