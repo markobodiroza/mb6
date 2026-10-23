@@ -73,7 +73,7 @@ function Story({ example }) {
           </ul>
         </section>
         {/* Results sit on a quiet card so the page keeps blue for its brand moments */}
-        <section className="self-start rounded-[1.25rem] bg-sunken p-6 dark:bg-raised">
+        <section className="self-start rounded-[1.25rem] border border-rule bg-card-side p-6 shadow-card">
           <h3 className="text-title">Results</h3>
           <ul role="list" className="mt-4 space-y-3">
             {example.changed.map((item) => (
