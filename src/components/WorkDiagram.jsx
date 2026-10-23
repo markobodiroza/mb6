@@ -121,7 +121,7 @@ export function WorkDiagram({ lanes, label, className }) {
       aria-label={label}
       className={clsx(
         // Full-bleed band: edge to edge, with the lanes held to the 1440px container
-        'mx-[calc(50%-50vw)] bg-panel py-14 sm:py-20',
+        'mx-[calc(50%-50vw)] bg-panel py-20 sm:py-32',
         className,
       )}
     >
