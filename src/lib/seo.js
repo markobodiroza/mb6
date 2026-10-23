@@ -80,7 +80,27 @@ export const personSchema = {
     name,
     recognizedBy: { '@type': 'Organization', name: issuer },
   })),
-  sameAs: [siteMeta.author.linkedin, siteMeta.author.twitter],
+  // Google already knows Marko as this Knowledge Graph entity; naming it here
+  // ties the site to it, and every profile below corroborates it
+  identifier: {
+    '@type': 'PropertyValue',
+    name: 'googleKgMID',
+    value: '/g/11pf89037d',
+  },
+  sameAs: [
+    'https://www.google.com/search?kgmid=/g/11pf89037d',
+    siteMeta.author.linkedin,
+    siteMeta.author.twitter,
+    'https://medium.com/@markobodiroza',
+    'https://novisadfacultytechnicalsciences.academia.edu/MarkoBodiro%C5%BEa',
+    'https://www.youtube.com/@greennewperspective',
+    'https://www.podchaser.com/creators/marko-bodiroza-107teks2BE',
+    'https://www.crunchbase.com/person/marko-bodiro%C5%BEa',
+    'https://muckrack.com/marko-bodiroza',
+    'https://neuron.com/profile/5637877447/marko-bodiroza',
+    'https://creativepool.com/markobodiroza',
+    'https://www.pinterest.com/markobodiroza/',
+  ],
 }
 
 // Breadcrumb trail from [name, path] pairs, starting at Home
