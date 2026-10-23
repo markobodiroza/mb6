@@ -257,7 +257,7 @@ Small pills (15px, semibold): a 14% ultramarine tint with ultramarine text in li
 Full-width cards with 28px corners, split in two: a blue first column (Pigment Ultramarine, Night Raised in dark) holds the name, price on one line and a citron Send Inquiry; the Included list sits on paper beside it. Start Here is a citron pill on the audit only. Hourly Advisory follows the same split inside a dashed outline. Best For and timing live in the table above.
 
 ### Jump Menus
-Work and Services open with a Jump To row of 44px pill links (paper with a Blue Rule outline, Night Raised in dark) to each example or service.
+Work and Services open with a Jump To row of 44px pill links to each example or service, in the tag colors (ultramarine in light, citron in dark) that flip to an outline on hover.
 
 ### Home Layout
 Hero, services, then one three-column section: What Clients Say (the CEO quote on an ultramarine card), Recent Work (outcomes as check pills) and The Process (the five steps as numbered pills), split by 1px rules. Then the closing band. No diagram and no insights list on Home.

@@ -1,4 +1,5 @@
-// A row of in-page links under a page header, for long pages
+// A row of in-page links under a page header, for long pages. They share
+// the tag colors and flip to an outline on hover
 export function JumpNav({ items }) {
   return (
     <nav aria-label="On this page" className="mt-lead">
@@ -8,7 +9,7 @@ export function JumpNav({ items }) {
           <li key={item.href}>
             <a
               href={item.href}
-              className="inline-flex min-h-11 items-center rounded-full border-2 border-rule bg-paper px-4 text-ui font-semibold text-link transition-colors duration-200 hover:border-link hover:bg-[color-mix(in_oklch,var(--link)_10%,var(--paper))] dark:border-transparent dark:bg-raised dark:text-on-raised dark:hover:border-citron dark:hover:bg-raised"
+              className="inline-flex min-h-11 items-center rounded-full border-2 border-tag-bg bg-tag-bg px-4 text-ui font-semibold text-tag-fg transition-colors duration-200 hover:bg-transparent hover:text-link"
             >
               {item.label}
             </a>
