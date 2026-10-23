@@ -113,7 +113,7 @@ function PricingSummary() {
         The audit ends with a prioritized roadmap. Implementation, testing and
         rollout are included in an AI Process Build.
       </p>
-      <div className="mt-6 overflow-hidden rounded-[1.75rem] border-2 border-rule bg-raised shadow-card">
+      <div className="mt-6 overflow-hidden rounded-[1.75rem] border-2 border-rule bg-card-side shadow-card">
         <table className="w-full border-separate border-spacing-0 text-left max-md:block md:table-fixed">
           <colgroup className="max-md:hidden">
             <col className="w-1/4" />
@@ -145,7 +145,7 @@ function PricingSummary() {
                   key={row.name}
                   className={clsx(
                     'align-top transition-colors duration-200 max-md:grid max-md:gap-1.5 max-md:border-t max-md:border-rule max-md:px-5 max-md:py-6 max-md:first:border-t-0 md:[&:not(:first-child)>*]:border-t md:[&>*]:border-rule',
-                    row.featured ? '' : 'hover:bg-sunken',
+                    row.featured ? '' : 'hover:bg-panel',
                   )}
                 >
                   <th

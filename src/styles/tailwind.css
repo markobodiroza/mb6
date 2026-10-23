@@ -159,9 +159,11 @@
     --card-side: #f1f5f9; /* slate-100 */
     --rule-strong: #0f172b; /* slate-900 */
 
+    /* Light mode lifts with shadow, since slate-50 is already the lightest step */
     --card-shadow:
-      0 1px 2px oklch(0.2 0.03 268 / 0.08),
-      0 12px 28px -14px oklch(0.37 0.19 268 / 0.4);
+      0 0 0 1px oklch(0.2 0.03 268 / 0.04),
+      0 2px 4px oklch(0.2 0.03 268 / 0.08),
+      0 18px 40px -18px oklch(0.2 0.03 268 / 0.35);
   }
 
   /*
