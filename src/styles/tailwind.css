@@ -33,6 +33,11 @@
   --color-on-night: var(--on-night);
   --color-on-night-muted: var(--on-night-muted);
   --color-raised: var(--raised);
+  --color-panel: var(--panel);
+  --color-pill: var(--pill);
+  --color-tag-bg: var(--tag-bg);
+  --color-card-side: var(--card-side);
+  --color-rule-strong: var(--rule-strong);
   --color-on-raised: var(--on-raised);
   --color-on-raised-muted: var(--on-raised-muted);
 
@@ -144,6 +149,13 @@
     --on-raised: oklch(0.2 0.03 268);
     --on-raised-muted: oklch(0.33 0.025 268);
 
+    /* Surfaces with their own token so each can be tuned on its own */
+    --panel: var(--sunken);
+    --pill: var(--sunken);
+    --tag-bg: color-mix(in oklch, var(--link) 20%, var(--paper));
+    --card-side: var(--paper);
+    --rule-strong: var(--ink);
+
     --card-shadow:
       0 1px 2px oklch(0.2 0.03 268 / 0.08),
       0 12px 28px -14px oklch(0.37 0.19 268 / 0.4);
@@ -192,6 +204,12 @@
     --raised: oklch(0.29 0.035 266);
     --on-raised: oklch(0.97 0.006 265);
     --on-raised-muted: oklch(0.85 0.02 262);
+
+    --panel: var(--night);
+    --pill: var(--raised);
+    --tag-bg: var(--raised);
+    --card-side: var(--sunken);
+    --rule-strong: var(--field);
 
     --card-shadow:
       0 1px 2px oklch(0.1 0.02 266 / 0.5),
@@ -322,14 +340,12 @@
      they hold their shape on paper */
   .tag {
     @apply rounded-full px-3.5 py-1.5 text-ui font-semibold text-ink;
-    background-color: color-mix(in oklch, var(--link) 20%, var(--paper));
+    background-color: var(--tag-bg);
     box-shadow: inset 0 0 0 1px
       color-mix(in oklch, var(--link) 40%, transparent);
   }
 
   .dark .tag {
-    background-color: var(--raised);
-    color: var(--on-raised);
     box-shadow: none;
   }
 

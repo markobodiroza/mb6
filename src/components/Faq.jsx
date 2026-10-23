@@ -42,7 +42,7 @@ export function Faq({ items, title = 'Questions About Timeline and Scope' }) {
           <div
             key={index}
             className={clsx(
-              'border-ink dark:border-field',
+              'border-rule-strong',
               index === 0 ? 'border-t-2' : 'lg:border-t-2',
             )}
           >

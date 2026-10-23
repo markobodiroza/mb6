@@ -59,7 +59,7 @@ function Package({ pkg, index }) {
           Send Inquiry
         </Button>
       </div>
-      <div className="bg-paper p-6 sm:p-9 lg:p-10 dark:bg-sunken">
+      <div className="bg-card-side p-6 sm:p-9 lg:p-10">
         <h3 className="label">Included</h3>
         <ul
           role="list"
@@ -278,7 +278,7 @@ export default function Pricing() {
         <section
           id="hourly"
           aria-labelledby="hourly-heading"
-          className="mt-6 grid scroll-mt-28 overflow-hidden rounded-[1.75rem] border-2 border-dashed border-ink lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] dark:border-field"
+          className="mt-6 grid scroll-mt-28 overflow-hidden rounded-[1.75rem] border-2 border-dashed border-rule-strong lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)]"
         >
           <div className="on-brand flex flex-col items-start justify-center bg-brand p-6 text-on-brand sm:p-9 lg:p-10">
             <h2 id="hourly-heading" className="text-subhead">
@@ -298,7 +298,7 @@ export default function Pricing() {
               Send Inquiry
             </Button>
           </div>
-          <div className="flex items-center bg-paper p-6 sm:p-9 lg:p-10 dark:bg-sunken">
+          <div className="flex items-center bg-card-side p-6 sm:p-9 lg:p-10">
             <p className="text-lead max-w-measure text-graphite">
               {hourlyRate.description}
             </p>
