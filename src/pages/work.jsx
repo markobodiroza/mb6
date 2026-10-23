@@ -54,9 +54,9 @@ function Story({ example }) {
       <WorkDiagram
         lanes={example.diagram}
         label={`Diagram: ${example.title}`}
-        className="mt-8"
+        className="mt-12 sm:mt-16"
       />
-      <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)_minmax(0,1fr)] lg:gap-10">
+      <div className="mt-12 grid gap-8 sm:mt-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)_minmax(0,1fr)] lg:gap-10">
         <section>
           <h3 className="text-title">Start</h3>
           <p className="mt-3 text-graphite">{example.situation}</p>
